@@ -1,10 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
-import re
+from datetime import datetime
 
 
-print("🔎 DIAGNOSTIC DES ÉVÉNEMENTS F1 CANAL+")
-print("=" * 100)
+print("🔎 EXTRACTION DES DIFFUSIONS F1")
+print("=" * 80)
 
 
 # =========================================================
@@ -39,240 +39,234 @@ soup = BeautifulSoup(
     "html.parser"
 )
 
+print(
+    f"✅ Page téléchargée : {len(response.text)} caractères"
+)
+
+
+# =========================================================
+# RECHERCHE DES ÉVÉNEMENTS
+# =========================================================
+
+evenements = soup.select(
+    "ol.schedule-list li.schedule-item"
+)
 
 print(
-    f"✅ Page téléchargée : "
-    f"{len(response.text)} caractères"
+    f"📋 Événements trouvés : {len(evenements)}"
 )
 
 
 # =========================================================
-# NETTOYAGE
+# EXTRACTION
 # =========================================================
 
-def nettoyer(texte):
+resultats = []
 
-    if not texte:
-        return ""
 
-    return " ".join(
-        texte.split()
+for evenement in evenements:
+
+    texte = evenement.get_text(
+        " ",
+        strip=True
+    )
+
+    # -----------------------------------------------------
+    # ON NE GARDE QUE LA F1
+    # -----------------------------------------------------
+
+    if "Formule 1" not in texte:
+        continue
+
+
+    # -----------------------------------------------------
+    # TYPE D'ÉMISSION
+    # -----------------------------------------------------
+
+    time_element = evenement.select_one(
+        "time.schedule-time"
+    )
+
+    if not time_element:
+        continue
+
+    texte_heure = time_element.get_text(
+        " ",
+        strip=True
     )
 
 
-# =========================================================
-# RECHERCHE DES LISTES
-# =========================================================
+    # -----------------------------------------------------
+    # HEURE
+    # -----------------------------------------------------
 
-schedule_lists = soup.select(
-    "ol.schedule-list"
-)
+    heure = None
+
+    for partie in texte_heure.split():
+
+        if "h" in partie:
+
+            try:
+                heure = partie
+                break
+            except:
+                pass
+
+    if not heure:
+        continue
 
 
-print(
-    f"📋 Listes trouvées : "
-    f"{len(schedule_lists)}"
-)
+    # -----------------------------------------------------
+    # DIRECT / REDIFFUSION
+    # -----------------------------------------------------
+
+    est_direct = "Direct" in texte_heure
+
+    if not est_direct:
+        continue
 
 
-if not schedule_lists:
+    # -----------------------------------------------------
+    # PROGRAMME
+    # -----------------------------------------------------
 
-    print(
-        "❌ Aucune liste de programmes trouvée."
+    titre = None
+
+    # On cherche les liens du programme
+    liens = evenement.select(
+        "a"
     )
 
-    raise SystemExit(1)
+    for lien in liens:
+
+        texte_lien = lien.get_text(
+            " ",
+            strip=True
+        )
+
+        if (
+            texte_lien
+            and "Formule 1" not in texte_lien
+            and texte_lien != "🏎️"
+        ):
+            titre = texte_lien
+            break
 
 
-# =========================================================
-# ANALYSE
-# =========================================================
+    # -----------------------------------------------------
+    # CHAÎNE
+    # -----------------------------------------------------
 
-numero = 0
+    chaine = None
 
-
-for schedule in schedule_lists:
-
-    evenements = schedule.find_all(
-        "li",
-        recursive=False
+    texte_complet = evenement.get_text(
+        " ",
+        strip=True
     )
 
+    chaines = [
+        "Canal+ Sport 360",
+        "Canal+ Sport",
+        "Canal+"
+    ]
 
-    for evenement in evenements:
+    for nom_chaine in chaines:
 
-        texte = nettoyer(
-            evenement.get_text(
+        if nom_chaine in texte_complet:
+
+            chaine = nom_chaine
+            break
+
+
+    # -----------------------------------------------------
+    # DATE
+    # -----------------------------------------------------
+
+    # On remonte dans le DOM pour trouver le groupe
+    # correspondant à la journée.
+
+    date = None
+
+    parent = evenement
+
+    for _ in range(5):
+
+        parent = parent.parent
+
+        if parent is None:
+            break
+
+        texte_parent = parent.get_text(
+            " ",
+            strip=True
+        )
+
+        # On cherche une date française
+        # dans les éléments <time> du parent.
+
+        date_elements = parent.select(
+            "time"
+        )
+
+        for d in date_elements:
+
+            texte_date = d.get_text(
                 " ",
                 strip=True
             )
-        )
 
-        texte_lower = texte.lower()
+            if "2026" in texte_date:
 
+                date = texte_date
+                break
 
-        # -------------------------------------------------
-        # ON NE GARDE QUE :
-        #
-        # - Formule 1
-        # - Canal+
-        # - DIRECT
-        # -------------------------------------------------
-
-        if "formule 1" not in texte_lower:
-            continue
-
-        if "canal+" not in texte_lower:
-            continue
-
-        if "direct" not in texte_lower:
-            continue
-
-        if "rediff" in texte_lower:
-            continue
+        if date:
+            break
 
 
-        # -------------------------------------------------
-        # HEURE
-        # -------------------------------------------------
+    # -----------------------------------------------------
+    # STOCKAGE
+    # -----------------------------------------------------
 
-        match_heure = re.search(
-            r"\b(\d{1,2})h(\d{2})\b",
-            texte
-        )
-
-        if not match_heure:
-            continue
-
-
-        heure = (
-            f"{int(match_heure.group(1)):02d}h"
-            f"{int(match_heure.group(2)):02d}"
-        )
+    resultats.append({
+        "date": date,
+        "heure": heure,
+        "titre": titre,
+        "chaine": chaine,
+        "texte": texte
+    })
 
 
-        # -------------------------------------------------
-        # NOUVEL ÉVÉNEMENT
-        # -------------------------------------------------
+# =========================================================
+# AFFICHAGE
+# =========================================================
 
-        numero += 1
-
-
-        print()
-        print()
-        print("=" * 100)
-        print(
-            f"🏎️ ÉVÉNEMENT F1 #{numero}"
-        )
-        print("=" * 100)
+print()
+print("=" * 80)
+print("📺 DIFFUSIONS F1 EN DIRECT")
+print("=" * 80)
 
 
-        # -------------------------------------------------
-        # TEXTE GLOBAL
-        # -------------------------------------------------
+for i, resultat in enumerate(
+    resultats,
+    start=1
+):
 
-        print()
-        print("📄 TEXTE GLOBAL")
-        print("-" * 100)
-
-        print(
-            texte
-        )
-
-
-        # -------------------------------------------------
-        # TEXTE DE CHAQUE ENFANT
-        # -------------------------------------------------
-
-        print()
-        print("🧩 ÉLÉMENTS ENFANTS")
-        print("-" * 100)
-
-
-        enfants = evenement.find_all(
-            recursive=True
-        )
-
-
-        compteur_enfant = 0
-
-
-        for enfant in enfants:
-
-            texte_enfant = nettoyer(
-                enfant.get_text(
-                    " ",
-                    strip=True
-                )
-            )
-
-            if not texte_enfant:
-                continue
-
-
-            # Évite les blocs gigantesques
-
-            if len(texte_enfant) > 300:
-                continue
-
-
-            compteur_enfant += 1
-
-
-            print()
-            print(
-                f"[{compteur_enfant}] "
-                f"<{enfant.name}>"
-            )
-
-            print(
-                "classes =",
-                enfant.get("class")
-            )
-
-            print(
-                "id =",
-                enfant.get("id")
-            )
-
-            print(
-                "texte =",
-                repr(texte_enfant)
-            )
-
-
-        # -------------------------------------------------
-        # HTML BRUT DE L'ÉVÉNEMENT
-        # -------------------------------------------------
-
-        print()
-        print("🧱 HTML BRUT DE L'ÉVÉNEMENT")
-        print("-" * 100)
-
-
-        html = evenement.prettify()
-
-
-        # Limite de sécurité
-        # mais normalement les <li> restent petits.
-
-        if len(html) > 12000:
-
-            html = (
-                html[:12000]
-                + "\n\n... HTML TRONQUÉ ..."
-            )
-
-
-        print(
-            html
-        )
+    print(
+        f"{i:02d}. "
+        f"🏎️ {resultat['date']} "
+        f"⚡ {resultat['heure']} "
+        f"🏁 {resultat['titre']} "
+        f"📺 {resultat['chaine']}"
+    )
 
 
 print()
-print()
-print("=" * 100)
+print("=" * 80)
 print(
-    f"✅ {numero} événement(s) F1 Canal+ direct analysé(s)"
+    f"📊 Événements analysés : {len(evenements)}"
 )
-print("=" * 100)
+print(
+    f"✅ Diffusions retenues : {len(resultats)}"
+)
+print("=" * 80)
