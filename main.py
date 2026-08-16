@@ -1,7 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
+import re
 
 URL = "https://tv-sports.fr/base-ball/mlb_tv/"
+
+print("🔎 EXTRACTION DES DIFFUSIONS MLB")
+print("=" * 60)
 
 response = requests.get(
     URL,
@@ -13,32 +17,56 @@ response.raise_for_status()
 
 soup = BeautifulSoup(response.text, "html.parser")
 
-channels = soup.find_all(
-    "span",
-    class_="schedule-channel__name"
+schedule = soup.find(
+    "ol",
+    class_="schedule-list"
 )
 
-# On prend la 2e diffusion :
-# Houston Astros – Seattle Mariners
-channel = channels[1]
+if not schedule:
+    raise Exception("Planning MLB introuvable")
 
-print("=" * 80)
-print("DIFFUSION TEST")
-print("=" * 80)
-print(channel.get_text(" ", strip=True))
+# Dates françaises présentes dans la page
+pattern_date = re.compile(
+    r"(lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche)"
+    r"\s+\d{1,2}\s+"
+    r"(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)"
+    r"\s+\d{4}",
+    re.IGNORECASE
+)
 
-print("\n" + "=" * 80)
-print("PARENTS")
-print("=" * 80)
+date_actuelle = None
+numero = 0
 
-element = channel
+# On parcourt TOUS les éléments du planning dans leur ordre réel
+for element in schedule.find_all(["li", "h2", "h3", "div"], recursive=True):
 
-for niveau in range(1, 10):
-    element = element.parent
+    texte = element.get_text(" ", strip=True)
 
-    print(f"\n--- PARENT {niveau} ---")
-    print("TAG :", element.name)
-    print("CLASS :", element.get("class"))
-    print("ID :", element.get("id"))
-    print("TEXTE :")
-    print(element.get_text(" ", strip=True)[:1000])
+    # Cherche une date dans cet élément
+    match_date = pattern_date.search(texte)
+
+    if match_date:
+        date_actuelle = match_date.group(0)
+
+    # Une diffusion est identifiée par schedule-item
+    if (
+        element.name == "li"
+        and "schedule-item" in (element.get("class") or [])
+    ):
+        channel = element.find(
+            "span",
+            class_="schedule-channel__name"
+        )
+
+        if not channel:
+            continue
+
+        numero += 1
+
+        diffusion = element.get_text(" ", strip=True)
+
+        print(
+            f"{numero:02d}. "
+            f"[{date_actuelle or 'DATE INCONNUE'}] "
+            f"{diffusion}"
+        )
