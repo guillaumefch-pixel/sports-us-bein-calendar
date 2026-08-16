@@ -1,10 +1,15 @@
 import requests
 from bs4 import BeautifulSoup
+from datetime import datetime
 
 
-print("🔎 DIAGNOSTIC DES 6 DIFFUSIONS F1")
+print("🔎 EXTRACTION DES DIFFUSIONS F1")
 print("=" * 80)
 
+
+# =========================================================
+# CONFIGURATION
+# =========================================================
 
 URL = "https://tv-sports.fr/formule-1/"
 
@@ -16,6 +21,10 @@ headers = {
     )
 }
 
+
+# =========================================================
+# TÉLÉCHARGEMENT
+# =========================================================
 
 response = requests.get(
     URL,
@@ -30,28 +39,52 @@ soup = BeautifulSoup(
     "html.parser"
 )
 
+print(
+    f"✅ Page téléchargée : {len(response.text)} caractères"
+)
+
 
 # =========================================================
-# ÉVÉNEMENTS
+# RECHERCHE DES ÉVÉNEMENTS
 # =========================================================
 
 evenements = soup.select(
     "ol.schedule-list li.schedule-item"
 )
 
+print(
+    f"📋 Événements trouvés : {len(evenements)}"
+)
 
-compteur = 0
+
+# =========================================================
+# EXTRACTION
+# =========================================================
+
+resultats = []
 
 
 for evenement in evenements:
 
-    texte = evenement.get_text(
-        " ",
-        strip=True
-    )
+    # -----------------------------------------------------
+    # FILTRE F1
+    # -----------------------------------------------------
 
-    if "Formule 1" not in texte:
+    if evenement.get("data-sport-id") != "102":
         continue
+
+
+    # -----------------------------------------------------
+    # UNIQUEMENT LES DIRECTS
+    # -----------------------------------------------------
+
+    if evenement.get("data-diffusion-type") != "live":
+        continue
+
+
+    # -----------------------------------------------------
+    # DATE + HEURE
+    # -----------------------------------------------------
 
     time_element = evenement.select_one(
         "time.schedule-time"
@@ -60,84 +93,120 @@ for evenement in evenements:
     if not time_element:
         continue
 
-    texte_heure = time_element.get_text(
+    datetime_str = time_element.get("datetime")
+
+    if not datetime_str:
+        continue
+
+    try:
+
+        dt = datetime.fromisoformat(
+            datetime_str
+        )
+
+    except ValueError:
+
+        continue
+
+
+    # -----------------------------------------------------
+    # TITRE
+    # -----------------------------------------------------
+
+    lien_programme = evenement.select_one(
+        ".schedule-program a[href]"
+    )
+
+    if lien_programme:
+
+        titre = (
+            lien_programme.get("title")
+            or lien_programme.get_text(
+                " ",
+                strip=True
+            )
+        )
+
+    else:
+
+        titre = None
+
+
+    # -----------------------------------------------------
+    # CHAÎNE
+    # -----------------------------------------------------
+
+    texte_evenement = evenement.get_text(
         " ",
         strip=True
     )
 
-    if "Direct" not in texte_heure:
-        continue
+    chaine = None
 
-    compteur += 1
+    for nom_chaine in [
+        "Canal+ Sport 360",
+        "Canal+ Sport",
+        "Canal+"
+    ]:
 
-    if compteur > 6:
-        break
+        if nom_chaine in texte_evenement:
 
-
-    print()
-    print("=" * 80)
-    print(f"🏎️ DIFFUSION #{compteur}")
-    print("=" * 80)
-
-
-    # -----------------------------------------------------
-    # TEXTE COMPLET
-    # -----------------------------------------------------
-
-    print()
-    print("📄 TEXTE COMPLET")
-    print("-" * 80)
-    print(texte)
-
-
-    # -----------------------------------------------------
-    # STRUCTURE HTML DE L'ÉVÉNEMENT
-    # -----------------------------------------------------
-
-    print()
-    print("🧩 HTML DE L'ÉVÉNEMENT")
-    print("-" * 80)
-
-    print(
-        evenement.prettify()[:8000]
-    )
-
-
-    # -----------------------------------------------------
-    # PARENTS
-    # -----------------------------------------------------
-
-    print()
-    print("📦 PARENTS")
-    print("-" * 80)
-
-    parent = evenement
-
-    for niveau in range(1, 6):
-
-        parent = parent.parent
-
-        if parent is None:
+            chaine = nom_chaine
             break
 
-        print()
-        print(
-            f"NIVEAU {niveau} : "
-            f"<{parent.name}> "
-            f"class={parent.get('class')}"
-        )
 
-        texte_parent = parent.get_text(
-            " ",
-            strip=True
-        )
+    # -----------------------------------------------------
+    # STOCKAGE
+    # -----------------------------------------------------
 
-        print(
-            texte_parent[:1500]
-        )
+    resultats.append({
+        "datetime": dt,
+        "date": dt.strftime("%d/%m/%Y"),
+        "heure": dt.strftime("%H:%M"),
+        "titre": titre,
+        "chaine": chaine
+    })
+
+
+# =========================================================
+# TRI CHRONOLOGIQUE
+# =========================================================
+
+resultats.sort(
+    key=lambda x: x["datetime"]
+)
+
+
+# =========================================================
+# AFFICHAGE
+# =========================================================
+
+print()
+print("=" * 80)
+print("📺 DIFFUSIONS F1 CANAL+ EN DIRECT")
+print("=" * 80)
+
+
+for i, resultat in enumerate(
+    resultats,
+    start=1
+):
+
+    print(
+        f"{i:02d}. "
+        f"🏎️ {resultat['date']} "
+        f"⚡ {resultat['heure']} "
+        f"🏁 {resultat['titre']} "
+        f"📺 {resultat['chaine'] or 'Chaîne inconnue'}"
+    )
 
 
 print()
 print("=" * 80)
-print("✅ DIAGNOSTIC TERMINÉ")
+print(
+    f"📊 Événements analysés : {len(evenements)}"
+)
+print(
+    f"✅ Diffusions retenues : {len(resultats)}"
+)
 print("=" * 80)
