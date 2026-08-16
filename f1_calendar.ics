@@ -1,0 +1,1040 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sports-us-bein-calendar//F1 2026//FR
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:f1-1-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142130Z
+DTSTART:20260306T013000Z
+DTEND:20260306T023000Z
+SUMMARY:F1 - Melbourne - Essais libres 1
+DESCRIPTION:Grand Prix : Australian (Melbourne)\nDiffusion TV : non trouvée
+LOCATION:Melbourne
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-1-fp2@sports-us-bein-calendar
+DTSTAMP:20260816T142130Z
+DTSTART:20260306T050000Z
+DTEND:20260306T060000Z
+SUMMARY:F1 - Melbourne - Essais libres 2
+DESCRIPTION:Grand Prix : Australian (Melbourne)\nDiffusion TV : non trouvée
+LOCATION:Melbourne
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-1-fp3@sports-us-bein-calendar
+DTSTAMP:20260816T142130Z
+DTSTART:20260307T013000Z
+DTEND:20260307T023000Z
+SUMMARY:F1 - Melbourne - Essais libres 3
+DESCRIPTION:Grand Prix : Australian (Melbourne)\nDiffusion TV : non trouvée
+LOCATION:Melbourne
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-1-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142130Z
+DTSTART:20260307T050000Z
+DTEND:20260307T060000Z
+SUMMARY:F1 - Melbourne - Qualifications
+DESCRIPTION:Grand Prix : Australian (Melbourne)\nDiffusion TV : non trouvée
+LOCATION:Melbourne
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-1-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142130Z
+DTSTART:20260308T040000Z
+DTEND:20260308T060000Z
+SUMMARY:F1 - Melbourne - Grand Prix
+DESCRIPTION:Grand Prix : Australian (Melbourne)\nDiffusion TV : non trouvée
+LOCATION:Melbourne
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-2-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142130Z
+DTSTART:20260313T033000Z
+DTEND:20260313T043000Z
+SUMMARY:F1 - Shanghai - Essais libres 1
+DESCRIPTION:Grand Prix : Chinese (Shanghai)\nDiffusion TV : non trouvée
+LOCATION:Shanghai
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-2-sprintQualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142130Z
+DTSTART:20260313T073000Z
+DTEND:20260313T083000Z
+SUMMARY:F1 - Shanghai - Sprint Qualifying
+DESCRIPTION:Grand Prix : Chinese (Shanghai)\nDiffusion TV : non trouvée
+LOCATION:Shanghai
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-2-sprint@sports-us-bein-calendar
+DTSTAMP:20260816T142130Z
+DTSTART:20260314T030000Z
+DTEND:20260314T040000Z
+SUMMARY:F1 - Shanghai - Sprint
+DESCRIPTION:Grand Prix : Chinese (Shanghai)\nDiffusion TV : non trouvée
+LOCATION:Shanghai
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-2-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142130Z
+DTSTART:20260314T070000Z
+DTEND:20260314T080000Z
+SUMMARY:F1 - Shanghai - Qualifications
+DESCRIPTION:Grand Prix : Chinese (Shanghai)\nDiffusion TV : non trouvée
+LOCATION:Shanghai
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-2-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142130Z
+DTSTART:20260315T070000Z
+DTEND:20260315T090000Z
+SUMMARY:F1 - Shanghai - Grand Prix
+DESCRIPTION:Grand Prix : Chinese (Shanghai)\nDiffusion TV : non trouvée
+LOCATION:Shanghai
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-3-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142131Z
+DTSTART:20260327T023000Z
+DTEND:20260327T033000Z
+SUMMARY:F1 - Suzuka - Essais libres 1
+DESCRIPTION:Grand Prix : Japanese (Suzuka)\nDiffusion TV : non trouvée
+LOCATION:Suzuka
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-3-fp2@sports-us-bein-calendar
+DTSTAMP:20260816T142131Z
+DTSTART:20260327T060000Z
+DTEND:20260327T070000Z
+SUMMARY:F1 - Suzuka - Essais libres 2
+DESCRIPTION:Grand Prix : Japanese (Suzuka)\nDiffusion TV : non trouvée
+LOCATION:Suzuka
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-3-fp3@sports-us-bein-calendar
+DTSTAMP:20260816T142131Z
+DTSTART:20260328T023000Z
+DTEND:20260328T033000Z
+SUMMARY:F1 - Suzuka - Essais libres 3
+DESCRIPTION:Grand Prix : Japanese (Suzuka)\nDiffusion TV : non trouvée
+LOCATION:Suzuka
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-3-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142131Z
+DTSTART:20260328T060000Z
+DTEND:20260328T070000Z
+SUMMARY:F1 - Suzuka - Qualifications
+DESCRIPTION:Grand Prix : Japanese (Suzuka)\nDiffusion TV : non trouvée
+LOCATION:Suzuka
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-3-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142131Z
+DTSTART:20260329T050000Z
+DTEND:20260329T070000Z
+SUMMARY:F1 - Suzuka - Grand Prix
+DESCRIPTION:Grand Prix : Japanese (Suzuka)\nDiffusion TV : non trouvée
+LOCATION:Suzuka
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-4-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142131Z
+DTSTART:20260501T160000Z
+DTEND:20260501T170000Z
+SUMMARY:F1 - Miami - Essais libres 1
+DESCRIPTION:Grand Prix : Miami (Miami)\nDiffusion TV : non trouvée
+LOCATION:Miami
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-4-sprintQualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142131Z
+DTSTART:20260501T203000Z
+DTEND:20260501T213000Z
+SUMMARY:F1 - Miami - Sprint Qualifying
+DESCRIPTION:Grand Prix : Miami (Miami)\nDiffusion TV : non trouvée
+LOCATION:Miami
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-4-sprint@sports-us-bein-calendar
+DTSTAMP:20260816T142131Z
+DTSTART:20260502T160000Z
+DTEND:20260502T170000Z
+SUMMARY:F1 - Miami - Sprint
+DESCRIPTION:Grand Prix : Miami (Miami)\nDiffusion TV : non trouvée
+LOCATION:Miami
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-4-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142131Z
+DTSTART:20260502T200000Z
+DTEND:20260502T210000Z
+SUMMARY:F1 - Miami - Qualifications
+DESCRIPTION:Grand Prix : Miami (Miami)\nDiffusion TV : non trouvée
+LOCATION:Miami
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-4-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142131Z
+DTSTART:20260503T170000Z
+DTEND:20260503T190000Z
+SUMMARY:F1 - Miami - Grand Prix
+DESCRIPTION:Grand Prix : Miami (Miami)\nDiffusion TV : non trouvée
+LOCATION:Miami
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-5-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142132Z
+DTSTART:20260522T163000Z
+DTEND:20260522T173000Z
+SUMMARY:F1 - Montreal - Essais libres 1
+DESCRIPTION:Grand Prix : Canadian (Montreal)\nDiffusion TV : non trouvée
+LOCATION:Montreal
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-5-sprintQualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142132Z
+DTSTART:20260522T203000Z
+DTEND:20260522T213000Z
+SUMMARY:F1 - Montreal - Sprint Qualifying
+DESCRIPTION:Grand Prix : Canadian (Montreal)\nDiffusion TV : non trouvée
+LOCATION:Montreal
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-5-sprint@sports-us-bein-calendar
+DTSTAMP:20260816T142132Z
+DTSTART:20260523T160000Z
+DTEND:20260523T170000Z
+SUMMARY:F1 - Montreal - Sprint
+DESCRIPTION:Grand Prix : Canadian (Montreal)\nDiffusion TV : non trouvée
+LOCATION:Montreal
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-5-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142132Z
+DTSTART:20260523T200000Z
+DTEND:20260523T210000Z
+SUMMARY:F1 - Montreal - Qualifications
+DESCRIPTION:Grand Prix : Canadian (Montreal)\nDiffusion TV : non trouvée
+LOCATION:Montreal
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-5-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142132Z
+DTSTART:20260524T200000Z
+DTEND:20260524T220000Z
+SUMMARY:F1 - Montreal - Grand Prix
+DESCRIPTION:Grand Prix : Canadian (Montreal)\nDiffusion TV : non trouvée
+LOCATION:Montreal
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-6-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142132Z
+DTSTART:20260605T113000Z
+DTEND:20260605T123000Z
+SUMMARY:F1 - Monte Carlo - Essais libres 1
+DESCRIPTION:Grand Prix : Monaco (Monte Carlo)\nDiffusion TV : non trouvée
+LOCATION:Monte Carlo
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-6-fp2@sports-us-bein-calendar
+DTSTAMP:20260816T142132Z
+DTSTART:20260605T150000Z
+DTEND:20260605T160000Z
+SUMMARY:F1 - Monte Carlo - Essais libres 2
+DESCRIPTION:Grand Prix : Monaco (Monte Carlo)\nDiffusion TV : non trouvée
+LOCATION:Monte Carlo
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-6-fp3@sports-us-bein-calendar
+DTSTAMP:20260816T142132Z
+DTSTART:20260606T103000Z
+DTEND:20260606T113000Z
+SUMMARY:F1 - Monte Carlo - Essais libres 3
+DESCRIPTION:Grand Prix : Monaco (Monte Carlo)\nDiffusion TV : non trouvée
+LOCATION:Monte Carlo
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-6-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142132Z
+DTSTART:20260606T140000Z
+DTEND:20260606T150000Z
+SUMMARY:F1 - Monte Carlo - Qualifications
+DESCRIPTION:Grand Prix : Monaco (Monte Carlo)\nDiffusion TV : non trouvée
+LOCATION:Monte Carlo
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-6-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142132Z
+DTSTART:20260607T130000Z
+DTEND:20260607T150000Z
+SUMMARY:F1 - Monte Carlo - Grand Prix
+DESCRIPTION:Grand Prix : Monaco (Monte Carlo)\nDiffusion TV : non trouvée
+LOCATION:Monte Carlo
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-7-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142133Z
+DTSTART:20260612T113000Z
+DTEND:20260612T123000Z
+SUMMARY:F1 - Barcelona - Essais libres 1
+DESCRIPTION:Grand Prix : Barcelona-Catalunya (Barcelona)\nDiffusion TV : non trouvée
+LOCATION:Barcelona
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-7-fp2@sports-us-bein-calendar
+DTSTAMP:20260816T142133Z
+DTSTART:20260612T150000Z
+DTEND:20260612T160000Z
+SUMMARY:F1 - Barcelona - Essais libres 2
+DESCRIPTION:Grand Prix : Barcelona-Catalunya (Barcelona)\nDiffusion TV : non trouvée
+LOCATION:Barcelona
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-7-fp3@sports-us-bein-calendar
+DTSTAMP:20260816T142133Z
+DTSTART:20260613T103000Z
+DTEND:20260613T113000Z
+SUMMARY:F1 - Barcelona - Essais libres 3
+DESCRIPTION:Grand Prix : Barcelona-Catalunya (Barcelona)\nDiffusion TV : non trouvée
+LOCATION:Barcelona
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-7-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142133Z
+DTSTART:20260613T140000Z
+DTEND:20260613T150000Z
+SUMMARY:F1 - Barcelona - Qualifications
+DESCRIPTION:Grand Prix : Barcelona-Catalunya (Barcelona)\nDiffusion TV : non trouvée
+LOCATION:Barcelona
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-7-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142133Z
+DTSTART:20260614T130000Z
+DTEND:20260614T150000Z
+SUMMARY:F1 - Barcelona - Grand Prix
+DESCRIPTION:Grand Prix : Barcelona-Catalunya (Barcelona)\nDiffusion TV : non trouvée
+LOCATION:Barcelona
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-8-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142133Z
+DTSTART:20260626T113000Z
+DTEND:20260626T123000Z
+SUMMARY:F1 - Spielberg - Essais libres 1
+DESCRIPTION:Grand Prix : Austrian (Spielberg)\nDiffusion TV : non trouvée
+LOCATION:Spielberg
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-8-fp2@sports-us-bein-calendar
+DTSTAMP:20260816T142133Z
+DTSTART:20260626T150000Z
+DTEND:20260626T160000Z
+SUMMARY:F1 - Spielberg - Essais libres 2
+DESCRIPTION:Grand Prix : Austrian (Spielberg)\nDiffusion TV : non trouvée
+LOCATION:Spielberg
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-8-fp3@sports-us-bein-calendar
+DTSTAMP:20260816T142133Z
+DTSTART:20260627T103000Z
+DTEND:20260627T113000Z
+SUMMARY:F1 - Spielberg - Essais libres 3
+DESCRIPTION:Grand Prix : Austrian (Spielberg)\nDiffusion TV : non trouvée
+LOCATION:Spielberg
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-8-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142133Z
+DTSTART:20260627T140000Z
+DTEND:20260627T150000Z
+SUMMARY:F1 - Spielberg - Qualifications
+DESCRIPTION:Grand Prix : Austrian (Spielberg)\nDiffusion TV : non trouvée
+LOCATION:Spielberg
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-8-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142133Z
+DTSTART:20260628T130000Z
+DTEND:20260628T150000Z
+SUMMARY:F1 - Spielberg - Grand Prix
+DESCRIPTION:Grand Prix : Austrian (Spielberg)\nDiffusion TV : non trouvée
+LOCATION:Spielberg
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-9-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142133Z
+DTSTART:20260703T113000Z
+DTEND:20260703T123000Z
+SUMMARY:F1 - Silverstone - Essais libres 1
+DESCRIPTION:Grand Prix : British (Silverstone)\nDiffusion TV : non trouvée
+LOCATION:Silverstone
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-9-sprintQualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142133Z
+DTSTART:20260703T153000Z
+DTEND:20260703T163000Z
+SUMMARY:F1 - Silverstone - Sprint Qualifying
+DESCRIPTION:Grand Prix : British (Silverstone)\nDiffusion TV : non trouvée
+LOCATION:Silverstone
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-9-sprint@sports-us-bein-calendar
+DTSTAMP:20260816T142133Z
+DTSTART:20260704T110000Z
+DTEND:20260704T120000Z
+SUMMARY:F1 - Silverstone - Sprint
+DESCRIPTION:Grand Prix : British (Silverstone)\nDiffusion TV : non trouvée
+LOCATION:Silverstone
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-9-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142133Z
+DTSTART:20260704T150000Z
+DTEND:20260704T160000Z
+SUMMARY:F1 - Silverstone - Qualifications
+DESCRIPTION:Grand Prix : British (Silverstone)\nDiffusion TV : non trouvée
+LOCATION:Silverstone
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-9-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142133Z
+DTSTART:20260705T140000Z
+DTEND:20260705T160000Z
+SUMMARY:F1 - Silverstone - Grand Prix
+DESCRIPTION:Grand Prix : British (Silverstone)\nDiffusion TV : non trouvée
+LOCATION:Silverstone
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-10-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142134Z
+DTSTART:20260717T113000Z
+DTEND:20260717T123000Z
+SUMMARY:F1 - Spa-Francorchamps - Essais libres 1
+DESCRIPTION:Grand Prix : Belgian (Spa-Francorchamps)\nDiffusion TV : non trouvée
+LOCATION:Spa-Francorchamps
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-10-fp2@sports-us-bein-calendar
+DTSTAMP:20260816T142134Z
+DTSTART:20260717T150000Z
+DTEND:20260717T160000Z
+SUMMARY:F1 - Spa-Francorchamps - Essais libres 2
+DESCRIPTION:Grand Prix : Belgian (Spa-Francorchamps)\nDiffusion TV : non trouvée
+LOCATION:Spa-Francorchamps
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-10-fp3@sports-us-bein-calendar
+DTSTAMP:20260816T142134Z
+DTSTART:20260718T103000Z
+DTEND:20260718T113000Z
+SUMMARY:F1 - Spa-Francorchamps - Essais libres 3
+DESCRIPTION:Grand Prix : Belgian (Spa-Francorchamps)\nDiffusion TV : non trouvée
+LOCATION:Spa-Francorchamps
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-10-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142134Z
+DTSTART:20260718T140000Z
+DTEND:20260718T150000Z
+SUMMARY:F1 - Spa-Francorchamps - Qualifications
+DESCRIPTION:Grand Prix : Belgian (Spa-Francorchamps)\nDiffusion TV : non trouvée
+LOCATION:Spa-Francorchamps
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-10-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142134Z
+DTSTART:20260719T130000Z
+DTEND:20260719T150000Z
+SUMMARY:F1 - Spa-Francorchamps - Grand Prix
+DESCRIPTION:Grand Prix : Belgian (Spa-Francorchamps)\nDiffusion TV : non trouvée
+LOCATION:Spa-Francorchamps
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-11-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142134Z
+DTSTART:20260724T113000Z
+DTEND:20260724T123000Z
+SUMMARY:F1 - Budapest - Essais libres 1
+DESCRIPTION:Grand Prix : Hungarian (Budapest)\nDiffusion TV : non trouvée
+LOCATION:Budapest
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-11-fp2@sports-us-bein-calendar
+DTSTAMP:20260816T142134Z
+DTSTART:20260724T150000Z
+DTEND:20260724T160000Z
+SUMMARY:F1 - Budapest - Essais libres 2
+DESCRIPTION:Grand Prix : Hungarian (Budapest)\nDiffusion TV : non trouvée
+LOCATION:Budapest
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-11-fp3@sports-us-bein-calendar
+DTSTAMP:20260816T142134Z
+DTSTART:20260725T103000Z
+DTEND:20260725T113000Z
+SUMMARY:F1 - Budapest - Essais libres 3
+DESCRIPTION:Grand Prix : Hungarian (Budapest)\nDiffusion TV : non trouvée
+LOCATION:Budapest
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-11-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142134Z
+DTSTART:20260725T140000Z
+DTEND:20260725T150000Z
+SUMMARY:F1 - Budapest - Qualifications
+DESCRIPTION:Grand Prix : Hungarian (Budapest)\nDiffusion TV : non trouvée
+LOCATION:Budapest
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-11-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142134Z
+DTSTART:20260726T130000Z
+DTEND:20260726T150000Z
+SUMMARY:F1 - Budapest - Grand Prix
+DESCRIPTION:Grand Prix : Hungarian (Budapest)\nDiffusion TV : non trouvée
+LOCATION:Budapest
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-12-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260821T103000Z
+DTEND:20260821T113000Z
+SUMMARY:F1 - Zandvoort - Essais libres 1
+DESCRIPTION:Grand Prix : Dutch (Zandvoort)\nDiffusion : Grand Prix des Pays-Bas (Canal+ Sport)\nhttps://tv-sports.fr/grand-prix-des-pays-bas-tv-x1155182
+LOCATION:Zandvoort
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-12-sprintQualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260821T143000Z
+DTEND:20260821T153000Z
+SUMMARY:F1 - Zandvoort - Sprint Qualifying
+DESCRIPTION:Grand Prix : Dutch (Zandvoort)\nDiffusion : Grand Prix des Pays-Bas (Canal+ Sport)\nhttps://tv-sports.fr/grand-prix-des-pays-bas-tv-x1155119
+LOCATION:Zandvoort
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-12-sprint@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260822T100000Z
+DTEND:20260822T110000Z
+SUMMARY:F1 - Zandvoort - Sprint
+DESCRIPTION:Grand Prix : Dutch (Zandvoort)\nDiffusion : Grand Prix des Pays-Bas (Canal+ Sport)\nhttps://tv-sports.fr/grand-prix-des-pays-bas-tv-x1155283
+LOCATION:Zandvoort
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-12-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260822T140000Z
+DTEND:20260822T150000Z
+SUMMARY:F1 - Zandvoort - Qualifications
+DESCRIPTION:Grand Prix : Dutch (Zandvoort)\nDiffusion : Grand Prix des Pays-Bas (Canal+ Sport)\nhttps://tv-sports.fr/grand-prix-des-pays-bas-tv-x1155283
+LOCATION:Zandvoort
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-12-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260823T130000Z
+DTEND:20260823T150000Z
+SUMMARY:F1 - Zandvoort - Grand Prix
+DESCRIPTION:Grand Prix : Dutch (Zandvoort)\nDiffusion : Grand Prix des Pays-Bas (Canal+)\nhttps://tv-sports.fr/formule-1/grand-prix-des-pays-bas-e4551834/
+LOCATION:Zandvoort
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-13-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260904T103000Z
+DTEND:20260904T113000Z
+SUMMARY:F1 - Monza - Essais libres 1
+DESCRIPTION:Grand Prix : Italian (Monza)\nDiffusion TV : non trouvée
+LOCATION:Monza
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-13-fp2@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260904T140000Z
+DTEND:20260904T150000Z
+SUMMARY:F1 - Monza - Essais libres 2
+DESCRIPTION:Grand Prix : Italian (Monza)\nDiffusion TV : non trouvée
+LOCATION:Monza
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-13-fp3@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260905T103000Z
+DTEND:20260905T113000Z
+SUMMARY:F1 - Monza - Essais libres 3
+DESCRIPTION:Grand Prix : Italian (Monza)\nDiffusion TV : non trouvée
+LOCATION:Monza
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-13-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260905T140000Z
+DTEND:20260905T150000Z
+SUMMARY:F1 - Monza - Qualifications
+DESCRIPTION:Grand Prix : Italian (Monza)\nDiffusion TV : non trouvée
+LOCATION:Monza
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-13-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260906T130000Z
+DTEND:20260906T150000Z
+SUMMARY:F1 - Monza - Grand Prix
+DESCRIPTION:Grand Prix : Italian (Monza)\nDiffusion TV : non trouvée
+LOCATION:Monza
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-14-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260911T113000Z
+DTEND:20260911T123000Z
+SUMMARY:F1 - Madrid - Essais libres 1
+DESCRIPTION:Grand Prix : Spanish (Madrid)\nDiffusion TV : non trouvée
+LOCATION:Madrid
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-14-fp2@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260911T150000Z
+DTEND:20260911T160000Z
+SUMMARY:F1 - Madrid - Essais libres 2
+DESCRIPTION:Grand Prix : Spanish (Madrid)\nDiffusion TV : non trouvée
+LOCATION:Madrid
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-14-fp3@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260912T103000Z
+DTEND:20260912T113000Z
+SUMMARY:F1 - Madrid - Essais libres 3
+DESCRIPTION:Grand Prix : Spanish (Madrid)\nDiffusion TV : non trouvée
+LOCATION:Madrid
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-14-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260912T140000Z
+DTEND:20260912T150000Z
+SUMMARY:F1 - Madrid - Qualifications
+DESCRIPTION:Grand Prix : Spanish (Madrid)\nDiffusion TV : non trouvée
+LOCATION:Madrid
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-14-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260913T130000Z
+DTEND:20260913T150000Z
+SUMMARY:F1 - Madrid - Grand Prix
+DESCRIPTION:Grand Prix : Spanish (Madrid)\nDiffusion TV : non trouvée
+LOCATION:Madrid
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-15-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260924T083000Z
+DTEND:20260924T093000Z
+SUMMARY:F1 - Baku - Essais libres 1
+DESCRIPTION:Grand Prix : Azerbaijan (Baku)\nDiffusion TV : non trouvée
+LOCATION:Baku
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-15-fp2@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260924T120000Z
+DTEND:20260924T130000Z
+SUMMARY:F1 - Baku - Essais libres 2
+DESCRIPTION:Grand Prix : Azerbaijan (Baku)\nDiffusion TV : non trouvée
+LOCATION:Baku
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-15-fp3@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260925T083000Z
+DTEND:20260925T093000Z
+SUMMARY:F1 - Baku - Essais libres 3
+DESCRIPTION:Grand Prix : Azerbaijan (Baku)\nDiffusion TV : non trouvée
+LOCATION:Baku
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-15-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260925T120000Z
+DTEND:20260925T130000Z
+SUMMARY:F1 - Baku - Qualifications
+DESCRIPTION:Grand Prix : Azerbaijan (Baku)\nDiffusion TV : non trouvée
+LOCATION:Baku
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-15-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20260926T110000Z
+DTEND:20260926T130000Z
+SUMMARY:F1 - Baku - Grand Prix
+DESCRIPTION:Grand Prix : Azerbaijan (Baku)\nDiffusion TV : non trouvée
+LOCATION:Baku
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-16-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20261002T020000Z
+DTEND:20261002T030000Z
+SUMMARY:F1 - Sepang - Essais libres 1
+DESCRIPTION:Grand Prix : Bahrain Grand Prix (Malaysia) (Sepang)\nDiffusion TV : non trouvée
+LOCATION:Sepang
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-16-fp2@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20261002T060000Z
+DTEND:20261002T070000Z
+SUMMARY:F1 - Sepang - Essais libres 2
+DESCRIPTION:Grand Prix : Bahrain Grand Prix (Malaysia) (Sepang)\nDiffusion TV : non trouvée
+LOCATION:Sepang
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-16-fp3@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20261003T060000Z
+DTEND:20261003T070000Z
+SUMMARY:F1 - Sepang - Essais libres 3
+DESCRIPTION:Grand Prix : Bahrain Grand Prix (Malaysia) (Sepang)\nDiffusion TV : non trouvée
+LOCATION:Sepang
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-16-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20261003T090000Z
+DTEND:20261003T100000Z
+SUMMARY:F1 - Sepang - Qualifications
+DESCRIPTION:Grand Prix : Bahrain Grand Prix (Malaysia) (Sepang)\nDiffusion TV : non trouvée
+LOCATION:Sepang
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-16-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142135Z
+DTSTART:20261004T070000Z
+DTEND:20261004T090000Z
+SUMMARY:F1 - Sepang - Grand Prix
+DESCRIPTION:Grand Prix : Bahrain Grand Prix (Malaysia) (Sepang)\nDiffusion TV : non trouvée
+LOCATION:Sepang
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-17-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142136Z
+DTSTART:20261009T083000Z
+DTEND:20261009T093000Z
+SUMMARY:F1 - Singapore - Essais libres 1
+DESCRIPTION:Grand Prix : Singapore (Singapore)\nDiffusion TV : non trouvée
+LOCATION:Singapore
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-17-sprintQualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142136Z
+DTSTART:20261009T123000Z
+DTEND:20261009T133000Z
+SUMMARY:F1 - Singapore - Sprint Qualifying
+DESCRIPTION:Grand Prix : Singapore (Singapore)\nDiffusion TV : non trouvée
+LOCATION:Singapore
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-17-sprint@sports-us-bein-calendar
+DTSTAMP:20260816T142136Z
+DTSTART:20261010T090000Z
+DTEND:20261010T100000Z
+SUMMARY:F1 - Singapore - Sprint
+DESCRIPTION:Grand Prix : Singapore (Singapore)\nDiffusion TV : non trouvée
+LOCATION:Singapore
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-17-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142136Z
+DTSTART:20261010T130000Z
+DTEND:20261010T140000Z
+SUMMARY:F1 - Singapore - Qualifications
+DESCRIPTION:Grand Prix : Singapore (Singapore)\nDiffusion TV : non trouvée
+LOCATION:Singapore
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-17-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142136Z
+DTSTART:20261011T120000Z
+DTEND:20261011T140000Z
+SUMMARY:F1 - Singapore - Grand Prix
+DESCRIPTION:Grand Prix : Singapore (Singapore)\nDiffusion TV : non trouvée
+LOCATION:Singapore
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-18-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142136Z
+DTSTART:20261023T173000Z
+DTEND:20261023T183000Z
+SUMMARY:F1 - Austin - Essais libres 1
+DESCRIPTION:Grand Prix : United States (Austin)\nDiffusion TV : non trouvée
+LOCATION:Austin
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-18-fp2@sports-us-bein-calendar
+DTSTAMP:20260816T142136Z
+DTSTART:20261023T210000Z
+DTEND:20261023T220000Z
+SUMMARY:F1 - Austin - Essais libres 2
+DESCRIPTION:Grand Prix : United States (Austin)\nDiffusion TV : non trouvée
+LOCATION:Austin
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-18-fp3@sports-us-bein-calendar
+DTSTAMP:20260816T142136Z
+DTSTART:20261024T173000Z
+DTEND:20261024T183000Z
+SUMMARY:F1 - Austin - Essais libres 3
+DESCRIPTION:Grand Prix : United States (Austin)\nDiffusion TV : non trouvée
+LOCATION:Austin
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-18-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142136Z
+DTSTART:20261024T210000Z
+DTEND:20261024T220000Z
+SUMMARY:F1 - Austin - Qualifications
+DESCRIPTION:Grand Prix : United States (Austin)\nDiffusion TV : non trouvée
+LOCATION:Austin
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-18-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142136Z
+DTSTART:20261025T200000Z
+DTEND:20261025T220000Z
+SUMMARY:F1 - Austin - Grand Prix
+DESCRIPTION:Grand Prix : United States (Austin)\nDiffusion TV : non trouvée
+LOCATION:Austin
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-19-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142137Z
+DTSTART:20261030T183000Z
+DTEND:20261030T193000Z
+SUMMARY:F1 - Mexico City - Essais libres 1
+DESCRIPTION:Grand Prix : Mexican (Mexico City)\nDiffusion TV : non trouvée
+LOCATION:Mexico City
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-19-fp2@sports-us-bein-calendar
+DTSTAMP:20260816T142137Z
+DTSTART:20261030T220000Z
+DTEND:20261030T230000Z
+SUMMARY:F1 - Mexico City - Essais libres 2
+DESCRIPTION:Grand Prix : Mexican (Mexico City)\nDiffusion TV : non trouvée
+LOCATION:Mexico City
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-19-fp3@sports-us-bein-calendar
+DTSTAMP:20260816T142137Z
+DTSTART:20261031T173000Z
+DTEND:20261031T183000Z
+SUMMARY:F1 - Mexico City - Essais libres 3
+DESCRIPTION:Grand Prix : Mexican (Mexico City)\nDiffusion TV : non trouvée
+LOCATION:Mexico City
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-19-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142137Z
+DTSTART:20261031T210000Z
+DTEND:20261031T220000Z
+SUMMARY:F1 - Mexico City - Qualifications
+DESCRIPTION:Grand Prix : Mexican (Mexico City)\nDiffusion TV : non trouvée
+LOCATION:Mexico City
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-19-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142137Z
+DTSTART:20261101T200000Z
+DTEND:20261101T220000Z
+SUMMARY:F1 - Mexico City - Grand Prix
+DESCRIPTION:Grand Prix : Mexican (Mexico City)\nDiffusion TV : non trouvée
+LOCATION:Mexico City
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-20-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142137Z
+DTSTART:20261106T153000Z
+DTEND:20261106T163000Z
+SUMMARY:F1 - Sao Paulo - Essais libres 1
+DESCRIPTION:Grand Prix : Brazilian (Sao Paulo)\nDiffusion TV : non trouvée
+LOCATION:Sao Paulo
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-20-fp2@sports-us-bein-calendar
+DTSTAMP:20260816T142137Z
+DTSTART:20261106T190000Z
+DTEND:20261106T200000Z
+SUMMARY:F1 - Sao Paulo - Essais libres 2
+DESCRIPTION:Grand Prix : Brazilian (Sao Paulo)\nDiffusion TV : non trouvée
+LOCATION:Sao Paulo
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-20-fp3@sports-us-bein-calendar
+DTSTAMP:20260816T142137Z
+DTSTART:20261107T143000Z
+DTEND:20261107T153000Z
+SUMMARY:F1 - Sao Paulo - Essais libres 3
+DESCRIPTION:Grand Prix : Brazilian (Sao Paulo)\nDiffusion TV : non trouvée
+LOCATION:Sao Paulo
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-20-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142137Z
+DTSTART:20261107T180000Z
+DTEND:20261107T190000Z
+SUMMARY:F1 - Sao Paulo - Qualifications
+DESCRIPTION:Grand Prix : Brazilian (Sao Paulo)\nDiffusion TV : non trouvée
+LOCATION:Sao Paulo
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-20-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142137Z
+DTSTART:20261108T170000Z
+DTEND:20261108T190000Z
+SUMMARY:F1 - Sao Paulo - Grand Prix
+DESCRIPTION:Grand Prix : Brazilian (Sao Paulo)\nDiffusion TV : non trouvée
+LOCATION:Sao Paulo
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-21-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142137Z
+DTSTART:20261120T003000Z
+DTEND:20261120T013000Z
+SUMMARY:F1 - Las Vegas - Essais libres 1
+DESCRIPTION:Grand Prix : Las Vegas (Las Vegas)\nDiffusion TV : non trouvée
+LOCATION:Las Vegas
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-21-fp2@sports-us-bein-calendar
+DTSTAMP:20260816T142137Z
+DTSTART:20261120T040000Z
+DTEND:20261120T050000Z
+SUMMARY:F1 - Las Vegas - Essais libres 2
+DESCRIPTION:Grand Prix : Las Vegas (Las Vegas)\nDiffusion TV : non trouvée
+LOCATION:Las Vegas
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-21-fp3@sports-us-bein-calendar
+DTSTAMP:20260816T142137Z
+DTSTART:20261121T003000Z
+DTEND:20261121T013000Z
+SUMMARY:F1 - Las Vegas - Essais libres 3
+DESCRIPTION:Grand Prix : Las Vegas (Las Vegas)\nDiffusion TV : non trouvée
+LOCATION:Las Vegas
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-21-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142137Z
+DTSTART:20261121T040000Z
+DTEND:20261121T050000Z
+SUMMARY:F1 - Las Vegas - Qualifications
+DESCRIPTION:Grand Prix : Las Vegas (Las Vegas)\nDiffusion TV : non trouvée
+LOCATION:Las Vegas
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-21-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142137Z
+DTSTART:20261122T040000Z
+DTEND:20261122T060000Z
+SUMMARY:F1 - Las Vegas - Grand Prix
+DESCRIPTION:Grand Prix : Las Vegas (Las Vegas)\nDiffusion TV : non trouvée
+LOCATION:Las Vegas
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-22-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142138Z
+DTSTART:20261127T133000Z
+DTEND:20261127T143000Z
+SUMMARY:F1 - Doha - Essais libres 1
+DESCRIPTION:Grand Prix : Qatar (Doha)\nDiffusion TV : non trouvée
+LOCATION:Doha
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-22-fp2@sports-us-bein-calendar
+DTSTAMP:20260816T142138Z
+DTSTART:20261127T170000Z
+DTEND:20261127T180000Z
+SUMMARY:F1 - Doha - Essais libres 2
+DESCRIPTION:Grand Prix : Qatar (Doha)\nDiffusion TV : non trouvée
+LOCATION:Doha
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-22-fp3@sports-us-bein-calendar
+DTSTAMP:20260816T142138Z
+DTSTART:20261128T143000Z
+DTEND:20261128T153000Z
+SUMMARY:F1 - Doha - Essais libres 3
+DESCRIPTION:Grand Prix : Qatar (Doha)\nDiffusion TV : non trouvée
+LOCATION:Doha
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-22-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142138Z
+DTSTART:20261128T180000Z
+DTEND:20261128T190000Z
+SUMMARY:F1 - Doha - Qualifications
+DESCRIPTION:Grand Prix : Qatar (Doha)\nDiffusion TV : non trouvée
+LOCATION:Doha
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-22-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142138Z
+DTSTART:20261129T160000Z
+DTEND:20261129T180000Z
+SUMMARY:F1 - Doha - Grand Prix
+DESCRIPTION:Grand Prix : Qatar (Doha)\nDiffusion TV : non trouvée
+LOCATION:Doha
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-23-fp1@sports-us-bein-calendar
+DTSTAMP:20260816T142138Z
+DTSTART:20261204T093000Z
+DTEND:20261204T103000Z
+SUMMARY:F1 - Yas Marina - Essais libres 1
+DESCRIPTION:Grand Prix : Abu Dhabi (Yas Marina)\nDiffusion TV : non trouvée
+LOCATION:Yas Marina
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-23-fp2@sports-us-bein-calendar
+DTSTAMP:20260816T142138Z
+DTSTART:20261204T130000Z
+DTEND:20261204T140000Z
+SUMMARY:F1 - Yas Marina - Essais libres 2
+DESCRIPTION:Grand Prix : Abu Dhabi (Yas Marina)\nDiffusion TV : non trouvée
+LOCATION:Yas Marina
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-23-fp3@sports-us-bein-calendar
+DTSTAMP:20260816T142138Z
+DTSTART:20261205T103000Z
+DTEND:20261205T113000Z
+SUMMARY:F1 - Yas Marina - Essais libres 3
+DESCRIPTION:Grand Prix : Abu Dhabi (Yas Marina)\nDiffusion TV : non trouvée
+LOCATION:Yas Marina
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-23-qualifying@sports-us-bein-calendar
+DTSTAMP:20260816T142138Z
+DTSTART:20261205T140000Z
+DTEND:20261205T150000Z
+SUMMARY:F1 - Yas Marina - Qualifications
+DESCRIPTION:Grand Prix : Abu Dhabi (Yas Marina)\nDiffusion TV : non trouvée
+LOCATION:Yas Marina
+END:VEVENT
+BEGIN:VEVENT
+UID:f1-23-gp@sports-us-bein-calendar
+DTSTAMP:20260816T142138Z
+DTSTART:20261206T130000Z
+DTEND:20261206T150000Z
+SUMMARY:F1 - Yas Marina - Grand Prix
+DESCRIPTION:Grand Prix : Abu Dhabi (Yas Marina)\nDiffusion TV : non trouvée
+LOCATION:Yas Marina
+END:VEVENT
+END:VCALENDAR
