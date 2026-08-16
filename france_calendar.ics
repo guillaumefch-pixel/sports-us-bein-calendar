@@ -15,9 +15,11 @@ DTEND:20260925T204500Z
 SUMMARY:🇫🇷 EDF — Turquie – France — UEFA Nations League — 
  📺 Groupe TF1 (chaîne à confirmer)
 DESCRIPTION:Compétition : UEFA Nations League\nDiffusion TV : Groupe TF1 (
- chaîne à confirmer)\n\nVoir sur TV Sports : https://tv-sports.fr/foot/tu
- rquie-france-uefa-nations-league-e4175581/
+ chaîne à confirmer)\nLieu : Kocaeli Stadyumu\, Kocaeli\n\nVoir sur TV Sp
+ orts : https://tv-sports.fr/foot/turquie-france-uefa-nations-league-e41755
+ 81/
 URL:https://tv-sports.fr/foot/turquie-france-uefa-nations-league-e4175581/
+LOCATION:Kocaeli Stadyumu\, Kocaeli
 END:VEVENT
 BEGIN:VEVENT
 UID:event-4175603@tv-sports.fr
@@ -27,9 +29,11 @@ DTEND:20260928T204500Z
 SUMMARY:🇫🇷 EDF — Belgique – France — UEFA Nations League — 
  📺 Groupe TF1 (chaîne à confirmer)
 DESCRIPTION:Compétition : UEFA Nations League\nDiffusion TV : Groupe TF1 (
- chaîne à confirmer)\n\nVoir sur TV Sports : https://tv-sports.fr/foot/be
- lgique-france-uefa-nations-league-e4175603/
+ chaîne à confirmer)\nLieu : King Baudouin Stadium\, Bruxelles\n\nVoir su
+ r TV Sports : https://tv-sports.fr/foot/belgique-france-uefa-nations-leagu
+ e-e4175603/
 URL:https://tv-sports.fr/foot/belgique-france-uefa-nations-league-e4175603/
+LOCATION:King Baudouin Stadium\, Bruxelles
 END:VEVENT
 BEGIN:VEVENT
 UID:event-4175623@tv-sports.fr
@@ -39,9 +43,9 @@ DTEND:20261002T204500Z
 SUMMARY:🇫🇷 EDF — France – Italie — UEFA Nations League — 📺
   Groupe TF1 (chaîne à confirmer)
 DESCRIPTION:Compétition : UEFA Nations League\nDiffusion TV : Groupe TF1 (
- chaîne à confirmer)\nLieu estimé : Stade de France\, Saint-Denis\n\nVoi
- r sur TV Sports : https://tv-sports.fr/foot/france-italie-uefa-nations-lea
- gue-e4175623/
+ chaîne à confirmer)\nLieu : Stade de France\, Saint-Denis\n\nVoir sur TV
+  Sports : https://tv-sports.fr/foot/france-italie-uefa-nations-league-e417
+ 5623/
 URL:https://tv-sports.fr/foot/france-italie-uefa-nations-league-e4175623/
 LOCATION:Stade de France\, Saint-Denis
 END:VEVENT
@@ -53,9 +57,9 @@ DTEND:20261005T204500Z
 SUMMARY:🇫🇷 EDF — France – Belgique — UEFA Nations League — 
  📺 Groupe TF1 (chaîne à confirmer)
 DESCRIPTION:Compétition : UEFA Nations League\nDiffusion TV : Groupe TF1 (
- chaîne à confirmer)\nLieu estimé : Stade de France\, Saint-Denis\n\nVoi
- r sur TV Sports : https://tv-sports.fr/foot/france-belgique-uefa-nations-l
- eague-e4175643/
+ chaîne à confirmer)\nLieu : Stade de France\, Saint-Denis\n\nVoir sur TV
+  Sports : https://tv-sports.fr/foot/france-belgique-uefa-nations-league-e4
+ 175643/
 URL:https://tv-sports.fr/foot/france-belgique-uefa-nations-league-e4175643/
 LOCATION:Stade de France\, Saint-Denis
 END:VEVENT
@@ -67,9 +71,10 @@ DTEND:20261112T214500Z
 SUMMARY:🇫🇷 EDF — Italie – France — UEFA Nations League — 📺
   Groupe TF1 (chaîne à confirmer)
 DESCRIPTION:Compétition : UEFA Nations League\nDiffusion TV : Groupe TF1 (
- chaîne à confirmer)\n\nVoir sur TV Sports : https://tv-sports.fr/foot/it
- alie-france-uefa-nations-league-e4175659/
+ chaîne à confirmer)\nLieu : San Siro\, Milan\n\nVoir sur TV Sports : htt
+ ps://tv-sports.fr/foot/italie-france-uefa-nations-league-e4175659/
 URL:https://tv-sports.fr/foot/italie-france-uefa-nations-league-e4175659/
+LOCATION:San Siro\, Milan
 END:VEVENT
 BEGIN:VEVENT
 UID:event-4175681@tv-sports.fr
@@ -79,10 +84,10 @@ DTEND:20261115T214500Z
 SUMMARY:🇫🇷 EDF — France – Turquie — UEFA Nations League — 
  📺 Groupe TF1 (chaîne à confirmer)
 DESCRIPTION:Compétition : UEFA Nations League\nDiffusion TV : Groupe TF1 (
- chaîne à confirmer)\nLieu estimé : Stade de France\, Saint-Denis\n\nVoi
- r sur TV Sports : https://tv-sports.fr/foot/france-turquie-uefa-nations-le
- ague-e4175681/
+ chaîne à confirmer)\nLieu : Stade Atlantique\, Bordeaux\n\nVoir sur TV S
+ ports : https://tv-sports.fr/foot/france-turquie-uefa-nations-league-e4175
+ 681/
 URL:https://tv-sports.fr/foot/france-turquie-uefa-nations-league-e4175681/
-LOCATION:Stade de France\, Saint-Denis
+LOCATION:Stade Atlantique\, Bordeaux
 END:VEVENT
 END:VCALENDAR

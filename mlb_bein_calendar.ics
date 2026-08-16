@@ -7,184 +7,198 @@ X-WR-CALNAME:MLB sur beIN
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:mlb-b69f4ce71a8f7e5dd01cc9b1@sports-us-bein-calendar
-DTSTAMP:20260816T151736Z
+UID:episode-1154495-1786921200@tv-sports.fr
+DTSTAMP:20260816T235104Z
 DTSTART:20260816T230000Z
-DTEND:20260817T023000Z
+DTEND:20260817T020000Z
 SUMMARY:⚾ MLB — Houston Astros – Seattle Mariners
-DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nSource : https://tv-sp
- orts.fr/houston-astros-seattle-mariners-tv-x1154495
-LOCATION:beIN SPORTS MAX 4
+DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nLieu estimé : Daikin 
+ Park\, Houston\nSource : https://tv-sports.fr/houston-astros-seattle-marin
+ ers-tv-x1154495
+LOCATION:Daikin Park\, Houston
 URL:https://tv-sports.fr/houston-astros-seattle-mariners-tv-x1154495
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:mlb-bf30eec1783da753da4c6b27@sports-us-bein-calendar
-DTSTAMP:20260816T151736Z
+UID:episode-1154641-1787009400@tv-sports.fr
+DTSTAMP:20260816T235104Z
 DTSTART:20260817T233000Z
-DTEND:20260818T030000Z
+DTEND:20260818T023000Z
 SUMMARY:⚾ MLB — Kansas City Royals – Oakland Athletics
-DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nSource : https://tv-sp
- orts.fr/kansas-city-royals-oakland-athletics-tv-x1154641
-LOCATION:beIN SPORTS MAX 4
+DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nLieu estimé : Kauffma
+ n Stadium\, Kansas City\nSource : https://tv-sports.fr/kansas-city-royals-
+ oakland-athletics-tv-x1154641
+LOCATION:Kauffman Stadium\, Kansas City
 URL:https://tv-sports.fr/kansas-city-royals-oakland-athletics-tv-x1154641
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:mlb-b097a60c4907d1ebc3f6b3b7@sports-us-bein-calendar
-DTSTAMP:20260816T151736Z
+UID:episode-1154800-1787092200@tv-sports.fr
+DTSTAMP:20260816T235104Z
 DTSTART:20260818T223000Z
-DTEND:20260819T020000Z
+DTEND:20260819T013000Z
 SUMMARY:⚾ MLB — Cleveland Guardians – San Francisco Giants
-DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nSource : https://tv-sp
- orts.fr/cleveland-guardians-san-francisco-giants-tv-x1154800
-LOCATION:beIN SPORTS MAX 4
+DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nLieu estimé : Progres
+ sive Field\, Cleveland\nSource : https://tv-sports.fr/cleveland-guardians-
+ san-francisco-giants-tv-x1154800
+LOCATION:Progressive Field\, Cleveland
 URL:https://tv-sports.fr/cleveland-guardians-san-francisco-giants-tv-x11548
  00
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:mlb-fcfdb43f245cb5b750a28503@sports-us-bein-calendar
-DTSTAMP:20260816T151736Z
+UID:episode-1154976-1787157000@tv-sports.fr
+DTSTAMP:20260816T235104Z
 DTSTART:20260819T163000Z
-DTEND:20260819T200000Z
+DTEND:20260819T193000Z
 SUMMARY:⚾ MLB — Pittsburgh Pirates – Detroit Tigers
-DESCRIPTION:Diffusion en direct : beIN SPORTS 3\nSource : https://tv-sports
- .fr/pittsburgh-pirates-detroit-tigers-tv-x1154976
-LOCATION:beIN SPORTS 3
+DESCRIPTION:Diffusion en direct : beIN SPORTS 3\nLieu estimé : PNC Park\, 
+ Pittsburgh\nSource : https://tv-sports.fr/pittsburgh-pirates-detroit-tiger
+ s-tv-x1154976
+LOCATION:PNC Park\, Pittsburgh
 URL:https://tv-sports.fr/pittsburgh-pirates-detroit-tigers-tv-x1154976
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:mlb-fc0ffb0c89a260d09fdcd9d8@sports-us-bein-calendar
-DTSTAMP:20260816T151736Z
+UID:episode-1154923-1787178600@tv-sports.fr
+DTSTAMP:20260816T235104Z
 DTSTART:20260819T223000Z
-DTEND:20260820T020000Z
+DTEND:20260820T013000Z
 SUMMARY:⚾ MLB — Tampa Bay Rays – Toronto Blue Jays
-DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nSource : https://tv-sp
- orts.fr/tampa-bay-rays-toronto-blue-jays-tv-x1154923
-LOCATION:beIN SPORTS MAX 4
+DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nLieu estimé : Tropica
+ na Field\, St. Petersburg\nSource : https://tv-sports.fr/tampa-bay-rays-to
+ ronto-blue-jays-tv-x1154923
+LOCATION:Tropicana Field\, St. Petersburg
 URL:https://tv-sports.fr/tampa-bay-rays-toronto-blue-jays-tv-x1154923
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:mlb-84b792365be94a9b061fbf59@sports-us-bein-calendar
-DTSTAMP:20260816T151736Z
+UID:episode-1155034-1787265000@tv-sports.fr
+DTSTAMP:20260816T235104Z
 DTSTART:20260820T223000Z
-DTEND:20260821T020000Z
+DTEND:20260821T013000Z
 SUMMARY:⚾ MLB — Baltimore Orioles – New York Yankees
-DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nSource : https://tv-sp
- orts.fr/baltimore-orioles-new-york-yankees-tv-x1155034
-LOCATION:beIN SPORTS MAX 4
+DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nLieu estimé : Oriole 
+ Park at Camden Yards\, Baltimore\nSource : https://tv-sports.fr/baltimore-
+ orioles-new-york-yankees-tv-x1155034
+LOCATION:Oriole Park at Camden Yards\, Baltimore
 URL:https://tv-sports.fr/baltimore-orioles-new-york-yankees-tv-x1155034
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:mlb-37c06bd441253bb27bc73d6c@sports-us-bein-calendar
-DTSTAMP:20260816T151736Z
+UID:episode-1155466-1787342400@tv-sports.fr
+DTSTAMP:20260816T235104Z
 DTSTART:20260821T200000Z
-DTEND:20260821T233000Z
+DTEND:20260821T230000Z
 SUMMARY:⚾ MLB — Milwaukee Brewers – Atlanta Braves
-DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 10\nSource : https://tv-s
- ports.fr/milwaukee-brewers-atlanta-braves-tv-x1155466
-LOCATION:beIN SPORTS MAX 10
+DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 10\nLieu estimé : Americ
+ an Family Field\, Milwaukee\nSource : https://tv-sports.fr/milwaukee-brewe
+ rs-atlanta-braves-tv-x1155466
+LOCATION:American Family Field\, Milwaukee
 URL:https://tv-sports.fr/milwaukee-brewers-atlanta-braves-tv-x1155466
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:mlb-399ecd21e3e0bdec2e7766fe@sports-us-bein-calendar
-DTSTAMP:20260816T151736Z
+UID:episode-1140221-1787419800@tv-sports.fr
+DTSTAMP:20260816T235104Z
 DTSTART:20260822T173000Z
-DTEND:20260822T210000Z
+DTEND:20260822T203000Z
 SUMMARY:⚾ MLB — New York Yankees – Toronto Blue Jays
-DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 7\nSource : https://tv-sp
- orts.fr/new-york-yankees-toronto-blue-jays-tv-x1140221
-LOCATION:beIN SPORTS MAX 7
+DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 7\nLieu estimé : Yankee 
+ Stadium\, New York\nSource : https://tv-sports.fr/new-york-yankees-toronto
+ -blue-jays-tv-x1140221
+LOCATION:Yankee Stadium\, New York
 URL:https://tv-sports.fr/new-york-yankees-toronto-blue-jays-tv-x1140221
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:mlb-0b153dbce398a78d21e3a9c6@sports-us-bein-calendar
-DTSTAMP:20260816T151736Z
+UID:episode-1155466-1787526000@tv-sports.fr
+DTSTAMP:20260816T235104Z
 DTSTART:20260823T230000Z
-DTEND:20260824T023000Z
+DTEND:20260824T020000Z
 SUMMARY:⚾ MLB — Milwaukee Brewers – Atlanta Braves
-DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nSource : https://tv-sp
- orts.fr/milwaukee-brewers-atlanta-braves-tv-x1155466
-LOCATION:beIN SPORTS MAX 4
+DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nLieu estimé : America
+ n Family Field\, Milwaukee\nSource : https://tv-sports.fr/milwaukee-brewer
+ s-atlanta-braves-tv-x1155466
+LOCATION:American Family Field\, Milwaukee
 URL:https://tv-sports.fr/milwaukee-brewers-atlanta-braves-tv-x1155466
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:mlb-78191e6a4942dde69a7f8f31@sports-us-bein-calendar
-DTSTAMP:20260816T151736Z
+UID:episode-1155636-1787610600@tv-sports.fr
+DTSTAMP:20260816T235104Z
 DTSTART:20260824T223000Z
-DTEND:20260825T020000Z
+DTEND:20260825T013000Z
 SUMMARY:⚾ MLB — Miami Marlins – Boston Red Sox
-DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nSource : https://tv-sp
- orts.fr/miami-marlins-boston-red-sox-tv-x1155636
-LOCATION:beIN SPORTS MAX 4
+DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nLieu estimé : loanDep
+ ot park\, Miami\nSource : https://tv-sports.fr/miami-marlins-boston-red-so
+ x-tv-x1155636
+LOCATION:loanDepot park\, Miami
 URL:https://tv-sports.fr/miami-marlins-boston-red-sox-tv-x1155636
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:mlb-aa1c824a889a6a6a1c9b913c@sports-us-bein-calendar
-DTSTAMP:20260816T151736Z
+UID:episode-1155818-1787707800@tv-sports.fr
+DTSTAMP:20260816T235104Z
 DTSTART:20260826T013000Z
-DTEND:20260826T050000Z
+DTEND:20260826T043000Z
 SUMMARY:⚾ MLB — Seattle Mariners – Philadelphia Phillies
-DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nSource : https://tv-sp
- orts.fr/seattle-mariners-philadelphia-phillies-tv-x1155818
-LOCATION:beIN SPORTS MAX 4
+DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nLieu estimé : T-Mobil
+ e Park\, Seattle\nSource : https://tv-sports.fr/seattle-mariners-philadelp
+ hia-phillies-tv-x1155818
+LOCATION:T-Mobile Park\, Seattle
 URL:https://tv-sports.fr/seattle-mariners-philadelphia-phillies-tv-x1155818
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:mlb-125d2aaba62196dbcec3ba64@sports-us-bein-calendar
-DTSTAMP:20260816T151736Z
+UID:episode-1156055-1787763600@tv-sports.fr
+DTSTAMP:20260816T235104Z
 DTSTART:20260826T170000Z
-DTEND:20260826T203000Z
+DTEND:20260826T200000Z
 SUMMARY:⚾ MLB — Detroit Tigers – Tampa Bay Rays
-DESCRIPTION:Diffusion en direct : beIN SPORTS 1\nSource : https://tv-sports
- .fr/detroit-tigers-tampa-bay-rays-tv-x1156055
-LOCATION:beIN SPORTS 1
+DESCRIPTION:Diffusion en direct : beIN SPORTS 1\nLieu estimé : Comerica Pa
+ rk\, Detroit\nSource : https://tv-sports.fr/detroit-tigers-tampa-bay-rays-
+ tv-x1156055
+LOCATION:Comerica Park\, Detroit
 URL:https://tv-sports.fr/detroit-tigers-tampa-bay-rays-tv-x1156055
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:mlb-516ba9cdf0330645995eaee1@sports-us-bein-calendar
-DTSTAMP:20260816T151736Z
+UID:episode-1155990-1787785200@tv-sports.fr
+DTSTAMP:20260816T235104Z
 DTSTART:20260826T230000Z
-DTEND:20260827T023000Z
+DTEND:20260827T020000Z
 SUMMARY:⚾ MLB — Atlanta Braves – Los Angeles Dodgers
-DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nSource : https://tv-sp
- orts.fr/atlanta-braves-los-angeles-dodgers-tv-x1155990
-LOCATION:beIN SPORTS MAX 4
+DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nLieu estimé : Truist 
+ Park\, Atlanta\nSource : https://tv-sports.fr/atlanta-braves-los-angeles-d
+ odgers-tv-x1155990
+LOCATION:Truist Park\, Atlanta
 URL:https://tv-sports.fr/atlanta-braves-los-angeles-dodgers-tv-x1155990
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:mlb-e1eee56f9cbf94bfb0662ba2@sports-us-bein-calendar
-DTSTAMP:20260816T151736Z
+UID:episode-1156123-1787853600@tv-sports.fr
+DTSTAMP:20260816T235104Z
 DTSTART:20260827T180000Z
-DTEND:20260827T213000Z
+DTEND:20260827T210000Z
 SUMMARY:⚾ MLB — St Louis Cardinals – Baltimore Orioles
-DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nSource : https://tv-sp
- orts.fr/st-louis-cardinals-baltimore-orioles-tv-x1156123
-LOCATION:beIN SPORTS MAX 4
+DESCRIPTION:Diffusion en direct : beIN SPORTS MAX 4\nLieu estimé : Busch S
+ tadium\, St. Louis\nSource : https://tv-sports.fr/st-louis-cardinals-balti
+ more-orioles-tv-x1156123
+LOCATION:Busch Stadium\, St. Louis
 URL:https://tv-sports.fr/st-louis-cardinals-baltimore-orioles-tv-x1156123
 STATUS:CONFIRMED
 TRANSP:OPAQUE

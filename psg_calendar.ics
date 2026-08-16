@@ -397,9 +397,11 @@ DTSTAMP:20260816T222403Z
 DTSTART:20270522T150000Z
 DTEND:20270522T170000Z
 SUMMARY:⚽ Troyes – PSG — Ligue 1 — 📺 Ligue 1+
-DESCRIPTION:Compétition : Ligue 1\nDiffusion TV : Ligue 1+\n\nVoir sur TV 
- Sports : https://tv-sports.fr/foot/troyes-psg-ligue-1-e4498989/
+DESCRIPTION:Compétition : Ligue 1\nDiffusion TV : Ligue 1+\nLieu : Stade d
+ e l'Aube\n\nVoir sur TV Sports : https://tv-sports.fr/foot/troyes-psg-ligu
+ e-1-e4498989/
 URL:https://tv-sports.fr/foot/troyes-psg-ligue-1-e4498989/
+LOCATION:Stade de l'Aube
 END:VEVENT
 BEGIN:VEVENT
 UID:event-4498997@tv-sports.fr
