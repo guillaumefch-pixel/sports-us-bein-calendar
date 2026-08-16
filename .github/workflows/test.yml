@@ -1,0 +1,20 @@
+name: Test du calendrier
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer nos fichiers
+        uses: actions/checkout@v6
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Lancer notre programme
+        run: python main.py
