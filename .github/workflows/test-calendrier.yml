@@ -1,4 +1,4 @@
-name: test
+name: Calendriers F1, MLB et NFL
 
 on:
   workflow_dispatch:
@@ -26,16 +26,24 @@ jobs:
       - name: Générer le calendrier F1
         run: python f1.py
 
-      - name: Publier le calendrier mis à jour
+      - name: Générer les calendriers MLB et NFL
+        run: python main.py
+
+      - name: Publier les calendriers mis à jour
         shell: bash
         run: |
-          if git diff --quiet -- f1_calendar.ics; then
-            echo "Le calendrier est déjà à jour."
+          git add \
+            f1_calendar.ics \
+            mlb_bein_calendar.ics \
+            nfl_bein_calendar.ics \
+            sports_calendar.ics
+
+          if git diff --cached --quiet; then
+            echo "Les calendriers sont déjà à jour."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add f1_calendar.ics
-          git commit -m "Mise à jour automatique du calendrier F1"
+          git commit -m "Mise à jour automatique des calendriers sportifs"
           git push
