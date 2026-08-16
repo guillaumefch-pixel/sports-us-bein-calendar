@@ -275,14 +275,32 @@ def transformer_evenement(
     competition = infos["competition"]
     chaines = infos["chaines"]
 
-    # Pour la Ligue 1 2026-2027, les matchs sont diffusés
-    # sur Ligue 1+. Si TV-Sports n'a pas encore renseigné
-    # la chaîne individuellement, on la complète automatiquement.
+    # Ligue 1 2026-2027 :
+    # tous les matchs sont disponibles sur Ligue 1+.
+    # Si TV-Sports n'a pas encore renseigné la chaîne
+    # individuellement, on complète automatiquement.
     if (
         not chaines
         and competition.strip().casefold() == "ligue 1"
     ):
         chaines = ["Ligue 1+"]
+
+    # Équipe de France :
+    # les droits de l'UEFA Nations League appartiennent
+    # au Groupe TF1 jusqu'en 2028.
+    #
+    # Tant que TV-Sports n'a pas annoncé la chaîne précise,
+    # on indique le diffuseur détenteur des droits sans
+    # prétendre que le match sera nécessairement sur TF1.
+    if (
+        not chaines
+        and equipe["nom"] == "France"
+        and competition.strip().casefold()
+        == "uefa nations league"
+    ):
+        chaines = [
+            "Groupe TF1 (chaîne à confirmer)"
+        ]
 
     diffusion = (
         " / ".join(chaines)
