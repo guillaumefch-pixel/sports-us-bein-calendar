@@ -275,6 +275,15 @@ def transformer_evenement(
     competition = infos["competition"]
     chaines = infos["chaines"]
 
+    # Pour la Ligue 1 2026-2027, les matchs sont diffusés
+    # sur Ligue 1+. Si TV-Sports n'a pas encore renseigné
+    # la chaîne individuellement, on la complète automatiquement.
+    if (
+        not chaines
+        and competition.strip().casefold() == "ligue 1"
+    ):
+        chaines = ["Ligue 1+"]
+
     diffusion = (
         " / ".join(chaines)
         if chaines
