@@ -1,5 +1,6 @@
 import hashlib
 import re
+import time
 from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 
@@ -34,39 +35,29 @@ SPORTS = (
 class AnalyseurPlanning(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
-
         self.elements = []
         self.element = None
         self.profondeur_li = 0
         self.ancre = None
 
-    def handle_starttag(
-        self,
-        balise,
-        attributs,
-    ):
-        attributs = dict(
-            attributs
-        )
-
-        classes = set(
-            attributs.get(
-                "class",
-                "",
-            ).split()
-        )
+    def handle_starttag(self, balise, attributs):
+        attributs = dict(attributs)
+        classes = set(attributs.get("class", "").split())
 
         if balise == "li":
             if self.element is not None:
                 self.profondeur_li += 1
 
-            elif "schedule-item" in classes:
+            elif (
+                "schedule-item" in classes
+                or attributs.get("data-is-live") is not None
+            ):
                 self.element = {
                     "attributs": attributs,
                     "participants": [],
                     "liens": [],
+                    "chaines": [],
                 }
-
                 self.profondeur_li = 1
 
             return
@@ -82,40 +73,37 @@ class AnalyseurPlanning(HTMLParser):
                 attributs["datetime"]
             )
 
-        elif (
-            balise == "img"
-            and "logoChaine" in classes
-        ):
-            self.element["chaine"] = (
-                attributs.get(
-                    "alt",
-                    "",
-                ).strip()
-            )
+        elif balise == "img":
+            alt = attributs.get("alt", "").strip()
+
+            if (
+                "logoChaine" in classes
+                and alt
+            ):
+                if alt not in self.element["chaines"]:
+                    self.element["chaines"].append(alt)
 
         elif balise == "a":
             self.ancre = {
                 "classes": classes,
-                "href": attributs.get(
-                    "href",
-                    "",
-                ).strip(),
-                "title": attributs.get(
-                    "title",
-                    "",
-                ).strip(),
+                "href": attributs.get("href", "").strip(),
+                "title": attributs.get("title", "").strip(),
                 "texte": [],
             }
 
-            if (
-                "schedule-participant" in classes
-                and self.ancre["title"]
-            ):
-                self.element[
-                    "participants"
-                ].append(
-                    self.ancre["title"]
+            if "schedule-participant" in classes:
+                participant = (
+                    attributs.get("title", "").strip()
                 )
+
+                if (
+                    participant
+                    and participant
+                    not in self.element["participants"]
+                ):
+                    self.element["participants"].append(
+                        participant
+                    )
 
     def handle_startendtag(
         self,
@@ -127,40 +115,43 @@ class AnalyseurPlanning(HTMLParser):
             attributs,
         )
 
-    def handle_data(
-        self,
-        donnees,
-    ):
+    def handle_data(self, donnees):
         if self.ancre is not None:
             self.ancre["texte"].append(
                 donnees
             )
 
-    def handle_endtag(
-        self,
-        balise,
-    ):
+    def handle_endtag(self, balise):
         if (
             balise == "a"
             and self.ancre is not None
             and self.element is not None
         ):
-            self.ancre["texte"] = (
-                " ".join(
-                    "".join(
-                        self.ancre["texte"]
-                    ).split()
-                )
+            texte = " ".join(
+                "".join(
+                    self.ancre["texte"]
+                ).split()
             )
 
-            self.element[
-                "liens"
-            ].append(
+            self.ancre["texte"] = texte
+
+            if (
+                "schedule-participant"
+                in self.ancre["classes"]
+                and not self.ancre["title"]
+                and texte
+                and texte
+                not in self.element["participants"]
+            ):
+                self.element["participants"].append(
+                    texte
+                )
+
+            self.element["liens"].append(
                 self.ancre
             )
 
             self.ancre = None
-
             return
 
         if (
@@ -185,7 +176,6 @@ class AnalyseurTexteHTML(HTMLParser):
         super().__init__(
             convert_charrefs=True
         )
-
         self.textes = []
         self.ignorer = 0
 
@@ -233,11 +223,51 @@ class AnalyseurTexteHTML(HTMLParser):
             )
 
 
-def est_chaine_bein(
-    chaine,
+def recuperer_page(
+    url,
+    tentatives=3,
 ):
-    return chaine.casefold().startswith(
-        "bein sports"
+    derniere_erreur = None
+
+    for tentative in range(
+        1,
+        tentatives + 1,
+    ):
+        try:
+            reponse = requests.get(
+                url,
+                headers=EN_TETES,
+                timeout=30,
+            )
+
+            reponse.raise_for_status()
+
+            if reponse.text.strip():
+                return reponse.text
+
+        except requests.RequestException as erreur:
+            derniere_erreur = erreur
+
+        if tentative < tentatives:
+            print(
+                f"  Nouvelle tentative "
+                f"{tentative + 1}/{tentatives}…"
+            )
+            time.sleep(2)
+
+    if derniere_erreur:
+        raise derniere_erreur
+
+    raise RuntimeError(
+        f"Réponse vide pour {url}"
+    )
+
+
+def est_chaine_bein(chaine):
+    return (
+        chaine
+        .casefold()
+        .startswith("bein sports")
     )
 
 
@@ -245,10 +275,21 @@ def choisir_titre(
     element,
     prefixe,
 ):
-    participants = element.get(
+    participants = []
+
+    for participant in element.get(
         "participants",
         [],
-    )
+    ):
+        participant = participant.strip()
+
+        if (
+            participant
+            and participant not in participants
+        ):
+            participants.append(
+                participant
+            )
 
     if len(participants) >= 2:
         return " – ".join(
@@ -259,10 +300,18 @@ def choisir_titre(
         "liens",
         [],
     ):
-        href = lien["href"]
+        texte = lien.get(
+            "texte",
+            "",
+        ).strip()
+
+        href = lien.get(
+            "href",
+            "",
+        )
 
         if (
-            lien["texte"]
+            texte
             and (
                 "-tv-" in href
                 or re.search(
@@ -271,7 +320,7 @@ def choisir_titre(
                 )
             )
         ):
-            return lien["texte"]
+            return texte
 
     for lien in element.get(
         "liens",
@@ -297,129 +346,30 @@ def choisir_lien(
             [],
         )
     ):
-        if (
-            lien["href"]
-            and (
-                "-tv-" in lien["href"]
-                or re.search(
-                    r"-e\d+/?$",
-                    lien["href"],
-                )
-            )
-        ):
-            href = lien["href"]
-
-            return (
-                "https://tv-sports.fr"
-                + href
-                if href.startswith("/")
-                else href
-            )
-
-    return url_page
-
-
-def extraire_lieu_page_match(
-    page,
-):
-    analyseur = AnalyseurTexteHTML()
-
-    analyseur.feed(
-        page
-    )
-
-    textes = analyseur.textes
-
-    for index, texte in enumerate(
-        textes
-    ):
-        libelle = (
-            texte
-            .strip()
-            .casefold()
+        href = lien.get(
+            "href",
+            "",
         )
 
-        if libelle not in {
-            "lieu",
-            "stade",
-        }:
+        if not href:
             continue
 
-        for suivant in textes[
-            index + 1:
-        ]:
-            suivant = suivant.strip()
+        if (
+            "-tv-" in href
+            or re.search(
+                r"-e\d+/?$",
+                href,
+            )
+        ):
+            if href.startswith("/"):
+                return (
+                    "https://tv-sports.fr"
+                    + href
+                )
 
-            if not suivant:
-                continue
+            return href
 
-            if suivant.casefold() in {
-                "diffusion",
-                "avant-match",
-                "tendances",
-                "compétition",
-                "tour",
-                "saison",
-                "date et heure",
-                "calendrier des matchs",
-            }:
-                return None
-
-            return suivant
-
-    return None
-
-
-def recuperer_lieu_page_match(
-    url,
-    cache_lieux,
-):
-    if not url:
-        return None
-
-    if url in cache_lieux:
-        return cache_lieux[url]
-
-    try:
-        reponse = requests.get(
-            url,
-            headers=EN_TETES,
-            timeout=20,
-        )
-
-        reponse.raise_for_status()
-
-        lieu = extraire_lieu_page_match(
-            reponse.text
-        )
-
-    except requests.RequestException as erreur:
-        print(
-            f"    Avertissement : "
-            f"lieu inaccessible "
-            f"({erreur})."
-        )
-
-        lieu = None
-
-    cache_lieux[url] = lieu
-
-    return lieu
-
-
-def est_redzone(
-    titre,
-):
-    titre_compact = re.sub(
-        r"[^a-z0-9]",
-        "",
-        titre.casefold(),
-    )
-
-    return (
-        "redzone"
-        in titre_compact
-    )
+    return url_page
 
 
 def extraire_diffusions(
@@ -427,62 +377,47 @@ def extraire_diffusions(
     sport,
 ):
     analyseur = AnalyseurPlanning()
-
-    analyseur.feed(
-        page
-    )
-
-    if (
-        not analyseur.elements
-        and "aucune diffusion"
-        not in page.casefold()
-    ):
-        raise RuntimeError(
-            f"Le planning "
-            f"{sport['prefixe']} "
-            f"n'a pas été reconnu "
-            f"sur TV-Sports."
-        )
+    analyseur.feed(page)
 
     diffusions = []
     deja_vues = set()
 
     for element in analyseur.elements:
-        attributs = element[
-            "attributs"
-        ]
-
-        chaine = element.get(
-            "chaine",
-            "",
+        attributs = element.get(
+            "attributs",
+            {},
         )
 
         if (
-            attributs.get(
-                "data-is-live"
-            )
-            != "1"
-        ):
-            continue
-
-        if (
-            attributs.get(
-                "data-is-past"
-            )
+            attributs.get("data-is-past")
             == "1"
         ):
             continue
 
-        if not est_chaine_bein(
-            chaine
+        if (
+            attributs.get("data-is-live")
+            != "1"
         ):
+            continue
+
+        chaines = [
+            chaine
+            for chaine
+            in element.get(
+                "chaines",
+                [],
+            )
+            if est_chaine_bein(
+                chaine
+            )
+        ]
+
+        if not chaines:
             continue
 
         try:
             debut = datetime.fromisoformat(
-                element[
-                    "datetime"
-                ].replace(
+                element["datetime"].replace(
                     "Z",
                     "+00:00",
                 )
@@ -517,17 +452,16 @@ def extraire_diffusions(
                     diffusion["debut"],
                     diffusion["titre"],
                 ) == cle:
-                    if (
-                        chaine
-                        not in diffusion[
-                            "chaines"
-                        ]
-                    ):
-                        diffusion[
-                            "chaines"
-                        ].append(
+                    for chaine in chaines:
+                        if (
                             chaine
-                        )
+                            not in diffusion["chaines"]
+                        ):
+                            diffusion[
+                                "chaines"
+                            ].append(
+                                chaine
+                            )
 
                     break
 
@@ -541,9 +475,7 @@ def extraire_diffusions(
             {
                 "debut": debut,
                 "titre": titre,
-                "chaines": [
-                    chaine
-                ],
+                "chaines": chaines,
                 "lien": lien,
                 "lieu": None,
             }
@@ -551,9 +483,120 @@ def extraire_diffusions(
 
     return sorted(
         diffusions,
-        key=lambda diffusion: diffusion[
-            "debut"
-        ],
+        key=lambda diffusion: (
+            diffusion["debut"]
+        ),
+    )
+
+
+def extraire_lieu_page_match(page):
+    analyseur = AnalyseurTexteHTML()
+
+    analyseur.feed(
+        page
+    )
+
+    textes = analyseur.textes
+
+    libelles_fin = {
+        "diffusion",
+        "avant-match",
+        "tendances",
+        "compétition",
+        "tour",
+        "saison",
+        "date et heure",
+        "calendrier des matchs",
+        "chaîne",
+        "horaire",
+    }
+
+    for index, texte in enumerate(
+        textes
+    ):
+        if (
+            texte
+            .strip()
+            .casefold()
+            not in {
+                "lieu",
+                "stade",
+            }
+        ):
+            continue
+
+        for suivant in textes[
+            index + 1:
+        ]:
+            suivant = suivant.strip()
+
+            if not suivant:
+                continue
+
+            if (
+                suivant.casefold()
+                in libelles_fin
+            ):
+                return None
+
+            return suivant
+
+    return None
+
+
+def recuperer_lieu_page_match(
+    url,
+    cache_lieux,
+):
+    if (
+        not url
+        or url
+        in {
+            sport["url"]
+            for sport in SPORTS
+        }
+    ):
+        return None
+
+    if url in cache_lieux:
+        return cache_lieux[url]
+
+    try:
+        page = recuperer_page(
+            url,
+            tentatives=2,
+        )
+
+        lieu = extraire_lieu_page_match(
+            page
+        )
+
+    except (
+        requests.RequestException,
+        RuntimeError,
+    ) as erreur:
+        print(
+            f"    Avertissement lieu : "
+            f"{erreur}"
+        )
+
+        lieu = None
+
+    cache_lieux[url] = lieu
+
+    return lieu
+
+
+def est_redzone(titre):
+    titre_compact = re.sub(
+        r"[^a-z0-9]",
+        "",
+        titre.casefold(),
+    )
+
+    return (
+        "redzone"
+        in titre_compact
     )
 
 
@@ -579,27 +622,13 @@ def enrichir_lieux(
     return diffusions
 
 
-def echapper_ics(
-    texte,
-):
+def echapper_ics(texte):
     return (
         str(texte)
-        .replace(
-            "\\",
-            "\\\\",
-        )
-        .replace(
-            "\n",
-            "\\n",
-        )
-        .replace(
-            ",",
-            "\\,",
-        )
-        .replace(
-            ";",
-            "\\;",
-        )
+        .replace("\\", "\\\\")
+        .replace("\n", "\\n")
+        .replace(",", "\\,")
+        .replace(";", "\\;")
     )
 
 
@@ -620,7 +649,10 @@ def couper_utf8(
             )
         )
 
-        if nouvelle_taille > limite:
+        if (
+            nouvelle_taille
+            > limite
+        ):
             break
 
         taille = nouvelle_taille
@@ -632,9 +664,7 @@ def couper_utf8(
     )
 
 
-def plier_ligne_ics(
-    ligne,
-):
+def plier_ligne_ics(ligne):
     morceaux = []
     reste = ligne
     premier = True
@@ -646,9 +676,11 @@ def plier_ligne_ics(
             else 74
         )
 
-        morceau, reste = couper_utf8(
-            reste,
-            limite,
+        morceau, reste = (
+            couper_utf8(
+                reste,
+                limite,
+            )
         )
 
         morceaux.append(
@@ -740,9 +772,7 @@ def construire_evenement(
     )
 
     chaines = " / ".join(
-        diffusion[
-            "chaines"
-        ]
+        diffusion["chaines"]
     )
 
     lieu = diffusion.get(
@@ -770,6 +800,11 @@ def construire_evenement(
     ):
         description += (
             "\nLieu : plusieurs matchs simultanés"
+        )
+
+    else:
+        description += (
+            "\nLieu : à confirmer"
         )
 
     description += (
@@ -812,10 +847,15 @@ def construire_evenement(
         ),
     ]
 
+    # IMPORTANT :
+    # uniquement un vrai lieu physique ici.
+    # Jamais la chaîne TV.
     if lieu:
         lignes.append(
-            f"LOCATION:"
-            f"{echapper_ics(lieu)}"
+            "LOCATION:"
+            + echapper_ics(
+                lieu
+            )
         )
 
     lignes.extend(
@@ -897,9 +937,7 @@ def ecrire_calendrier(
         )
 
 
-def extraire_vevents(
-    fichier,
-):
+def extraire_vevents(fichier):
     evenements = []
     evenement = None
 
@@ -920,7 +958,10 @@ def extraire_vevents(
                     ligne
                 ]
 
-            elif evenement is not None:
+            elif (
+                evenement
+                is not None
+            ):
                 evenement.append(
                     ligne
                 )
@@ -991,72 +1032,116 @@ def ecrire_calendrier_global():
         )
 
 
-def main():
-    for sport in SPORTS:
-        print(
-            f"Téléchargement de "
-            f"{sport['nom']}…"
-        )
+def traiter_sport(sport):
+    print(
+        f"Téléchargement de "
+        f"{sport['nom']}…"
+    )
 
-        reponse = requests.get(
+    try:
+        page = recuperer_page(
             sport["url"],
-            headers=EN_TETES,
-            timeout=30,
+            tentatives=3,
         )
-
-        reponse.raise_for_status()
 
         diffusions = (
             extraire_diffusions(
-                reponse.text,
+                page,
                 sport,
             )
         )
 
-        diffusions = enrichir_lieux(
-            diffusions
-        )
-
-        ecrire_calendrier(
-            diffusions,
-            sport,
+    except (
+        requests.RequestException,
+        RuntimeError,
+    ) as erreur:
+        print(
+            f"AVERTISSEMENT : "
+            f"impossible de récupérer "
+            f"{sport['prefixe']} : "
+            f"{erreur}"
         )
 
         print(
-            f"{len(diffusions)} "
-            f"diffusion(s) écrite(s) "
-            f"dans {sport['fichier']}."
+            f"Le fichier "
+            f"{sport['fichier']} "
+            f"existant est conservé."
         )
 
-        for diffusion in diffusions:
-            lieu = diffusion.get(
-                "lieu"
+        return False
+
+    if not diffusions:
+        print(
+            f"AVERTISSEMENT : "
+            f"aucune diffusion "
+            f"{sport['prefixe']} "
+            f"beIN reconnue."
+        )
+
+        print(
+            f"Le fichier "
+            f"{sport['fichier']} "
+            f"existant est conservé "
+            f"pour éviter de vider "
+            f"le calendrier sur Apple."
+        )
+
+        return False
+
+    diffusions = enrichir_lieux(
+        diffusions
+    )
+
+    ecrire_calendrier(
+        diffusions,
+        sport,
+    )
+
+    print(
+        f"{len(diffusions)} "
+        f"diffusion(s) écrite(s) "
+        f"dans "
+        f"{sport['fichier']}."
+    )
+
+    for diffusion in diffusions:
+        lieu = diffusion.get(
+            "lieu"
+        )
+
+        if lieu:
+            suffixe_lieu = (
+                f" — 📍 {lieu}"
             )
 
-            if lieu:
-                suffixe_lieu = (
-                    f" — 📍 {lieu}"
-                )
-
-            elif est_redzone(
-                diffusion["titre"]
-            ):
-                suffixe_lieu = (
-                    " — 📍 plusieurs matchs"
-                )
-
-            else:
-                suffixe_lieu = (
-                    " — 📍 lieu à confirmer"
-                )
-
-            print(
-                f"  "
-                f"{diffusion['debut']:%Y-%m-%d %H:%M} UTC — "
-                f"{diffusion['titre']} — "
-                f"{' / '.join(diffusion['chaines'])}"
-                f"{suffixe_lieu}"
+        elif est_redzone(
+            diffusion["titre"]
+        ):
+            suffixe_lieu = (
+                " — 📍 plusieurs matchs"
             )
+
+        else:
+            suffixe_lieu = (
+                " — 📍 lieu à confirmer"
+            )
+
+        print(
+            f"  "
+            f"{diffusion['debut']:%Y-%m-%d %H:%M} UTC — "
+            f"{diffusion['titre']} — "
+            f"{' / '.join(diffusion['chaines'])}"
+            f"{suffixe_lieu}"
+        )
+
+    return True
+
+
+def main():
+    for sport in SPORTS:
+        traiter_sport(
+            sport
+        )
 
     ecrire_calendrier_global()
 
