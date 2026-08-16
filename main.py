@@ -21,9 +21,10 @@ channels = soup.find_all(
     class_="schedule-channel__name"
 )
 
+# On parcourt chaque chaîne trouvée
 for i, channel in enumerate(channels, 1):
 
-    # Le niveau 4 correspond à la diffusion individuelle
+    # On remonte jusqu'au bloc contenant la diffusion
     bloc = channel
 
     for _ in range(4):
@@ -31,4 +32,23 @@ for i, channel in enumerate(channels, 1):
 
     texte = bloc.get_text(" ", strip=True)
 
-    print(f"{i:02d}. {texte}")
+    # On cherche le bloc de date qui contient cette diffusion
+    date_bloc = bloc
+
+    while date_bloc is not None:
+
+        # On regarde si un élément contenant une date est présent
+        date_element = date_bloc.find_previous(
+            class_="schedule-date"
+        )
+
+        if date_element:
+            date = date_element.get_text(" ", strip=True)
+            break
+
+        date_bloc = date_bloc.parent
+
+    else:
+        date = "DATE INCONNUE"
+
+    print(f"{i:02d}. [{date}] {texte}")
