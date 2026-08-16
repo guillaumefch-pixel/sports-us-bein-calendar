@@ -1,214 +1,64 @@
 import requests
-from bs4 import BeautifulSoup
-import re
+import json
 
-URL = "https://www.formula1.com/en/latest/article/formula-1-heineken-dutch-grand-prix-2026.VYghWPhEDqYBlWbd1iKe6"
+URL = "https://raw.githubusercontent.com/sportstimes/f1/main/_db/f1/2026.json"
 
-headers = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/139.0.0.0 Safari/537.36"
-    )
-}
+print("=" * 80)
+print("🏎️ TEST SOURCE F1 — SPORTSTIMES")
+print("=" * 80)
 
-print("=" * 100)
-print("🏎️ DIAGNOSTIC FORMULA1.COM")
-print("=" * 100)
-
-response = requests.get(
-    URL,
-    headers=headers,
-    timeout=20
-)
-
-response.raise_for_status()
-
-html = response.text
+response = requests.get(URL, timeout=20)
 
 print("STATUS :", response.status_code)
 print("TYPE   :", response.headers.get("content-type"))
-print("TAILLE :", len(html), "caractères")
+print("TAILLE :", len(response.content), "octets")
 
-soup = BeautifulSoup(html, "html.parser")
+response.raise_for_status()
 
-
-# =========================================================
-# 1. TITRE
-# =========================================================
+data = response.json()
 
 print()
-print("=" * 100)
-print("📄 TITRE")
-print("=" * 100)
-
-print(soup.title.get_text(strip=True) if soup.title else "Aucun titre")
-
-
-# =========================================================
-# 2. RECHERCHE DES SESSIONS DANS LE HTML
-# =========================================================
+print("TYPE JSON :", type(data).__name__)
 
 print()
-print("=" * 100)
-print("🔎 RECHERCHE DES SESSIONS F1")
-print("=" * 100)
+print("=" * 80)
+print("STRUCTURE")
+print("=" * 80)
 
-sessions = [
-    "FIRST PRACTICE SESSION",
-    "SECOND PRACTICE SESSION",
-    "THIRD PRACTICE SESSION",
-    "SPRINT QUALIFYING",
-    "SPRINT",
-    "QUALIFYING SESSION",
-    "GRAND PRIX",
-]
+if isinstance(data, dict):
+    print("CLÉS :", list(data.keys()))
 
-for session in sessions:
+print()
+print("=" * 80)
+print("🇳🇱 GRAND PRIX DES PAYS-BAS")
+print("=" * 80)
 
-    positions = [
-        m.start()
-        for m in re.finditer(
-            re.escape(session),
-            html,
-            re.IGNORECASE
-        )
-    ]
+courses = data.get("races", [])
 
-    print()
-    print(f"{session:<30} : {len(positions)} occurrence(s)")
+print("Nombre de courses :", len(courses))
 
-    for position in positions[:3]:
+for course in courses:
 
-        debut = max(0, position - 300)
-        fin = min(len(html), position + 700)
+    if (
+        course.get("name", "").lower() in ["dutch", "netherlands"]
+        or
+        course.get("location", "").lower() == "zandvoort"
+    ):
 
-        print("-" * 100)
         print(
-            html[debut:fin]
-            .replace("\\u003c", "<")
-            .replace("\\u003e", ">")
+            json.dumps(
+                course,
+                indent=2,
+                ensure_ascii=False
+            )
         )
 
+        break
 
-# =========================================================
-# 3. RECHERCHE DES HEURES
-# =========================================================
-
-print()
-print("=" * 100)
-print("⏰ HEURES DÉTECTÉES")
-print("=" * 100)
-
-patterns = [
-    r"\b\d{1,2}:\d{2}\s*-\s*\d{1,2}:\d{2}\b",
-    r"\b\d{1,2}:\d{2}\b",
-]
-
-heures = set()
-
-for pattern in patterns:
-
-    for match in re.findall(
-        pattern,
-        html
-    ):
-        heures.add(match)
-
-for heure in sorted(
-    heures,
-    key=lambda x: (
-        int(re.search(r"\d+", x).group()),
-        int(re.search(r":(\d+)", x).group(1))
-    )
-):
-
-    print(heure)
-
-
-# =========================================================
-# 4. DONNÉES JSON / NEXT.JS
-# =========================================================
+else:
+    print("❌ Grand Prix des Pays-Bas introuvable")
 
 print()
-print("=" * 100)
-print("🧩 STRUCTURES DE DONNÉES")
-print("=" * 100)
-
-for script in soup.find_all("script"):
-
-    contenu = script.string or script.get_text()
-
-    if not contenu:
-        continue
-
-    contenu_test = contenu.lower()
-
-    mots = [
-        "first practice session",
-        "sprint qualifying",
-        "qualifying session",
-        "grand prix",
-        "schedule",
-        "timetable",
-    ]
-
-    if any(mot in contenu_test for mot in mots):
-
-        print()
-        print("-" * 100)
-        print("SCRIPT TROUVÉ")
-        print("type :", script.get("type"))
-        print("id   :", script.get("id"))
-        print("taille :", len(contenu))
-        print("-" * 100)
-
-        print(contenu[:15000])
-
-
-# =========================================================
-# 5. LIENS CALENDRIER
-# =========================================================
-
-print()
-print("=" * 100)
-print("📅 LIENS CALENDRIER")
-print("=" * 100)
-
-for link in soup.find_all("a", href=True):
-
-    href = link["href"]
-
-    texte = link.get_text(
-        " ",
-        strip=True
-    )
-
-    test = (
-        href.lower()
-        + " "
-        + texte.lower()
-    )
-
-    if any(
-        mot in test
-        for mot in [
-            "calendar",
-            "schedule",
-            "timetable",
-            "download",
-            "sync",
-            "ics",
-            "ical"
-        ]
-    ):
-
-        print()
-        print("TEXTE :", texte[:300])
-        print("HREF  :", href)
-
-
-print()
-print("=" * 100)
-print("✅ DIAGNOSTIC TERMINÉ")
-print("=" * 100)
+print("=" * 80)
+print("✅ FIN DU TEST")
+print("=" * 80)
