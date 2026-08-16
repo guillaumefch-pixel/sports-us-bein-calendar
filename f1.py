@@ -159,9 +159,6 @@ for cible in CIBLES:
                 len(texte_parent)
             )
 
-            # On ne veut pas faire exploser le log
-            # avec plusieurs milliers de caractères.
-
             if len(texte_parent) > 1000:
                 texte_parent = (
                     texte_parent[:1000]
@@ -200,9 +197,6 @@ print(
     f"{len(elements_heure)}"
 )
 
-
-# On affiche uniquement les 20 premiers
-# éléments intéressants.
 
 compteur = 0
 
