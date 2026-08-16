@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-print("🔎 EXTRACTION DES DIFFUSIONS F1 DU DIMANCHE")
+print("🔎 EXTRACTION DU WEEK-END F1")
 print("=" * 80)
 
 
@@ -53,9 +53,20 @@ print(
 )
 
 
+# ============================================================
+# PÉRIODE DU WEEK-END
+# ============================================================
+
+DATES_WEEK_END = (
+    "2026-08-21",
+    "2026-08-22",
+    "2026-08-23",
+)
+
+
 print()
 print("=" * 80)
-print("📺 DIFFUSIONS F1 CANAL+ DU DIMANCHE 23 AOÛT 2026")
+print("📺 DIFFUSIONS F1 CANAL+ EN DIRECT")
 print("=" * 80)
 
 
@@ -69,7 +80,7 @@ resultats = []
 for evenement in evenements:
 
     # --------------------------------------------------------
-    # Sport = Formule 1
+    # F1 uniquement
     # --------------------------------------------------------
 
     if evenement.get("data-sport-id") != "102":
@@ -95,10 +106,10 @@ for evenement in evenements:
 
 
     # --------------------------------------------------------
-    # On cible le dimanche 23 août 2026
+    # Uniquement le week-end du GP des Pays-Bas
     # --------------------------------------------------------
 
-    if not datetime_str.startswith("2026-08-23"):
+    if not datetime_str.startswith(DATES_WEEK_END):
         continue
 
 
@@ -113,7 +124,7 @@ for evenement in evenements:
     # --------------------------------------------------------
     # Uniquement Canal+
     #
-    # Canal+ = data-channel-id="81"
+    # Canal+ = ID 81
     # --------------------------------------------------------
 
     if evenement.get("data-channel-id") != "81":
@@ -129,11 +140,14 @@ for evenement in evenements:
     )
 
     if heure_element:
+
         heure = heure_element.get_text(
             " ",
             strip=True
         )
+
     else:
+
         heure = time_element.get_text(
             " ",
             strip=True
@@ -141,16 +155,19 @@ for evenement in evenements:
 
 
     # --------------------------------------------------------
-    # Nom de l'événement
+    # Titre
     # --------------------------------------------------------
 
     titre = None
+
 
     lien_competition = evenement.select_one(
         "a.schedule-entity-visual"
     )
 
+
     if lien_competition:
+
         titre = lien_competition.get(
             "title"
         )
@@ -163,66 +180,100 @@ for evenement in evenements:
         )
 
         if lien:
+
             titre = lien.get(
                 "title"
             )
 
 
     if not titre:
+
         titre = "Événement F1"
 
 
     # --------------------------------------------------------
-    # Chaîne
+    # Texte complet
     # --------------------------------------------------------
 
-    chaine = None
-
-    chaine_element = evenement.select_one(
-        ".schedule-channel__name"
+    texte = evenement.get_text(
+        " ",
+        strip=True
     )
 
-    if chaine_element:
-        chaine = chaine_element.get_text(
-            " ",
-            strip=True
-        )
-
 
     # --------------------------------------------------------
-    # ID chaîne
+    # Jour
     # --------------------------------------------------------
 
-    channel_id = evenement.get(
-        "data-channel-id"
-    )
+    date = datetime_str[:10]
+
+
+    if date == "2026-08-21":
+        jour = "VENDREDI"
+
+    elif date == "2026-08-22":
+        jour = "SAMEDI"
+
+    elif date == "2026-08-23":
+        jour = "DIMANCHE"
+
+    else:
+        jour = date
 
 
     # --------------------------------------------------------
     # Affichage
     # --------------------------------------------------------
 
+    print()
     print(
-        f"{len(resultats) + 1:02d}. "
-        f"🏎️ 23/08/2026 "
-        f"⚡ {heure} "
-        f"🏁 {titre} "
-        f"📺 {chaine or 'Chaîne inconnue'} "
-        f"(ID {channel_id})"
+        f"📅 {jour} {date}"
+    )
+
+    print(
+        f"   ⚡ {heure}"
+    )
+
+    print(
+        f"   🏁 {titre}"
+    )
+
+    print(
+        f"   📺 Canal+"
+    )
+
+    print(
+        f"   🔖 diffusion = "
+        f"{evenement.get('data-diffusion-type')}"
     )
 
 
     resultats.append(
         {
-            "date": "23/08/2026",
+            "date": date,
+            "jour": jour,
             "heure": heure,
             "titre": titre,
-            "chaine": chaine,
-            "channel_id": channel_id,
-            "type": "live",
-            "datetime": datetime_str
+            "chaine": "Canal+",
+            "channel_id": evenement.get(
+                "data-channel-id"
+            ),
+            "type": evenement.get(
+                "data-diffusion-type"
+            ),
+            "datetime": datetime_str,
+            "texte": texte
         }
     )
+
+
+# ============================================================
+# TRI CHRONOLOGIQUE
+# ============================================================
+
+resultats.sort(
+    key=lambda evenement: evenement["datetime"]
+)
 
 
 # ============================================================
@@ -231,33 +282,38 @@ for evenement in evenements:
 
 print()
 print("=" * 80)
-print(
-    f"📊 Diffusions F1 Canal+ en direct trouvées : "
-    f"{len(resultats)}"
-)
+print("📊 RÉSUMÉ DU WEEK-END")
 print("=" * 80)
 
 
 if not resultats:
 
     print(
-        "❌ Aucune diffusion F1 Canal+ en direct "
-        "trouvée pour le dimanche 23 août 2026."
+        "❌ Aucune diffusion F1 Canal+ trouvée."
     )
 
 else:
 
-    print()
-
-    for evenement in resultats:
+    for i, evenement in enumerate(
+        resultats,
+        start=1
+    ):
 
         print(
-            f"📅 {evenement['date']} "
-            f"à {evenement['heure']} — "
+            f"{i:02d}. "
+            f"{evenement['date']} "
+            f"{evenement['heure']} — "
             f"{evenement['titre']} — "
             f"{evenement['chaine']}"
         )
 
 
 print()
-print("✅ DIAGNOSTIC TERMINÉ")
+print(
+    f"✅ {len(resultats)} diffusion(s) "
+    f"F1 Canal+ en direct trouvée(s)"
+)
+
+print("=" * 80)
+print("🏁 DIAGNOSTIC TERMINÉ")
+print("=" * 80)
