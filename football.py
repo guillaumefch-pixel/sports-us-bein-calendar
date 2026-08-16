@@ -26,6 +26,46 @@ EQUIPES = (
 )
 
 
+def echapper_ics(texte):
+    return (
+        str(texte)
+        .replace("\\", "\\\\")
+        .replace("\n", "\\n")
+        .replace(",", "\\,")
+        .replace(";", "\\;")
+    )
+
+
+def deschapper_ics(texte):
+    resultat = []
+    index = 0
+
+    while index < len(texte):
+        caractere = texte[index]
+
+        if caractere == "\\" and index + 1 < len(texte):
+            suivant = texte[index + 1]
+
+            if suivant in ("n", "N"):
+                resultat.append("\n")
+            elif suivant == ",":
+                resultat.append(",")
+            elif suivant == ";":
+                resultat.append(";")
+            elif suivant == "\\":
+                resultat.append("\\")
+            else:
+                resultat.append(suivant)
+
+            index += 2
+            continue
+
+        resultat.append(caractere)
+        index += 1
+
+    return "".join(resultat)
+
+
 def couper_utf8(texte, limite):
     taille = 0
     position = 0
@@ -67,13 +107,12 @@ def plier_ligne_ics(ligne):
 
 
 def deplier_ics(texte):
-    lignes = texte.replace(
-        "\r\n",
-        "\n",
-    ).replace(
-        "\r",
-        "\n",
-    ).split("\n")
+    lignes = (
+        texte
+        .replace("\r\n", "\n")
+        .replace("\r", "\n")
+        .split("\n")
+    )
 
     resultat = []
 
@@ -89,86 +128,325 @@ def deplier_ics(texte):
     return resultat
 
 
-def valeur_propriete(ligne):
-    if ":" not in ligne:
-        return ""
+def valeur_propriete(lignes, propriete):
+    motif = re.compile(
+        rf"^{re.escape(propriete)}(?:;[^:]*)?:(.*)$"
+    )
 
-    return ligne.split(":", 1)[1]
+    for ligne in lignes:
+        correspondance = motif.match(ligne)
 
+        if correspondance:
+            return correspondance.group(1)
 
-def prefixer_resume(ligne, equipe):
-    if ":" not in ligne:
-        return ligne
-
-    propriete, valeur = ligne.split(":", 1)
-
-    prefixe = f"{equipe['emoji']} {equipe['nom']} — "
-
-    # Évite de rajouter le préfixe plusieurs fois
-    # lors des mises à jour successives.
-    if valeur.startswith(prefixe):
-        return ligne
-
-    return f"{propriete}:{prefixe}{valeur}"
+    return None
 
 
-def modifier_calendrier(texte, equipe):
+def extraire_infos_description(description):
+    if not description:
+        return None
+
+    description = deschapper_ics(description)
+
+    premiere_ligne = description.splitlines()[0].strip()
+
+    premiere_ligne = re.sub(
+        r"^\[[^\]]+\]\s*",
+        "",
+        premiere_ligne,
+    )
+
+    parties = [
+        partie.strip()
+        for partie in premiere_ligne.split(" | ")
+        if partie.strip()
+    ]
+
+    if len(parties) < 2:
+        return None
+
+    match = parties[0]
+
+    competition_brute = parties[1]
+
+    correspondance = re.match(
+        r"^Football\s*-\s*(.+)$",
+        competition_brute,
+        flags=re.IGNORECASE,
+    )
+
+    if correspondance:
+        competition = correspondance.group(1).strip()
+    else:
+        competition = competition_brute.strip()
+
+    chaines = []
+
+    if len(parties) >= 3:
+        for chaine in parties[2:]:
+            chaine = chaine.strip()
+
+            if chaine and chaine not in chaines:
+                chaines.append(chaine)
+
+    return {
+        "match": match,
+        "competition": competition,
+        "chaines": chaines,
+    }
+
+
+def lire_dtstamps_existants(fichier):
+    try:
+        with open(
+            fichier,
+            encoding="utf-8",
+        ) as calendrier:
+            lignes = deplier_ics(
+                calendrier.read()
+            )
+    except OSError:
+        return {}
+
+    resultat = {}
+    evenement = []
+    dans_evenement = False
+
+    for ligne in lignes:
+        if ligne == "BEGIN:VEVENT":
+            evenement = [ligne]
+            dans_evenement = True
+            continue
+
+        if dans_evenement:
+            evenement.append(ligne)
+
+        if ligne == "END:VEVENT" and dans_evenement:
+            uid = valeur_propriete(
+                evenement,
+                "UID",
+            )
+
+            dtstamp = valeur_propriete(
+                evenement,
+                "DTSTAMP",
+            )
+
+            if uid and dtstamp:
+                resultat[uid] = dtstamp
+
+            evenement = []
+            dans_evenement = False
+
+    return resultat
+
+
+def transformer_evenement(
+    lignes,
+    equipe,
+    dtstamps_existants,
+):
+    uid = valeur_propriete(
+        lignes,
+        "UID",
+    )
+
+    description = valeur_propriete(
+        lignes,
+        "DESCRIPTION",
+    )
+
+    url = valeur_propriete(
+        lignes,
+        "URL",
+    )
+
+    infos = extraire_infos_description(
+        description
+    )
+
+    if infos is None:
+        raise RuntimeError(
+            f"Impossible d'analyser l'événement "
+            f"{uid or 'sans UID'} de {equipe['nom']}."
+        )
+
+    match = infos["match"]
+    competition = infos["competition"]
+    chaines = infos["chaines"]
+
+    diffusion = (
+        " / ".join(chaines)
+        if chaines
+        else "À confirmer"
+    )
+
+    resume = (
+        f"{equipe['emoji']} "
+        f"{equipe['nom']} — "
+        f"{match} — "
+        f"{competition}"
+    )
+
+    if chaines:
+        resume += f" — 📺 {diffusion}"
+
+    description_finale = (
+        f"Compétition : {competition}\n"
+        f"Diffusion TV : {diffusion}"
+    )
+
+    if url:
+        description_finale += (
+            f"\n\nVoir sur TV Sports : {url}"
+        )
+
+    resultat = []
+
+    resume_remplace = False
+    description_remplacee = False
+
+    for ligne in lignes:
+        if re.match(
+            r"^SUMMARY(?:;[^:]*)?:",
+            ligne,
+        ):
+            resultat.append(
+                f"SUMMARY:{echapper_ics(resume)}"
+            )
+            resume_remplace = True
+            continue
+
+        if re.match(
+            r"^DESCRIPTION(?:;[^:]*)?:",
+            ligne,
+        ):
+            resultat.append(
+                "DESCRIPTION:"
+                + echapper_ics(
+                    description_finale
+                )
+            )
+            description_remplacee = True
+            continue
+
+        if (
+            ligne.startswith("DTSTAMP:")
+            and uid
+            and uid in dtstamps_existants
+        ):
+            resultat.append(
+                "DTSTAMP:"
+                + dtstamps_existants[uid]
+            )
+            continue
+
+        if ligne == "END:VEVENT":
+            if not resume_remplace:
+                resultat.append(
+                    f"SUMMARY:{echapper_ics(resume)}"
+                )
+
+            if not description_remplacee:
+                resultat.append(
+                    "DESCRIPTION:"
+                    + echapper_ics(
+                        description_finale
+                    )
+                )
+
+        resultat.append(ligne)
+
+    return resultat, {
+        "match": match,
+        "competition": competition,
+        "diffusion": diffusion,
+    }
+
+
+def modifier_calendrier(
+    texte,
+    equipe,
+    dtstamps_existants,
+):
     lignes = deplier_ics(texte)
 
     resultat = []
+    evenement = []
     dans_evenement = False
-    nom_calendrier_trouve = False
-    nombre_evenements = 0
 
-    resumes = []
+    infos_evenements = []
+
+    nom_calendrier_trouve = False
 
     for ligne in lignes:
         if ligne == "BEGIN:VEVENT":
             dans_evenement = True
-            nombre_evenements += 1
+            evenement = [ligne]
+            continue
 
-        elif ligne == "END:VEVENT":
-            dans_evenement = False
+        if dans_evenement:
+            evenement.append(ligne)
+
+            if ligne == "END:VEVENT":
+                evenement_modifie, infos = (
+                    transformer_evenement(
+                        evenement,
+                        equipe,
+                        dtstamps_existants,
+                    )
+                )
+
+                resultat.extend(
+                    evenement_modifie
+                )
+
+                infos_evenements.append(
+                    infos
+                )
+
+                evenement = []
+                dans_evenement = False
+
+            continue
 
         if ligne.startswith("X-WR-CALNAME"):
             resultat.append(
-                f"X-WR-CALNAME:{equipe['nom_calendrier']}"
+                "X-WR-CALNAME:"
+                + equipe["nom_calendrier"]
             )
             nom_calendrier_trouve = True
             continue
 
-        if (
-            dans_evenement
-            and re.match(r"^SUMMARY(?:;[^:]*)?:", ligne)
-        ):
-            ligne = prefixer_resume(
-                ligne,
-                equipe,
-            )
+        if ligne:
+            resultat.append(ligne)
 
-            resumes.append(
-                valeur_propriete(ligne)
-            )
-
-        resultat.append(ligne)
-
-    if nombre_evenements == 0:
+    if dans_evenement:
         raise RuntimeError(
-            f"Aucun événement trouvé dans le flux "
-            f"TV-Sports de {equipe['nom']}."
+            f"Événement ICS incomplet pour "
+            f"{equipe['nom']}."
+        )
+
+    if not infos_evenements:
+        raise RuntimeError(
+            f"Aucun événement trouvé dans "
+            f"le calendrier {equipe['nom']}."
         )
 
     if not nom_calendrier_trouve:
         position = 1
 
-        for index, ligne in enumerate(resultat):
+        for index, ligne in enumerate(
+            resultat
+        ):
             if ligne == "VERSION:2.0":
                 position = index + 1
                 break
 
         resultat.insert(
             position,
-            f"X-WR-CALNAME:{equipe['nom_calendrier']}",
+            "X-WR-CALNAME:"
+            + equipe["nom_calendrier"],
         )
 
     lignes_pliees = []
@@ -178,20 +456,15 @@ def modifier_calendrier(texte, equipe):
             plier_ligne_ics(ligne)
         )
 
-    return (
-        "\r\n".join(lignes_pliees).rstrip()
-        + "\r\n",
-        nombre_evenements,
-        resumes,
+    calendrier = (
+        "\r\n".join(lignes_pliees)
+        + "\r\n"
     )
 
+    return calendrier, infos_evenements
 
-def traiter_equipe(equipe):
-    print(
-        f"\nTéléchargement du calendrier "
-        f"{equipe['nom']}…"
-    )
 
+def recuperer_calendrier(equipe):
     reponse = requests.get(
         equipe["url"],
         headers=EN_TETES,
@@ -200,10 +473,32 @@ def traiter_equipe(equipe):
 
     reponse.raise_for_status()
 
-    calendrier, nombre_evenements, resumes = (
+    return reponse.text
+
+
+def traiter_equipe(equipe):
+    print(
+        f"\nTéléchargement du calendrier "
+        f"{equipe['nom']}…"
+    )
+
+    dtstamps_existants = (
+        lire_dtstamps_existants(
+            equipe["fichier"]
+        )
+    )
+
+    calendrier_source = (
+        recuperer_calendrier(
+            equipe
+        )
+    )
+
+    calendrier_final, evenements = (
         modifier_calendrier(
-            reponse.text,
+            calendrier_source,
             equipe,
+            dtstamps_existants,
         )
     )
 
@@ -213,17 +508,34 @@ def traiter_equipe(equipe):
         encoding="utf-8",
         newline="",
     ) as fichier:
-        fichier.write(calendrier)
+        fichier.write(
+            calendrier_final
+        )
 
     print(
-        f"{nombre_evenements} événement(s) écrit(s) "
-        f"dans {equipe['fichier']}."
+        f"{len(evenements)} événement(s) "
+        f"écrit(s) dans "
+        f"{equipe['fichier']}."
     )
 
-    print("Événements trouvés :")
+    for evenement in evenements:
+        ligne = (
+            f"  {equipe['emoji']} "
+            f"{equipe['nom']} — "
+            f"{evenement['match']} — "
+            f"{evenement['competition']}"
+        )
 
-    for resume in resumes:
-        print(f"  {resume}")
+        if evenement["diffusion"] != "À confirmer":
+            ligne += (
+                f" — 📺 "
+                f"{evenement['diffusion']}"
+            )
+
+        else:
+            ligne += " — TV à confirmer"
+
+        print(ligne)
 
 
 def main():
