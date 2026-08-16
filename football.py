@@ -1,4 +1,5 @@
 import re
+from html.parser import HTMLParser
 
 import requests
 
@@ -26,6 +27,33 @@ EQUIPES = (
         "nom_calendrier": "Équipe de France — Tous les matchs",
     },
 )
+
+
+class AnalyseurTexteHTML(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.textes = []
+        self.ignorer = 0
+
+    def handle_starttag(self, balise, attributs):
+        if balise in ("script", "style", "noscript"):
+            self.ignorer += 1
+
+    def handle_endtag(self, balise):
+        if (
+            balise in ("script", "style", "noscript")
+            and self.ignorer > 0
+        ):
+            self.ignorer -= 1
+
+    def handle_data(self, donnees):
+        if self.ignorer:
+            return
+
+        texte = " ".join(donnees.split())
+
+        if texte:
+            self.textes.append(texte)
 
 
 def echapper_ics(texte):
@@ -243,6 +271,134 @@ def lire_dtstamps_existants(fichier):
     return resultat
 
 
+def extraire_lieu_page_match(page):
+    analyseur = AnalyseurTexteHTML()
+    analyseur.feed(page)
+
+    textes = analyseur.textes
+
+    for index, texte in enumerate(textes):
+        if texte.strip().casefold() != "lieu":
+            continue
+
+        for suivant in textes[index + 1:]:
+            suivant = suivant.strip()
+
+            if not suivant:
+                continue
+
+            # On évite de prendre le nom de la rubrique suivante
+            # si aucun lieu n'est réellement renseigné.
+            if suivant.casefold() in {
+                "diffusion",
+                "avant-match",
+                "tendances",
+                "compétition",
+                "tour",
+                "saison",
+                "date et heure",
+            }:
+                return None
+
+            return suivant
+
+    return None
+
+
+def recuperer_lieu_page_match(url, cache_lieux):
+    if not url:
+        return None
+
+    if url in cache_lieux:
+        return cache_lieux[url]
+
+    try:
+        reponse = requests.get(
+            url,
+            headers=EN_TETES,
+            timeout=20,
+        )
+
+        reponse.raise_for_status()
+
+        lieu = extraire_lieu_page_match(
+            reponse.text
+        )
+
+    except requests.RequestException as erreur:
+        print(
+            f"    Avertissement : impossible de "
+            f"récupérer le lieu sur {url} "
+            f"({erreur})."
+        )
+
+        lieu = None
+
+    cache_lieux[url] = lieu
+
+    return lieu
+
+
+def psg_est_a_domicile(match):
+    morceaux = re.split(
+        r"\s+[–—-]\s+",
+        match,
+        maxsplit=1,
+    )
+
+    if len(morceaux) != 2:
+        return False
+
+    equipe_domicile = morceaux[0].strip()
+
+    return equipe_domicile.casefold() == "psg"
+
+
+def determiner_lieu(
+    lignes,
+    equipe,
+    match,
+    url,
+    cache_lieux,
+):
+    lieu_existant = valeur_propriete(
+        lignes,
+        "LOCATION",
+    )
+
+    if lieu_existant:
+        return deschapper_ics(
+            lieu_existant
+        ).strip()
+
+    # Pour l'instant, on enrichit automatiquement
+    # uniquement les rencontres du PSG.
+    if equipe["nom"] != "PSG":
+        return None
+
+    # Priorité à la page détaillée TV-Sports :
+    # elle peut contenir le stade même lorsque le flux
+    # calendrier ICS ne possède pas LOCATION.
+    lieu_page = recuperer_lieu_page_match(
+        url,
+        cache_lieux,
+    )
+
+    if lieu_page:
+        return lieu_page
+
+    # Dernier fallback fiable :
+    # si le PSG est explicitement l'équipe à domicile
+    # et qu'aucun lieu n'est fourni nulle part,
+    # on utilise son stade habituel.
+    if psg_est_a_domicile(match):
+        return "Parc des Princes"
+
+    # Pour un adversaire à domicile ou un terrain neutre,
+    # on préfère ne rien inventer.
+    return None
+
+
 def construire_resume(
     equipe,
     match,
@@ -272,6 +428,7 @@ def transformer_evenement(
     lignes,
     equipe,
     dtstamps_existants,
+    cache_lieux,
 ):
     uid = valeur_propriete(
         lignes,
@@ -334,6 +491,14 @@ def transformer_evenement(
         else "À confirmer"
     )
 
+    lieu = determiner_lieu(
+        lignes,
+        equipe,
+        match,
+        url,
+        cache_lieux,
+    )
+
     resume = construire_resume(
         equipe,
         match,
@@ -346,6 +511,11 @@ def transformer_evenement(
         f"Diffusion TV : {diffusion}"
     )
 
+    if lieu:
+        description_finale += (
+            f"\nLieu : {lieu}"
+        )
+
     if url:
         description_finale += (
             f"\n\nVoir sur TV Sports : {url}"
@@ -355,6 +525,7 @@ def transformer_evenement(
 
     resume_remplace = False
     description_remplacee = False
+    location_trouvee = False
 
     for ligne in lignes:
         if re.match(
@@ -378,6 +549,21 @@ def transformer_evenement(
                 )
             )
             description_remplacee = True
+            continue
+
+        if re.match(
+            r"^LOCATION(?:;[^:]*)?:",
+            ligne,
+        ):
+            location_trouvee = True
+
+            if lieu:
+                resultat.append(
+                    f"LOCATION:{echapper_ics(lieu)}"
+                )
+            else:
+                resultat.append(ligne)
+
             continue
 
         if (
@@ -405,12 +591,21 @@ def transformer_evenement(
                     )
                 )
 
+            if (
+                lieu
+                and not location_trouvee
+            ):
+                resultat.append(
+                    f"LOCATION:{echapper_ics(lieu)}"
+                )
+
         resultat.append(ligne)
 
     return resultat, {
         "match": match,
         "competition": competition,
         "diffusion": diffusion,
+        "lieu": lieu,
     }
 
 
@@ -418,6 +613,7 @@ def modifier_calendrier(
     texte,
     equipe,
     dtstamps_existants,
+    cache_lieux,
 ):
     lignes = deplier_ics(texte)
 
@@ -444,6 +640,7 @@ def modifier_calendrier(
                         evenement,
                         equipe,
                         dtstamps_existants,
+                        cache_lieux,
                     )
                 )
 
@@ -544,11 +741,14 @@ def traiter_equipe(equipe):
         )
     )
 
+    cache_lieux = {}
+
     calendrier_final, evenements = (
         modifier_calendrier(
             calendrier_source,
             equipe,
             dtstamps_existants,
+            cache_lieux,
         )
     )
 
@@ -575,6 +775,13 @@ def traiter_equipe(equipe):
             evenement["competition"],
             evenement["diffusion"],
         )
+
+        if evenement["lieu"]:
+            ligne += (
+                f" — 📍 {evenement['lieu']}"
+            )
+        else:
+            ligne += " — 📍 lieu à confirmer"
 
         print(
             f"  {ligne}"
