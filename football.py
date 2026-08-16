@@ -287,8 +287,6 @@ def extraire_lieu_page_match(page):
             if not suivant:
                 continue
 
-            # On évite de prendre le nom de la rubrique suivante
-            # si aucun lieu n'est réellement renseigné.
             if suivant.casefold() in {
                 "diffusion",
                 "avant-match",
@@ -339,7 +337,7 @@ def recuperer_lieu_page_match(url, cache_lieux):
     return lieu
 
 
-def psg_est_a_domicile(match):
+def extraire_equipe_domicile(match):
     morceaux = re.split(
         r"\s+[–—-]\s+",
         match,
@@ -347,11 +345,9 @@ def psg_est_a_domicile(match):
     )
 
     if len(morceaux) != 2:
-        return False
+        return None
 
-    equipe_domicile = morceaux[0].strip()
-
-    return equipe_domicile.casefold() == "psg"
+    return morceaux[0].strip()
 
 
 def determiner_lieu(
@@ -367,36 +363,50 @@ def determiner_lieu(
     )
 
     if lieu_existant:
-        return deschapper_ics(
-            lieu_existant
-        ).strip()
+        return (
+            deschapper_ics(
+                lieu_existant
+            ).strip(),
+            "source",
+        )
 
-    # Pour l'instant, on enrichit automatiquement
-    # uniquement les rencontres du PSG.
-    if equipe["nom"] != "PSG":
-        return None
-
-    # Priorité à la page détaillée TV-Sports :
-    # elle peut contenir le stade même lorsque le flux
-    # calendrier ICS ne possède pas LOCATION.
     lieu_page = recuperer_lieu_page_match(
         url,
         cache_lieux,
     )
 
     if lieu_page:
-        return lieu_page
+        return (
+            lieu_page,
+            "source",
+        )
 
-    # Dernier fallback fiable :
-    # si le PSG est explicitement l'équipe à domicile
-    # et qu'aucun lieu n'est fourni nulle part,
-    # on utilise son stade habituel.
-    if psg_est_a_domicile(match):
-        return "Parc des Princes"
+    equipe_domicile = extraire_equipe_domicile(
+        match
+    )
 
-    # Pour un adversaire à domicile ou un terrain neutre,
-    # on préfère ne rien inventer.
-    return None
+    if not equipe_domicile:
+        return None, None
+
+    if (
+        equipe["nom"] == "PSG"
+        and equipe_domicile.casefold() == "psg"
+    ):
+        return (
+            "Parc des Princes",
+            "estimation",
+        )
+
+    if (
+        equipe["nom"] == "France"
+        and equipe_domicile.casefold() == "france"
+    ):
+        return (
+            "Stade de France, Saint-Denis",
+            "estimation",
+        )
+
+    return None, None
 
 
 def construire_resume(
@@ -459,22 +469,12 @@ def transformer_evenement(
     competition = infos["competition"]
     chaines = infos["chaines"]
 
-    # Ligue 1 2026-2027 :
-    # les matchs sont disponibles sur Ligue 1+.
-    # Si TV-Sports n'a pas encore renseigné
-    # individuellement le diffuseur, on complète.
     if (
         not chaines
         and competition.strip().casefold() == "ligue 1"
     ):
         chaines = ["Ligue 1+"]
 
-    # Équipe de France :
-    # les droits des matchs de Ligue des nations
-    # appartiennent au Groupe TF1.
-    #
-    # Tant que TV-Sports ne précise pas la chaîne
-    # exacte, on affiche le groupe détenteur des droits.
     if (
         not chaines
         and equipe["nom"] == "France"
@@ -491,7 +491,7 @@ def transformer_evenement(
         else "À confirmer"
     )
 
-    lieu = determiner_lieu(
+    lieu, statut_lieu = determiner_lieu(
         lignes,
         equipe,
         match,
@@ -512,9 +512,14 @@ def transformer_evenement(
     )
 
     if lieu:
-        description_finale += (
-            f"\nLieu : {lieu}"
-        )
+        if statut_lieu == "estimation":
+            description_finale += (
+                f"\nLieu estimé : {lieu}"
+            )
+        else:
+            description_finale += (
+                f"\nLieu : {lieu}"
+            )
 
     if url:
         description_finale += (
@@ -606,6 +611,7 @@ def transformer_evenement(
         "competition": competition,
         "diffusion": diffusion,
         "lieu": lieu,
+        "statut_lieu": statut_lieu,
     }
 
 
@@ -777,9 +783,15 @@ def traiter_equipe(equipe):
         )
 
         if evenement["lieu"]:
-            ligne += (
-                f" — 📍 {evenement['lieu']}"
-            )
+            if evenement["statut_lieu"] == "estimation":
+                ligne += (
+                    f" — 📍 {evenement['lieu']} "
+                    f"(estimation)"
+                )
+            else:
+                ligne += (
+                    f" — 📍 {evenement['lieu']}"
+                )
         else:
             ligne += " — 📍 lieu à confirmer"
 
