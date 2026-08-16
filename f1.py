@@ -1,21 +1,34 @@
-import requests
-import xml.etree.ElementTree as ET
+from pathlib import Path
+
+f1_code = '''import requests
+from bs4 import BeautifulSoup
 from datetime import datetime, timedelta, timezone
 
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
+
 F1_URL = "https://raw.githubusercontent.com/sportstimes/f1/main/_db/f1/2026.json"
-TV_RSS_TEMPLATE = "https://tv-sports.fr/rss/competition/{tv_id}/{tv_slug}?direct=1"
+TV_SPORTS_URL = "https://tv-sports.fr/formule-1/"
+
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/139.0.0.0 Safari/537.36"
+    )
+}
 
 NOMS_SESSIONS = {
     "fp1": "Essais libres 1",
     "fp2": "Essais libres 2",
     "fp3": "Essais libres 3",
-    "sprintQualifying": "Sprint Qualifying",
+    "sprintQualifying": "Qualifications Sprint",
     "sprint": "Sprint",
     "qualifying": "Qualifications",
     "gp": "Grand Prix",
 }
 
-# Durée par défaut de chaque type de session (pour DTEND)
 DUREES_MINUTES = {
     "fp1": 60,
     "fp2": 60,
@@ -26,36 +39,19 @@ DUREES_MINUTES = {
     "gp": 120,
 }
 
-FENETRE_SECONDES = 6 * 60 * 60  # tolérance de rapprochement F1 / TV
+# Une diffusion Canal+ commence généralement quelques minutes avant la session.
+# 90 minutes est assez large pour absorber l'avant-course sans confondre
+# deux séances différentes du même week-end.
+FENETRE_RAPPROCHEMENT = 90 * 60
 
-# Correspondance nom sportstimes -> compétition TV-Sports (id + slug)
-# Construits à partir de https://tv-sports.fr/competitions-sports-tv?sport=formule-1
-# "Spanish" (Madrid, round 14) et "Bahrain Grand Prix (Malaysia)" (round 16)
-# n'ont pas de correspondance fiable sur TV-Sports pour l'instant -> volontairement absents.
-TV_SPORTS_MAPPING = {
-    "Australian": (1135, "grand-prix-d-australie"),
-    "Chinese": (369, "grand-prix-de-chine"),
-    "Japanese": (718, "grand-prix-du-japon"),
-    "Miami": (1523, "grand-prix-de-miami"),
-    "Canadian": (489, "grand-prix-du-canada"),
-    "Monaco": (451, "grand-prix-de-monaco"),
-    "Barcelona-Catalunya": (427, "grand-prix-d-espagne"),
-    "Austrian": (541, "grand-prix-d-autriche"),
-    "British": (557, "grand-prix-de-grande-bretagne"),
-    "Belgian": (631, "grand-prix-de-spa-francorchamps"),
-    "Hungarian": (593, "grand-prix-de-hongrie"),
-    "Dutch": (1434, "grand-prix-des-pays-bas"),
-    "Italian": (640, "grand-prix-d-italie-monza"),
-    "Azerbaijan": (400, "grand-prix-d-azerbaidjan"),
-    "Singapore": (673, "grand-prix-de-singapour"),
-    "United States": (872, "grand-prix-des-etats-unis"),
-    "Mexican": (854, "grand-prix-du-mexique"),
-    "Brazilian": (897, "grand-prix-du-bresil"),
-    "Las Vegas": (1580, "grand-prix-de-las-vegas"),
-    "Qatar": (1486, "grand-prix-du-qatar"),
-    "Abu Dhabi": (914, "grand-prix-d-abu-dhabi"),
-}
+# Chaînes acceptées.
+# "Canal+" couvre Canal+, Canal+ Sport, Canal+ Sport 360, etc.
+PREFIXE_CHAINE = "canal+"
 
+
+# =============================================================================
+# OUTILS
+# =============================================================================
 
 def titre(texte):
     print()
@@ -64,170 +60,491 @@ def titre(texte):
     print("=" * 90)
 
 
+def echapper_ics(texte):
+    return (
+        str(texte)
+        .replace("\\\\", "\\\\\\\\")
+        .replace(",", "\\\\,")
+        .replace(";", "\\\\;")
+        .replace("\\n", "\\\\n")
+    )
+
+
+def plier_ligne_ics(ligne):
+    """
+    RFC 5545 : une ligne iCalendar ne devrait pas dépasser 75 octets.
+    On replie proprement les longues lignes UTF-8.
+    """
+    morceaux = []
+    courant = ""
+
+    for caractere in ligne:
+        test = courant + caractere
+        limite = 75 if not morceaux else 74
+
+        if len(test.encode("utf-8")) > limite:
+            morceaux.append(courant)
+            courant = caractere
+        else:
+            courant = test
+
+    morceaux.append(courant)
+
+    if len(morceaux) == 1:
+        return morceaux
+
+    return [morceaux[0]] + [" " + morceau for morceau in morceaux[1:]]
+
+
+# =============================================================================
+# SPORTSTIMES : CALENDRIER SPORTIF F1
+# =============================================================================
+
 def recuperer_calendrier_f1():
-    reponse = requests.get(F1_URL, timeout=10)
+    reponse = requests.get(F1_URL, timeout=20)
     reponse.raise_for_status()
     return reponse.json()["races"]
 
 
-def extraire_sessions(course):
+def extraire_toutes_les_sessions(courses):
     sessions = []
-    for cle, valeur_iso in course["sessions"].items():
-        horaire = datetime.fromisoformat(valeur_iso.replace("Z", "+00:00"))
-        sessions.append({
-            "cle": cle,
-            "nom": NOMS_SESSIONS.get(cle, cle),
-            "horaire": horaire,
-            "duree_minutes": DUREES_MINUTES.get(cle, 60),
-        })
+
+    for course in courses:
+        for cle, valeur_iso in course["sessions"].items():
+            horaire = datetime.fromisoformat(
+                valeur_iso.replace("Z", "+00:00")
+            ).astimezone(timezone.utc)
+
+            sessions.append({
+                "course": course,
+                "cle": cle,
+                "nom": NOMS_SESSIONS.get(cle, cle),
+                "horaire": horaire,
+                "duree_minutes": DUREES_MINUTES.get(cle, 60),
+                "diffusions": [],
+            })
+
     sessions.sort(key=lambda s: s["horaire"])
     return sessions
 
 
-def recuperer_diffusions_tv(nom_course):
-    mapping = TV_SPORTS_MAPPING.get(nom_course)
-    if mapping is None:
-        return None  # pas de correspondance connue
+# =============================================================================
+# TV-SPORTS : TOUS LES DIRECTS F1 CANAL+
+# =============================================================================
 
-    tv_id, tv_slug = mapping
-    url = TV_RSS_TEMPLATE.format(tv_id=tv_id, tv_slug=tv_slug)
+def recuperer_diffusions_tv():
+    reponse = requests.get(
+        TV_SPORTS_URL,
+        headers=HEADERS,
+        timeout=20,
+    )
+    reponse.raise_for_status()
 
-    try:
-        reponse = requests.get(url, timeout=10)
-        reponse.raise_for_status()
-        root = ET.fromstring(reponse.content)
-    except (requests.RequestException, ET.ParseError) as erreur:
-        print(f"  ⚠️ Flux TV-Sports inaccessible pour {nom_course} : {erreur}")
-        return []
+    soup = BeautifulSoup(reponse.text, "html.parser")
 
     evenements = []
-    for item in root.findall("./channel/item"):
-        pub_date = item.findtext("pubDate")
-        if not pub_date:
-            continue
 
-        horaire = datetime.strptime(
-            pub_date, "%a, %d %b %Y %H:%M:%S %z"
-        ).astimezone(timezone.utc)
-
-        evenements.append({
-            "titre": item.findtext("title", ""),
-            "lien": item.findtext("link", ""),
-            "horaire": horaire,
-        })
-
-    return evenements
-
-
-def meilleure_diffusion(session, evenements_tv):
-    if not evenements_tv:
-        return None
-
-    candidats = []
-    for evenement in evenements_tv:
-        ecart = abs((evenement["horaire"] - session["horaire"]).total_seconds())
-        if ecart <= FENETRE_SECONDES:
-            candidats.append((ecart, evenement))
-
-    if not candidats:
-        return None
-
-    candidats.sort(key=lambda c: c[0])
-    return candidats[0][1]
-
-
-def echapper_ics(texte):
-    return (
-        texte.replace("\\", "\\\\")
-        .replace(",", "\\,")
-        .replace(";", "\\;")
-        .replace("\n", "\\n")
+    # Le site marque directement les événements F1 avec data-sport-id="102".
+    # data-is-live="1" permet d'écarter magazines et rediffusions.
+    blocs = soup.select(
+        'li.schedule-item[data-sport-id="102"][data-is-live="1"]'
     )
 
+    for bloc in blocs:
+        time_element = bloc.select_one("time.schedule-time")
 
-def construire_vevent(course, session, diffusion):
+        if not time_element:
+            continue
+
+        valeur_datetime = time_element.get("datetime")
+
+        if not valeur_datetime:
+            continue
+
+        try:
+            horaire = datetime.fromisoformat(
+                valeur_datetime
+            ).astimezone(timezone.utc)
+        except ValueError:
+            continue
+
+        chaines = []
+
+        for chaine_element in bloc.select(".schedule-channel__item"):
+            nom = ""
+
+            image = chaine_element.select_one("img[alt]")
+            if image and image.get("alt"):
+                nom = image.get("alt", "").strip()
+
+            if not nom:
+                nom_element = chaine_element.select_one(
+                    ".schedule-channel__name"
+                )
+                if nom_element:
+                    nom = nom_element.get_text(" ", strip=True)
+
+            if nom and nom.lower().startswith(PREFIXE_CHAINE):
+                chaines.append(nom)
+
+        # Pas une diffusion Canal+ : on l'ignore.
+        if not chaines:
+            continue
+
+        # Nom du programme.
+        programme = ""
+
+        liens_programme = bloc.select(
+            ".schedule-program__body a"
+        )
+
+        for lien in liens_programme:
+            texte = lien.get_text(" ", strip=True)
+            if texte and "formule 1" not in texte.lower():
+                programme = texte
+                break
+
+        if not programme:
+            programme = "Formule 1"
+
+        # Lien vers la fiche de diffusion.
+        lien = ""
+
+        for a in bloc.select("a[href]"):
+            href = a.get("href", "")
+
+            if (
+                "-tv-x" in href
+                or "-e" in href
+            ):
+                if href.startswith("/"):
+                    lien = "https://tv-sports.fr" + href
+                else:
+                    lien = href
+                break
+
+        evenements.append({
+            "horaire": horaire,
+            "programme": programme,
+            "chaines": sorted(set(chaines)),
+            "lien": lien,
+        })
+
+    # Déduplication exacte.
+    uniques = []
+    signatures = set()
+
+    for evenement in evenements:
+        signature = (
+            evenement["horaire"],
+            tuple(evenement["chaines"]),
+            evenement["lien"],
+        )
+
+        if signature in signatures:
+            continue
+
+        signatures.add(signature)
+        uniques.append(evenement)
+
+    uniques.sort(key=lambda e: e["horaire"])
+    return uniques
+
+
+# =============================================================================
+# RAPPROCHEMENT TV -> SESSION F1
+# =============================================================================
+
+def associer_diffusions(sessions, diffusions):
+    """
+    Chaque diffusion TV est attribuée à UNE SEULE session :
+    la session F1 chronologiquement la plus proche dans une fenêtre de 90 min.
+
+    Une session peut en revanche recevoir plusieurs diffusions distinctes
+    si elle passe sur plusieurs chaînes Canal+.
+    """
+
+    associations = 0
+
+    for diffusion in diffusions:
+        candidats = []
+
+        for session in sessions:
+            ecart = abs(
+                (
+                    diffusion["horaire"]
+                    - session["horaire"]
+                ).total_seconds()
+            )
+
+            if ecart <= FENETRE_RAPPROCHEMENT:
+                candidats.append((ecart, session))
+
+        if not candidats:
+            continue
+
+        candidats.sort(key=lambda x: x[0])
+        _, session = candidats[0]
+
+        session["diffusions"].append(diffusion)
+        associations += 1
+
+    # Déduplique d'éventuels doublons par session.
+    for session in sessions:
+        uniques = []
+        signatures = set()
+
+        for diffusion in session["diffusions"]:
+            signature = (
+                diffusion["horaire"],
+                tuple(diffusion["chaines"]),
+                diffusion["lien"],
+            )
+
+            if signature in signatures:
+                continue
+
+            signatures.add(signature)
+            uniques.append(diffusion)
+
+        session["diffusions"] = uniques
+
+    return associations
+
+
+# =============================================================================
+# ICS
+# =============================================================================
+
+def construire_vevent(session, dtstamp):
+    course = session["course"]
     debut = session["horaire"]
-    fin = debut + timedelta(minutes=session["duree_minutes"])
+    fin = debut + timedelta(
+        minutes=session["duree_minutes"]
+    )
 
-    summary = f"F1 - {course['location']} - {session['nom']}"
+    summary = (
+        f"F1 - {course['location']} - {session['nom']}"
+    )
 
-    description_lignes = [f"Grand Prix : {course['name']} ({course['location']})"]
-    if diffusion:
-        description_lignes.append(f"Diffusion : {diffusion['titre']}")
-        description_lignes.append(diffusion["lien"])
+    description_lignes = [
+        f"Grand Prix : {course['name']} ({course['location']})"
+    ]
+
+    if session["diffusions"]:
+        for diffusion in session["diffusions"]:
+            chaines = ", ".join(diffusion["chaines"])
+
+            # Heure du début de la diffusion TV en UTC.
+            # L'application calendrier la convertira automatiquement.
+            heure_tv = diffusion["horaire"].strftime(
+                "%d/%m/%Y %H:%M UTC"
+            )
+
+            description_lignes.append(
+                f"Diffusion : {chaines} - {heure_tv}"
+            )
+
+            if diffusion["lien"]:
+                description_lignes.append(
+                    diffusion["lien"]
+                )
     else:
-        description_lignes.append("Diffusion TV : non trouvée")
+        description_lignes.append(
+            "Diffusion TV : non trouvée / pas encore publiée"
+        )
 
-    uid = f"f1-{course['round']}-{session['cle']}@sports-us-bein-calendar"
+    uid = (
+        f"f1-{course['round']}-{session['cle']}"
+        "@sports-us-bein-calendar"
+    )
 
     lignes = [
         "BEGIN:VEVENT",
         f"UID:{uid}",
-        f"DTSTAMP:{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}",
+        f"DTSTAMP:{dtstamp}",
         f"DTSTART:{debut.strftime('%Y%m%dT%H%M%SZ')}",
         f"DTEND:{fin.strftime('%Y%m%dT%H%M%SZ')}",
         f"SUMMARY:{echapper_ics(summary)}",
-        f"DESCRIPTION:{echapper_ics(chr(10).join(description_lignes))}",
+        (
+            "DESCRIPTION:"
+            + echapper_ics(
+                "\\n".join(description_lignes)
+            )
+        ),
         f"LOCATION:{echapper_ics(course['location'])}",
         "END:VEVENT",
     ]
-    return lignes
 
+    resultat = []
+
+    for ligne in lignes:
+        resultat.extend(plier_ligne_ics(ligne))
+
+    return resultat
+
+
+# =============================================================================
+# PROGRAMME PRINCIPAL
+# =============================================================================
 
 def main():
-    titre("🏎️ GÉNÉRATION DU CALENDRIER F1 2026 (avec diffusions TV-Sports)")
+    titre(
+        "🏎️ GÉNÉRATION DU CALENDRIER F1 2026 "
+        "(sessions + directs Canal+)"
+    )
 
     print()
     print("📡 Téléchargement du calendrier F1...")
     courses = recuperer_calendrier_f1()
-    print(f"  {len(courses)} courses trouvées.")
+    sessions = extraire_toutes_les_sessions(courses)
+
+    print(f"  {len(courses)} Grands Prix trouvés.")
+    print(f"  {len(sessions)} sessions trouvées.")
+
+    print()
+    print("📺 Lecture des directs F1 sur TV-Sports...")
+    diffusions = recuperer_diffusions_tv()
+
+    print(
+        f"  {len(diffusions)} diffusion(s) Canal+ "
+        "en direct trouvée(s) actuellement."
+    )
+
+    associations = associer_diffusions(
+        sessions,
+        diffusions,
+    )
+
+    print(
+        f"  {associations} diffusion(s) associée(s) "
+        "à une session F1."
+    )
+
+    print()
+    print("-" * 90)
+    print("DIFFUSIONS ASSOCIÉES")
+    print("-" * 90)
+
+    sessions_avec_tv = 0
+
+    for session in sessions:
+        if not session["diffusions"]:
+            continue
+
+        sessions_avec_tv += 1
+
+        print()
+        print(
+            f"🏁 Round {session['course']['round']:02d} "
+            f"- {session['course']['location']} "
+            f"- {session['nom']}"
+        )
+
+        print(
+            "   Session : "
+            + session["horaire"].strftime(
+                "%d/%m/%Y %H:%M UTC"
+            )
+        )
+
+        for diffusion in session["diffusions"]:
+            ecart_minutes = int(
+                (
+                    session["horaire"]
+                    - diffusion["horaire"]
+                ).total_seconds()
+                / 60
+            )
+
+            print(
+                "   📺 "
+                + ", ".join(diffusion["chaines"])
+                + " | "
+                + diffusion["horaire"].strftime(
+                    "%d/%m/%Y %H:%M UTC"
+                )
+                + f" | début TV {ecart_minutes} min avant la session"
+            )
+
+    dtstamp = datetime.now(
+        timezone.utc
+    ).strftime("%Y%m%dT%H%M%SZ")
 
     lignes_ics = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
         "PRODID:-//sports-us-bein-calendar//F1 2026//FR",
         "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH",
+        "X-WR-CALNAME:F1 2026",
+        "REFRESH-INTERVAL;VALUE=DURATION:PT6H",
+        "X-PUBLISHED-TTL:PT6H",
     ]
 
-    total_sessions = 0
-    total_avec_tv = 0
-
-    for course in courses:
-        nom = course["name"]
-        print()
-        print(f"🏎️ {nom} — {course['location']}")
-
-        sessions = extraire_sessions(course)
-        evenements_tv = recuperer_diffusions_tv(nom)
-
-        if evenements_tv is None:
-            print("  ⚠️ Aucune correspondance TV-Sports connue pour ce GP.")
-        elif not evenements_tv:
-            print("  ⚠️ Flux TV-Sports vide ou inaccessible.")
-        else:
-            print(f"  {len(evenements_tv)} diffusions TV trouvées.")
-
-        for session in sessions:
-            diffusion = meilleure_diffusion(session, evenements_tv or [])
-            lignes_ics.extend(construire_vevent(course, session, diffusion))
-
-            total_sessions += 1
-            if diffusion:
-                total_avec_tv += 1
-                print(f"    ✅ {session['nom']:<20} → {diffusion['titre']}")
-            else:
-                print(f"    ➖ {session['nom']:<20} (pas de diffusion associée)")
+    for session in sessions:
+        lignes_ics.extend(
+            construire_vevent(
+                session,
+                dtstamp,
+            )
+        )
 
     lignes_ics.append("END:VCALENDAR")
 
-    with open("f1_calendar.ics", "w", encoding="utf-8") as fichier:
-        fichier.write("\r\n".join(lignes_ics) + "\r\n")
+    with open(
+        "f1_calendar.ics",
+        "w",
+        encoding="utf-8",
+        newline="",
+    ) as fichier:
+        fichier.write(
+            "\\r\\n".join(lignes_ics)
+            + "\\r\\n"
+        )
 
     titre("✅ TERMINÉ")
-    print(f"Sessions générées      : {total_sessions}")
-    print(f"Avec diffusion TV      : {total_avec_tv}")
-    print(f"Fichier écrit          : f1_calendar.ics")
+
+    print(f"Grands Prix            : {len(courses)}")
+    print(f"Sessions générées      : {len(sessions)}")
+    print(f"Sessions avec TV       : {sessions_avec_tv}")
+    print(f"Diffusions Canal+      : {associations}")
+    print("Fichier écrit          : f1_calendar.ics")
 
 
 if __name__ == "__main__":
     main()
+'''
+
+workflow = '''name: Test du calendrier
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer nos fichiers
+        uses: actions/checkout@v6
+
+      - name: Installer Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Installer les bibliothèques
+        run: pip install requests beautifulsoup4
+
+      - name: Générer le calendrier F1
+        run: python f1.py
+
+      - name: Enregistrer le calendrier mis à jour
+        run: |
+          git config user.name "github-actions[
