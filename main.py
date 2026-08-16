@@ -2,27 +2,24 @@ import re
 from datetime import datetime, timedelta, timezone
 from html import unescape
 from html.parser import HTMLParser
-from urllib.parse import parse_qs, urljoin, urlparse
+from zoneinfo import ZoneInfo
 
 import requests
 
 
-BASE_TV_SPORTS = "https://tv-sports.fr"
-
 EN_TETES = {
+    "User-Agent": "Mozilla/5.0 (compatible; SportsCalendarBot/1.0)",
+    "Accept-Language": "fr-FR,fr;q=0.9,en;q=0.8",
+}
+
+EN_TETES_TV_PROGRAMME = {
     "User-Agent": (
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
         "Chrome/140.0 Safari/537.36"
     ),
     "Accept-Language": "fr-FR,fr;q=0.9,en;q=0.8",
-    "Accept": (
-        "text/html,application/xhtml+xml,"
-        "application/xml;q=0.9,"
-        "text/calendar;q=0.9,*/*;q=0.8"
-    ),
 }
-
 
 SPORTS = (
     {
@@ -32,10 +29,6 @@ SPORTS = (
         "url_ics": (
             "https://tv-sports.fr/"
             "calendrier/competition/199/mlb?direct=1"
-        ),
-        "url_page": (
-            "https://tv-sports.fr/"
-            "base-ball/mlb/match-direct"
         ),
         "fichier": "mlb_bein_calendar.ics",
         "duree_minutes": 210,
@@ -47,10 +40,6 @@ SPORTS = (
         "url_ics": (
             "https://tv-sports.fr/"
             "calendrier/competition/172/nfl?direct=1"
-        ),
-        "url_page": (
-            "https://tv-sports.fr/"
-            "football-americain/nfl"
         ),
         "fichier": "nfl_bein_calendar.ics",
         "duree_minutes": 240,
@@ -256,62 +245,68 @@ STADES_NFL = {
 }
 
 
-class AnalyseurLiensEvenements(HTMLParser):
+MOIS_URL = {
+    1: "janvier",
+    2: "fevrier",
+    3: "mars",
+    4: "avril",
+    5: "mai",
+    6: "juin",
+    7: "juillet",
+    8: "aout",
+    9: "septembre",
+    10: "octobre",
+    11: "novembre",
+    12: "decembre",
+}
+
+
+JOURS_URL = (
+    "lundi",
+    "mardi",
+    "mercredi",
+    "jeudi",
+    "vendredi",
+    "samedi",
+    "dimanche",
+)
+
+
+PARIS = ZoneInfo(
+    "Europe/Paris"
+)
+
+
+class AnalyseurProgrammeTV(HTMLParser):
     def __init__(self):
         super().__init__(
             convert_charrefs=True
         )
 
-        self.liens = []
+        self.evenements = []
+        self.canal = None
 
-    def handle_starttag(
-        self,
-        balise,
-        attributs,
-    ):
-        if balise != "a":
-            return
-
-        attributs = dict(
-            attributs
-        )
-
-        href = (
-            attributs
-            .get(
-                "href",
-                "",
-            )
-            .strip()
-        )
-
-        if not href:
-            return
-
-        if re.search(
-            r"-tv-x\d+",
-            href,
-        ):
-            self.liens.append(
-                href
-            )
-
-
-class AnalyseurPageDetail(HTMLParser):
-    def __init__(self):
-        super().__init__(
-            convert_charrefs=True
-        )
-
+        self.capture_h2 = False
         self.capture_h3 = False
+        self.dans_lien_h3 = False
+
+        self.texte_h2 = []
         self.texte_h3 = []
+        self.texte_lien_h3 = []
 
-        self.dans_direct = False
+        self.lien_h3 = None
+        self.pre_h3 = []
 
-        self.liens_ics_direct = []
+        self.evenement_courant = None
+        self.textes_recents = []
 
-        self.textes = []
-        self.ignorer = 0
+    def finaliser_evenement(self):
+        if self.evenement_courant is not None:
+            self.evenements.append(
+                self.evenement_courant
+            )
+
+            self.evenement_courant = None
 
     def handle_starttag(
         self,
@@ -322,21 +317,36 @@ class AnalyseurPageDetail(HTMLParser):
             attributs
         )
 
-        if balise in (
-            "script",
-            "style",
-            "noscript",
-        ):
-            self.ignorer += 1
+        if balise == "h2":
+            self.finaliser_evenement()
+
+            self.capture_h2 = True
+            self.texte_h2 = []
+
+            return
 
         if balise == "h3":
+            self.finaliser_evenement()
+
             self.capture_h3 = True
+
             self.texte_h3 = []
+            self.texte_lien_h3 = []
+
+            self.lien_h3 = None
+
+            self.pre_h3 = (
+                self.textes_recents[-12:]
+            )
+
+            return
 
         if (
             balise == "a"
-            and self.dans_direct
+            and self.capture_h3
         ):
+            self.dans_lien_h3 = True
+
             href = (
                 attributs
                 .get(
@@ -346,62 +356,81 @@ class AnalyseurPageDetail(HTMLParser):
                 .strip()
             )
 
-            if (
-                href
-                and "/calendrier/diffusion/"
-                in href
-                and ".ics" in href
-            ):
-                self.liens_ics_direct.append(
-                    href
-                )
+            if href:
+                self.lien_h3 = href
 
     def handle_endtag(
         self,
         balise,
     ):
         if (
-            balise
-            in (
-                "script",
-                "style",
-                "noscript",
-            )
-            and self.ignorer > 0
+            balise == "a"
+            and self.capture_h3
         ):
-            self.ignorer -= 1
+            self.dans_lien_h3 = False
+            return
+
+        if (
+            balise == "h2"
+            and self.capture_h2
+        ):
+            texte = " ".join(
+                " ".join(
+                    self.texte_h2
+                ).split()
+            )
+
+            if texte.casefold().startswith(
+                "bein sports"
+            ):
+                self.canal = texte
+            else:
+                self.canal = None
+
+            self.capture_h2 = False
+            self.texte_h2 = []
+
+            return
 
         if (
             balise == "h3"
             and self.capture_h3
         ):
-            texte = " ".join(
-                "".join(
+            titre_lien = " ".join(
+                " ".join(
+                    self.texte_lien_h3
+                ).split()
+            )
+
+            titre_h3 = " ".join(
+                " ".join(
                     self.texte_h3
                 ).split()
             )
 
-            self.dans_direct = (
-                texte
-                .casefold()
-                == "direct"
-            )
+            self.evenement_courant = {
+                "canal": self.canal,
+                "titre": (
+                    titre_lien
+                    or titre_h3
+                ),
+                "href": self.lien_h3,
+                "pre": list(
+                    self.pre_h3
+                ),
+                "h3": list(
+                    self.texte_h3
+                ),
+                "post": [],
+            }
 
             self.capture_h3 = False
-            self.texte_h3 = []
+            self.dans_lien_h3 = False
 
     def handle_data(
         self,
         donnees,
     ):
-        if self.ignorer:
-            return
-
-        if self.capture_h3:
-            self.texte_h3.append(
-                donnees
-            )
-
         texte = " ".join(
             donnees.split()
         )
@@ -409,29 +438,59 @@ class AnalyseurPageDetail(HTMLParser):
         if not texte:
             return
 
-        self.textes.append(
+        self.textes_recents.append(
             texte
         )
 
-        if (
-            self.dans_direct
-            and texte
-            .casefold()
-            .startswith(
-                "rediffusion"
+        self.textes_recents = (
+            self.textes_recents[-60:]
+        )
+
+        if self.capture_h2:
+            self.texte_h2.append(
+                texte
             )
-        ):
-            self.dans_direct = False
+            return
+
+        if self.capture_h3:
+            self.texte_h3.append(
+                texte
+            )
+
+            if self.dans_lien_h3:
+                self.texte_lien_h3.append(
+                    texte
+                )
+
+            return
+
+        if self.evenement_courant is not None:
+            self.evenement_courant[
+                "post"
+            ].append(
+                texte
+            )
+
+    def close(self):
+        super().close()
+
+        self.finaliser_evenement()
 
 
-def deplier_ics(
-    texte,
-):
+def deplier_ics(texte):
     lignes = (
         texte
-        .replace("\r\n", "\n")
-        .replace("\r", "\n")
-        .split("\n")
+        .replace(
+            "\r\n",
+            "\n",
+        )
+        .replace(
+            "\r",
+            "\n",
+        )
+        .split(
+            "\n"
+        )
     )
 
     resultat = []
@@ -439,7 +498,10 @@ def deplier_ics(
     for ligne in lignes:
         if (
             ligne.startswith(
-                (" ", "\t")
+                (
+                    " ",
+                    "\t",
+                )
             )
             and resultat
         ):
@@ -455,14 +517,14 @@ def deplier_ics(
     return resultat
 
 
-def deschapper_ics(
-    texte,
-):
+def deschapper_ics(texte):
     resultat = []
     index = 0
 
     while index < len(texte):
-        caractere = texte[index]
+        caractere = texte[
+            index
+        ]
 
         if (
             caractere == "\\"
@@ -480,19 +542,13 @@ def deschapper_ics(
                     "\n"
                 )
 
-            elif suivant == ",":
+            elif suivant in (
+                ",",
+                ";",
+                "\\",
+            ):
                 resultat.append(
-                    ","
-                )
-
-            elif suivant == ";":
-                resultat.append(
-                    ";"
-                )
-
-            elif suivant == "\\":
-                resultat.append(
-                    "\\"
+                    suivant
                 )
 
             else:
@@ -501,28 +557,38 @@ def deschapper_ics(
                 )
 
             index += 2
-            continue
 
-        resultat.append(
-            caractere
-        )
+        else:
+            resultat.append(
+                caractere
+            )
 
-        index += 1
+            index += 1
 
     return "".join(
         resultat
     )
 
 
-def echapper_ics(
-    texte,
-):
+def echapper_ics(texte):
     return (
         str(texte)
-        .replace("\\", "\\\\")
-        .replace("\n", "\\n")
-        .replace(",", "\\,")
-        .replace(";", "\\;")
+        .replace(
+            "\\",
+            "\\\\",
+        )
+        .replace(
+            "\n",
+            "\\n",
+        )
+        .replace(
+            ",",
+            "\\,",
+        )
+        .replace(
+            ";",
+            "\\;",
+        )
     )
 
 
@@ -543,7 +609,10 @@ def couper_utf8(
             )
         )
 
-        if nouvelle_taille > limite:
+        if (
+            nouvelle_taille
+            > limite
+        ):
             break
 
         taille = nouvelle_taille
@@ -620,18 +689,20 @@ def valeur_propriete(
 def extraire_evenements_ics(
     texte,
 ):
-    lignes = deplier_ics(
-        texte
-    )
-
     evenements = []
     evenement = None
 
-    for ligne in lignes:
-        if ligne == "BEGIN:VEVENT":
+    for ligne in deplier_ics(
+        texte
+    ):
+        if (
+            ligne
+            == "BEGIN:VEVENT"
+        ):
             evenement = [
                 ligne
             ]
+
             continue
 
         if evenement is None:
@@ -641,7 +712,10 @@ def extraire_evenements_ics(
             ligne
         )
 
-        if ligne == "END:VEVENT":
+        if (
+            ligne
+            == "END:VEVENT"
+        ):
             evenements.append(
                 evenement
             )
@@ -727,7 +801,6 @@ def extraire_infos_description(
     if not description:
         return {
             "match": None,
-            "competition": None,
             "chaines": [],
         }
 
@@ -764,44 +837,27 @@ def extraire_infos_description(
         else None
     )
 
-    competition = (
-        parties[1]
-        if len(parties) >= 2
-        else None
-    )
-
-    if competition:
-        competition = re.sub(
-            r"^(?:Base-ball|"
-            r"Football américain)"
-            r"\s*-\s*",
-            "",
-            competition,
-            flags=re.IGNORECASE,
-        ).strip()
-
     chaines = []
 
     if len(parties) >= 3:
         for partie in parties[
             2:
         ]:
-            chaine = (
-                partie.strip()
-            )
-
             if (
-                chaine
-                and chaine
+                partie
+                .casefold()
+                .startswith(
+                    "bein sports"
+                )
+                and partie
                 not in chaines
             ):
                 chaines.append(
-                    chaine
+                    partie
                 )
 
     return {
         "match": match,
-        "competition": competition,
         "chaines": chaines,
     }
 
@@ -809,23 +865,17 @@ def extraire_infos_description(
 def extraire_match_ics(
     evenement,
 ):
-    description = (
-        valeur_propriete(
-            evenement,
-            "DESCRIPTION",
-        )
-    )
-
     infos = (
         extraire_infos_description(
-            description
+            valeur_propriete(
+                evenement,
+                "DESCRIPTION",
+            )
         )
     )
 
     if infos["match"]:
-        return infos[
-            "match"
-        ]
+        return infos["match"]
 
     summary = valeur_propriete(
         evenement,
@@ -846,40 +896,18 @@ def extraire_match_ics(
 def extraire_chaines_ics(
     evenement,
 ):
-    description = (
-        valeur_propriete(
-            evenement,
-            "DESCRIPTION",
-        )
-    )
-
     infos = (
         extraire_infos_description(
-            description
+            valeur_propriete(
+                evenement,
+                "DESCRIPTION",
+            )
         )
     )
 
-    chaines = []
-
-    for chaine in infos[
+    return infos[
         "chaines"
-    ]:
-        if (
-            chaine
-            .casefold()
-            .startswith(
-                "bein sports"
-            )
-        ):
-            if (
-                chaine
-                not in chaines
-            ):
-                chaines.append(
-                    chaine
-                )
-
-    return chaines
+    ]
 
 
 def extraire_url_ics(
@@ -959,6 +987,11 @@ def stade_estime(
     match,
     sport,
 ):
+    if est_redzone(
+        match
+    ):
+        return None
+
     domicile = (
         extraire_equipe_domicile(
             match
@@ -997,198 +1030,6 @@ def stade_estime(
     return None
 
 
-def extraire_lieu_page_detail(
-    page,
-):
-    analyseur = (
-        AnalyseurPageDetail()
-    )
-
-    analyseur.feed(
-        page
-    )
-
-    textes = analyseur.textes
-
-    fins = {
-        "diffusion",
-        "avant-match",
-        "tendances",
-        "compétition",
-        "tour",
-        "saison",
-        "date et heure",
-        "calendrier",
-        "horaire",
-        "chaîne",
-    }
-
-    for index, texte in enumerate(
-        textes
-    ):
-        if (
-            texte
-            .strip()
-            .casefold()
-            not in {
-                "lieu",
-                "stade",
-            }
-        ):
-            continue
-
-        for suivant in textes[
-            index + 1:
-        ]:
-            suivant = (
-                suivant.strip()
-            )
-
-            if not suivant:
-                continue
-
-            if (
-                suivant
-                .casefold()
-                in fins
-            ):
-                return None
-
-            if (
-                suivant
-                .casefold()
-                .startswith(
-                    "bein sports"
-                )
-            ):
-                return None
-
-            return suivant
-
-    return None
-
-
-def recuperer_page(
-    url,
-    timeout=30,
-):
-    reponse = requests.get(
-        url,
-        headers=EN_TETES,
-        timeout=timeout,
-    )
-
-    reponse.raise_for_status()
-
-    return reponse.text
-
-
-def recuperer_lieu_page(
-    url,
-    cache_lieux,
-):
-    if not url:
-        return None
-
-    if url in cache_lieux:
-        return (
-            cache_lieux[
-                url
-            ]
-        )
-
-    try:
-        page = recuperer_page(
-            url,
-            timeout=15,
-        )
-
-        lieu = (
-            extraire_lieu_page_detail(
-                page
-            )
-        )
-
-    except requests.RequestException:
-        lieu = None
-
-    cache_lieux[
-        url
-    ] = lieu
-
-    return lieu
-
-
-def determiner_lieu(
-    match,
-    sport,
-    url=None,
-    cache_lieux=None,
-    lieu_source=None,
-    page_detail=None,
-):
-    if est_redzone(
-        match
-    ):
-        return (
-            None,
-            "multiple",
-        )
-
-    if lieu_source:
-        return (
-            lieu_source,
-            "source",
-        )
-
-    if page_detail:
-        lieu_page = (
-            extraire_lieu_page_detail(
-                page_detail
-            )
-        )
-
-        if lieu_page:
-            return (
-                lieu_page,
-                "source",
-            )
-
-    if (
-        url
-        and cache_lieux
-        is not None
-    ):
-        lieu_page = (
-            recuperer_lieu_page(
-                url,
-                cache_lieux,
-            )
-        )
-
-        if lieu_page:
-            return (
-                lieu_page,
-                "source",
-            )
-
-    lieu_estime = stade_estime(
-        match,
-        sport,
-    )
-
-    if lieu_estime:
-        return (
-            lieu_estime,
-            "estimation",
-        )
-
-    return (
-        None,
-        None,
-    )
-
-
 def parse_datetime_ics(
     valeur,
 ):
@@ -1222,40 +1063,7 @@ def parse_datetime_ics(
     return None
 
 
-def parse_iso_utc(
-    valeur,
-):
-    if not valeur:
-        return None
-
-    try:
-        resultat = (
-            datetime.fromisoformat(
-                valeur.replace(
-                    "Z",
-                    "+00:00",
-                )
-            )
-        )
-
-    except ValueError:
-        return None
-
-    if resultat.tzinfo is None:
-        resultat = (
-            resultat.replace(
-                tzinfo=timezone.utc
-            )
-        )
-
-    return (
-        resultat.astimezone(
-            timezone.utc
-        )
-    )
-
-
-def duree_defaut(
+def duree_evenement(
     match,
     sport,
 ):
@@ -1275,7 +1083,6 @@ def duree_defaut(
 def preparer_evenement_ics(
     evenement,
     sport,
-    cache_lieux,
     dtstamps_existants,
 ):
     match = (
@@ -1284,17 +1091,11 @@ def preparer_evenement_ics(
         )
     )
 
-    if not match:
-        return None
-
     chaines = (
         extraire_chaines_ics(
             evenement
         )
     )
-
-    if not chaines:
-        return None
 
     uid = valeur_propriete(
         evenement,
@@ -1307,7 +1108,9 @@ def preparer_evenement_ics(
     )
 
     if (
-        not uid
+        not match
+        or not chaines
+        or not uid
         or not dtstart
     ):
         return None
@@ -1336,26 +1139,6 @@ def preparer_evenement_ics(
         )
     )
 
-    url = extraire_url_ics(
-        evenement
-    )
-
-    lieu_source = (
-        extraire_lieu_source_ics(
-            evenement
-        )
-    )
-
-    lieu, statut_lieu = (
-        determiner_lieu(
-            match=match,
-            sport=sport,
-            url=url,
-            cache_lieux=cache_lieux,
-            lieu_source=lieu_source,
-        )
-    )
-
     if not dtend:
         debut = (
             parse_datetime_ics(
@@ -1365,7 +1148,7 @@ def preparer_evenement_ics(
 
         if debut:
             fin = debut + timedelta(
-                minutes=duree_defaut(
+                minutes=duree_evenement(
                     match,
                     sport,
                 )
@@ -1375,6 +1158,34 @@ def preparer_evenement_ics(
                 "%Y%m%dT%H%M%SZ"
             )
 
+    lieu_source = (
+        extraire_lieu_source_ics(
+            evenement
+        )
+    )
+
+    if est_redzone(
+        match
+    ):
+        lieu = None
+        statut_lieu = "multiple"
+
+    elif lieu_source:
+        lieu = lieu_source
+        statut_lieu = "source"
+
+    else:
+        lieu = stade_estime(
+            match,
+            sport,
+        )
+
+        statut_lieu = (
+            "estimation"
+            if lieu
+            else None
+        )
+
     return {
         "uid": uid,
         "dtstamp": dtstamp,
@@ -1382,13 +1193,17 @@ def preparer_evenement_ics(
         "dtend": dtend,
         "match": match,
         "chaines": chaines,
-        "url": url,
+        "url": (
+            extraire_url_ics(
+                evenement
+            )
+        ),
         "lieu": lieu,
         "statut_lieu": statut_lieu,
     }
 
 
-def recuperer_evenements_ics(
+def recuperer_evenements_tv_sports(
     sport,
     dtstamps_existants,
 ):
@@ -1414,21 +1229,15 @@ def recuperer_evenements_ics(
             f"invalide."
         )
 
-    source = (
-        extraire_evenements_ics(
-            texte
-        )
-    )
-
-    cache_lieux = {}
     evenements = []
 
-    for evenement_source in source:
+    for source in extraire_evenements_ics(
+        texte
+    ):
         evenement = (
             preparer_evenement_ics(
-                evenement_source,
+                source,
                 sport,
-                cache_lieux,
                 dtstamps_existants,
             )
         )
@@ -1441,431 +1250,434 @@ def recuperer_evenements_ics(
     return evenements
 
 
-def extraire_liens_evenements(
-    page,
+def slug_date_tv_programme(
+    date,
 ):
-    analyseur = (
-        AnalyseurLiensEvenements()
+    return (
+        f"{JOURS_URL[date.weekday()]}-"
+        f"{date.day}-"
+        f"{MOIS_URL[date.month]}-"
+        f"{date.year}"
     )
 
-    analyseur.feed(
-        page
-    )
 
-    resultat = []
-    deja_vus = set()
-
-    for href in analyseur.liens:
-        url = urljoin(
-            BASE_TV_SPORTS,
-            unescape(
-                href
-            ),
-        )
-
-        if url in deja_vus:
-            continue
-
-        deja_vus.add(
-            url
-        )
-
-        resultat.append(
-            url
-        )
-
-    return resultat
-
-
-def extraire_liens_ics_direct(
-    page,
+def extraire_heure(
+    pre,
 ):
-    analyseur = (
-        AnalyseurPageDetail()
+    texte = " ".join(
+        pre
     )
 
-    analyseur.feed(
-        page
+    correspondances = list(
+        re.finditer(
+            r"\b([01]?\d|2[0-3])"
+            r"h([0-5]\d)\b",
+            texte,
+        )
     )
 
-    resultat = []
-    deja_vus = set()
+    if not correspondances:
+        return None
 
-    for href in (
-        analyseur
-        .liens_ics_direct
-    ):
-        url = urljoin(
-            BASE_TV_SPORTS,
-            unescape(
-                href
-            ),
-        )
-
-        if url in deja_vus:
-            continue
-
-        deja_vus.add(
-            url
-        )
-
-        resultat.append(
-            url
-        )
-
-    return resultat
-
-
-def uid_depuis_lien_direct(
-    lien_ics,
-    source,
-    sport,
-):
-    correspondance = re.search(
-        r"-tv-x(\d+)",
-        source or "",
+    correspondance = (
+        correspondances[-1]
     )
-
-    if correspondance:
-        return (
-            f"{sport['prefixe'].lower()}-"
-            f"x{correspondance.group(1)}"
-            f"@sports-us-bein-calendar"
-        )
-
-    chemin = urlparse(
-        lien_ics
-    ).path
-
-    correspondance = re.search(
-        r"/calendrier/diffusion/"
-        r"(d\d+)\.ics",
-        chemin,
-    )
-
-    if correspondance:
-        return (
-            f"{sport['prefixe'].lower()}-"
-            f"{correspondance.group(1)}"
-            f"@sports-us-bein-calendar"
-        )
-
-    identifiant = re.sub(
-        r"[^a-z0-9]+",
-        "-",
-        lien_ics.casefold(),
-    ).strip("-")
 
     return (
-        f"{sport['prefixe'].lower()}-"
-        f"{identifiant[-80:]}"
+        int(
+            correspondance.group(1)
+        ),
+        int(
+            correspondance.group(2)
+        ),
+    )
+
+
+def est_evenement_nfl_tv_programme(
+    evenement,
+):
+    texte = " ".join(
+        [
+            evenement.get(
+                "titre",
+                "",
+            )
+        ]
+        + evenement.get(
+            "h3",
+            [],
+        )
+        + evenement.get(
+            "post",
+            [],
+        )[:8]
+    ).casefold()
+
+    return (
+        "nfl" in texte
+        and (
+            "football américain"
+            in texte
+            or "football americain"
+            in texte
+            or "redzone"
+            in texte
+        )
+    )
+
+
+def est_direct_tv_programme(
+    evenement,
+):
+    contexte = " ".join(
+        evenement.get(
+            "h3",
+            [],
+        )
+        + evenement.get(
+            "post",
+            [],
+        )[:8]
+    )
+
+    return bool(
+        re.search(
+            r"\bdirect\b",
+            contexte,
+            flags=re.IGNORECASE,
+        )
+    )
+
+
+def nettoyer_titre_nfl_tv_programme(
+    titre,
+):
+    titre = " ".join(
+        unescape(
+            titre
+            or ""
+        ).split()
+    )
+
+    if "redzone" in titre.casefold():
+        return "NFL RedZone"
+
+    titre = re.sub(
+        r"\s+Football américain\b.*$",
+        "",
+        titre,
+        flags=re.IGNORECASE,
+    )
+
+    titre = re.sub(
+        r"\s+Football americain\b.*$",
+        "",
+        titre,
+        flags=re.IGNORECASE,
+    )
+
+    titre = re.sub(
+        r"\s+NFL\b.*$",
+        "",
+        titre,
+        flags=re.IGNORECASE,
+    )
+
+    titre = re.sub(
+        r"\s*/\s*",
+        " – ",
+        titre,
+    )
+
+    return titre.strip()
+
+
+def uid_tv_programme(
+    href,
+    match,
+    date,
+):
+    if href:
+        correspondance = re.search(
+            r"-e(\d+)",
+            href,
+        )
+
+        if correspondance:
+            return (
+                f"nfl-tvp-e"
+                f"{correspondance.group(1)}"
+                f"@sports-us-bein-calendar"
+            )
+
+    compact = re.sub(
+        r"[^a-z0-9]+",
+        "-",
+        match.casefold(),
+    ).strip(
+        "-"
+    )
+
+    return (
+        f"nfl-tvp-"
+        f"{date:%Y%m%d}-"
+        f"{compact}"
         f"@sports-us-bein-calendar"
     )
 
 
-def preparer_depuis_lien_direct(
-    lien_ics,
-    page_detail,
-    url_detail,
+def recuperer_evenements_nfl_tv_programme(
     sport,
     dtstamps_existants,
 ):
-    analyse = urlparse(
-        lien_ics
+    maintenant_paris = datetime.now(
+        PARIS
     )
 
-    parametres = parse_qs(
-        analyse.query
+    aujourd_hui = (
+        maintenant_paris.date()
     )
 
-    titre = (
-        parametres
-        .get(
-            "title",
-            [None],
-        )[0]
-    )
+    resultat = []
+    deja_vus = set()
 
-    chaine = (
-        parametres
-        .get(
-            "channel",
-            [None],
-        )[0]
-    )
-
-    debut_brut = (
-        parametres
-        .get(
-            "start",
-            [None],
-        )[0]
-    )
-
-    fin_brut = (
-        parametres
-        .get(
-            "end",
-            [None],
-        )[0]
-    )
-
-    source = (
-        parametres
-        .get(
-            "source",
-            [None],
-        )[0]
-    )
-
-    if titre:
-        titre = unescape(
-            titre
-        ).strip()
-
-    if chaine:
-        chaine = unescape(
-            chaine
-        ).strip()
-
-    if (
-        not titre
-        or not chaine
-        or not chaine
-        .casefold()
-        .startswith(
-            "bein sports"
-        )
+    # TV-Programme expose essentiellement
+    # sa grille à court terme.
+    # Le workflow tournant toutes les 6 h,
+    # les nouvelles diffusions seront ajoutées
+    # automatiquement lorsqu'elles apparaissent.
+    for decalage in range(
+        11
     ):
-        return None
-
-    debut = parse_iso_utc(
-        debut_brut
-    )
-
-    fin = parse_iso_utc(
-        fin_brut
-    )
-
-    if not debut:
-        return None
-
-    if not fin:
-        fin = debut + timedelta(
-            minutes=duree_defaut(
-                titre,
-                sport,
+        date = (
+            aujourd_hui
+            + timedelta(
+                days=decalage
             )
         )
 
-    maintenant = datetime.now(
-        timezone.utc
-    )
-
-    if fin <= maintenant:
-        return None
-
-    if source:
-        url_evenement = urljoin(
-            BASE_TV_SPORTS,
-            source,
-        )
-
-    else:
-        url_evenement = (
-            url_detail
-        )
-
-    uid = uid_depuis_lien_direct(
-        lien_ics,
-        source or url_detail,
-        sport,
-    )
-
-    dtstamp = (
-        dtstamps_existants.get(
-            uid
-        )
-        or datetime.now(
-            timezone.utc
-        ).strftime(
-            "%Y%m%dT%H%M%SZ"
-        )
-    )
-
-    lieu, statut_lieu = (
-        determiner_lieu(
-            match=titre,
-            sport=sport,
-            url=url_evenement,
-            cache_lieux=None,
-            lieu_source=None,
-            page_detail=page_detail,
-        )
-    )
-
-    return {
-        "uid": uid,
-        "dtstamp": dtstamp,
-        "dtstart": debut.strftime(
-            "%Y%m%dT%H%M%SZ"
-        ),
-        "dtend": fin.strftime(
-            "%Y%m%dT%H%M%SZ"
-        ),
-        "match": titre,
-        "chaines": [
-            chaine
-        ],
-        "url": url_evenement,
-        "lieu": lieu,
-        "statut_lieu": statut_lieu,
-    }
-
-
-def fusionner_evenements(
-    evenements,
-):
-    resultat = {}
-
-    for evenement in evenements:
-        cle = (
-            evenement["uid"],
-            evenement["dtstart"],
-            evenement["match"],
-        )
-
-        if cle not in resultat:
-            resultat[cle] = (
-                evenement
+        slug = (
+            slug_date_tv_programme(
+                date
             )
-
-            continue
-
-        existant = resultat[
-            cle
-        ]
-
-        for chaine in evenement[
-            "chaines"
-        ]:
-            if (
-                chaine
-                not in existant[
-                    "chaines"
-                ]
-            ):
-                existant[
-                    "chaines"
-                ].append(
-                    chaine
-                )
-
-        if (
-            not existant["lieu"]
-            and evenement["lieu"]
-        ):
-            existant["lieu"] = (
-                evenement[
-                    "lieu"
-                ]
-            )
-
-            existant[
-                "statut_lieu"
-            ] = (
-                evenement[
-                    "statut_lieu"
-                ]
-            )
-
-    return list(
-        resultat.values()
-    )
-
-
-def recuperer_evenements_page(
-    sport,
-    dtstamps_existants,
-):
-    page_principale = (
-        recuperer_page(
-            sport["url_page"],
-            timeout=30,
-        )
-    )
-
-    liens_evenements = (
-        extraire_liens_evenements(
-            page_principale
-        )
-    )
-
-    if not liens_evenements:
-        raise RuntimeError(
-            f"Aucun lien de match "
-            f"{sport['prefixe']} "
-            f"trouvé sur la page publique."
         )
 
-    evenements = []
+        url = (
+            "https://tv-programme.com/"
+            f"{slug}/"
+        )
 
-    for url_detail in (
-        liens_evenements
-    ):
         try:
-            page_detail = (
-                recuperer_page(
-                    url_detail,
-                    timeout=20,
-                )
+            reponse = requests.get(
+                url,
+                headers=EN_TETES_TV_PROGRAMME,
+                timeout=25,
             )
+
+            reponse.raise_for_status()
 
         except requests.RequestException as erreur:
             print(
-                "    Avertissement : "
-                "page match inaccessible : "
+                f"    TV-Programme "
+                f"{date:%Y-%m-%d} "
+                f"inaccessible : "
                 f"{erreur}"
             )
 
             continue
 
-        liens_direct = (
-            extraire_liens_ics_direct(
-                page_detail
-            )
+        analyseur = (
+            AnalyseurProgrammeTV()
         )
 
-        for lien_direct in (
-            liens_direct
-        ):
-            evenement = (
-                preparer_depuis_lien_direct(
-                    lien_direct,
-                    page_detail,
-                    url_detail,
+        analyseur.feed(
+            reponse.text
+        )
+
+        analyseur.close()
+
+        for source in analyseur.evenements:
+            canal = (
+                source
+                .get(
+                    "canal",
+                    "",
+                )
+                or ""
+            ).strip()
+
+            if not canal.casefold().startswith(
+                "bein sports"
+            ):
+                continue
+
+            if not est_evenement_nfl_tv_programme(
+                source
+            ):
+                continue
+
+            if not est_direct_tv_programme(
+                source
+            ):
+                continue
+
+            heure = extraire_heure(
+                source.get(
+                    "pre",
+                    [],
+                )
+            )
+
+            if not heure:
+                continue
+
+            match = (
+                nettoyer_titre_nfl_tv_programme(
+                    source.get(
+                        "titre",
+                        "",
+                    )
+                )
+            )
+
+            if not match:
+                continue
+
+            debut_local = datetime(
+                date.year,
+                date.month,
+                date.day,
+                heure[0],
+                heure[1],
+                tzinfo=PARIS,
+            )
+
+            fin_local = (
+                debut_local
+                + timedelta(
+                    minutes=duree_evenement(
+                        match,
+                        sport,
+                    )
+                )
+            )
+
+            if (
+                fin_local
+                <= maintenant_paris
+            ):
+                continue
+
+            uid = uid_tv_programme(
+                source.get(
+                    "href"
+                ),
+                match,
+                date,
+            )
+
+            cle = (
+                uid,
+                debut_local,
+                canal,
+            )
+
+            if cle in deja_vus:
+                continue
+
+            deja_vus.add(
+                cle
+            )
+
+            if est_redzone(
+                match
+            ):
+                lieu = None
+                statut_lieu = "multiple"
+
+            else:
+                lieu = stade_estime(
+                    match,
                     sport,
-                    dtstamps_existants,
                 )
+
+                statut_lieu = (
+                    "estimation"
+                    if lieu
+                    else None
+                )
+
+            href = source.get(
+                "href"
             )
 
-            if evenement:
-                evenements.append(
-                    evenement
-                )
+            if href:
+                if href.startswith(
+                    "http"
+                ):
+                    url_detail = href
+                else:
+                    url_detail = (
+                        "https://tv-programme.com"
+                        + href
+                    )
 
-    evenements = (
-        fusionner_evenements(
-            evenements
-        )
-    )
+            else:
+                url_detail = url
 
-    evenements.sort(
+            resultat.append(
+                {
+                    "uid": uid,
+
+                    "dtstamp": (
+                        dtstamps_existants.get(
+                            uid
+                        )
+                        or datetime.now(
+                            timezone.utc
+                        ).strftime(
+                            "%Y%m%dT%H%M%SZ"
+                        )
+                    ),
+
+                    "dtstart": (
+                        debut_local
+                        .astimezone(
+                            timezone.utc
+                        )
+                        .strftime(
+                            "%Y%m%dT%H%M%SZ"
+                        )
+                    ),
+
+                    "dtend": (
+                        fin_local
+                        .astimezone(
+                            timezone.utc
+                        )
+                        .strftime(
+                            "%Y%m%dT%H%M%SZ"
+                        )
+                    ),
+
+                    "match": match,
+                    "chaines": [
+                        canal
+                    ],
+                    "url": url_detail,
+                    "lieu": lieu,
+                    "statut_lieu": statut_lieu,
+                }
+            )
+
+    resultat.sort(
         key=lambda evenement:
-        evenement["dtstart"]
+        evenement[
+            "dtstart"
+        ]
     )
 
-    return evenements
+    return resultat
 
 
 def construire_evenement(
@@ -1889,28 +1701,22 @@ def construire_evenement(
         f"{chaines}"
     )
 
-    lieu = evenement[
+    lieu = evenement.get(
         "lieu"
-    ]
+    )
 
-    statut_lieu = evenement[
+    statut_lieu = evenement.get(
         "statut_lieu"
-    ]
+    )
 
     if lieu:
-        if (
-            statut_lieu
-            == "estimation"
-        ):
-            description += (
-                "\nLieu estimé : "
-                f"{lieu}"
-            )
-
-        else:
-            description += (
-                f"\nLieu : {lieu}"
-            )
+        # IMPORTANT :
+        # même si le stade vient d'une estimation,
+        # le mot "estimation" n'est PAS écrit dans
+        # le calendrier Apple.
+        description += (
+            f"\nLieu : {lieu}"
+        )
 
     elif (
         statut_lieu
@@ -1926,9 +1732,9 @@ def construire_evenement(
             "\nLieu : à confirmer"
         )
 
-    if evenement[
+    if evenement.get(
         "url"
-    ]:
+    ):
         description += (
             "\nSource : "
             f"{evenement['url']}"
@@ -1936,23 +1742,26 @@ def construire_evenement(
 
     lignes = [
         "BEGIN:VEVENT",
+
         (
             "UID:"
             f"{evenement['uid']}"
         ),
+
         (
             "DTSTAMP:"
             f"{evenement['dtstamp']}"
         ),
+
         (
             "DTSTART:"
             f"{evenement['dtstart']}"
         ),
     ]
 
-    if evenement[
+    if evenement.get(
         "dtend"
-    ]:
+    ):
         lignes.append(
             "DTEND:"
             f"{evenement['dtend']}"
@@ -1964,9 +1773,12 @@ def construire_evenement(
                 "SUMMARY:"
                 f"{echapper_ics(resume)}"
             ),
+
             (
                 "DESCRIPTION:"
-                f"{echapper_ics(description)}"
+                + echapper_ics(
+                    description
+                )
             ),
         ]
     )
@@ -1979,9 +1791,9 @@ def construire_evenement(
             )
         )
 
-    if evenement[
+    if evenement.get(
         "url"
-    ]:
+    ):
         lignes.append(
             "URL:"
             f"{evenement['url']}"
@@ -2005,21 +1817,26 @@ def ecrire_calendrier(
     lignes = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
+
         (
             "PRODID:"
             "-//sports-us-bein-calendar//"
             f"{sport['prefixe']} beIN//FR"
         ),
+
         "CALSCALE:GREGORIAN",
         "METHOD:PUBLISH",
+
         (
             "X-WR-CALNAME:"
             f"{echapper_ics(sport['nom'])}"
         ),
+
         (
             "REFRESH-INTERVAL;"
             "VALUE=DURATION:PT6H"
         ),
+
         "X-PUBLISHED-TTL:PT6H",
     ]
 
@@ -2063,33 +1880,36 @@ def afficher_evenements(
 ):
     for evenement in evenements:
         ligne = (
-            "  "
+            f"  "
             f"{evenement['match']} — "
             f"{' / '.join(evenement['chaines'])}"
         )
 
-        if evenement[
+        if evenement.get(
             "lieu"
-        ]:
+        ):
             ligne += (
-                " — 📍 "
+                f" — 📍 "
                 f"{evenement['lieu']}"
             )
 
             if (
-                evenement[
+                evenement.get(
                     "statut_lieu"
-                ]
+                )
                 == "estimation"
             ):
+                # Cette mention est UNIQUEMENT
+                # affichée dans le log GitHub.
+                # Elle n'existe pas dans l'ICS.
                 ligne += (
                     " (estimation)"
                 )
 
         elif (
-            evenement[
+            evenement.get(
                 "statut_lieu"
-            ]
+            )
             == "multiple"
         ):
             ligne += (
@@ -2112,7 +1932,7 @@ def traiter_sport(
     sport,
 ):
     print(
-        "Téléchargement de "
+        f"Téléchargement de "
         f"{sport['nom']}…"
     )
 
@@ -2127,7 +1947,7 @@ def traiter_sport(
 
     try:
         evenements = (
-            recuperer_evenements_ics(
+            recuperer_evenements_tv_sports(
                 sport,
                 dtstamps_existants,
             )
@@ -2135,7 +1955,7 @@ def traiter_sport(
 
         if evenements:
             source_utilisee = (
-                "ICS"
+                "TV-Sports ICS"
             )
 
     except requests.HTTPError as erreur:
@@ -2147,7 +1967,8 @@ def traiter_sport(
         )
 
         print(
-            "  Flux ICS indisponible "
+            "  Flux TV-Sports ICS "
+            f"indisponible "
             f"(HTTP {code})."
         )
 
@@ -2156,21 +1977,24 @@ def traiter_sport(
         RuntimeError,
     ) as erreur:
         print(
-            "  Flux ICS indisponible : "
+            "  Flux TV-Sports ICS "
+            f"indisponible : "
             f"{erreur}"
         )
 
-    if not evenements:
+    if (
+        not evenements
+        and sport["prefixe"]
+        == "NFL"
+    ):
         print(
-            "  Bascule sur la page "
-            "publique TV-Sports et "
-            "les liens Apple des "
-            "diffusions Direct…"
+            "  Bascule NFL sur "
+            "TV-Programme.com…"
         )
 
         try:
             evenements = (
-                recuperer_evenements_page(
+                recuperer_evenements_nfl_tv_programme(
                     sport,
                     dtstamps_existants,
                 )
@@ -2178,8 +2002,7 @@ def traiter_sport(
 
             if evenements:
                 source_utilisee = (
-                    "Page TV-Sports "
-                    "+ liens Apple"
+                    "TV-Programme.com"
                 )
 
         except (
@@ -2188,20 +2011,20 @@ def traiter_sport(
         ) as erreur:
             print(
                 "  AVERTISSEMENT : "
-                "fallback impossible : "
+                "fallback NFL impossible : "
                 f"{erreur}"
             )
 
     if not evenements:
         print(
             "  AVERTISSEMENT : "
-            "aucune diffusion "
+            f"aucune diffusion "
             f"{sport['prefixe']} "
             "récupérée."
         )
 
         print(
-            "  Le fichier "
+            f"  Le fichier "
             f"{sport['fichier']} "
             "existant est conservé."
         )
@@ -2215,13 +2038,13 @@ def traiter_sport(
 
     print(
         f"{len(evenements)} "
-        "diffusion(s) écrite(s) "
-        "dans "
+        f"diffusion(s) écrite(s) "
+        f"dans "
         f"{sport['fichier']}."
     )
 
     print(
-        "  Source utilisée : "
+        f"  Source utilisée : "
         f"{source_utilisee}"
     )
 
@@ -2288,21 +2111,26 @@ def ecrire_calendrier_global():
     lignes = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
+
         (
             "PRODID:"
             "-//sports-us-bein-calendar//"
             "Tous les sports//FR"
         ),
+
         "CALSCALE:GREGORIAN",
         "METHOD:PUBLISH",
+
         (
             "X-WR-CALNAME:"
             "Sports — F1 + MLB + NFL"
         ),
+
         (
             "REFRESH-INTERVAL;"
             "VALUE=DURATION:PT6H"
         ),
+
         "X-PUBLISHED-TTL:PT6H",
     ]
 
