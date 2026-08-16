@@ -503,7 +503,7 @@ DTSTAMP:20260816T150146Z
 DTSTART:20260821T103000Z
 DTEND:20260821T113000Z
 SUMMARY:F1 - Zandvoort - Essais libres 1
-DESCRIPTION:Grand Prix : Dutch (Zandvoort)\nDiffusion TV : non trouvée
+DESCRIPTION:Grand Prix : Dutch (Zandvoort)\nDiffusion : Grand Prix des Pays-Bas (Canal+ Sport)\nhttps://tv-sports.fr/formule-1/grand-prix-des-pays-bas
 LOCATION:Zandvoort
 END:VEVENT
 BEGIN:VEVENT
@@ -512,7 +512,7 @@ DTSTAMP:20260816T150146Z
 DTSTART:20260821T143000Z
 DTEND:20260821T153000Z
 SUMMARY:F1 - Zandvoort - Qualifications Sprint
-DESCRIPTION:Grand Prix : Dutch (Zandvoort)\nDiffusion TV : non trouvée
+DESCRIPTION:Grand Prix : Dutch (Zandvoort)\nDiffusion : Grand Prix des Pays-Bas (Canal+ Sport)\nhttps://tv-sports.fr/formule-1/grand-prix-des-pays-bas
 LOCATION:Zandvoort
 END:VEVENT
 BEGIN:VEVENT
@@ -521,7 +521,7 @@ DTSTAMP:20260816T150146Z
 DTSTART:20260822T100000Z
 DTEND:20260822T110000Z
 SUMMARY:F1 - Zandvoort - Sprint
-DESCRIPTION:Grand Prix : Dutch (Zandvoort)\nDiffusion TV : non trouvée
+DESCRIPTION:Grand Prix : Dutch (Zandvoort)\nDiffusion : Grand Prix des Pays-Bas (Canal+ Sport)\nhttps://tv-sports.fr/formule-1/grand-prix-des-pays-bas
 LOCATION:Zandvoort
 END:VEVENT
 BEGIN:VEVENT
@@ -530,7 +530,7 @@ DTSTAMP:20260816T150146Z
 DTSTART:20260822T140000Z
 DTEND:20260822T150000Z
 SUMMARY:F1 - Zandvoort - Qualifications
-DESCRIPTION:Grand Prix : Dutch (Zandvoort)\nDiffusion TV : non trouvée
+DESCRIPTION:Grand Prix : Dutch (Zandvoort)\nDiffusion : Grand Prix des Pays-Bas (Canal+ Sport)\nhttps://tv-sports.fr/formule-1/grand-prix-des-pays-bas
 LOCATION:Zandvoort
 END:VEVENT
 BEGIN:VEVENT
@@ -539,7 +539,7 @@ DTSTAMP:20260816T150146Z
 DTSTART:20260823T130000Z
 DTEND:20260823T150000Z
 SUMMARY:F1 - Zandvoort - Grand Prix
-DESCRIPTION:Grand Prix : Dutch (Zandvoort)\nDiffusion TV : non trouvée
+DESCRIPTION:Grand Prix : Dutch (Zandvoort)\nDiffusion : Grand Prix des Pays-Bas (Canal+)\nhttps://tv-sports.fr/formule-1/grand-prix-des-pays-bas
 LOCATION:Zandvoort
 END:VEVENT
 BEGIN:VEVENT
