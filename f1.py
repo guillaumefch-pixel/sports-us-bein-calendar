@@ -1,11 +1,6 @@
 import requests
 
-BASE = "https://tv-sports.fr"
-
-URLS = [
-    "https://tv-sports.fr/rss/competition/1434/grand-prix-des-pays-bas?direct=1",
-    "https://tv-sports.fr/calendrier/competition/1434/grand-prix-des-pays-bas?direct=1",
-]
+URL = "https://tv-sports.fr/calendrier/competition/1434/grand-prix-des-pays-bas?direct=1"
 
 headers = {
     "User-Agent": (
@@ -15,30 +10,46 @@ headers = {
     )
 }
 
-for url in URLS:
+print("=" * 100)
+print("📅 TEST DU CALENDRIER ICS")
+print("=" * 100)
 
-    print()
-    print("=" * 100)
-    print("URL")
-    print("=" * 100)
-    print(url)
+response = requests.get(
+    URL,
+    headers=headers,
+    timeout=20
+)
 
-    response = requests.get(
-        url,
-        headers=headers,
-        timeout=20
-    )
+print("STATUS :", response.status_code)
+print("TYPE   :", response.headers.get("content-type"))
+print("TAILLE :", len(response.content), "octets")
 
-    print("STATUS :", response.status_code)
-    print("TYPE   :", response.headers.get("content-type"))
-    print("TAILLE :", len(response.text))
+print()
+print("=" * 100)
+print("CONTENU")
+print("=" * 100)
 
-    print()
-    print("=" * 100)
-    print("CONTENU")
-    print("=" * 100)
+print(response.text[:30000])
 
-    print(response.text[:30000])
+print()
+print("=" * 100)
+print("RECHERCHE DES ÉVÉNEMENTS")
+print("=" * 100)
+
+for ligne in response.text.splitlines():
+
+    if any(
+        mot in ligne.lower()
+        for mot in [
+            "begin:VEVENT".lower(),
+            "summary",
+            "dtstart",
+            "dtend",
+            "description",
+            "location"
+        ]
+    ):
+        print(ligne)
 
 print()
 print("=" * 100)
