@@ -1,15 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
 
 
-print("🔎 EXTRACTION DES DIFFUSIONS F1")
+print("🔎 DIAGNOSTIC DES 6 DIFFUSIONS F1")
 print("=" * 80)
 
-
-# =========================================================
-# CONFIGURATION
-# =========================================================
 
 URL = "https://tv-sports.fr/formule-1/"
 
@@ -21,10 +16,6 @@ headers = {
     )
 }
 
-
-# =========================================================
-# TÉLÉCHARGEMENT
-# =========================================================
 
 response = requests.get(
     URL,
@@ -39,29 +30,17 @@ soup = BeautifulSoup(
     "html.parser"
 )
 
-print(
-    f"✅ Page téléchargée : {len(response.text)} caractères"
-)
-
 
 # =========================================================
-# RECHERCHE DES ÉVÉNEMENTS
+# ÉVÉNEMENTS
 # =========================================================
 
 evenements = soup.select(
     "ol.schedule-list li.schedule-item"
 )
 
-print(
-    f"📋 Événements trouvés : {len(evenements)}"
-)
 
-
-# =========================================================
-# EXTRACTION
-# =========================================================
-
-resultats = []
+compteur = 0
 
 
 for evenement in evenements:
@@ -71,17 +50,8 @@ for evenement in evenements:
         strip=True
     )
 
-    # -----------------------------------------------------
-    # ON NE GARDE QUE LA F1
-    # -----------------------------------------------------
-
     if "Formule 1" not in texte:
         continue
-
-
-    # -----------------------------------------------------
-    # TYPE D'ÉMISSION
-    # -----------------------------------------------------
 
     time_element = evenement.select_one(
         "time.schedule-time"
@@ -95,178 +65,79 @@ for evenement in evenements:
         strip=True
     )
 
-
-    # -----------------------------------------------------
-    # HEURE
-    # -----------------------------------------------------
-
-    heure = None
-
-    for partie in texte_heure.split():
-
-        if "h" in partie:
-
-            try:
-                heure = partie
-                break
-            except:
-                pass
-
-    if not heure:
+    if "Direct" not in texte_heure:
         continue
 
+    compteur += 1
+
+    if compteur > 6:
+        break
+
+
+    print()
+    print("=" * 80)
+    print(f"🏎️ DIFFUSION #{compteur}")
+    print("=" * 80)
+
 
     # -----------------------------------------------------
-    # DIRECT / REDIFFUSION
+    # TEXTE COMPLET
     # -----------------------------------------------------
 
-    est_direct = "Direct" in texte_heure
-
-    if not est_direct:
-        continue
+    print()
+    print("📄 TEXTE COMPLET")
+    print("-" * 80)
+    print(texte)
 
 
     # -----------------------------------------------------
-    # PROGRAMME
+    # STRUCTURE HTML DE L'ÉVÉNEMENT
     # -----------------------------------------------------
 
-    titre = None
+    print()
+    print("🧩 HTML DE L'ÉVÉNEMENT")
+    print("-" * 80)
 
-    # On cherche les liens du programme
-    liens = evenement.select(
-        "a"
+    print(
+        evenement.prettify()[:8000]
     )
 
-    for lien in liens:
-
-        texte_lien = lien.get_text(
-            " ",
-            strip=True
-        )
-
-        if (
-            texte_lien
-            and "Formule 1" not in texte_lien
-            and texte_lien != "🏎️"
-        ):
-            titre = texte_lien
-            break
-
 
     # -----------------------------------------------------
-    # CHAÎNE
+    # PARENTS
     # -----------------------------------------------------
 
-    chaine = None
-
-    texte_complet = evenement.get_text(
-        " ",
-        strip=True
-    )
-
-    chaines = [
-        "Canal+ Sport 360",
-        "Canal+ Sport",
-        "Canal+"
-    ]
-
-    for nom_chaine in chaines:
-
-        if nom_chaine in texte_complet:
-
-            chaine = nom_chaine
-            break
-
-
-    # -----------------------------------------------------
-    # DATE
-    # -----------------------------------------------------
-
-    # On remonte dans le DOM pour trouver le groupe
-    # correspondant à la journée.
-
-    date = None
+    print()
+    print("📦 PARENTS")
+    print("-" * 80)
 
     parent = evenement
 
-    for _ in range(5):
+    for niveau in range(1, 6):
 
         parent = parent.parent
 
         if parent is None:
             break
 
+        print()
+        print(
+            f"NIVEAU {niveau} : "
+            f"<{parent.name}> "
+            f"class={parent.get('class')}"
+        )
+
         texte_parent = parent.get_text(
             " ",
             strip=True
         )
 
-        # On cherche une date française
-        # dans les éléments <time> du parent.
-
-        date_elements = parent.select(
-            "time"
+        print(
+            texte_parent[:1500]
         )
 
-        for d in date_elements:
-
-            texte_date = d.get_text(
-                " ",
-                strip=True
-            )
-
-            if "2026" in texte_date:
-
-                date = texte_date
-                break
-
-        if date:
-            break
-
-
-    # -----------------------------------------------------
-    # STOCKAGE
-    # -----------------------------------------------------
-
-    resultats.append({
-        "date": date,
-        "heure": heure,
-        "titre": titre,
-        "chaine": chaine,
-        "texte": texte
-    })
-
-
-# =========================================================
-# AFFICHAGE
-# =========================================================
 
 print()
 print("=" * 80)
-print("📺 DIFFUSIONS F1 EN DIRECT")
-print("=" * 80)
-
-
-for i, resultat in enumerate(
-    resultats,
-    start=1
-):
-
-    print(
-        f"{i:02d}. "
-        f"🏎️ {resultat['date']} "
-        f"⚡ {resultat['heure']} "
-        f"🏁 {resultat['titre']} "
-        f"📺 {resultat['chaine']}"
-    )
-
-
-print()
-print("=" * 80)
-print(
-    f"📊 Événements analysés : {len(evenements)}"
-)
-print(
-    f"✅ Diffusions retenues : {len(resultats)}"
-)
+print("✅ DIAGNOSTIC TERMINÉ")
 print("=" * 80)
