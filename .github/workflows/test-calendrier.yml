@@ -1,7 +1,8 @@
-name: Calendriers F1, MLB et NFL
+name: Calendriers F1, MLB, NFL, PSG et France
 
 on:
   workflow_dispatch:
+
   schedule:
     - cron: "17 */6 * * *"
 
@@ -11,6 +12,7 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
       - name: Récupérer le dépôt
         uses: actions/checkout@v6
@@ -26,16 +28,23 @@ jobs:
       - name: Générer le calendrier F1
         run: python f1.py
 
+      - name: Générer les calendriers PSG et France
+        run: python football.py
+
       - name: Générer les calendriers MLB et NFL
         run: python main.py
 
-      - name: Publier les calendriers mis à jour
-        shell: bash
+      - name: Enregistrer les calendriers mis à jour
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add \
             f1_calendar.ics \
             mlb_bein_calendar.ics \
             nfl_bein_calendar.ics \
+            psg_calendar.ics \
+            france_calendar.ics \
             sports_calendar.ics
 
           if git diff --cached --quiet; then
@@ -43,7 +52,5 @@ jobs:
             exit 0
           fi
 
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Mise à jour automatique des calendriers sportifs"
           git push
