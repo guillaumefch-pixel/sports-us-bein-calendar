@@ -2,21 +2,9 @@ import requests
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 
-# ============================================================================
+F1_URL = "https://raw.githubusercontent.com/sportstimes/f1/main/_db/f1/2026.json"
 
-# CONFIGURATION
-
-# ============================================================================
-
-F1_URL = (
-"https://raw.githubusercontent.com/sportstimes/f1/main/"
-"_db/f1/2026.json"
-)
-
-TV_URL = (
-"https://tv-sports.fr/rss/competition/1434/"
-"grand-prix-des-pays-bas?direct=1"
-)
+TV_URL = "https://tv-sports.fr/rss/competition/1434/grand-prix-des-pays-bas?direct=1"
 
 NOMS_SESSIONS = {
 "fp1": "Essais libres 1",
@@ -28,217 +16,189 @@ NOMS_SESSIONS = {
 "gp": "Grand Prix",
 }
 
-# ============================================================================
-
-# OUTILS
-
-# ============================================================================
-
-def afficher_titre(titre):
 print()
 print("=" * 90)
-print(titre)
+print("🏎️ TEST DU RAPPROCHEMENT F1 / TV-SPORTS")
 print("=" * 90)
 
-def recuperer_f1():
-reponse = requests.get(F1_URL, timeout=10)
-reponse.raise_for_status()
+# ============================================================================
 
-```
-data = reponse.json()
+# 1. CALENDRIER F1
 
-for course in data["races"]:
-    if course["name"].lower() == "dutch":
-        return course
-
-raise RuntimeError(
-    "GP des Pays-Bas introuvable dans le calendrier F1."
-)
-```
-
-def recuperer_tv():
-reponse = requests.get(TV_URL, timeout=10)
-reponse.raise_for_status()
-
-```
-root = ET.fromstring(reponse.content)
-
-evenements = []
-
-for item in root.findall("./channel/item"):
-    titre = item.findtext("title", "")
-    description = item.findtext("description", "")
-    lien = item.findtext("link", "")
-    pub_date = item.findtext("pubDate", "")
-
-    if not pub_date:
-        continue
-
-    # Exemple :
-    # Fri, 21 Aug 2026 12:15:00 +0200
-    horaire = datetime.strptime(
-        pub_date,
-        "%a, %d %b %Y %H:%M:%S %z"
-    ).astimezone(timezone.utc)
-
-    evenements.append({
-        "titre": titre,
-        "description": description,
-        "lien": lien,
-        "horaire_utc": horaire,
-    })
-
-return evenements
-```
-
-def afficher_session_f1(course):
-afficher_titre(
-"🏎️ CALENDRIER F1 — GRAND PRIX DES PAYS-BAS"
-)
-
-```
-print(f"Nom       : {course['name']}")
-print(f"Lieu      : {course['location']}")
-print(f"Round     : {course['round']}")
+# ============================================================================
 
 print()
-print("SESSIONS F1")
-print("-" * 90)
+print("📡 Récupération du calendrier F1...")
+
+response = requests.get(F1_URL, timeout=10)
+response.raise_for_status()
+
+data = response.json()
+
+course = None
+
+for race in data["races"]:
+if race["name"].lower() == "dutch":
+course = race
+break
+
+if course is None:
+raise RuntimeError("GP des Pays-Bas introuvable.")
+
+print()
+print("=" * 90)
+print("🏎️ GRAND PRIX DES PAYS-BAS — SPORTSTIMES")
+print("=" * 90)
+
+print(f"Nom    : {course['name']}")
+print(f"Lieu   : {course['location']}")
+print(f"Round  : {course['round']}")
 
 sessions = []
 
-for cle, horaire_iso in course["sessions"].items():
-    horaire = datetime.fromisoformat(
-        horaire_iso.replace("Z", "+00:00")
-    )
-
-    nom = NOMS_SESSIONS.get(cle, cle)
-
-    sessions.append({
-        "cle": cle,
-        "nom": nom,
-        "horaire_utc": horaire,
-    })
-
-    # Conversion dans le fuseau local du runner
-    horaire_locale = horaire.astimezone()
-
-    print(
-        f"{nom:<22} "
-        f"{horaire_locale.strftime('%d/%m/%Y %H:%M')} "
-        f"(UTC {horaire.strftime('%H:%M')})"
-    )
-
-return sessions
-```
-
-def afficher_tv(evenements):
-afficher_titre("📺 DIFFUSIONS TV-SPORTS")
+for key, iso in course["sessions"].items():
 
 ```
-if not evenements:
-    print("Aucune diffusion trouvée.")
-    return
-
-for evenement in evenements:
-    horaire = evenement["horaire_utc"]
-
-    print(
-        f"{horaire.astimezone().strftime('%d/%m/%Y %H:%M')}"
-        f" | UTC {horaire.strftime('%H:%M')}"
-    )
-
-    print(f"  {evenement['titre']}")
-    print(f"  {evenement['lien']}")
-    print()
-```
-
-def afficher_candidats(sessions, evenements):
-afficher_titre(
-"🔎 CANDIDATS DE RAPPROCHEMENT"
+dt = datetime.fromisoformat(
+    iso.replace("Z", "+00:00")
 )
+
+sessions.append({
+    "key": key,
+    "name": NOMS_SESSIONS.get(key, key),
+    "datetime": dt,
+})
+
+print(
+    f"{NOMS_SESSIONS.get(key, key):<22}"
+    f" {dt.strftime('%d/%m/%Y %H:%M')} UTC"
+)
+```
+
+# ============================================================================
+
+# 2. TV-SPORTS
+
+# ============================================================================
+
+print()
+print("📡 Récupération des diffusions TV-Sports...")
+
+response = requests.get(TV_URL, timeout=10)
+response.raise_for_status()
+
+root = ET.fromstring(response.content)
+
+tv_events = []
+
+for item in root.findall("./channel/item"):
+
+```
+title = item.findtext("title", "")
+description = item.findtext("description", "")
+link = item.findtext("link", "")
+pub_date = item.findtext("pubDate", "")
+
+if not pub_date:
+    continue
+
+dt = datetime.strptime(
+    pub_date,
+    "%a, %d %b %Y %H:%M:%S %z"
+).astimezone(timezone.utc)
+
+tv_events.append({
+    "title": title,
+    "description": description,
+    "link": link,
+    "datetime": dt,
+})
+```
+
+print()
+print("=" * 90)
+print("📺 DIFFUSIONS TV-SPORTS")
+print("=" * 90)
+
+for event in tv_events:
 
 ```
 print(
-    "Pour chaque session F1, les diffusions TV-Sports "
-    "situées dans une fenêtre de ±6 heures sont affichées."
+    f"{event['datetime'].strftime('%d/%m/%Y %H:%M')} UTC"
+    f" | {event['title']}"
 )
 
+print(f"  {event['link']}")
+```
+
+# ============================================================================
+
+# 3. RAPPROCHEMENT
+
+# ============================================================================
+
+print()
+print("=" * 90)
+print("🔎 RAPPROCHEMENT F1 / TV-SPORTS")
+print("=" * 90)
+
+print()
+print("Fenêtre de recherche : ±6 heures")
 print()
 
 for session in sessions:
-    print("-" * 90)
 
-    horaire_f1 = session["horaire_utc"]
+```
+print("-" * 90)
 
-    print(
-        f"🏎️ {session['nom']}"
-        f" — {horaire_f1.astimezone().strftime('%d/%m %H:%M')}"
-        f" (UTC {horaire_f1.strftime('%H:%M')})"
+f1_time = session["datetime"]
+
+print(
+    f"🏎️ {session['name']}"
+    f" — {f1_time.strftime('%d/%m/%Y %H:%M')} UTC"
+)
+
+candidates = []
+
+for event in tv_events:
+
+    difference = abs(
+        (event["datetime"] - f1_time).total_seconds()
     )
 
-    candidats = []
-
-    for evenement in evenements:
-        difference = abs(
-            (
-                evenement["horaire_utc"] - horaire_f1
-            ).total_seconds()
+    if difference <= 6 * 60 * 60:
+        candidates.append(
+            (difference, event)
         )
 
-        if difference <= 6 * 60 * 60:
-            candidats.append(
-                (difference, evenement)
-            )
+candidates.sort(
+    key=lambda item: item[0]
+)
 
-    candidats.sort(
-        key=lambda x: x[0]
-    )
+if not candidates:
 
-    if not candidats:
-        print(
-            "  ❌ Aucun candidat dans la fenêtre de ±6h"
-        )
-        continue
+    print("  ❌ Aucun candidat")
 
-    for difference, evenement in candidats:
-        heures = difference / 3600
+else:
+
+    for difference, event in candidates:
+
+        hours = difference / 3600
 
         print(
-            f"  → "
-            f"{evenement['horaire_utc'].astimezone().strftime('%d/%m %H:%M')}"
-            f" | écart {heures:.1f}h"
-            f" | {evenement['titre']}"
+            f"  → {event['datetime'].strftime('%d/%m/%Y %H:%M')} UTC"
+            f" | écart : {hours:.1f} h"
+            f" | {event['title']}"
         )
 ```
 
 # ============================================================================
 
-# PROGRAMME PRINCIPAL
+# FIN
 
 # ============================================================================
 
-if **name** == "**main**":
-
-```
-afficher_titre(
-    "🏎️ TEST DU RAPPROCHEMENT F1 / TV-SPORTS"
-)
-
-print("📡 Récupération du calendrier F1...")
-course = recuperer_f1()
-
-print("📡 Récupération des diffusions TV-Sports...")
-evenements_tv = recuperer_tv()
-
-sessions = afficher_session_f1(course)
-
-afficher_tv(evenements_tv)
-
-afficher_candidats(
-    sessions,
-    evenements_tv
-)
-
-afficher_titre("✅ FIN DU TEST")
-```
+print()
+print("=" * 90)
+print("✅ FIN DU TEST")
+print("=" * 90)
