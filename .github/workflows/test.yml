@@ -16,5 +16,8 @@ jobs:
         with:
           python-version: '3.13'
 
+      - name: Installer les bibliothèques
+        run: pip install requests beautifulsoup4
+
       - name: Lancer notre programme
         run: python main.py
