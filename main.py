@@ -495,8 +495,6 @@ def ecrire_calendrier_global():
         "f1_calendar.ics",
         "mlb_bein_calendar.ics",
         "nfl_bein_calendar.ics",
-        "psg_calendar.ics",
-        "france_calendar.ics",
     )
 
     lignes = [
@@ -510,7 +508,7 @@ def ecrire_calendrier_global():
         "METHOD:PUBLISH",
         (
             "X-WR-CALNAME:"
-            "Sports — F1 + MLB + NFL + PSG + France"
+            "Sports — F1 + MLB + NFL"
         ),
         "REFRESH-INTERVAL;VALUE=DURATION:PT6H",
         "X-PUBLISHED-TTL:PT6H",
