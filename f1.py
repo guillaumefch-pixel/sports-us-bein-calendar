@@ -1,12 +1,11 @@
-import re
 from datetime import datetime, timedelta, timezone
-from html import unescape
+from html.parser import HTMLParser
 
 import requests
 
 
 F1_URL = "https://raw.githubusercontent.com/sportstimes/f1/main/_db/f1/2026.json"
-TV_SPORTS_URL = "https://tv-sports.fr/formule-1"
+TV_SPORTS_URL = "https://tv-sports.fr/formule-1/"
 
 NOMS_SESSIONS = {
     "fp1": "Essais libres 1",
@@ -35,6 +34,52 @@ EN_TETES = {
 }
 
 
+class AnalyseurDiffusionsTV(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.elements = []
+        self.element = None
+        self.profondeur_li = 0
+
+    def handle_starttag(self, balise, attributs):
+        attributs = dict(attributs)
+        classes = set(attributs.get("class", "").split())
+
+        if balise == "li":
+            if self.element is not None:
+                self.profondeur_li += 1
+            elif (
+                "schedule-item" in classes
+                and attributs.get("data-is-live") == "1"
+            ):
+                self.element = {}
+                self.profondeur_li = 1
+            return
+
+        if self.element is None:
+            return
+
+        if balise == "time" and attributs.get("datetime"):
+            self.element["datetime"] = attributs["datetime"]
+        elif balise == "img" and "logoChaine" in classes:
+            self.element["chaine"] = attributs.get("alt", "").strip()
+        elif balise == "a" and "schedule-entity-visual" in classes:
+            self.element["competition"] = attributs.get("title", "").strip()
+            self.element["lien"] = attributs.get("href", "").strip()
+
+    def handle_startendtag(self, balise, attributs):
+        self.handle_starttag(balise, attributs)
+
+    def handle_endtag(self, balise):
+        if balise != "li" or self.element is None:
+            return
+
+        self.profondeur_li -= 1
+        if self.profondeur_li == 0:
+            self.elements.append(self.element)
+            self.element = None
+
+
 def recuperer_calendrier_f1():
     reponse = requests.get(F1_URL, headers=EN_TETES, timeout=20)
     reponse.raise_for_status()
@@ -58,52 +103,42 @@ def extraire_sessions(courses):
     return sorted(sessions, key=lambda session: session["horaire"])
 
 
-def nettoyer_texte(texte):
-    texte = re.sub(r"<[^>]+>", " ", unescape(texte))
-    return re.sub(r"\s+", " ", texte).strip()
-
-
-def recuperer_diffusions_tv():
-    reponse = requests.get(TV_SPORTS_URL, headers=EN_TETES, timeout=20)
-    reponse.raise_for_status()
-    page = reponse.text
-
-    # TV-Sports place les horaires de diffusion dans des balises <time>.
-    blocs = re.findall(
-        r"(?is)<(?:article|li|div)\b[^>]*>.*?</(?:article|li|div)>", page
-    )
+def extraire_diffusions_tv(page):
+    analyseur = AnalyseurDiffusionsTV()
+    analyseur.feed(page)
     diffusions = []
     deja_vues = set()
 
-    for bloc in blocs:
-        if "canal+" not in bloc.lower() or "direct" not in bloc.lower():
-            continue
-
-        correspondance = re.search(
-            r'<time\b[^>]*datetime=["\']([^"\']+)["\'][^>]*>', bloc, re.I
-        )
-        if not correspondance:
+    for element in analyseur.elements:
+        chaine = element.get("chaine", "")
+        if not chaine.casefold().startswith("canal+"):
             continue
 
         try:
             horaire = datetime.fromisoformat(
-                correspondance.group(1).replace("Z", "+00:00")
+                element["datetime"].replace("Z", "+00:00")
             ).astimezone(timezone.utc)
-        except ValueError:
+        except (KeyError, ValueError):
             continue
 
-        titre = nettoyer_texte(bloc)
-        lien_match = re.search(r'href=["\']([^"\']+)["\']', bloc, re.I)
-        lien = lien_match.group(1) if lien_match else TV_SPORTS_URL
+        competition = element.get("competition") or "Formule 1"
+        lien = element.get("lien") or TV_SPORTS_URL
         if lien.startswith("/"):
             lien = "https://tv-sports.fr" + lien
 
-        cle = (horaire, titre)
+        titre = f"{competition} ({chaine})"
+        cle = (horaire, competition, chaine)
         if cle not in deja_vues:
             deja_vues.add(cle)
             diffusions.append({"horaire": horaire, "titre": titre, "lien": lien})
 
     return sorted(diffusions, key=lambda diffusion: diffusion["horaire"])
+
+
+def recuperer_diffusions_tv():
+    reponse = requests.get(TV_SPORTS_URL, headers=EN_TETES, timeout=20)
+    reponse.raise_for_status()
+    return extraire_diffusions_tv(reponse.text)
 
 
 def associer_diffusions(sessions, diffusions):
@@ -135,6 +170,20 @@ def echapper_ics(texte):
         .replace(",", "\\,")
         .replace(";", "\\;")
     )
+
+
+def recuperer_dtstamp_existant():
+    try:
+        with open("f1_calendar.ics", encoding="utf-8") as calendrier:
+            for ligne in calendrier:
+                if ligne.startswith("DTSTAMP:"):
+                    valeur = ligne.removeprefix("DTSTAMP:").strip()
+                    datetime.strptime(valeur, "%Y%m%dT%H%M%SZ")
+                    return valeur
+    except (OSError, ValueError):
+        pass
+
+    return datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
 
 
 def construire_vevent(session, diffusion, dtstamp):
@@ -169,12 +218,13 @@ def main():
     print("Téléchargement des diffusions TV-Sports…")
     try:
         diffusions = recuperer_diffusions_tv()
+        print(f"{len(diffusions)} directs Canal+ trouvés sur TV-Sports.")
     except requests.RequestException as erreur:
         print(f"Avertissement : TV-Sports est inaccessible ({erreur}).")
         diffusions = []
 
     associations = associer_diffusions(sessions, diffusions)
-    dtstamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    dtstamp = recuperer_dtstamp_existant()
     lignes = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
