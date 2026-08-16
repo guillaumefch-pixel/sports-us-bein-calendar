@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-print("🔎 DIAGNOSTIC DES DIFFUSIONS DU DIMANCHE")
+print("🔎 EXTRACTION DES DIFFUSIONS F1 DU DIMANCHE")
 print("=" * 80)
 
 
@@ -17,6 +17,10 @@ headers = {
 }
 
 
+# ============================================================
+# TÉLÉCHARGEMENT
+# ============================================================
+
 response = requests.get(
     URL,
     headers=headers,
@@ -25,21 +29,56 @@ response = requests.get(
 
 response.raise_for_status()
 
+print(
+    f"✅ Page téléchargée : {len(response.text)} caractères"
+)
+
+
 soup = BeautifulSoup(
     response.text,
     "html.parser"
 )
 
 
+# ============================================================
+# RECHERCHE DES ÉVÉNEMENTS
+# ============================================================
+
 evenements = soup.select(
     "ol.schedule-list li.schedule-item"
 )
 
+print(
+    f"📋 Événements trouvés : {len(evenements)}"
+)
+
+
+print()
+print("=" * 80)
+print("📺 DIFFUSIONS F1 DU DIMANCHE 23 AOÛT 2026")
+print("=" * 80)
+
+
+resultats = []
+
+
+# ============================================================
+# ANALYSE
+# ============================================================
 
 for evenement in evenements:
 
+    # --------------------------------------------------------
+    # Sport = Formule 1
+    # --------------------------------------------------------
+
     if evenement.get("data-sport-id") != "102":
         continue
+
+
+    # --------------------------------------------------------
+    # Date / heure
+    # --------------------------------------------------------
 
     time_element = evenement.select_one(
         "time.schedule-time"
@@ -48,124 +87,175 @@ for evenement in evenements:
     if not time_element:
         continue
 
+
     datetime_str = time_element.get("datetime")
 
     if not datetime_str:
         continue
 
-    # On cible uniquement le dimanche 23 août
+
+    # --------------------------------------------------------
+    # On cible le dimanche 23 août 2026
+    # --------------------------------------------------------
+
     if not datetime_str.startswith("2026-08-23"):
         continue
 
 
-    print()
-    print("=" * 80)
-    print("🏎️ ÉVÉNEMENT")
-    print("=" * 80)
+    # --------------------------------------------------------
+    # Type de diffusion
+    # --------------------------------------------------------
 
-
-    # -----------------------------------------------------
-    # ATTRIBUTS DU LI
-    # -----------------------------------------------------
-
-    print()
-    print("📌 ATTRIBUTS")
-    print("-" * 80)
-
-    for cle, valeur in evenement.attrs.items():
-
-        print(
-            f"{cle} = {valeur}"
-        )
-
-
-    # -----------------------------------------------------
-    # TEXTE
-    # -----------------------------------------------------
-
-    print()
-    print("📄 TEXTE")
-    print("-" * 80)
-
-    print(
-        evenement.get_text(
-            " ",
-            strip=True
-        )
+    diffusion_type = evenement.get(
+        "data-diffusion-type"
     )
 
 
-    # -----------------------------------------------------
-    # LIENS
-    # -----------------------------------------------------
+    # --------------------------------------------------------
+    # On ignore les rediffusions
+    # --------------------------------------------------------
 
-    print()
-    print("🔗 LIENS")
-    print("-" * 80)
+    if diffusion_type != "live":
+        continue
 
-    for lien in evenement.select("a"):
 
-        print(
-            "href =",
-            lien.get("href")
+    # --------------------------------------------------------
+    # Heure
+    # --------------------------------------------------------
+
+    heure = time_element.select_one(
+        "strong"
+    )
+
+    if heure:
+        heure = heure.get_text(
+            " ",
+            strip=True
         )
-
-        print(
-            "title =",
-            lien.get("title")
-        )
-
-        print(
-            "texte =",
-            lien.get_text(
-                " ",
-                strip=True
-            )
-        )
-
-
-    # -----------------------------------------------------
-    # IMAGES
-    # -----------------------------------------------------
-
-    print()
-    print("🖼️ IMAGES")
-    print("-" * 80)
-
-    for image in evenement.select("img"):
-
-        print(
-            "alt =",
-            image.get("alt")
-        )
-
-        print(
-            "src =",
-            image.get("src")
+    else:
+        heure = time_element.get_text(
+            " ",
+            strip=True
         )
 
 
-    # -----------------------------------------------------
-    # CLASSES
-    # -----------------------------------------------------
+    # --------------------------------------------------------
+    # Nom de l'événement
+    # --------------------------------------------------------
 
-    print()
-    print("🏷️ CLASSES")
-    print("-" * 80)
+    titre = None
 
-    for element in evenement.find_all():
+    lien_competition = evenement.select_one(
+        "a.schedule-entity-visual"
+    )
 
-        classes = element.get("class")
+    if lien_competition:
+        titre = lien_competition.get(
+            "title"
+        )
 
-        if classes:
 
-            print(
-                element.name,
-                classes
+    if not titre:
+        lien = evenement.select_one(
+            "a[title]"
+        )
+
+        if lien:
+            titre = lien.get(
+                "title"
             )
 
+
+    if not titre:
+        titre = "Événement F1"
+
+
+    # --------------------------------------------------------
+    # Chaîne
+    # --------------------------------------------------------
+
+    chaine = None
+
+    chaine_element = evenement.select_one(
+        ".schedule-channel__name"
+    )
+
+    if chaine_element:
+        chaine = chaine_element.get_text(
+            " ",
+            strip=True
+        )
+
+
+    # --------------------------------------------------------
+    # ID chaîne
+    # --------------------------------------------------------
+
+    channel_id = evenement.get(
+        "data-channel-id"
+    )
+
+
+    # --------------------------------------------------------
+    # Affichage
+    # --------------------------------------------------------
+
+    print(
+        f"{len(resultats) + 1:02d}. "
+        f"🏎️ 23/08/2026 "
+        f"⚡ {heure} "
+        f"🏁 {titre} "
+        f"📺 {chaine or 'Chaîne inconnue'} "
+        f"(ID {channel_id or 'inconnu'})"
+    )
+
+
+    resultats.append(
+        {
+            "date": "23/08/2026",
+            "heure": heure,
+            "titre": titre,
+            "chaine": chaine,
+            "channel_id": channel_id,
+            "type": diffusion_type,
+            "datetime": datetime_str
+        }
+    )
+
+
+# ============================================================
+# RÉSUMÉ
+# ============================================================
 
 print()
 print("=" * 80)
-print("✅ DIAGNOSTIC TERMINÉ")
+print(
+    f"📊 Diffusions F1 en direct trouvées : "
+    f"{len(resultats)}"
+)
 print("=" * 80)
+
+
+if not resultats:
+
+    print(
+        "❌ Aucune diffusion F1 en direct trouvée "
+        "pour le dimanche 23 août 2026."
+    )
+
+else:
+
+    print()
+
+    for evenement in resultats:
+
+        print(
+            f"📅 {evenement['date']} "
+            f"à {evenement['heure']} — "
+            f"{evenement['titre']} — "
+            f"{evenement['chaine'] or 'Chaîne inconnue'}"
+        )
+
+
+print()
+print("✅ DIAGNOSTIC TERMINÉ")
