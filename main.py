@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 URL = "https://tv-sports.fr/base-ball/mlb_tv/"
 
-print("🔎 Recherche de la structure des diffusions MLB")
+print("🔎 EXTRACTION DES DIFFUSIONS MLB")
 print("=" * 60)
 
 response = requests.get(
@@ -21,25 +21,14 @@ channels = soup.find_all(
     class_="schedule-channel__name"
 )
 
-print(f"Nombre de chaînes trouvées : {len(channels)}")
-print()
+for i, channel in enumerate(channels, 1):
 
-for i, channel in enumerate(channels[:3], 1):
+    # Le niveau 4 correspond à la diffusion individuelle
+    bloc = channel
 
-    print(f"================ DIFFUSION {i} ================")
+    for _ in range(4):
+        bloc = bloc.parent
 
-    # On remonte progressivement dans le HTML
-    parent = channel
+    texte = bloc.get_text(" ", strip=True)
 
-    for niveau in range(1, 7):
-        parent = parent.parent
-
-        if parent is None:
-            break
-
-        texte = parent.get_text(" ", strip=True)
-
-        print(f"\n--- Niveau {niveau} ---")
-        print(texte[:1500])
-
-    print("\n")
+    print(f"{i:02d}. {texte}")
