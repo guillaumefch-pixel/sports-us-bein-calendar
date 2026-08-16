@@ -332,15 +332,18 @@ def trouver_date_courte(texte):
 
 def trouver_date_relative(texte):
 
-    texte_lower = texte_lower(texte)
+    # CORRECTION :
+    # il faut appeler la fonction texte_lower()
+    # et non réutiliser la variable texte_lower.
+    texte_lower_value = texte_lower(texte)
 
-    if "aujourd'hui" in texte_lower:
+    if "aujourd'hui" in texte_lower_value:
         return AUJOURD_HUI
 
-    if "demain" in texte_lower:
+    if "demain" in texte_lower_value:
         return AUJOURD_HUI + timedelta(days=1)
 
-    if "après-demain" in texte_lower:
+    if "après-demain" in texte_lower_value:
         return AUJOURD_HUI + timedelta(days=2)
 
     return None
