@@ -1,13 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
 
 
-print("🔎 EXTRACTION COMPLÈTE DU WEEK-END F1")
+print("🔎 DIAGNOSTIC DE LA PAGE DU GRAND PRIX")
 print("=" * 90)
 
 
-URL = "https://tv-sports.fr/formule-1/"
+URL = "https://tv-sports.fr/formule-1/grand-prix-des-pays-bas"
+
 
 HEADERS = {
     "User-Agent": (
@@ -35,385 +35,264 @@ soup = BeautifulSoup(
     "html.parser"
 )
 
-print(f"✅ Page téléchargée : {len(response.text)} caractères")
 
-
-# =========================================================
-# RÉCUPÉRATION DES ÉVÉNEMENTS
-# =========================================================
-
-evenements = soup.select(
-    "ol.schedule-list li.schedule-item"
+print(
+    f"✅ Page téléchargée : "
+    f"{len(response.text)} caractères"
 )
 
-print(f"📋 Événements trouvés : {len(evenements)}")
+
+# =========================================================
+# TITRE DE LA PAGE
+# =========================================================
+
+print()
+print("=" * 90)
+print("📄 TITRE")
+print("=" * 90)
+
+title = soup.title
+
+if title:
+    print(title.get_text(" ", strip=True))
+else:
+    print("Aucun titre")
 
 
 # =========================================================
-# WEEK-END DU GP DES PAYS-BAS
+# TEXTE DES ÉLÉMENTS IMPORTANTS
 # =========================================================
 
-DATE_DEBUT = "2026-08-21"
-DATE_FIN = "2026-08-23"
+print()
+print("=" * 90)
+print("🔎 RECHERCHE DES MOTS-CLÉS")
+print("=" * 90)
 
 
-diffusions = []
+mots_cles = [
+    "EL1",
+    "EL2",
+    "EL3",
+    "FP1",
+    "FP2",
+    "FP3",
+    "Qualification",
+    "Qualifications",
+    "Qualif",
+    "Sprint",
+    "Grand Prix"
+]
+
+
+texte_page = soup.get_text(
+    " ",
+    strip=True
+)
+
+
+for mot in mots_cles:
+
+    compteur = texte_page.lower().count(
+        mot.lower()
+    )
+
+    print(
+        f"{mot:<20} : {compteur} occurrence(s)"
+    )
 
 
 # =========================================================
-# ANALYSE
+# RECHERCHE DES LIENS
 # =========================================================
 
-for evenement in evenements:
-
-    # -----------------------------------------------------
-    # On garde uniquement la Formule 1
-    # -----------------------------------------------------
-
-    if evenement.get("data-sport-id") != "102":
-        continue
+print()
+print("=" * 90)
+print("🔗 LIENS CONTENANT DES INFORMATIONS F1")
+print("=" * 90)
 
 
-    # -----------------------------------------------------
-    # Récupération de l'heure/date
-    # -----------------------------------------------------
+for lien in soup.select("a"):
 
-    time_element = evenement.select_one(
-        "time.schedule-time"
-    )
+    href = lien.get("href")
 
-    if not time_element:
-        continue
-
-
-    datetime_str = time_element.get("datetime")
-
-    if not datetime_str:
-        continue
-
-
-    # -----------------------------------------------------
-    # Conversion date
-    # -----------------------------------------------------
-
-    try:
-        date_obj = datetime.fromisoformat(
-            datetime_str
-        )
-
-    except ValueError:
-        continue
-
-
-    date_str = date_obj.strftime("%Y-%m-%d")
-
-
-    # -----------------------------------------------------
-    # On garde uniquement vendredi → dimanche
-    # -----------------------------------------------------
-
-    if not (
-        DATE_DEBUT <= date_str <= DATE_FIN
-    ):
-        continue
-
-
-    # -----------------------------------------------------
-    # Type de diffusion
-    # -----------------------------------------------------
-
-    diffusion_type = evenement.get(
-        "data-diffusion-type",
-        ""
-    )
-
-
-    # On veut uniquement le direct
-    if diffusion_type != "live":
-        continue
-
-
-    # -----------------------------------------------------
-    # Heure
-    # -----------------------------------------------------
-
-    heure = date_obj.strftime("%Hh%M")
-
-
-    # -----------------------------------------------------
-    # Nom du programme
-    # -----------------------------------------------------
-
-    titre = None
-
-    lien_programme = evenement.select_one(
-        "a[title]"
-    )
-
-    if lien_programme:
-        titre = lien_programme.get("title")
-
-
-    if not titre:
-
-        titre_element = evenement.select_one(
-            ".schedule-program__body"
-        )
-
-        if titre_element:
-            titre = titre_element.get_text(
-                " ",
-                strip=True
-            )
-
-
-    if not titre:
-        titre = "Formule 1"
-
-
-    # -----------------------------------------------------
-    # CHAÎNES
-    # -----------------------------------------------------
-
-    chaines = []
-
-
-    # Les logos des chaînes ont généralement
-    # la classe logoChaine
-    for image in evenement.select(
-        "img.logoChaine"
-    ):
-
-        alt = image.get("alt")
-
-        if alt:
-            chaines.append(
-                alt.strip()
-            )
-
-
-    # -----------------------------------------------------
-    # Fallback : nom texte de la chaîne
-    # -----------------------------------------------------
-
-    if not chaines:
-
-        for element in evenement.select(
-            ".schedule-channel__name"
-        ):
-
-            texte = element.get_text(
-                " ",
-                strip=True
-            )
-
-            if texte:
-                chaines.append(
-                    texte
-                )
-
-
-    # Suppression des doublons
-    chaines = list(
-        dict.fromkeys(chaines)
-    )
-
-
-    if chaines:
-        chaine = " / ".join(chaines)
-    else:
-        chaine = "Chaîne inconnue"
-
-
-    # -----------------------------------------------------
-    # ID DES CHAÎNES
-    # -----------------------------------------------------
-
-    channel_id = evenement.get(
-        "data-channel-id"
-    )
-
-
-    # -----------------------------------------------------
-    # TEXTE COMPLET
-    # -----------------------------------------------------
-
-    texte_complet = evenement.get_text(
+    texte = lien.get_text(
         " ",
         strip=True
     )
 
 
-    # -----------------------------------------------------
-    # DÉTECTION DU TYPE DE SÉANCE
-    # -----------------------------------------------------
-
-    texte_lower = texte_complet.lower()
+    if not href:
+        continue
 
 
-    if "qualification" in texte_lower:
-        session = "Qualifications"
-
-    elif "qualif" in texte_lower:
-        session = "Qualifications"
-
-    elif "essai libre 1" in texte_lower:
-        session = "EL1"
-
-    elif "essais libres 1" in texte_lower:
-        session = "EL1"
-
-    elif "essai libre 2" in texte_lower:
-        session = "EL2"
-
-    elif "essais libres 2" in texte_lower:
-        session = "EL2"
-
-    elif "essai libre 3" in texte_lower:
-        session = "EL3"
-
-    elif "essais libres 3" in texte_lower:
-        session = "EL3"
-
-    elif "fp1" in texte_lower:
-        session = "EL1"
-
-    elif "fp2" in texte_lower:
-        session = "EL2"
-
-    elif "fp3" in texte_lower:
-        session = "EL3"
-
-    elif "sprint" in texte_lower:
-        session = "Sprint"
-
-    elif "grand prix" in texte_lower:
-        session = "Grand Prix"
-
-    else:
-        session = "Autre"
+    texte_lower = (
+        texte + " " + href
+    ).lower()
 
 
-    # -----------------------------------------------------
-    # SAUVEGARDE
-    # -----------------------------------------------------
-
-    diffusions.append({
-        "datetime": datetime_str,
-        "date": date_str,
-        "heure": heure,
-        "titre": titre,
-        "session": session,
-        "chaine": chaine,
-        "channel_id": channel_id,
-        "diffusion_type": diffusion_type,
-        "texte": texte_complet
-    })
+    mots = [
+        "essai",
+        "qualif",
+        "qualification",
+        "sprint",
+        "grand-prix",
+        "gp"
+    ]
 
 
-# =========================================================
-# TRI CHRONOLOGIQUE
-# =========================================================
-
-diffusions.sort(
-    key=lambda x: x["datetime"]
-)
-
-
-# =========================================================
-# AFFICHAGE
-# =========================================================
-
-print()
-print("=" * 90)
-print("📺 TOUTES LES DIFFUSIONS F1 DU WEEK-END")
-print("=" * 90)
-
-
-if not diffusions:
-
-    print("❌ Aucune diffusion trouvée.")
-
-else:
-
-    for i, diffusion in enumerate(
-        diffusions,
-        start=1
+    if any(
+        mot in texte_lower
+        for mot in mots
     ):
 
         print()
         print(
-            f"{i:02d}. "
-            f"🏎️ {diffusion['date']} "
-            f"⚡ {diffusion['heure']} "
-            f"🏁 {diffusion['titre']} "
-            f"📺 {diffusion['chaine']} "
-            f"(ID {diffusion['channel_id']})"
+            f"texte : {texte}"
         )
 
         print(
-            f"    🔖 Session : {diffusion['session']}"
+            f"href  : {href}"
         )
 
         print(
-            f"    🔖 Type : {diffusion['diffusion_type']}"
+            f"title : {lien.get('title')}"
         )
 
 
 # =========================================================
-# RÉSUMÉ PAR JOUR
+# TABLES / LISTES
 # =========================================================
 
 print()
 print("=" * 90)
-print("📅 RÉSUMÉ PAR JOUR")
+print("📋 ÉLÉMENTS SCHEDULE")
 print("=" * 90)
 
 
-dates = [
-    "2026-08-21",
-    "2026-08-22",
-    "2026-08-23"
-]
+elements = soup.select(
+    "li.schedule-item"
+)
 
 
-for date in dates:
+print(
+    f"Nombre d'événements trouvés : "
+    f"{len(elements)}"
+)
 
-    jour = [
-        d for d in diffusions
-        if d["date"] == date
-    ]
+
+for i, element in enumerate(
+    elements,
+    start=1
+):
 
     print()
-    print(f"📅 {date}")
+    print("-" * 90)
+    print(
+        f"🏎️ ÉVÉNEMENT #{i}"
+    )
+    print("-" * 90)
 
-    if not jour:
-        print("   Aucun événement")
 
-    else:
+    # -----------------------------------------------------
+    # ATTRIBUTS
+    # -----------------------------------------------------
 
-        for diffusion in jour:
+    print()
+    print("ATTRIBUTS :")
 
-            print(
-                f"   {diffusion['heure']} — "
-                f"{diffusion['session']} — "
-                f"{diffusion['titre']} — "
-                f"{diffusion['chaine']}"
+    for cle, valeur in element.attrs.items():
+
+        print(
+            f"  {cle} = {valeur}"
+        )
+
+
+    # -----------------------------------------------------
+    # TEXTE
+    # -----------------------------------------------------
+
+    print()
+    print("TEXTE :")
+
+    print(
+        element.get_text(
+            " ",
+            strip=True
+        )
+    )
+
+
+    # -----------------------------------------------------
+    # TIME
+    # -----------------------------------------------------
+
+    time_element = element.select_one(
+        "time.schedule-time"
+    )
+
+    if time_element:
+
+        print()
+        print("DATETIME :")
+
+        print(
+            time_element.get("datetime")
+        )
+
+
+    # -----------------------------------------------------
+    # LIENS
+    # -----------------------------------------------------
+
+    print()
+    print("LIENS :")
+
+    for lien in element.select("a"):
+
+        print(
+            "  href =",
+            lien.get("href")
+        )
+
+        print(
+            "  title =",
+            lien.get("title")
+        )
+
+        print(
+            "  texte =",
+            lien.get_text(
+                " ",
+                strip=True
             )
+        )
+
+
+    # -----------------------------------------------------
+    # IMAGES
+    # -----------------------------------------------------
+
+    print()
+    print("IMAGES :")
+
+    for image in element.select("img"):
+
+        print(
+            "  alt =",
+            image.get("alt")
+        )
+
+        print(
+            "  src =",
+            image.get("src")
+        )
 
 
 # =========================================================
-# RÉSUMÉ FINAL
+# FIN
 # =========================================================
 
 print()
 print("=" * 90)
-print(
-    f"📊 {len(diffusions)} diffusion(s) "
-    f"F1 en direct trouvée(s)"
-)
-print("=" * 90)
-
-print()
 print("🏁 DIAGNOSTIC TERMINÉ")
 print("=" * 90)
