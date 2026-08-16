@@ -1,9 +1,17 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
+
 
 print("🔎 EXTRACTION DES DIFFUSIONS F1")
 print("=" * 80)
+
+
+# =========================================================
+# CONFIGURATION
+# =========================================================
 
 URL = "https://tv-sports.fr/formule-1/"
 
@@ -15,149 +23,237 @@ headers = {
     )
 }
 
-response = requests.get(URL, headers=headers, timeout=20)
-response.raise_for_status()
 
-soup = BeautifulSoup(response.text, "html.parser")
-
-
-# =========================================================
-# PARAMÈTRES
-# =========================================================
-
+# Chaînes Canal+ acceptées
 CHAINES_CANAL = [
     "canal+",
     "canal +",
 ]
 
-# Mots indiquant une diffusion en direct
-MOTS_DIRECT = [
-    "direct",
-    "live",
-]
 
-# Mots indiquant une rediffusion
-MOTS_REDIF = [
-    "rediff",
-    "rediffusion",
-    "replay",
-]
+# =========================================================
+# PROGRAMMES F1 AUTORISÉS
+# =========================================================
 
-# Programmes F1 que nous voulons récupérer
-# Attention : l'ordre est important.
 PROGRAMMES = [
+    "grand prix",
     "qualifications sprint",
     "qualification sprint",
     "qualifs sprint",
     "qualif sprint",
-
-    "essais libres 1",
-    "essais libres 2",
-    "essais libres 3",
-    "essai libre 1",
-    "essai libre 2",
-    "essai libre 3",
-
+    "sprint",
     "essais libres",
     "essai libre",
-
     "qualifications",
     "qualification",
     "qualifs",
     "qualif",
-
-    "sprint",
-
-    "grand prix",
 ]
 
-# Émissions / magazines explicitement exclus
+
+# =========================================================
+# PROGRAMMES / ÉMISSIONS À EXCLURE
+# =========================================================
+
 EXCLUSIONS = [
     "on board",
+    "onboard",
     "le podium",
     "formula one",
     "formula one, le mag",
+    "formula one - le mag",
     "le mag",
     "la grille",
     "fractionné",
     "fractionne",
     "parade des pilotes",
     "fabrique des rêves",
+    "la fabrique des rêves",
+    "bleu, blanc, vite",
+    "vivez en direct les évènements",
 ]
 
 
 # =========================================================
-# OUTILS
+# MOIS / JOURS
+# =========================================================
+
+MOIS = {
+    "janvier": 1,
+    "février": 2,
+    "mars": 3,
+    "avril": 4,
+    "mai": 5,
+    "juin": 6,
+    "juillet": 7,
+    "août": 8,
+    "septembre": 9,
+    "octobre": 10,
+    "novembre": 11,
+    "décembre": 12,
+}
+
+JOURS = {
+    "lundi": 0,
+    "mardi": 1,
+    "mercredi": 2,
+    "jeudi": 3,
+    "vendredi": 4,
+    "samedi": 5,
+    "dimanche": 6,
+}
+
+
+# =========================================================
+# DATE ACTUELLE
+# =========================================================
+
+AUJOURD_HUI = datetime.now(
+    ZoneInfo("Europe/Paris")
+).date()
+
+
+# =========================================================
+# TÉLÉCHARGEMENT
+# =========================================================
+
+response = requests.get(
+    URL,
+    headers=headers,
+    timeout=20
+)
+
+response.raise_for_status()
+
+soup = BeautifulSoup(
+    response.text,
+    "html.parser"
+)
+
+
+# =========================================================
+# FONCTIONS GÉNÉRALES
 # =========================================================
 
 def nettoyer(texte):
+    """
+    Nettoie les espaces et retours à la ligne.
+    """
+    if not texte:
+        return ""
+
     return " ".join(texte.split())
+
+
+def texte_lower(texte):
+    return nettoyer(texte).lower()
 
 
 def est_canal(texte):
     """
-    Vérifie si le texte correspond à une chaîne Canal+.
+    Vérifie si le texte contient une chaîne Canal+.
     """
-    texte = texte.lower()
+    texte = texte_lower(texte)
 
-    return any(chaine in texte for chaine in CHAINES_CANAL)
+    return any(
+        chaine in texte
+        for chaine in CHAINES_CANAL
+    )
 
 
 def est_direct(texte):
     """
-    Vérifie que la diffusion est bien un direct.
+    Vrai uniquement si le bloc contient DIRECT.
     """
-    texte_lower = texte.lower()
+    texte = texte_lower(texte)
 
-    return any(mot in texte_lower for mot in MOTS_DIRECT)
+    return (
+        "direct" in texte
+        or "en direct" in texte
+    )
 
 
 def est_rediffusion(texte):
     """
-    Vérifie que la diffusion n'est PAS une rediffusion.
+    Détecte les rediffusions.
     """
-    texte_lower = texte.lower()
+    texte = texte_lower(texte)
 
-    return any(mot in texte_lower for mot in MOTS_REDIF)
+    mots = [
+        "rediffusion",
+        "rediff.",
+        "rediff",
+    ]
 
+    return any(
+        mot in texte
+        for mot in mots
+    )
+
+
+def est_exclu(texte):
+    """
+    Exclut les magazines et émissions F1
+    qui ne sont pas les sessions / courses.
+    """
+    texte = texte_lower(texte)
+
+    return any(
+        exclusion in texte
+        for exclusion in EXCLUSIONS
+    )
+
+
+# =========================================================
+# EXTRACTION DE L'HEURE
+# =========================================================
 
 def trouver_heure(texte):
-    """
-    Recherche une heure au format 15h00.
-    """
 
-    match = re.search(
+    patterns = [
         r"\b(\d{1,2})h(\d{2})\b",
-        texte,
-        re.IGNORECASE
-    )
+        r"\b(\d{1,2}):(\d{2})\b",
+    ]
 
-    if not match:
-        return None
+    for pattern in patterns:
 
-    return f"{int(match.group(1)):02d}h{match.group(2)}"
+        match = re.search(
+            pattern,
+            texte,
+            re.IGNORECASE
+        )
+
+        if match:
+
+            heure = int(match.group(1))
+            minute = int(match.group(2))
+
+            if 0 <= heure <= 23 and 0 <= minute <= 59:
+
+                return (
+                    f"{heure:02d}h"
+                    f"{minute:02d}"
+                )
+
+    return None
 
 
-def trouver_date(texte):
-    """
-    Recherche une date du type :
-    vendredi 21 août 2026
-    """
+# =========================================================
+# EXTRACTION DATE COMPLÈTE
+# =========================================================
 
-    jours = (
-        "lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche"
-    )
-
-    mois = (
-        "janvier|février|fevrier|mars|avril|mai|juin|juillet|"
-        "août|aout|septembre|octobre|novembre|décembre|decembre"
-    )
+def trouver_date_complete(texte):
 
     pattern = (
-        rf"(?:{jours})\s+"
-        rf"(\d{{1,2}})\s+"
-        rf"({mois})\s+"
-        rf"(\d{{4}})"
+        r"(?:lundi|mardi|mercredi|jeudi|vendredi|"
+        r"samedi|dimanche)"
+        r"\s+"
+        r"(\d{1,2})"
+        r"\s+"
+        r"(janvier|février|mars|avril|mai|juin|juillet|"
+        r"août|septembre|octobre|novembre|décembre)"
+        r"\s+"
+        r"(\d{4})"
     )
 
     match = re.search(
@@ -169,226 +265,345 @@ def trouver_date(texte):
     if not match:
         return None
 
-    mois = match.group(2)
+    jour = int(match.group(1))
+    mois = match.group(2).lower()
+    annee = int(match.group(3))
 
-    # Normalisation des accents pour le tri
-    mois = mois.replace("fevrier", "février")
-    mois = mois.replace("aout", "août")
-    mois = mois.replace("decembre", "décembre")
+    if mois not in MOIS:
+        return None
 
-    return (
-        f"{int(match.group(1)):02d} "
-        f"{mois} "
-        f"{match.group(3)}"
+    try:
+
+        date = datetime(
+            annee,
+            MOIS[mois],
+            jour
+        ).date()
+
+    except ValueError:
+        return None
+
+    return date
+
+
+# =========================================================
+# EXTRACTION DES DATES COURTES
+# =========================================================
+
+def trouver_date_courte(texte):
+
+    pattern = (
+        r"\b(\d{1,2})/(\d{1,2})"
+        r"(?:/(\d{4}))?\b"
     )
 
+    match = re.search(
+        pattern,
+        texte
+    )
+
+    if not match:
+        return None
+
+    jour = int(match.group(1))
+    mois = int(match.group(2))
+
+    annee = (
+        int(match.group(3))
+        if match.group(3)
+        else AUJOURD_HUI.year
+    )
+
+    try:
+
+        return datetime(
+            annee,
+            mois,
+            jour
+        ).date()
+
+    except ValueError:
+        return None
+
+
+# =========================================================
+# DATES RELATIVES
+# =========================================================
+
+def trouver_date_relative(texte):
+
+    texte_lower = texte_lower(texte)
+
+    if "aujourd'hui" in texte_lower:
+        return AUJOURD_HUI
+
+    if "demain" in texte_lower:
+        return AUJOURD_HUI + timedelta(days=1)
+
+    if "après-demain" in texte_lower:
+        return AUJOURD_HUI + timedelta(days=2)
+
+    return None
+
+
+# =========================================================
+# DATE À PARTIR D'UN JOUR DE LA SEMAINE
+# =========================================================
+
+def trouver_date_jour_semaine(texte):
+
+    texte_lower_value = texte_lower(texte)
+
+    for nom_jour, numero_jour in JOURS.items():
+
+        if nom_jour in texte_lower_value:
+
+            delta = (
+                numero_jour
+                - AUJOURD_HUI.weekday()
+            ) % 7
+
+            return (
+                AUJOURD_HUI
+                + timedelta(days=delta)
+            )
+
+    return None
+
+
+# =========================================================
+# DATE DEPUIS UN TEXTE
+# =========================================================
+
+def extraire_date(texte):
+
+    # 1. Date complète
+    date = trouver_date_complete(texte)
+
+    if date:
+        return date
+
+    # 2. Date courte
+    date = trouver_date_courte(texte)
+
+    if date:
+        return date
+
+    # 3. Aujourd'hui / demain
+    date = trouver_date_relative(texte)
+
+    if date:
+        return date
+
+    # 4. Jour de la semaine
+    date = trouver_date_jour_semaine(texte)
+
+    if date:
+        return date
+
+    return None
+
+
+# =========================================================
+# EXTRACTION DU PROGRAMME
+# =========================================================
 
 def trouver_programme(texte):
-    """
-    Identifie le type de session F1.
 
-    On traite les qualifications sprint AVANT
-    les qualifications classiques.
-    """
-
-    texte_lower = texte.lower()
+    texte_original = nettoyer(texte)
+    texte_lower_value = texte_original.lower()
 
     # -----------------------------------------------------
     # EXCLUSIONS
     # -----------------------------------------------------
 
-    for exclusion in EXCLUSIONS:
+    if est_exclu(texte_original):
+        return None
 
-        if exclusion in texte_lower:
-            return None
+    # -----------------------------------------------------
+    # GRAND PRIX
+    # -----------------------------------------------------
+
+    if "grand prix" in texte_lower_value:
+
+        # On cherche notamment :
+        # Grand Prix des Pays-Bas
+        # Grand Prix de Hongrie
+        # Grand Prix d'Italie
+        # etc.
+
+        match = re.search(
+            r"(grand prix\s+"
+            r"(?:de|du|des|d'|de la|de l')?"
+            r"\s*"
+            r"[^|]+?)"
+            r"(?=\s+(?:sur|canal\+|canal \+|direct|rediffusion|"
+            r"\d{1,2}h\d{2}|image|$))",
+            texte_original,
+            re.IGNORECASE
+        )
+
+        if match:
+
+            programme = nettoyer(
+                match.group(1)
+            )
+
+            # Nettoyage final
+            programme = re.sub(
+                r"\s+$",
+                "",
+                programme
+            )
+
+            return programme
+
+        return "Grand Prix"
 
     # -----------------------------------------------------
     # QUALIFICATIONS SPRINT
     # -----------------------------------------------------
 
     if (
-        "qualifications sprint" in texte_lower
-        or "qualification sprint" in texte_lower
-        or "qualifs sprint" in texte_lower
-        or "qualif sprint" in texte_lower
+        "qualifications sprint" in texte_lower_value
+        or "qualification sprint" in texte_lower_value
+        or "qualifs sprint" in texte_lower_value
+        or "qualif sprint" in texte_lower_value
     ):
         return "Qualifications Sprint"
 
     # -----------------------------------------------------
-    # ESSAIS LIBRES
+    # SPRINT
     # -----------------------------------------------------
 
-    for numero in ("1", "2", "3"):
-
-        if (
-            f"essais libres {numero}" in texte_lower
-            or f"essai libre {numero}" in texte_lower
-            or f"essais libre {numero}" in texte_lower
-        ):
-            return f"Essais Libres {numero}"
-
-    # -----------------------------------------------------
-    # ESSAIS LIBRES SANS NUMÉRO
-    # -----------------------------------------------------
-
-    if (
-        "essais libres" in texte_lower
-        or "essai libre" in texte_lower
+    if re.search(
+        r"\bsprint\b",
+        texte_lower_value
     ):
-        return "Essais Libres"
+        return "Sprint"
 
     # -----------------------------------------------------
     # QUALIFICATIONS
     # -----------------------------------------------------
 
     if (
-        "qualifications" in texte_lower
-        or "qualification" in texte_lower
-        or "qualifs" in texte_lower
-        or "qualif" in texte_lower
+        "qualifications" in texte_lower_value
+        or "qualification" in texte_lower_value
+        or "qualifs" in texte_lower_value
+        or "qualif" in texte_lower_value
     ):
         return "Qualifications"
 
     # -----------------------------------------------------
-    # SPRINT
+    # ESSAIS LIBRES
     # -----------------------------------------------------
 
-    if re.search(r"\bsprint\b", texte_lower):
-        return "Sprint"
-
-    # -----------------------------------------------------
-    # GRAND PRIX
-    # -----------------------------------------------------
-
-    if "grand prix" in texte_lower:
-
-        # On essaie de récupérer le nom du Grand Prix.
-        # Exemples :
-        # Grand Prix des Pays-Bas
-        # Grand Prix d'Italie
-        # Grand Prix de Belgique
-
-        match = re.search(
-            r"(grand prix(?:\s+(?:de|du|des|d'|de la|de l')"
-            r"\s+[^|,\n]+)?)",
-            texte,
-            re.IGNORECASE
-        )
-
-        if match:
-
-            programme = nettoyer(match.group(1))
-
-            # On évite de récupérer des informations
-            # supplémentaires après le nom du GP.
-            programme = re.split(
-                r"\s+(?:canal\+|canal\s*\+)\b",
-                programme,
-                flags=re.IGNORECASE
-            )[0]
-
-            return programme
-
-        return "Grand Prix"
+    if (
+        "essais libres" in texte_lower_value
+        or "essai libre" in texte_lower_value
+    ):
+        return "Essais libres"
 
     return None
 
 
-def trouver_chaine(bloc):
-    """
-    Recherche la chaîne dans le bloc.
-    """
+# =========================================================
+# EXTRACTION DE LA CHAÎNE
+# =========================================================
 
-    # On regarde d'abord les chaînes individuelles
+def trouver_chaine(bloc):
+
+    # On cherche d'abord les textes courts,
+    # car le nom de la chaîne est généralement
+    # isolé dans son propre élément.
+
     for element in bloc.stripped_strings:
 
         texte = nettoyer(element)
 
+        if not texte:
+            continue
+
         if est_canal(texte):
 
-            # On évite de retourner un énorme bloc.
-            # On cherche simplement la partie Canal+.
-            match = re.search(
-                r"(Canal\s*\+\s*(?:Sport\s*360|Sport|Foot|Décalé)?|Canal\+)",
-                texte,
-                re.IGNORECASE
-            )
+            # On évite de retourner tout un paragraphe
+            # contenant Canal+.
 
-            if match:
-                return nettoyer(match.group(1))
+            if len(texte) <= 80:
+                return texte
 
-            return texte
+    # Deuxième tentative :
+    # recherche dans le texte global du bloc.
 
-    # Si la chaîne n'est pas isolée, on la cherche
-    # dans le texte complet du bloc.
-    texte_bloc = nettoyer(
-        bloc.get_text(" ", strip=True)
+    texte = nettoyer(
+        bloc.get_text(
+            " ",
+            strip=True
+        )
     )
 
     match = re.search(
-        r"(Canal\s*\+\s*(?:Sport\s*360|Sport|Foot|Décalé)?|Canal\+)",
-        texte_bloc,
+        r"(Canal\s*\+\s*Sport\s*360|"
+        r"Canal\s*\+\s*Sport|"
+        r"Canal\s*\+)",
+        texte,
         re.IGNORECASE
     )
 
     if match:
-        return nettoyer(match.group(1))
+        return nettoyer(
+            match.group(1)
+        )
 
     return None
 
 
 # =========================================================
-# EXTRACTION
+# RECHERCHE DU MEILLEUR BLOC DE DIFFUSION
 # =========================================================
 
-diffusions = []
+def trouver_bloc_diffusion(element):
 
-# Nous partons des éléments contenant "Formule 1".
-# Ensuite nous remontons progressivement dans le DOM
-# pour trouver le bloc correspondant à une diffusion.
+    """
+    À partir d'un élément contenant "Formule 1",
+    on remonte dans le DOM pour trouver le plus petit
+    bloc contenant simultanément :
 
-elements = soup.find_all(
-    string=lambda text: (
-        text is not None
-        and "Formule 1" in text
-    )
-)
-
-print()
-
-for element in elements:
+    - Formule 1
+    - DIRECT
+    - Canal+
+    - une heure
+    """
 
     bloc = element.parent
 
     candidats = []
 
-    # -----------------------------------------------------
-    # RECHERCHE DU BLOC DE DIFFUSION
-    # -----------------------------------------------------
-
-    for niveau in range(1, 10):
+    for niveau in range(1, 12):
 
         if bloc is None:
             break
 
         texte = nettoyer(
-            bloc.get_text(" ", strip=True)
+            bloc.get_text(
+                " ",
+                strip=True
+            )
         )
 
-        # Le bloc doit au minimum contenir :
-        # - une heure
-        # - un direct
-        # - Canal+
-        #
-        # On ne demande PAS encore le programme ici.
-        # Cela évite le problème rencontré précédemment
-        # avec la structure HTML de TV-Sports.
+        texte_lower_value = texte.lower()
+
+        if len(texte) > 1800:
+            bloc = bloc.parent
+            continue
 
         if (
-            trouver_heure(texte)
+            "formule 1" in texte_lower_value
             and est_direct(texte)
             and est_canal(texte)
+            and trouver_heure(texte)
         ):
+
             candidats.append(
                 (
                     len(texte),
@@ -400,15 +615,132 @@ for element in elements:
         bloc = bloc.parent
 
     if not candidats:
-        continue
+        return None
 
-    # Le plus petit bloc pertinent est généralement
-    # celui correspondant à la diffusion.
     candidats.sort(
         key=lambda x: x[0]
     )
 
-    _, bloc, texte = candidats[0]
+    return candidats[0]
+
+
+# =========================================================
+# RECHERCHE DU CONTEXTE DE DATE
+# =========================================================
+
+def trouver_date_dans_contexte(element):
+
+    """
+    Si la date n'est pas dans le bloc de diffusion,
+    on remonte dans les éléments précédents de la page.
+
+    Le site utilise notamment des sections du type :
+
+        Aujourd'hui
+
+        ... diffusion ...
+
+        lundi 17 août 2026
+
+        ... diffusion ...
+    """
+
+    # -----------------------------------------------------
+    # 1. Chercher dans les parents immédiats
+    # -----------------------------------------------------
+
+    parent = element.parent
+
+    for _ in range(6):
+
+        if parent is None:
+            break
+
+        texte_parent = nettoyer(
+            parent.get_text(
+                " ",
+                strip=True
+            )
+        )
+
+        date = extraire_date(
+            texte_parent
+        )
+
+        if date:
+            return date
+
+        parent = parent.parent
+
+    # -----------------------------------------------------
+    # 2. Chercher dans les éléments précédents
+    # -----------------------------------------------------
+
+    courant = element
+
+    for _ in range(30):
+
+        precedent = courant.find_previous()
+
+        if precedent is None:
+            break
+
+        texte = nettoyer(
+            precedent.get_text(
+                " ",
+                strip=True
+            )
+        )
+
+        if not texte:
+            courant = precedent
+            continue
+
+        # On limite la recherche aux textes
+        # qui ressemblent réellement à un titre de date.
+
+        if len(texte) <= 100:
+
+            date = extraire_date(
+                texte
+            )
+
+            if date:
+                return date
+
+        courant = precedent
+
+    return None
+
+
+# =========================================================
+# EXTRACTION PRINCIPALE
+# =========================================================
+
+diffusions = []
+
+
+# On recherche toutes les occurrences de "Formule 1"
+# sans dépendre de la casse.
+
+elements_formule_1 = soup.find_all(
+    string=lambda text: (
+        text
+        and "formule 1" in text.lower()
+    )
+)
+
+
+for element in elements_formule_1:
+
+    resultat = trouver_bloc_diffusion(
+        element
+    )
+
+    if not resultat:
+        continue
+
+    _, bloc, texte = resultat
 
     # -----------------------------------------------------
     # DIRECT UNIQUEMENT
@@ -425,10 +757,30 @@ for element in elements:
         continue
 
     # -----------------------------------------------------
+    # PAS DE MAGAZINE / ÉMISSION
+    # -----------------------------------------------------
+
+    if est_exclu(texte):
+        continue
+
+    # -----------------------------------------------------
+    # CHAÎNE
+    # -----------------------------------------------------
+
+    chaine = trouver_chaine(
+        bloc
+    )
+
+    if not chaine:
+        continue
+
+    # -----------------------------------------------------
     # PROGRAMME
     # -----------------------------------------------------
 
-    programme = trouver_programme(texte)
+    programme = trouver_programme(
+        texte
+    )
 
     if not programme:
         continue
@@ -437,7 +789,9 @@ for element in elements:
     # HEURE
     # -----------------------------------------------------
 
-    heure = trouver_heure(texte)
+    heure = trouver_heure(
+        texte
+    )
 
     if not heure:
         continue
@@ -446,26 +800,39 @@ for element in elements:
     # DATE
     # -----------------------------------------------------
 
-    date = trouver_date(texte)
+    date = extraire_date(
+        texte
+    )
+
+    # Si la date n'est pas directement dans
+    # le bloc, on cherche son contexte.
+
+    if not date:
+
+        date = trouver_date_dans_contexte(
+            element
+        )
 
     if not date:
         continue
 
     # -----------------------------------------------------
-    # CHAÎNE
+    # FORMAT DATE
     # -----------------------------------------------------
 
-    chaine = trouver_chaine(bloc)
-
-    if not chaine:
-        continue
+    date_formatee = (
+        f"{date.day:02d} "
+        f"{list(MOIS.keys())[date.month - 1]} "
+        f"{date.year}"
+    )
 
     # -----------------------------------------------------
-    # VÉRIFICATION FINALE
+    # DIFFUSION
     # -----------------------------------------------------
 
     diffusion = {
-        "date": date,
+        "date_obj": date,
+        "date": date_formatee,
         "heure": heure,
         "programme": programme,
         "chaine": chaine,
@@ -475,47 +842,30 @@ for element in elements:
     # DÉDOUBLONNAGE
     # -----------------------------------------------------
 
-    if diffusion not in diffusions:
-        diffusions.append(diffusion)
+    existe = any(
+        d["date_obj"] == diffusion["date_obj"]
+        and d["heure"] == diffusion["heure"]
+        and d["programme"] == diffusion["programme"]
+        and d["chaine"] == diffusion["chaine"]
+        for d in diffusions
+    )
+
+    if not existe:
+        diffusions.append(
+            diffusion
+        )
 
 
 # =========================================================
 # TRI CHRONOLOGIQUE
 # =========================================================
 
-mois_num = {
-    "janvier": 1,
-    "février": 2,
-    "mars": 3,
-    "avril": 4,
-    "mai": 5,
-    "juin": 6,
-    "juillet": 7,
-    "août": 8,
-    "septembre": 9,
-    "octobre": 10,
-    "novembre": 11,
-    "décembre": 12,
-}
-
-
-def cle_tri(diffusion):
-
-    jour, mois, annee = diffusion["date"].split()
-
-    heure, minute = diffusion["heure"].split("h")
-
-    return (
-        int(annee),
-        mois_num[mois.lower()],
-        int(jour),
-        int(heure),
-        int(minute),
-    )
-
-
 diffusions.sort(
-    key=cle_tri
+    key=lambda diffusion: (
+        diffusion["date_obj"],
+        int(diffusion["heure"].split("h")[0]),
+        int(diffusion["heure"].split("h")[1]),
+    )
 )
 
 
@@ -525,9 +875,12 @@ diffusions.sort(
 
 print()
 
+
 if not diffusions:
 
-    print("❌ Aucune diffusion F1 en direct trouvée.")
+    print(
+        "❌ Aucune diffusion F1 en direct trouvée."
+    )
 
 else:
 
@@ -544,6 +897,7 @@ else:
             f"🏁 {diffusion['programme']} "
             f"📺 {diffusion['chaine']}"
         )
+
 
 print()
 print("=" * 80)
