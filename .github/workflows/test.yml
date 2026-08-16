@@ -20,4 +20,4 @@ jobs:
         run: pip install requests beautifulsoup4
 
       - name: Lancer notre programme
-        run: python main.py
+        run: python f1.py
