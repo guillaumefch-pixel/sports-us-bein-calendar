@@ -29,6 +29,46 @@ EQUIPES = (
 )
 
 
+LIEUX_EDF_OFFICIELS = {
+    "turquie – france": "Kocaeli Stadyumu, Kocaeli",
+    "belgique – france": "King Baudouin Stadium, Bruxelles",
+    "france – italie": "Stade de France, Saint-Denis",
+    "france – belgique": "Stade de France, Saint-Denis",
+    "italie – france": "San Siro, Milan",
+    "france – turquie": "Stade Atlantique, Bordeaux",
+}
+
+
+STADES_FOOTBALL_FALLBACK = {
+    "psg": "Parc des Princes, Paris",
+    "lille": "Stade Pierre-Mauroy, Villeneuve-d'Ascq",
+    "monaco": "Stade Louis II, Monaco",
+    "brest": "Stade Francis-Le Blé, Brest",
+    "marseille": "Orange Vélodrome, Marseille",
+    "le mans": "Stade Marie-Marvingt, Le Mans",
+    "strasbourg": "Stade de la Meinau, Strasbourg",
+    "lyon": "Parc Olympique Lyonnais, Décines-Charpieu",
+    "le havre": "Stade Océane, Le Havre",
+    "troyes": "Stade de l'Aube, Troyes",
+    "nice": "Allianz Riviera, Nice",
+    "lorient": "Stade du Moustoir, Lorient",
+    "toulouse": "Stadium de Toulouse, Toulouse",
+    "paris fc": "Stade Jean-Bouin, Paris",
+    "lens": "Stade Bollaert-Delelis, Lens",
+    "angers": "Stade Raymond-Kopa, Angers",
+    "auxerre": "Stade de l'Abbé-Deschamps, Auxerre",
+    "rennes": "Roazhon Park, Rennes",
+}
+
+
+STADES_NATIONAUX_FALLBACK = {
+    "france": "Stade de France, Saint-Denis",
+    "belgique": "King Baudouin Stadium, Bruxelles",
+    "italie": "Stadio Olimpico, Rome",
+    "turquie": "Atatürk Olimpiyat Stadyumu, Istanbul",
+}
+
+
 class AnalyseurTexteHTML(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -172,6 +212,15 @@ def valeur_propriete(lignes, propriete):
     return None
 
 
+def normaliser_nom(texte):
+    return (
+        texte
+        .strip()
+        .casefold()
+        .replace("’", "'")
+    )
+
+
 def extraire_infos_description(description):
     if not description:
         return None
@@ -196,7 +245,6 @@ def extraire_infos_description(description):
         return None
 
     match = parties[0]
-
     competition_brute = parties[1]
 
     correspondance = re.match(
@@ -235,6 +283,7 @@ def lire_dtstamps_existants(fichier):
             lignes = deplier_ics(
                 calendrier.read()
             )
+
     except OSError:
         return {}
 
@@ -337,7 +386,7 @@ def recuperer_lieu_page_match(url, cache_lieux):
     return lieu
 
 
-def extraire_equipe_domicile(match):
+def extraire_equipes_match(match):
     morceaux = re.split(
         r"\s+[–—-]\s+",
         match,
@@ -345,9 +394,12 @@ def extraire_equipe_domicile(match):
     )
 
     if len(morceaux) != 2:
-        return None
+        return None, None
 
-    return morceaux[0].strip()
+    return (
+        morceaux[0].strip(),
+        morceaux[1].strip(),
+    )
 
 
 def determiner_lieu(
@@ -376,35 +428,46 @@ def determiner_lieu(
     )
 
     if lieu_page:
-        return (
-            lieu_page,
-            "source",
-        )
+        return lieu_page, "source"
 
-    equipe_domicile = extraire_equipe_domicile(
+    match_normalise = normaliser_nom(
         match
     )
 
-    if not equipe_domicile:
+    if equipe["nom"] == "France":
+        lieu_officiel = LIEUX_EDF_OFFICIELS.get(
+            match_normalise
+        )
+
+        if lieu_officiel:
+            return lieu_officiel, "officiel"
+
+    domicile, exterieur = extraire_equipes_match(
+        match
+    )
+
+    if not domicile:
         return None, None
 
-    if (
-        equipe["nom"] == "PSG"
-        and equipe_domicile.casefold() == "psg"
-    ):
-        return (
-            "Parc des Princes",
-            "estimation",
+    domicile_normalise = normaliser_nom(
+        domicile
+    )
+
+    if equipe["nom"] == "PSG":
+        lieu = STADES_FOOTBALL_FALLBACK.get(
+            domicile_normalise
         )
 
-    if (
-        equipe["nom"] == "France"
-        and equipe_domicile.casefold() == "france"
-    ):
-        return (
-            "Stade de France, Saint-Denis",
-            "estimation",
+        if lieu:
+            return lieu, "estimation"
+
+    if equipe["nom"] == "France":
+        lieu = STADES_NATIONAUX_FALLBACK.get(
+            domicile_normalise
         )
+
+        if lieu:
+            return lieu, "estimation"
 
     return None, None
 
@@ -596,10 +659,7 @@ def transformer_evenement(
                     )
                 )
 
-            if (
-                lieu
-                and not location_trouvee
-            ):
+            if lieu and not location_trouvee:
                 resultat.append(
                     f"LOCATION:{echapper_ics(lieu)}"
                 )
@@ -626,9 +686,7 @@ def modifier_calendrier(
     resultat = []
     evenement = []
     dans_evenement = False
-
     infos_evenements = []
-
     nom_calendrier_trouve = False
 
     for ligne in lignes:
