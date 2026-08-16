@@ -3,8 +3,8 @@ from bs4 import BeautifulSoup
 
 URL = "https://tv-sports.fr/base-ball/mlb_tv/"
 
-print("🔎 Recherche des matchs MLB diffusés sur beIN SPORTS...")
-print()
+print("🔎 Inspection de la page MLB TV-Sports")
+print("=" * 60)
 
 response = requests.get(
     URL,
@@ -16,14 +16,18 @@ response.raise_for_status()
 
 soup = BeautifulSoup(response.text, "html.parser")
 
-text = soup.get_text(" ", strip=True)
+# On cherche tous les éléments contenant une chaîne beIN
+elements = soup.find_all(string=lambda s: s and "beIN SPORTS" in s)
 
-print("Page récupérée avec succès.")
+print(f"Nombre d'éléments beIN trouvés : {len(elements)}")
 print()
-print("Contient 'beIN' :", "beIN" in text)
-print("Contient 'MLB' :", "MLB" in text)
-print()
-print("Premiers éléments trouvés contenant 'beIN' :")
 
-for element in soup.find_all(string=lambda s: s and "beIN" in s):
-    print("-", element.strip())
+for i, element in enumerate(elements[:10], 1):
+    parent = element.parent
+
+    print(f"--- ÉLÉMENT {i} ---")
+    print(parent.get_text(" ", strip=True))
+    print()
+    print("HTML du parent :")
+    print(parent.prettify()[:3000])
+    print()
