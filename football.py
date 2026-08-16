@@ -11,6 +11,7 @@ EN_TETES = {
 EQUIPES = (
     {
         "nom": "PSG",
+        "titre": None,
         "emoji": "⚽",
         "url": "https://tv-sports.fr/calendrier/equipe/1/psg?direct=1",
         "fichier": "psg_calendar.ics",
@@ -18,6 +19,7 @@ EQUIPES = (
     },
     {
         "nom": "France",
+        "titre": "EDF",
         "emoji": "🇫🇷",
         "url": "https://tv-sports.fr/calendrier/equipe/177/france?direct=1",
         "fichier": "france_calendar.ics",
@@ -241,6 +243,31 @@ def lire_dtstamps_existants(fichier):
     return resultat
 
 
+def construire_resume(
+    equipe,
+    match,
+    competition,
+    diffusion,
+):
+    if equipe["nom"] == "PSG":
+        return (
+            f"{equipe['emoji']} "
+            f"{match} — "
+            f"{competition} — "
+            f"📺 {diffusion}"
+        )
+
+    titre = equipe["titre"] or equipe["nom"]
+
+    return (
+        f"{equipe['emoji']} "
+        f"{titre} — "
+        f"{match} — "
+        f"{competition} — "
+        f"📺 {diffusion}"
+    )
+
+
 def transformer_evenement(
     lignes,
     equipe,
@@ -276,9 +303,9 @@ def transformer_evenement(
     chaines = infos["chaines"]
 
     # Ligue 1 2026-2027 :
-    # tous les matchs sont disponibles sur Ligue 1+.
-    # Si TV-Sports n'a pas encore renseigné la chaîne
-    # individuellement, on complète automatiquement.
+    # les matchs sont disponibles sur Ligue 1+.
+    # Si TV-Sports n'a pas encore renseigné
+    # individuellement le diffuseur, on complète.
     if (
         not chaines
         and competition.strip().casefold() == "ligue 1"
@@ -286,12 +313,11 @@ def transformer_evenement(
         chaines = ["Ligue 1+"]
 
     # Équipe de France :
-    # les droits de l'UEFA Nations League appartiennent
-    # au Groupe TF1 jusqu'en 2028.
+    # les droits des matchs de Ligue des nations
+    # appartiennent au Groupe TF1.
     #
-    # Tant que TV-Sports n'a pas annoncé la chaîne précise,
-    # on indique le diffuseur détenteur des droits sans
-    # prétendre que le match sera nécessairement sur TF1.
+    # Tant que TV-Sports ne précise pas la chaîne
+    # exacte, on affiche le groupe détenteur des droits.
     if (
         not chaines
         and equipe["nom"] == "France"
@@ -308,15 +334,12 @@ def transformer_evenement(
         else "À confirmer"
     )
 
-    resume = (
-        f"{equipe['emoji']} "
-        f"{equipe['nom']} — "
-        f"{match} — "
-        f"{competition}"
+    resume = construire_resume(
+        equipe,
+        match,
+        competition,
+        diffusion,
     )
-
-    if chaines:
-        resume += f" — 📺 {diffusion}"
 
     description_finale = (
         f"Compétition : {competition}\n"
@@ -546,23 +569,16 @@ def traiter_equipe(equipe):
     )
 
     for evenement in evenements:
-        ligne = (
-            f"  {equipe['emoji']} "
-            f"{equipe['nom']} — "
-            f"{evenement['match']} — "
-            f"{evenement['competition']}"
+        ligne = construire_resume(
+            equipe,
+            evenement["match"],
+            evenement["competition"],
+            evenement["diffusion"],
         )
 
-        if evenement["diffusion"] != "À confirmer":
-            ligne += (
-                f" — 📺 "
-                f"{evenement['diffusion']}"
-            )
-
-        else:
-            ligne += " — TV à confirmer"
-
-        print(ligne)
+        print(
+            f"  {ligne}"
+        )
 
 
 def main():
