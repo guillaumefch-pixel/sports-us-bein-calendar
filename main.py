@@ -1,6 +1,5 @@
 import hashlib
 import re
-import time
 from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 
@@ -32,6 +31,78 @@ SPORTS = (
 )
 
 
+STADES_MLB = {
+    "arizona diamondbacks": "Chase Field, Phoenix",
+    "athletics": "Sutter Health Park, West Sacramento",
+    "oakland athletics": "Sutter Health Park, West Sacramento",
+    "atlanta braves": "Truist Park, Atlanta",
+    "baltimore orioles": "Oriole Park at Camden Yards, Baltimore",
+    "boston red sox": "Fenway Park, Boston",
+    "chicago cubs": "Wrigley Field, Chicago",
+    "chicago white sox": "Rate Field, Chicago",
+    "cincinnati reds": "Great American Ball Park, Cincinnati",
+    "cleveland guardians": "Progressive Field, Cleveland",
+    "colorado rockies": "Coors Field, Denver",
+    "detroit tigers": "Comerica Park, Detroit",
+    "houston astros": "Daikin Park, Houston",
+    "kansas city royals": "Kauffman Stadium, Kansas City",
+    "los angeles angels": "Angel Stadium, Anaheim",
+    "los angeles dodgers": "Dodger Stadium, Los Angeles",
+    "miami marlins": "loanDepot park, Miami",
+    "milwaukee brewers": "American Family Field, Milwaukee",
+    "minnesota twins": "Target Field, Minneapolis",
+    "new york mets": "Citi Field, New York",
+    "new york yankees": "Yankee Stadium, New York",
+    "philadelphia phillies": "Citizens Bank Park, Philadelphia",
+    "pittsburgh pirates": "PNC Park, Pittsburgh",
+    "san diego padres": "Petco Park, San Diego",
+    "san francisco giants": "Oracle Park, San Francisco",
+    "seattle mariners": "T-Mobile Park, Seattle",
+    "st louis cardinals": "Busch Stadium, St. Louis",
+    "st. louis cardinals": "Busch Stadium, St. Louis",
+    "tampa bay rays": "Tropicana Field, St. Petersburg",
+    "texas rangers": "Globe Life Field, Arlington",
+    "toronto blue jays": "Rogers Centre, Toronto",
+    "washington nationals": "Nationals Park, Washington",
+}
+
+
+STADES_NFL = {
+    "arizona cardinals": "State Farm Stadium, Glendale",
+    "atlanta falcons": "Mercedes-Benz Stadium, Atlanta",
+    "baltimore ravens": "M&T Bank Stadium, Baltimore",
+    "buffalo bills": "Highmark Stadium, Orchard Park",
+    "carolina panthers": "Bank of America Stadium, Charlotte",
+    "chicago bears": "Soldier Field, Chicago",
+    "cincinnati bengals": "Paycor Stadium, Cincinnati",
+    "cleveland browns": "Huntington Bank Field, Cleveland",
+    "dallas cowboys": "AT&T Stadium, Arlington",
+    "denver broncos": "Empower Field at Mile High, Denver",
+    "detroit lions": "Ford Field, Detroit",
+    "green bay packers": "Lambeau Field, Green Bay",
+    "houston texans": "NRG Stadium, Houston",
+    "indianapolis colts": "Lucas Oil Stadium, Indianapolis",
+    "jacksonville jaguars": "EverBank Stadium, Jacksonville",
+    "kansas city chiefs": "GEHA Field at Arrowhead Stadium, Kansas City",
+    "las vegas raiders": "Allegiant Stadium, Las Vegas",
+    "los angeles chargers": "SoFi Stadium, Inglewood",
+    "los angeles rams": "SoFi Stadium, Inglewood",
+    "miami dolphins": "Hard Rock Stadium, Miami Gardens",
+    "minnesota vikings": "U.S. Bank Stadium, Minneapolis",
+    "new england patriots": "Gillette Stadium, Foxborough",
+    "new orleans saints": "Caesars Superdome, New Orleans",
+    "new york giants": "MetLife Stadium, East Rutherford",
+    "new york jets": "MetLife Stadium, East Rutherford",
+    "philadelphia eagles": "Lincoln Financial Field, Philadelphia",
+    "pittsburgh steelers": "Acrisure Stadium, Pittsburgh",
+    "san francisco 49ers": "Levi's Stadium, Santa Clara",
+    "seattle seahawks": "Lumen Field, Seattle",
+    "tampa bay buccaneers": "Raymond James Stadium, Tampa",
+    "tennessee titans": "Nissan Stadium, Nashville",
+    "washington commanders": "Northwest Stadium, Landover",
+}
+
+
 class AnalyseurPlanning(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -47,41 +118,23 @@ class AnalyseurPlanning(HTMLParser):
         if balise == "li":
             if self.element is not None:
                 self.profondeur_li += 1
-
-            elif (
-                "schedule-item" in classes
-                or attributs.get("data-is-live") is not None
-            ):
+            elif "schedule-item" in classes:
                 self.element = {
                     "attributs": attributs,
                     "participants": [],
                     "liens": [],
-                    "chaines": [],
                 }
                 self.profondeur_li = 1
-
             return
 
         if self.element is None:
             return
 
-        if (
-            balise == "time"
-            and attributs.get("datetime")
-        ):
-            self.element["datetime"] = (
-                attributs["datetime"]
-            )
+        if balise == "time" and attributs.get("datetime"):
+            self.element["datetime"] = attributs["datetime"]
 
-        elif balise == "img":
-            alt = attributs.get("alt", "").strip()
-
-            if (
-                "logoChaine" in classes
-                and alt
-            ):
-                if alt not in self.element["chaines"]:
-                    self.element["chaines"].append(alt)
+        elif balise == "img" and "logoChaine" in classes:
+            self.element["chaine"] = attributs.get("alt", "").strip()
 
         elif balise == "a":
             self.ancre = {
@@ -91,35 +144,15 @@ class AnalyseurPlanning(HTMLParser):
                 "texte": [],
             }
 
-            if "schedule-participant" in classes:
-                participant = (
-                    attributs.get("title", "").strip()
-                )
+            if "schedule-participant" in classes and self.ancre["title"]:
+                self.element["participants"].append(self.ancre["title"])
 
-                if (
-                    participant
-                    and participant
-                    not in self.element["participants"]
-                ):
-                    self.element["participants"].append(
-                        participant
-                    )
-
-    def handle_startendtag(
-        self,
-        balise,
-        attributs,
-    ):
-        self.handle_starttag(
-            balise,
-            attributs,
-        )
+    def handle_startendtag(self, balise, attributs):
+        self.handle_starttag(balise, attributs)
 
     def handle_data(self, donnees):
         if self.ancre is not None:
-            self.ancre["texte"].append(
-                donnees
-            )
+            self.ancre["texte"].append(donnees)
 
     def handle_endtag(self, balise):
         if (
@@ -127,208 +160,86 @@ class AnalyseurPlanning(HTMLParser):
             and self.ancre is not None
             and self.element is not None
         ):
-            texte = " ".join(
-                "".join(
-                    self.ancre["texte"]
-                ).split()
+            self.ancre["texte"] = " ".join(
+                "".join(self.ancre["texte"]).split()
             )
 
-            self.ancre["texte"] = texte
-
-            if (
-                "schedule-participant"
-                in self.ancre["classes"]
-                and not self.ancre["title"]
-                and texte
-                and texte
-                not in self.element["participants"]
-            ):
-                self.element["participants"].append(
-                    texte
-                )
-
-            self.element["liens"].append(
-                self.ancre
-            )
-
+            self.element["liens"].append(self.ancre)
             self.ancre = None
             return
 
-        if (
-            balise != "li"
-            or self.element is None
-        ):
+        if balise != "li" or self.element is None:
             return
 
         self.profondeur_li -= 1
 
         if self.profondeur_li == 0:
-            self.elements.append(
-                self.element
-            )
-
+            self.elements.append(self.element)
             self.element = None
             self.ancre = None
 
 
-class AnalyseurTexteHTML(HTMLParser):
+class AnalyseurLieu(HTMLParser):
     def __init__(self):
-        super().__init__(
-            convert_charrefs=True
-        )
+        super().__init__(convert_charrefs=True)
         self.textes = []
         self.ignorer = 0
 
-    def handle_starttag(
-        self,
-        balise,
-        attributs,
-    ):
-        if balise in (
-            "script",
-            "style",
-            "noscript",
-        ):
+    def handle_starttag(self, balise, attributs):
+        if balise in ("script", "style", "noscript"):
             self.ignorer += 1
 
-    def handle_endtag(
-        self,
-        balise,
-    ):
+    def handle_endtag(self, balise):
         if (
-            balise
-            in (
-                "script",
-                "style",
-                "noscript",
-            )
+            balise in ("script", "style", "noscript")
             and self.ignorer > 0
         ):
             self.ignorer -= 1
 
-    def handle_data(
-        self,
-        donnees,
-    ):
+    def handle_data(self, donnees):
         if self.ignorer:
             return
 
-        texte = " ".join(
-            donnees.split()
-        )
+        texte = " ".join(donnees.split())
 
         if texte:
-            self.textes.append(
-                texte
-            )
+            self.textes.append(texte)
 
 
-def recuperer_page(
-    url,
-    tentatives=3,
-):
-    derniere_erreur = None
-
-    for tentative in range(
-        1,
-        tentatives + 1,
-    ):
-        try:
-            reponse = requests.get(
-                url,
-                headers=EN_TETES,
-                timeout=30,
-            )
-
-            reponse.raise_for_status()
-
-            if reponse.text.strip():
-                return reponse.text
-
-        except requests.RequestException as erreur:
-            derniere_erreur = erreur
-
-        if tentative < tentatives:
-            print(
-                f"  Nouvelle tentative "
-                f"{tentative + 1}/{tentatives}…"
-            )
-            time.sleep(2)
-
-    if derniere_erreur:
-        raise derniere_erreur
-
-    raise RuntimeError(
-        f"Réponse vide pour {url}"
+def normaliser_nom(texte):
+    return (
+        texte
+        .strip()
+        .casefold()
+        .replace("’", "'")
     )
 
 
 def est_chaine_bein(chaine):
-    return (
-        chaine
-        .casefold()
-        .startswith("bein sports")
-    )
+    return chaine.casefold().startswith("bein sports")
 
 
-def choisir_titre(
-    element,
-    prefixe,
-):
-    participants = []
-
-    for participant in element.get(
-        "participants",
-        [],
-    ):
-        participant = participant.strip()
-
-        if (
-            participant
-            and participant not in participants
-        ):
-            participants.append(
-                participant
-            )
+def choisir_titre(element, prefixe):
+    participants = element.get("participants", [])
 
     if len(participants) >= 2:
-        return " – ".join(
-            participants[:2]
-        )
+        return " – ".join(participants[:2])
 
-    for lien in element.get(
-        "liens",
-        [],
-    ):
-        texte = lien.get(
-            "texte",
-            "",
-        ).strip()
-
-        href = lien.get(
-            "href",
-            "",
-        )
+    for lien in element.get("liens", []):
+        href = lien["href"]
 
         if (
-            texte
+            lien["texte"]
             and (
                 "-tv-" in href
-                or re.search(
-                    r"-e\d+/?$",
-                    href,
-                )
+                or re.search(r"-e\d+/?$", href)
             )
         ):
-            return texte
+            return lien["texte"]
 
-    for lien in element.get(
-        "liens",
-        [],
-    ):
+    for lien in element.get("liens", []):
         if (
-            "schedule-entity-visual"
-            in lien["classes"]
+            "schedule-entity-visual" in lien["classes"]
             and lien["title"]
         ):
             return lien["title"]
@@ -336,99 +247,61 @@ def choisir_titre(
     return f"Programme {prefixe}"
 
 
-def choisir_lien(
-    element,
-    url_page,
-):
-    for lien in reversed(
-        element.get(
-            "liens",
-            [],
-        )
-    ):
-        href = lien.get(
-            "href",
-            "",
-        )
-
-        if not href:
-            continue
-
+def choisir_lien(element, url_page):
+    for lien in reversed(element.get("liens", [])):
         if (
-            "-tv-" in href
-            or re.search(
-                r"-e\d+/?$",
-                href,
+            lien["href"]
+            and (
+                "-tv-" in lien["href"]
+                or re.search(r"-e\d+/?$", lien["href"])
             )
         ):
-            if href.startswith("/"):
-                return (
-                    "https://tv-sports.fr"
-                    + href
-                )
+            href = lien["href"]
 
-            return href
+            return (
+                "https://tv-sports.fr" + href
+                if href.startswith("/")
+                else href
+            )
 
     return url_page
 
 
-def extraire_diffusions(
-    page,
-    sport,
-):
+def extraire_diffusions(page, sport):
     analyseur = AnalyseurPlanning()
     analyseur.feed(page)
+
+    if (
+        not analyseur.elements
+        and "aucune diffusion" not in page.casefold()
+    ):
+        raise RuntimeError(
+            f"Le planning {sport['prefixe']} "
+            f"n'a pas été reconnu sur TV-Sports."
+        )
 
     diffusions = []
     deja_vues = set()
 
     for element in analyseur.elements:
-        attributs = element.get(
-            "attributs",
-            {},
-        )
+        attributs = element["attributs"]
+        chaine = element.get("chaine", "")
 
-        if (
-            attributs.get("data-is-past")
-            == "1"
-        ):
+        if attributs.get("data-is-live") != "1":
             continue
 
-        if (
-            attributs.get("data-is-live")
-            != "1"
-        ):
+        if attributs.get("data-is-past") == "1":
             continue
 
-        chaines = [
-            chaine
-            for chaine
-            in element.get(
-                "chaines",
-                [],
-            )
-            if est_chaine_bein(
-                chaine
-            )
-        ]
-
-        if not chaines:
+        if not est_chaine_bein(chaine):
             continue
 
         try:
             debut = datetime.fromisoformat(
-                element["datetime"].replace(
-                    "Z",
-                    "+00:00",
-                )
-            ).astimezone(
-                timezone.utc
-            )
+                element["datetime"].replace("Z", "+00:00")
+            ).astimezone(timezone.utc)
 
-        except (
-            KeyError,
-            ValueError,
-        ):
+        except (KeyError, ValueError):
             continue
 
         titre = choisir_titre(
@@ -452,91 +325,82 @@ def extraire_diffusions(
                     diffusion["debut"],
                     diffusion["titre"],
                 ) == cle:
-                    for chaine in chaines:
-                        if (
-                            chaine
-                            not in diffusion["chaines"]
-                        ):
-                            diffusion[
-                                "chaines"
-                            ].append(
-                                chaine
-                            )
+                    if chaine not in diffusion["chaines"]:
+                        diffusion["chaines"].append(chaine)
 
                     break
 
             continue
 
-        deja_vues.add(
-            cle
-        )
+        deja_vues.add(cle)
 
         diffusions.append(
             {
                 "debut": debut,
                 "titre": titre,
-                "chaines": chaines,
+                "chaines": [chaine],
                 "lien": lien,
                 "lieu": None,
+                "statut_lieu": None,
             }
         )
 
     return sorted(
         diffusions,
-        key=lambda diffusion: (
-            diffusion["debut"]
-        ),
+        key=lambda diffusion: diffusion["debut"],
     )
 
 
-def extraire_lieu_page_match(page):
-    analyseur = AnalyseurTexteHTML()
-
-    analyseur.feed(
-        page
+def est_redzone(titre):
+    return "redzone" in re.sub(
+        r"[^a-z0-9]",
+        "",
+        titre.casefold(),
     )
+
+
+def extraire_equipe_domicile(titre):
+    morceaux = re.split(
+        r"\s+[–—-]\s+",
+        titre,
+        maxsplit=1,
+    )
+
+    if len(morceaux) != 2:
+        return None
+
+    return morceaux[0].strip()
+
+
+def extraire_lieu_page(page):
+    analyseur = AnalyseurLieu()
+    analyseur.feed(page)
 
     textes = analyseur.textes
 
-    libelles_fin = {
-        "diffusion",
-        "avant-match",
-        "tendances",
-        "compétition",
-        "tour",
-        "saison",
-        "date et heure",
-        "calendrier des matchs",
-        "chaîne",
-        "horaire",
-    }
-
-    for index, texte in enumerate(
-        textes
-    ):
-        if (
-            texte
-            .strip()
-            .casefold()
-            not in {
-                "lieu",
-                "stade",
-            }
-        ):
+    for index, texte in enumerate(textes):
+        if texte.strip().casefold() not in {
+            "lieu",
+            "stade",
+        }:
             continue
 
-        for suivant in textes[
-            index + 1:
-        ]:
+        for suivant in textes[index + 1:]:
             suivant = suivant.strip()
 
             if not suivant:
                 continue
 
-            if (
-                suivant.casefold()
-                in libelles_fin
-            ):
+            if suivant.casefold() in {
+                "diffusion",
+                "avant-match",
+                "tendances",
+                "compétition",
+                "tour",
+                "saison",
+                "date et heure",
+                "calendrier",
+            }:
                 return None
 
             return suivant
@@ -544,42 +408,27 @@ def extraire_lieu_page_match(page):
     return None
 
 
-def recuperer_lieu_page_match(
-    url,
-    cache_lieux,
-):
-    if (
-        not url
-        or url
-        in {
-            sport["url"]
-            for sport in SPORTS
-        }
-    ):
+def recuperer_lieu_source(url, cache_lieux):
+    if not url:
         return None
 
     if url in cache_lieux:
         return cache_lieux[url]
 
     try:
-        page = recuperer_page(
+        reponse = requests.get(
             url,
-            tentatives=2,
+            headers=EN_TETES,
+            timeout=15,
         )
 
-        lieu = extraire_lieu_page_match(
-            page
+        reponse.raise_for_status()
+
+        lieu = extraire_lieu_page(
+            reponse.text
         )
 
-    except (
-        requests.RequestException,
-        RuntimeError,
-    ) as erreur:
-        print(
-            f"    Avertissement lieu : "
-            f"{erreur}"
-        )
-
+    except requests.RequestException:
         lieu = None
 
     cache_lieux[url] = lieu
@@ -587,37 +436,59 @@ def recuperer_lieu_page_match(
     return lieu
 
 
-def est_redzone(titre):
-    titre_compact = re.sub(
-        r"[^a-z0-9]",
-        "",
-        titre.casefold(),
+def determiner_lieu(diffusion, sport, cache_lieux):
+    if est_redzone(
+        diffusion["titre"]
+    ):
+        return None, None
+
+    lieu_source = recuperer_lieu_source(
+        diffusion["lien"],
+        cache_lieux,
     )
 
-    return (
-        "redzone"
-        in titre_compact
+    if lieu_source:
+        return lieu_source, "source"
+
+    domicile = extraire_equipe_domicile(
+        diffusion["titre"]
     )
 
+    if not domicile:
+        return None, None
 
-def enrichir_lieux(
-    diffusions,
-):
+    domicile = normaliser_nom(
+        domicile
+    )
+
+    if sport["prefixe"] == "MLB":
+        lieu = STADES_MLB.get(
+            domicile
+        )
+
+    else:
+        lieu = STADES_NFL.get(
+            domicile
+        )
+
+    if lieu:
+        return lieu, "estimation"
+
+    return None, None
+
+
+def enrichir_lieux(diffusions, sport):
     cache_lieux = {}
 
     for diffusion in diffusions:
-        if est_redzone(
-            diffusion["titre"]
-        ):
-            diffusion["lieu"] = None
-            continue
-
-        diffusion["lieu"] = (
-            recuperer_lieu_page_match(
-                diffusion["lien"],
-                cache_lieux,
-            )
+        lieu, statut_lieu = determiner_lieu(
+            diffusion,
+            sport,
+            cache_lieux,
         )
+
+        diffusion["lieu"] = lieu
+        diffusion["statut_lieu"] = statut_lieu
 
     return diffusions
 
@@ -632,36 +503,22 @@ def echapper_ics(texte):
     )
 
 
-def couper_utf8(
-    texte,
-    limite,
-):
+def couper_utf8(texte, limite):
     taille = 0
     position = 0
 
     for caractere in texte:
-        nouvelle_taille = (
-            taille
-            + len(
-                caractere.encode(
-                    "utf-8"
-                )
-            )
+        nouvelle_taille = taille + len(
+            caractere.encode("utf-8")
         )
 
-        if (
-            nouvelle_taille
-            > limite
-        ):
+        if nouvelle_taille > limite:
             break
 
         taille = nouvelle_taille
         position += 1
 
-    return (
-        texte[:position],
-        texte[position:],
-    )
+    return texte[:position], texte[position:]
 
 
 def plier_ligne_ics(ligne):
@@ -670,26 +527,15 @@ def plier_ligne_ics(ligne):
     premier = True
 
     while reste:
-        limite = (
-            75
-            if premier
-            else 74
-        )
+        limite = 75 if premier else 74
 
-        morceau, reste = (
-            couper_utf8(
-                reste,
-                limite,
-            )
+        morceau, reste = couper_utf8(
+            reste,
+            limite,
         )
 
         morceaux.append(
-            (
-                ""
-                if premier
-                else " "
-            )
-            + morceau
+            ("" if premier else " ") + morceau
         )
 
         premier = False
@@ -697,23 +543,17 @@ def plier_ligne_ics(ligne):
     return morceaux or [""]
 
 
-def recuperer_dtstamp_existant(
-    fichier,
-):
+def recuperer_dtstamp_existant(fichier):
     try:
         with open(
             fichier,
             encoding="utf-8",
         ) as calendrier:
             for ligne in calendrier:
-                if ligne.startswith(
-                    "DTSTAMP:"
-                ):
+                if ligne.startswith("DTSTAMP:"):
                     valeur = (
                         ligne
-                        .removeprefix(
-                            "DTSTAMP:"
-                        )
+                        .removeprefix("DTSTAMP:")
                         .strip()
                     )
 
@@ -724,35 +564,24 @@ def recuperer_dtstamp_existant(
 
                     return valeur
 
-    except (
-        OSError,
-        ValueError,
-    ):
+    except (OSError, ValueError):
         pass
 
     return datetime.now(
         timezone.utc
-    ).strftime(
-        "%Y%m%dT%H%M%SZ"
-    )
+    ).strftime("%Y%m%dT%H%M%SZ")
 
 
-def duree_diffusion(
-    diffusion,
-    sport,
-):
+def duree_diffusion(diffusion, sport):
     if (
-        sport["prefixe"]
-        == "NFL"
+        sport["prefixe"] == "NFL"
         and est_redzone(
             diffusion["titre"]
         )
     ):
         return 420
 
-    return sport[
-        "duree_minutes"
-    ]
+    return sport["duree_minutes"]
 
 
 def construire_evenement(
@@ -760,9 +589,7 @@ def construire_evenement(
     sport,
     dtstamp,
 ):
-    debut = diffusion[
-        "debut"
-    ]
+    debut = diffusion["debut"]
 
     fin = debut + timedelta(
         minutes=duree_diffusion(
@@ -779,6 +606,10 @@ def construire_evenement(
         "lieu"
     )
 
+    statut_lieu = diffusion.get(
+        "statut_lieu"
+    )
+
     resume = (
         f"{sport['emoji']} "
         f"{sport['prefixe']} — "
@@ -786,14 +617,18 @@ def construire_evenement(
     )
 
     description = (
-        f"Diffusion en direct : "
-        f"{chaines}"
+        f"Diffusion en direct : {chaines}"
     )
 
     if lieu:
-        description += (
-            f"\nLieu : {lieu}"
-        )
+        if statut_lieu == "estimation":
+            description += (
+                f"\nLieu estimé : {lieu}"
+            )
+        else:
+            description += (
+                f"\nLieu : {lieu}"
+            )
 
     elif est_redzone(
         diffusion["titre"]
@@ -808,8 +643,7 @@ def construire_evenement(
         )
 
     description += (
-        f"\nSource : "
-        f"{diffusion['lien']}"
+        f"\nSource : {diffusion['lien']}"
     )
 
     empreinte = hashlib.sha256(
@@ -823,10 +657,8 @@ def construire_evenement(
     lignes = [
         "BEGIN:VEVENT",
         (
-            f"UID:"
-            f"{sport['prefixe'].lower()}-"
-            f"{empreinte}"
-            f"@sports-us-bein-calendar"
+            f"UID:{sport['prefixe'].lower()}-"
+            f"{empreinte}@sports-us-bein-calendar"
         ),
         f"DTSTAMP:{dtstamp}",
         (
@@ -837,25 +669,16 @@ def construire_evenement(
             f"DTEND:"
             f"{fin.strftime('%Y%m%dT%H%M%SZ')}"
         ),
-        (
-            f"SUMMARY:"
-            f"{echapper_ics(resume)}"
-        ),
+        f"SUMMARY:{echapper_ics(resume)}",
         (
             f"DESCRIPTION:"
             f"{echapper_ics(description)}"
         ),
     ]
 
-    # IMPORTANT :
-    # uniquement un vrai lieu physique ici.
-    # Jamais la chaîne TV.
     if lieu:
         lignes.append(
-            "LOCATION:"
-            + echapper_ics(
-                lieu
-            )
+            f"LOCATION:{echapper_ics(lieu)}"
         )
 
     lignes.extend(
@@ -874,18 +697,15 @@ def ecrire_calendrier(
     diffusions,
     sport,
 ):
-    dtstamp = (
-        recuperer_dtstamp_existant(
-            sport["fichier"]
-        )
+    dtstamp = recuperer_dtstamp_existant(
+        sport["fichier"]
     )
 
     lignes = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
         (
-            f"PRODID:"
-            f"-//sports-us-bein-calendar//"
+            f"PRODID:-//sports-us-bein-calendar//"
             f"{sport['prefixe']} beIN//FR"
         ),
         "CALSCALE:GREGORIAN",
@@ -894,10 +714,7 @@ def ecrire_calendrier(
             f"X-WR-CALNAME:"
             f"{echapper_ics(sport['nom'])}"
         ),
-        (
-            "REFRESH-INTERVAL;"
-            "VALUE=DURATION:PT6H"
-        ),
+        "REFRESH-INTERVAL;VALUE=DURATION:PT6H",
         "X-PUBLISHED-TTL:PT6H",
     ]
 
@@ -910,17 +727,13 @@ def ecrire_calendrier(
             )
         )
 
-    lignes.append(
-        "END:VCALENDAR"
-    )
+    lignes.append("END:VCALENDAR")
 
     lignes_pliees = []
 
     for ligne in lignes:
         lignes_pliees.extend(
-            plier_ligne_ics(
-                ligne
-            )
+            plier_ligne_ics(ligne)
         )
 
     with open(
@@ -930,9 +743,7 @@ def ecrire_calendrier(
         newline="",
     ) as calendrier:
         calendrier.write(
-            "\r\n".join(
-                lignes_pliees
-            )
+            "\r\n".join(lignes_pliees)
             + "\r\n"
         )
 
@@ -950,26 +761,13 @@ def extraire_vevents(fichier):
                 "\r\n"
             )
 
-            if (
-                ligne
-                == "BEGIN:VEVENT"
-            ):
-                evenement = [
-                    ligne
-                ]
+            if ligne == "BEGIN:VEVENT":
+                evenement = [ligne]
 
-            elif (
-                evenement
-                is not None
-            ):
-                evenement.append(
-                    ligne
-                )
+            elif evenement is not None:
+                evenement.append(ligne)
 
-                if (
-                    ligne
-                    == "END:VEVENT"
-                ):
+                if ligne == "END:VEVENT":
                     evenements.extend(
                         evenement
                     )
@@ -990,8 +788,7 @@ def ecrire_calendrier_global():
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
         (
-            "PRODID:"
-            "-//sports-us-bein-calendar//"
+            "PRODID:-//sports-us-bein-calendar//"
             "Tous les sports//FR"
         ),
         "CALSCALE:GREGORIAN",
@@ -1000,10 +797,7 @@ def ecrire_calendrier_global():
             "X-WR-CALNAME:"
             "Sports — F1 + MLB + NFL"
         ),
-        (
-            "REFRESH-INTERVAL;"
-            "VALUE=DURATION:PT6H"
-        ),
+        "REFRESH-INTERVAL;VALUE=DURATION:PT6H",
         "X-PUBLISHED-TTL:PT6H",
     ]
 
@@ -1025,129 +819,85 @@ def ecrire_calendrier_global():
         newline="",
     ) as calendrier:
         calendrier.write(
-            "\r\n".join(
-                lignes
-            )
+            "\r\n".join(lignes)
             + "\r\n"
         )
 
 
-def traiter_sport(sport):
-    print(
-        f"Téléchargement de "
-        f"{sport['nom']}…"
-    )
-
-    try:
-        page = recuperer_page(
-            sport["url"],
-            tentatives=3,
-        )
-
-        diffusions = (
-            extraire_diffusions(
-                page,
-                sport,
-            )
-        )
-
-    except (
-        requests.RequestException,
-        RuntimeError,
-    ) as erreur:
-        print(
-            f"AVERTISSEMENT : "
-            f"impossible de récupérer "
-            f"{sport['prefixe']} : "
-            f"{erreur}"
-        )
-
-        print(
-            f"Le fichier "
-            f"{sport['fichier']} "
-            f"existant est conservé."
-        )
-
-        return False
-
-    if not diffusions:
-        print(
-            f"AVERTISSEMENT : "
-            f"aucune diffusion "
-            f"{sport['prefixe']} "
-            f"beIN reconnue."
-        )
-
-        print(
-            f"Le fichier "
-            f"{sport['fichier']} "
-            f"existant est conservé "
-            f"pour éviter de vider "
-            f"le calendrier sur Apple."
-        )
-
-        return False
-
-    diffusions = enrichir_lieux(
-        diffusions
-    )
-
-    ecrire_calendrier(
-        diffusions,
-        sport,
-    )
-
-    print(
-        f"{len(diffusions)} "
-        f"diffusion(s) écrite(s) "
-        f"dans "
-        f"{sport['fichier']}."
-    )
-
-    for diffusion in diffusions:
-        lieu = diffusion.get(
-            "lieu"
-        )
-
-        if lieu:
-            suffixe_lieu = (
-                f" — 📍 {lieu}"
-            )
-
-        elif est_redzone(
-            diffusion["titre"]
-        ):
-            suffixe_lieu = (
-                " — 📍 plusieurs matchs"
-            )
-
-        else:
-            suffixe_lieu = (
-                " — 📍 lieu à confirmer"
-            )
-
-        print(
-            f"  "
-            f"{diffusion['debut']:%Y-%m-%d %H:%M} UTC — "
-            f"{diffusion['titre']} — "
-            f"{' / '.join(diffusion['chaines'])}"
-            f"{suffixe_lieu}"
-        )
-
-    return True
-
-
 def main():
     for sport in SPORTS:
-        traiter_sport(
-            sport
+        print(
+            f"Téléchargement de "
+            f"{sport['nom']}…"
         )
+
+        reponse = requests.get(
+            sport["url"],
+            headers=EN_TETES,
+            timeout=30,
+        )
+
+        reponse.raise_for_status()
+
+        diffusions = extraire_diffusions(
+            reponse.text,
+            sport,
+        )
+
+        diffusions = enrichir_lieux(
+            diffusions,
+            sport,
+        )
+
+        ecrire_calendrier(
+            diffusions,
+            sport,
+        )
+
+        print(
+            f"{len(diffusions)} "
+            f"diffusion(s) écrite(s) dans "
+            f"{sport['fichier']}."
+        )
+
+        for diffusion in diffusions:
+            ligne = (
+                f"  "
+                f"{diffusion['debut']:%Y-%m-%d %H:%M} UTC — "
+                f"{diffusion['titre']} — "
+                f"{' / '.join(diffusion['chaines'])}"
+            )
+
+            if diffusion["lieu"]:
+                if diffusion["statut_lieu"] == "estimation":
+                    ligne += (
+                        f" — 📍 {diffusion['lieu']} "
+                        f"(estimation)"
+                    )
+                else:
+                    ligne += (
+                        f" — 📍 {diffusion['lieu']}"
+                    )
+
+            elif est_redzone(
+                diffusion["titre"]
+            ):
+                ligne += (
+                    " — 📍 plusieurs matchs"
+                )
+
+            else:
+                ligne += (
+                    " — 📍 lieu à confirmer"
+                )
+
+            print(ligne)
 
     ecrire_calendrier_global()
 
     print(
-        "Calendrier global écrit "
-        "dans sports_calendar.ics."
+        "Calendrier global écrit dans "
+        "sports_calendar.ics."
     )
 
 
