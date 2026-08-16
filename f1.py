@@ -55,7 +55,7 @@ print(
 
 print()
 print("=" * 80)
-print("📺 DIFFUSIONS F1 DU DIMANCHE 23 AOÛT 2026")
+print("📺 DIFFUSIONS F1 CANAL+ DU DIMANCHE 23 AOÛT 2026")
 print("=" * 80)
 
 
@@ -103,19 +103,20 @@ for evenement in evenements:
 
 
     # --------------------------------------------------------
-    # Type de diffusion
+    # Uniquement les directs
     # --------------------------------------------------------
 
-    diffusion_type = evenement.get(
-        "data-diffusion-type"
-    )
+    if evenement.get("data-diffusion-type") != "live":
+        continue
 
 
     # --------------------------------------------------------
-    # On ignore les rediffusions
+    # Uniquement Canal+
+    #
+    # Canal+ = data-channel-id="81"
     # --------------------------------------------------------
 
-    if diffusion_type != "live":
+    if evenement.get("data-channel-id") != "81":
         continue
 
 
@@ -123,12 +124,12 @@ for evenement in evenements:
     # Heure
     # --------------------------------------------------------
 
-    heure = time_element.select_one(
+    heure_element = time_element.select_one(
         "strong"
     )
 
-    if heure:
-        heure = heure.get_text(
+    if heure_element:
+        heure = heure_element.get_text(
             " ",
             strip=True
         )
@@ -156,6 +157,7 @@ for evenement in evenements:
 
 
     if not titre:
+
         lien = evenement.select_one(
             "a[title]"
         )
@@ -206,7 +208,7 @@ for evenement in evenements:
         f"⚡ {heure} "
         f"🏁 {titre} "
         f"📺 {chaine or 'Chaîne inconnue'} "
-        f"(ID {channel_id or 'inconnu'})"
+        f"(ID {channel_id})"
     )
 
 
@@ -217,7 +219,7 @@ for evenement in evenements:
             "titre": titre,
             "chaine": chaine,
             "channel_id": channel_id,
-            "type": diffusion_type,
+            "type": "live",
             "datetime": datetime_str
         }
     )
@@ -230,7 +232,7 @@ for evenement in evenements:
 print()
 print("=" * 80)
 print(
-    f"📊 Diffusions F1 en direct trouvées : "
+    f"📊 Diffusions F1 Canal+ en direct trouvées : "
     f"{len(resultats)}"
 )
 print("=" * 80)
@@ -239,8 +241,8 @@ print("=" * 80)
 if not resultats:
 
     print(
-        "❌ Aucune diffusion F1 en direct trouvée "
-        "pour le dimanche 23 août 2026."
+        "❌ Aucune diffusion F1 Canal+ en direct "
+        "trouvée pour le dimanche 23 août 2026."
     )
 
 else:
@@ -253,7 +255,7 @@ else:
             f"📅 {evenement['date']} "
             f"à {evenement['heure']} — "
             f"{evenement['titre']} — "
-            f"{evenement['chaine'] or 'Chaîne inconnue'}"
+            f"{evenement['chaine']}"
         )
 
 
