@@ -1,11 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
-import re
 
 URL = "https://tv-sports.fr/base-ball/mlb_tv/"
-
-print("🔎 RECHERCHE DES DATES ASSOCIÉES AUX DIFFUSIONS MLB")
-print("=" * 60)
 
 response = requests.get(
     URL,
@@ -22,45 +18,27 @@ channels = soup.find_all(
     class_="schedule-channel__name"
 )
 
-# Reconnaît par exemple :
-# lundi 17 août 2026
-# mardi 18 août 2026
-date_pattern = re.compile(
-    r"(lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche)"
-    r"\s+\d{1,2}\s+"
-    r"(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)"
-    r"\s+\d{4}",
-    re.IGNORECASE
-)
+# On prend la 2e diffusion :
+# Houston Astros – Seattle Mariners
+channel = channels[1]
 
-for i, channel in enumerate(channels, 1):
+print("=" * 80)
+print("DIFFUSION TEST")
+print("=" * 80)
+print(channel.get_text(" ", strip=True))
 
-    # Bloc de diffusion
-    bloc = channel
+print("\n" + "=" * 80)
+print("PARENTS")
+print("=" * 80)
 
-    for _ in range(4):
-        bloc = bloc.parent
+element = channel
 
-    texte = bloc.get_text(" ", strip=True)
+for niveau in range(1, 10):
+    element = element.parent
 
-    # On remonte progressivement dans les parents
-    # jusqu'à trouver un conteneur contenant une date.
-    parent = bloc
-    date_trouvee = None
-
-    for niveau in range(1, 10):
-
-        parent = parent.parent
-
-        if parent is None:
-            break
-
-        texte_parent = parent.get_text(" ", strip=True)
-
-        match = date_pattern.search(texte_parent)
-
-        if match:
-            date_trouvee = match.group(0)
-            break
-
-    print(f"{i:02d}. [{date_trouvee or 'DATE INCONNUE'}] {texte}")
+    print(f"\n--- PARENT {niveau} ---")
+    print("TAG :", element.name)
+    print("CLASS :", element.get("class"))
+    print("ID :", element.get("id"))
+    print("TEXTE :")
+    print(element.get_text(" ", strip=True)[:1000])
