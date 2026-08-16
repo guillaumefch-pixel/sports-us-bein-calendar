@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//sports-us-bein-calendar//NFL beIN//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:NFL sur beIN
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:nfl-234a7c3dba3bb777070efef5@sports-us-bein-calendar
+DTSTAMP:20260816T151736Z
+DTSTART:20260822T200000Z
+DTEND:20260823T000000Z
+SUMMARY:🏈 NFL — Los Angeles Rams – New Orleans Saints
+DESCRIPTION:Diffusion en direct : beIN SPORTS 3\nSource : https://tv-sports
+ .fr/los-angeles-rams-new-orleans-saints-tv-x1155736
+LOCATION:beIN SPORTS 3
+URL:https://tv-sports.fr/los-angeles-rams-new-orleans-saints-tv-x1155736
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
