@@ -1,14 +1,15 @@
 import requests
 from bs4 import BeautifulSoup
+from datetime import datetime
 
 
-print("🔎 EXTRACTION DU WEEK-END F1")
-print("=" * 80)
+print("🔎 EXTRACTION COMPLÈTE DU WEEK-END F1")
+print("=" * 90)
 
 
 URL = "https://tv-sports.fr/formule-1/"
 
-headers = {
+HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -17,79 +18,65 @@ headers = {
 }
 
 
-# ============================================================
+# =========================================================
 # TÉLÉCHARGEMENT
-# ============================================================
+# =========================================================
 
 response = requests.get(
     URL,
-    headers=headers,
+    headers=HEADERS,
     timeout=20
 )
 
 response.raise_for_status()
-
-print(
-    f"✅ Page téléchargée : {len(response.text)} caractères"
-)
-
 
 soup = BeautifulSoup(
     response.text,
     "html.parser"
 )
 
+print(f"✅ Page téléchargée : {len(response.text)} caractères")
 
-# ============================================================
-# RECHERCHE DES ÉVÉNEMENTS
-# ============================================================
+
+# =========================================================
+# RÉCUPÉRATION DES ÉVÉNEMENTS
+# =========================================================
 
 evenements = soup.select(
     "ol.schedule-list li.schedule-item"
 )
 
-print(
-    f"📋 Événements trouvés : {len(evenements)}"
-)
+print(f"📋 Événements trouvés : {len(evenements)}")
 
 
-# ============================================================
-# PÉRIODE DU WEEK-END
-# ============================================================
+# =========================================================
+# WEEK-END DU GP DES PAYS-BAS
+# =========================================================
 
-DATES_WEEK_END = (
-    "2026-08-21",
-    "2026-08-22",
-    "2026-08-23",
-)
+DATE_DEBUT = "2026-08-21"
+DATE_FIN = "2026-08-23"
 
 
-print()
-print("=" * 80)
-print("📺 DIFFUSIONS F1 CANAL+ EN DIRECT")
-print("=" * 80)
+diffusions = []
 
 
-resultats = []
-
-
-# ============================================================
+# =========================================================
 # ANALYSE
-# ============================================================
+# =========================================================
 
 for evenement in evenements:
 
-    # --------------------------------------------------------
-    # F1 uniquement
-    # --------------------------------------------------------
+    # -----------------------------------------------------
+    # On garde uniquement la Formule 1
+    # -----------------------------------------------------
 
     if evenement.get("data-sport-id") != "102":
         continue
 
 
-    # --------------------------------------------------------
-    # Date / heure
-    # --------------------------------------------------------
+    # -----------------------------------------------------
+    # Récupération de l'heure/date
+    # -----------------------------------------------------
 
     time_element = evenement.select_one(
         "time.schedule-time"
@@ -105,215 +92,328 @@ for evenement in evenements:
         continue
 
 
-    # --------------------------------------------------------
-    # Uniquement le week-end du GP des Pays-Bas
-    # --------------------------------------------------------
+    # -----------------------------------------------------
+    # Conversion date
+    # -----------------------------------------------------
 
-    if not datetime_str.startswith(DATES_WEEK_END):
+    try:
+        date_obj = datetime.fromisoformat(
+            datetime_str
+        )
+
+    except ValueError:
         continue
 
 
-    # --------------------------------------------------------
-    # Uniquement les directs
-    # --------------------------------------------------------
+    date_str = date_obj.strftime("%Y-%m-%d")
 
-    if evenement.get("data-diffusion-type") != "live":
+
+    # -----------------------------------------------------
+    # On garde uniquement vendredi → dimanche
+    # -----------------------------------------------------
+
+    if not (
+        DATE_DEBUT <= date_str <= DATE_FIN
+    ):
         continue
 
 
-    # --------------------------------------------------------
-    # Uniquement Canal+
-    #
-    # Canal+ = ID 81
-    # --------------------------------------------------------
+    # -----------------------------------------------------
+    # Type de diffusion
+    # -----------------------------------------------------
 
-    if evenement.get("data-channel-id") != "81":
-        continue
-
-
-    # --------------------------------------------------------
-    # Heure
-    # --------------------------------------------------------
-
-    heure_element = time_element.select_one(
-        "strong"
+    diffusion_type = evenement.get(
+        "data-diffusion-type",
+        ""
     )
 
-    if heure_element:
 
-        heure = heure_element.get_text(
-            " ",
-            strip=True
-        )
-
-    else:
-
-        heure = time_element.get_text(
-            " ",
-            strip=True
-        )
+    # On veut uniquement le direct
+    if diffusion_type != "live":
+        continue
 
 
-    # --------------------------------------------------------
-    # Titre
-    # --------------------------------------------------------
+    # -----------------------------------------------------
+    # Heure
+    # -----------------------------------------------------
+
+    heure = date_obj.strftime("%Hh%M")
+
+
+    # -----------------------------------------------------
+    # Nom du programme
+    # -----------------------------------------------------
 
     titre = None
 
-
-    lien_competition = evenement.select_one(
-        "a.schedule-entity-visual"
+    lien_programme = evenement.select_one(
+        "a[title]"
     )
 
-
-    if lien_competition:
-
-        titre = lien_competition.get(
-            "title"
-        )
+    if lien_programme:
+        titre = lien_programme.get("title")
 
 
     if not titre:
 
-        lien = evenement.select_one(
-            "a[title]"
+        titre_element = evenement.select_one(
+            ".schedule-program__body"
         )
 
-        if lien:
-
-            titre = lien.get(
-                "title"
+        if titre_element:
+            titre = titre_element.get_text(
+                " ",
+                strip=True
             )
 
 
     if not titre:
+        titre = "Formule 1"
 
-        titre = "Événement F1"
+
+    # -----------------------------------------------------
+    # CHAÎNES
+    # -----------------------------------------------------
+
+    chaines = []
 
 
-    # --------------------------------------------------------
-    # Texte complet
-    # --------------------------------------------------------
+    # Les logos des chaînes ont généralement
+    # la classe logoChaine
+    for image in evenement.select(
+        "img.logoChaine"
+    ):
 
-    texte = evenement.get_text(
+        alt = image.get("alt")
+
+        if alt:
+            chaines.append(
+                alt.strip()
+            )
+
+
+    # -----------------------------------------------------
+    # Fallback : nom texte de la chaîne
+    # -----------------------------------------------------
+
+    if not chaines:
+
+        for element in evenement.select(
+            ".schedule-channel__name"
+        ):
+
+            texte = element.get_text(
+                " ",
+                strip=True
+            )
+
+            if texte:
+                chaines.append(
+                    texte
+                )
+
+
+    # Suppression des doublons
+    chaines = list(
+        dict.fromkeys(chaines)
+    )
+
+
+    if chaines:
+        chaine = " / ".join(chaines)
+    else:
+        chaine = "Chaîne inconnue"
+
+
+    # -----------------------------------------------------
+    # ID DES CHAÎNES
+    # -----------------------------------------------------
+
+    channel_id = evenement.get(
+        "data-channel-id"
+    )
+
+
+    # -----------------------------------------------------
+    # TEXTE COMPLET
+    # -----------------------------------------------------
+
+    texte_complet = evenement.get_text(
         " ",
         strip=True
     )
 
 
-    # --------------------------------------------------------
-    # Jour
-    # --------------------------------------------------------
+    # -----------------------------------------------------
+    # DÉTECTION DU TYPE DE SÉANCE
+    # -----------------------------------------------------
 
-    date = datetime_str[:10]
+    texte_lower = texte_complet.lower()
 
 
-    if date == "2026-08-21":
-        jour = "VENDREDI"
+    if "qualification" in texte_lower:
+        session = "Qualifications"
 
-    elif date == "2026-08-22":
-        jour = "SAMEDI"
+    elif "qualif" in texte_lower:
+        session = "Qualifications"
 
-    elif date == "2026-08-23":
-        jour = "DIMANCHE"
+    elif "essai libre 1" in texte_lower:
+        session = "EL1"
+
+    elif "essais libres 1" in texte_lower:
+        session = "EL1"
+
+    elif "essai libre 2" in texte_lower:
+        session = "EL2"
+
+    elif "essais libres 2" in texte_lower:
+        session = "EL2"
+
+    elif "essai libre 3" in texte_lower:
+        session = "EL3"
+
+    elif "essais libres 3" in texte_lower:
+        session = "EL3"
+
+    elif "fp1" in texte_lower:
+        session = "EL1"
+
+    elif "fp2" in texte_lower:
+        session = "EL2"
+
+    elif "fp3" in texte_lower:
+        session = "EL3"
+
+    elif "sprint" in texte_lower:
+        session = "Sprint"
+
+    elif "grand prix" in texte_lower:
+        session = "Grand Prix"
 
     else:
-        jour = date
+        session = "Autre"
 
 
-    # --------------------------------------------------------
-    # Affichage
-    # --------------------------------------------------------
+    # -----------------------------------------------------
+    # SAUVEGARDE
+    # -----------------------------------------------------
 
-    print()
-    print(
-        f"📅 {jour} {date}"
-    )
-
-    print(
-        f"   ⚡ {heure}"
-    )
-
-    print(
-        f"   🏁 {titre}"
-    )
-
-    print(
-        f"   📺 Canal+"
-    )
-
-    print(
-        f"   🔖 diffusion = "
-        f"{evenement.get('data-diffusion-type')}"
-    )
+    diffusions.append({
+        "datetime": datetime_str,
+        "date": date_str,
+        "heure": heure,
+        "titre": titre,
+        "session": session,
+        "chaine": chaine,
+        "channel_id": channel_id,
+        "diffusion_type": diffusion_type,
+        "texte": texte_complet
+    })
 
 
-    resultats.append(
-        {
-            "date": date,
-            "jour": jour,
-            "heure": heure,
-            "titre": titre,
-            "chaine": "Canal+",
-            "channel_id": evenement.get(
-                "data-channel-id"
-            ),
-            "type": evenement.get(
-                "data-diffusion-type"
-            ),
-            "datetime": datetime_str,
-            "texte": texte
-        }
-    )
-
-
-# ============================================================
+# =========================================================
 # TRI CHRONOLOGIQUE
-# ============================================================
+# =========================================================
 
-resultats.sort(
-    key=lambda evenement: evenement["datetime"]
+diffusions.sort(
+    key=lambda x: x["datetime"]
 )
 
 
-# ============================================================
-# RÉSUMÉ
-# ============================================================
+# =========================================================
+# AFFICHAGE
+# =========================================================
 
 print()
-print("=" * 80)
-print("📊 RÉSUMÉ DU WEEK-END")
-print("=" * 80)
+print("=" * 90)
+print("📺 TOUTES LES DIFFUSIONS F1 DU WEEK-END")
+print("=" * 90)
 
 
-if not resultats:
+if not diffusions:
 
-    print(
-        "❌ Aucune diffusion F1 Canal+ trouvée."
-    )
+    print("❌ Aucune diffusion trouvée.")
 
 else:
 
-    for i, evenement in enumerate(
-        resultats,
+    for i, diffusion in enumerate(
+        diffusions,
         start=1
     ):
 
+        print()
         print(
             f"{i:02d}. "
-            f"{evenement['date']} "
-            f"{evenement['heure']} — "
-            f"{evenement['titre']} — "
-            f"{evenement['chaine']}"
+            f"🏎️ {diffusion['date']} "
+            f"⚡ {diffusion['heure']} "
+            f"🏁 {diffusion['titre']} "
+            f"📺 {diffusion['chaine']} "
+            f"(ID {diffusion['channel_id']})"
+        )
+
+        print(
+            f"    🔖 Session : {diffusion['session']}"
+        )
+
+        print(
+            f"    🔖 Type : {diffusion['diffusion_type']}"
         )
 
 
-print()
-print(
-    f"✅ {len(resultats)} diffusion(s) "
-    f"F1 Canal+ en direct trouvée(s)"
-)
+# =========================================================
+# RÉSUMÉ PAR JOUR
+# =========================================================
 
-print("=" * 80)
+print()
+print("=" * 90)
+print("📅 RÉSUMÉ PAR JOUR")
+print("=" * 90)
+
+
+dates = [
+    "2026-08-21",
+    "2026-08-22",
+    "2026-08-23"
+]
+
+
+for date in dates:
+
+    jour = [
+        d for d in diffusions
+        if d["date"] == date
+    ]
+
+    print()
+    print(f"📅 {date}")
+
+    if not jour:
+        print("   Aucun événement")
+
+    else:
+
+        for diffusion in jour:
+
+            print(
+                f"   {diffusion['heure']} — "
+                f"{diffusion['session']} — "
+                f"{diffusion['titre']} — "
+                f"{diffusion['chaine']}"
+            )
+
+
+# =========================================================
+# RÉSUMÉ FINAL
+# =========================================================
+
+print()
+print("=" * 90)
+print(
+    f"📊 {len(diffusions)} diffusion(s) "
+    f"F1 en direct trouvée(s)"
+)
+print("=" * 90)
+
+print()
 print("🏁 DIAGNOSTIC TERMINÉ")
-print("=" * 80)
+print("=" * 90)
