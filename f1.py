@@ -30,26 +30,48 @@ CHAINES_CANAL = [
     "canal +",
 ]
 
-# On veut uniquement les directs
-TYPE_DIRECT = "direct"
+# Mots indiquant une diffusion en direct
+MOTS_DIRECT = [
+    "direct",
+    "live",
+]
 
-# Programmes autorisés
+# Mots indiquant une rediffusion
+MOTS_REDIF = [
+    "rediff",
+    "rediffusion",
+    "replay",
+]
+
+# Programmes F1 que nous voulons récupérer
+# Attention : l'ordre est important.
 PROGRAMMES = [
-    "essais libres",
-    "essai libre",
     "qualifications sprint",
     "qualification sprint",
     "qualifs sprint",
     "qualif sprint",
+
+    "essais libres 1",
+    "essais libres 2",
+    "essais libres 3",
+    "essai libre 1",
+    "essai libre 2",
+    "essai libre 3",
+
+    "essais libres",
+    "essai libre",
+
     "qualifications",
     "qualification",
     "qualifs",
     "qualif",
+
     "sprint",
+
     "grand prix",
 ]
 
-# Émissions que l'on ne veut surtout pas récupérer
+# Émissions / magazines explicitement exclus
 EXCLUSIONS = [
     "on board",
     "le podium",
@@ -65,7 +87,7 @@ EXCLUSIONS = [
 
 
 # =========================================================
-# FONCTIONS
+# OUTILS
 # =========================================================
 
 def nettoyer(texte):
@@ -73,77 +95,62 @@ def nettoyer(texte):
 
 
 def est_canal(texte):
+    """
+    Vérifie si le texte correspond à une chaîne Canal+.
+    """
     texte = texte.lower()
 
-    for chaine in CHAINES_CANAL:
-        if chaine in texte:
-            return True
-
-    return False
+    return any(chaine in texte for chaine in CHAINES_CANAL)
 
 
-def trouver_programme(texte):
+def est_direct(texte):
+    """
+    Vérifie que la diffusion est bien un direct.
+    """
     texte_lower = texte.lower()
 
-    # Les exclusions passent en premier
-    for exclusion in EXCLUSIONS:
-        if exclusion in texte_lower:
-            return None
+    return any(mot in texte_lower for mot in MOTS_DIRECT)
 
-    # Grand Prix
-    if "grand prix" in texte_lower:
-        match = re.search(
-            r"(grand prix(?:\s+(?:de|du|d'|des|de la))?\s+[^|]+)",
-            texte,
-            re.IGNORECASE
-        )
 
-        if match:
-            return nettoyer(match.group(1))
+def est_rediffusion(texte):
+    """
+    Vérifie que la diffusion n'est PAS une rediffusion.
+    """
+    texte_lower = texte.lower()
 
-        return "Grand Prix"
-
-    # Qualifications Sprint AVANT Qualifications
-    if "qualification sprint" in texte_lower or "qualif sprint" in texte_lower:
-        return "Qualifications Sprint"
-
-    # Qualifications
-    if (
-        "qualifications" in texte_lower
-        or "qualification" in texte_lower
-        or "qualifs" in texte_lower
-        or "qualif" in texte_lower
-    ):
-        return "Qualifications"
-
-    # Essais libres
-    if "essais libres" in texte_lower or "essai libre" in texte_lower:
-        return "Essais libres"
-
-    # Sprint
-    if re.search(r"\bsprint\b", texte_lower):
-        return "Sprint"
-
-    return None
+    return any(mot in texte_lower for mot in MOTS_REDIF)
 
 
 def trouver_heure(texte):
-    match = re.search(r"\b(\d{1,2}h\d{2})\b", texte)
+    """
+    Recherche une heure au format 15h00.
+    """
 
-    if match:
-        return match.group(1)
+    match = re.search(
+        r"\b(\d{1,2})h(\d{2})\b",
+        texte,
+        re.IGNORECASE
+    )
 
-    return None
+    if not match:
+        return None
+
+    return f"{int(match.group(1)):02d}h{match.group(2)}"
 
 
 def trouver_date(texte):
+    """
+    Recherche une date du type :
+    vendredi 21 août 2026
+    """
+
     jours = (
         "lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche"
     )
 
     mois = (
-        "janvier|février|mars|avril|mai|juin|juillet|août|"
-        "septembre|octobre|novembre|décembre"
+        "janvier|février|fevrier|mars|avril|mai|juin|juillet|"
+        "août|aout|septembre|octobre|novembre|décembre|decembre"
     )
 
     pattern = (
@@ -153,62 +160,253 @@ def trouver_date(texte):
         rf"(\d{{4}})"
     )
 
-    match = re.search(pattern, texte, re.IGNORECASE)
+    match = re.search(
+        pattern,
+        texte,
+        re.IGNORECASE
+    )
+
+    if not match:
+        return None
+
+    mois = match.group(2)
+
+    # Normalisation des accents pour le tri
+    mois = mois.replace("fevrier", "février")
+    mois = mois.replace("aout", "août")
+    mois = mois.replace("decembre", "décembre")
+
+    return (
+        f"{int(match.group(1)):02d} "
+        f"{mois} "
+        f"{match.group(3)}"
+    )
+
+
+def trouver_programme(texte):
+    """
+    Identifie le type de session F1.
+
+    On traite les qualifications sprint AVANT
+    les qualifications classiques.
+    """
+
+    texte_lower = texte.lower()
+
+    # -----------------------------------------------------
+    # EXCLUSIONS
+    # -----------------------------------------------------
+
+    for exclusion in EXCLUSIONS:
+
+        if exclusion in texte_lower:
+            return None
+
+    # -----------------------------------------------------
+    # QUALIFICATIONS SPRINT
+    # -----------------------------------------------------
+
+    if (
+        "qualifications sprint" in texte_lower
+        or "qualification sprint" in texte_lower
+        or "qualifs sprint" in texte_lower
+        or "qualif sprint" in texte_lower
+    ):
+        return "Qualifications Sprint"
+
+    # -----------------------------------------------------
+    # ESSAIS LIBRES
+    # -----------------------------------------------------
+
+    for numero in ("1", "2", "3"):
+
+        if (
+            f"essais libres {numero}" in texte_lower
+            or f"essai libre {numero}" in texte_lower
+            or f"essais libre {numero}" in texte_lower
+        ):
+            return f"Essais Libres {numero}"
+
+    # -----------------------------------------------------
+    # ESSAIS LIBRES SANS NUMÉRO
+    # -----------------------------------------------------
+
+    if (
+        "essais libres" in texte_lower
+        or "essai libre" in texte_lower
+    ):
+        return "Essais Libres"
+
+    # -----------------------------------------------------
+    # QUALIFICATIONS
+    # -----------------------------------------------------
+
+    if (
+        "qualifications" in texte_lower
+        or "qualification" in texte_lower
+        or "qualifs" in texte_lower
+        or "qualif" in texte_lower
+    ):
+        return "Qualifications"
+
+    # -----------------------------------------------------
+    # SPRINT
+    # -----------------------------------------------------
+
+    if re.search(r"\bsprint\b", texte_lower):
+        return "Sprint"
+
+    # -----------------------------------------------------
+    # GRAND PRIX
+    # -----------------------------------------------------
+
+    if "grand prix" in texte_lower:
+
+        # On essaie de récupérer le nom du Grand Prix.
+        # Exemples :
+        # Grand Prix des Pays-Bas
+        # Grand Prix d'Italie
+        # Grand Prix de Belgique
+
+        match = re.search(
+            r"(grand prix(?:\s+(?:de|du|des|d'|de la|de l')"
+            r"\s+[^|,\n]+)?)",
+            texte,
+            re.IGNORECASE
+        )
+
+        if match:
+
+            programme = nettoyer(match.group(1))
+
+            # On évite de récupérer des informations
+            # supplémentaires après le nom du GP.
+            programme = re.split(
+                r"\s+(?:canal\+|canal\s*\+)\b",
+                programme,
+                flags=re.IGNORECASE
+            )[0]
+
+            return programme
+
+        return "Grand Prix"
+
+    return None
+
+
+def trouver_chaine(bloc):
+    """
+    Recherche la chaîne dans le bloc.
+    """
+
+    # On regarde d'abord les chaînes individuelles
+    for element in bloc.stripped_strings:
+
+        texte = nettoyer(element)
+
+        if est_canal(texte):
+
+            # On évite de retourner un énorme bloc.
+            # On cherche simplement la partie Canal+.
+            match = re.search(
+                r"(Canal\s*\+\s*(?:Sport\s*360|Sport|Foot|Décalé)?|Canal\+)",
+                texte,
+                re.IGNORECASE
+            )
+
+            if match:
+                return nettoyer(match.group(1))
+
+            return texte
+
+    # Si la chaîne n'est pas isolée, on la cherche
+    # dans le texte complet du bloc.
+    texte_bloc = nettoyer(
+        bloc.get_text(" ", strip=True)
+    )
+
+    match = re.search(
+        r"(Canal\s*\+\s*(?:Sport\s*360|Sport|Foot|Décalé)?|Canal\+)",
+        texte_bloc,
+        re.IGNORECASE
+    )
 
     if match:
-        return (
-            f"{match.group(1).zfill(2)} "
-            f"{match.group(2)} "
-            f"{match.group(3)}"
-        )
+        return nettoyer(match.group(1))
 
     return None
 
 
 # =========================================================
-# EXTRACTION DES BLOCS
+# EXTRACTION
 # =========================================================
 
 diffusions = []
 
-# On cherche les éléments contenant "Formule 1"
+# Nous partons des éléments contenant "Formule 1".
+# Ensuite nous remontons progressivement dans le DOM
+# pour trouver le bloc correspondant à une diffusion.
+
 elements = soup.find_all(
-    string=lambda text: text and "Formule 1" in text
+    string=lambda text: (
+        text is not None
+        and "Formule 1" in text
+    )
 )
+
+print()
 
 for element in elements:
 
-    # On remonte progressivement dans le DOM.
-    # L'objectif est de trouver le bloc correspondant
-    # à UNE diffusion, et non toute la page.
     bloc = element.parent
 
     candidats = []
 
-    for niveau in range(1, 9):
+    # -----------------------------------------------------
+    # RECHERCHE DU BLOC DE DIFFUSION
+    # -----------------------------------------------------
+
+    for niveau in range(1, 10):
 
         if bloc is None:
             break
 
-        texte = nettoyer(bloc.get_text(" ", strip=True))
+        texte = nettoyer(
+            bloc.get_text(" ", strip=True)
+        )
 
-        # On cherche un bloc suffisamment petit contenant
-        # les informations nécessaires.
+        # Le bloc doit au minimum contenir :
+        # - une heure
+        # - un direct
+        # - Canal+
+        #
+        # On ne demande PAS encore le programme ici.
+        # Cela évite le problème rencontré précédemment
+        # avec la structure HTML de TV-Sports.
+
         if (
             trouver_heure(texte)
-            and "direct" in texte.lower()
+            and est_direct(texte)
             and est_canal(texte)
         ):
-            candidats.append((len(texte), bloc, texte))
+            candidats.append(
+                (
+                    len(texte),
+                    bloc,
+                    texte
+                )
+            )
 
         bloc = bloc.parent
 
     if not candidats:
         continue
 
-    # Le plus petit bloc contenant les informations pertinentes
-    # est généralement celui qui correspond à la diffusion.
-    candidats.sort(key=lambda x: x[0])
+    # Le plus petit bloc pertinent est généralement
+    # celui correspondant à la diffusion.
+    candidats.sort(
+        key=lambda x: x[0]
+    )
 
     _, bloc, texte = candidats[0]
 
@@ -216,32 +414,14 @@ for element in elements:
     # DIRECT UNIQUEMENT
     # -----------------------------------------------------
 
-    if "direct" not in texte.lower():
-        continue
-
-    # Si le bloc indique explicitement une rediffusion,
-    # on le rejette.
-    if "rediff" in texte.lower():
+    if not est_direct(texte):
         continue
 
     # -----------------------------------------------------
-    # CHAÎNE
+    # PAS DE REDIFFUSION
     # -----------------------------------------------------
 
-    chaine = None
-
-    for chaine_element in bloc.stripped_strings:
-
-        chaine_element = nettoyer(chaine_element)
-
-        if est_canal(chaine_element):
-
-            # On ne garde que les chaînes Canal+
-            chaine = chaine_element
-
-            break
-
-    if not chaine:
+    if est_rediffusion(texte):
         continue
 
     # -----------------------------------------------------
@@ -272,7 +452,16 @@ for element in elements:
         continue
 
     # -----------------------------------------------------
-    # DÉDOUBLONNAGE
+    # CHAÎNE
+    # -----------------------------------------------------
+
+    chaine = trouver_chaine(bloc)
+
+    if not chaine:
+        continue
+
+    # -----------------------------------------------------
+    # VÉRIFICATION FINALE
     # -----------------------------------------------------
 
     diffusion = {
@@ -281,6 +470,10 @@ for element in elements:
         "programme": programme,
         "chaine": chaine,
     }
+
+    # -----------------------------------------------------
+    # DÉDOUBLONNAGE
+    # -----------------------------------------------------
 
     if diffusion not in diffusions:
         diffusions.append(diffusion)
@@ -321,7 +514,9 @@ def cle_tri(diffusion):
     )
 
 
-diffusions.sort(key=cle_tri)
+diffusions.sort(
+    key=cle_tri
+)
 
 
 # =========================================================
@@ -336,7 +531,10 @@ if not diffusions:
 
 else:
 
-    for i, diffusion in enumerate(diffusions, start=1):
+    for i, diffusion in enumerate(
+        diffusions,
+        start=1
+    ):
 
         print(
             f"{i:02d}. "
@@ -349,6 +547,8 @@ else:
 
 print()
 print("=" * 80)
+
 print(
-    f"✅ {len(diffusions)} diffusion(s) F1 en direct trouvée(s)"
+    f"✅ {len(diffusions)} diffusion(s) "
+    f"F1 en direct trouvée(s)"
 )
