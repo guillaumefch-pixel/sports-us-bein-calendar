@@ -1,8 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
+import re
+import json
 
 
-print("🔎 DIAGNOSTIC DE LA PAGE « COURSE EN DIRECT »")
+print("🔎 RECHERCHE DES DONNÉES CACHÉES F1")
 print("=" * 90)
 
 
@@ -26,198 +28,189 @@ response = requests.get(
 
 response.raise_for_status()
 
+html = response.text
+
 soup = BeautifulSoup(
-    response.text,
+    html,
     "html.parser"
 )
 
 
+print()
+print("=" * 90)
+print("📄 PAGE")
+print("=" * 90)
+
+print("URL :", URL)
+print("Taille HTML :", len(html), "caractères")
+
+
 # =========================================================
-# INFORMATIONS GÉNÉRALES
+# 1. SCRIPTS
 # =========================================================
 
 print()
 print("=" * 90)
-print("📄 TITRE")
-print("=" * 90)
-
-print(soup.title.get_text(strip=True) if soup.title else "Aucun titre")
-
-
-print()
-print("=" * 90)
-print("📊 INFORMATIONS PAGE")
-print("=" * 90)
-
-print("Taille HTML :", len(response.text), "caractères")
-
-
-# =========================================================
-# RECHERCHE DES MOTS-CLÉS
-# =========================================================
-
-mots_cles = [
-    "EL1",
-    "EL2",
-    "EL3",
-    "FP1",
-    "FP2",
-    "FP3",
-    "Essais libres",
-    "Essai libre",
-    "Qualification",
-    "Qualifications",
-    "Qualif",
-    "Sprint",
-    "Course",
-    "Grand Prix",
-    "Direct",
-    "Canal+",
-    "Canal+ Sport",
-]
-
-
-print()
-print("=" * 90)
-print("🔎 RECHERCHE DES MOTS-CLÉS")
+print("📜 SCRIPTS JAVASCRIPT")
 print("=" * 90)
 
 
-texte_complet = soup.get_text(
-    " ",
-    strip=True
+scripts = soup.find_all("script")
+
+print(
+    "Nombre de scripts :",
+    len(scripts)
 )
 
 
-for mot in mots_cles:
+for i, script in enumerate(scripts, start=1):
+
+    contenu = script.string or script.get_text()
+
+    if not contenu:
+        contenu = ""
+
+    print()
+    print("-" * 90)
+    print("SCRIPT", i)
+    print("-" * 90)
 
     print(
-        f"{mot:<20}: {texte_complet.lower().count(mot.lower())} occurrence(s)"
+        "type =",
+        script.get("type")
     )
 
-
-# =========================================================
-# LIENS CONTENANT DES INFORMATIONS
-# =========================================================
-
-print()
-print("=" * 90)
-print("🔗 LIENS INTÉRESSANTS")
-print("=" * 90)
-
-
-for lien in soup.select("a"):
-
-    texte = lien.get_text(
-        " ",
-        strip=True
+    print(
+        "src =",
+        script.get("src")
     )
 
-    href = lien.get("href")
+    print(
+        "taille =",
+        len(contenu)
+    )
 
-    title = lien.get("title")
+    # On affiche uniquement les scripts qui semblent
+    # contenir des données ou des informations utiles.
 
+    contenu_test = contenu.lower()
 
-    texte_test = (
-        (texte or "")
-        + " "
-        + (title or "")
-        + " "
-        + (href or "")
-    ).lower()
-
-
-    mots_recherche = [
-        "el1",
-        "el2",
-        "el3",
-        "fp1",
-        "fp2",
-        "fp3",
-        "qualif",
+    mots_interessants = [
+        "formula",
+        "formule",
+        "grand prix",
         "qualification",
+        "qualif",
         "sprint",
-        "course",
-        "grand-prix",
-        "direct",
-        "formule-1",
+        "session",
+        "schedule",
+        "calendar",
+        "event",
+        "api",
+        "json",
+        "canal",
+        "sport",
     ]
 
-
     if any(
-        mot in texte_test
-        for mot in mots_recherche
+        mot in contenu_test
+        for mot in mots_interessants
     ):
 
         print()
-        print("texte :", texte)
-        print("href  :", href)
-        print("title :", title)
+        print("⭐ SCRIPT POTENTIELLEMENT INTÉRESSANT")
+
+        print(
+            contenu[:5000]
+        )
 
 
 # =========================================================
-# ÉLÉMENTS SCHEDULE
+# 2. JSON-LD
 # =========================================================
 
 print()
 print("=" * 90)
-print("📺 ÉLÉMENTS DE PROGRAMMATION")
+print("🧩 JSON-LD")
 print("=" * 90)
 
 
-elements_schedule = soup.select(
-    ".schedule-item"
+json_ld = soup.select(
+    'script[type="application/ld+json"]'
 )
 
 
 print(
-    "Nombre de .schedule-item :",
-    len(elements_schedule)
+    "Nombre de blocs JSON-LD :",
+    len(json_ld)
 )
 
 
-for i, evenement in enumerate(
-    elements_schedule,
-    start=1
-):
+for i, bloc in enumerate(json_ld, start=1):
+
+    contenu = bloc.string or bloc.get_text()
 
     print()
     print("-" * 90)
-    print("ÉVÉNEMENT", i)
+    print("JSON-LD", i)
     print("-" * 90)
 
-    print(
-        evenement.get_text(
-            " ",
-            strip=True
-        )
-    )
+    try:
 
-
-    print()
-    print("ATTRIBUTS :")
-
-    for cle, valeur in evenement.attrs.items():
+        data = json.loads(contenu)
 
         print(
-            f"{cle} = {valeur}"
+            json.dumps(
+                data,
+                indent=2,
+                ensure_ascii=False
+            )[:10000]
+        )
+
+    except Exception:
+
+        print(
+            contenu[:5000]
         )
 
 
 # =========================================================
-# RECHERCHE DE BLOCS CONTENANT LES MOTS F1
+# 3. ATTRIBUTS DATA-*
 # =========================================================
 
 print()
 print("=" * 90)
-print("🧩 BLOCS HTML CONTENANT « QUALIF », « EL » OU « SPRINT »")
+print("🏷️ ATTRIBUTS DATA-*")
 print("=" * 90)
 
 
-trouves = 0
+elements_data = soup.find_all(
+    lambda tag: any(
+        attribut.startswith("data-")
+        for attribut in tag.attrs
+    )
+)
 
 
-for element in soup.find_all():
+print(
+    "Éléments contenant des data-* :",
+    len(elements_data)
+)
+
+
+compteur = 0
+
+
+for element in elements_data:
+
+    attributs_interessants = {}
+
+    for cle, valeur in element.attrs.items():
+
+        if cle.startswith("data-"):
+
+            attributs_interessants[cle] = valeur
+
 
     texte = element.get_text(
         " ",
@@ -225,45 +218,169 @@ for element in soup.find_all():
     )
 
 
-    if not texte:
-        continue
-
-
     texte_test = texte.lower()
 
 
     if (
-        "qualification" in texte_test
-        or "qualif" in texte_test
-        or "el1" in texte_test
-        or "el2" in texte_test
-        or "el3" in texte_test
-        or "sprint" in texte_test
+        any(
+            mot in texte_test
+            for mot in [
+                "grand prix",
+                "canal",
+                "qualif",
+                "sprint",
+                "course",
+                "direct",
+                "formule"
+            ]
+        )
+        or any(
+            "session" in cle.lower()
+            or "event" in cle.lower()
+            or "schedule" in cle.lower()
+            for cle in attributs_interessants
+        )
     ):
 
-        # On évite d'afficher les énormes blocs parents
-        if len(texte) > 500:
-
-            continue
-
-
         print()
+        print("-" * 90)
+
         print(
             element.name,
             element.get("class")
         )
 
         print(
+            "TEXTE :",
             texte[:500]
         )
 
-        trouves += 1
+        for cle, valeur in attributs_interessants.items():
+
+            print(
+                f"{cle} = {valeur}"
+            )
+
+        compteur += 1
 
 
-        if trouves >= 30:
+        if compteur >= 50:
 
             break
 
+
+# =========================================================
+# 4. RECHERCHE D'URLS API
+# =========================================================
+
+print()
+print("=" * 90)
+print("🌐 URLS / API DÉTECTÉES DANS LE HTML")
+print("=" * 90)
+
+
+urls = set(
+    re.findall(
+        r'https?://[^"\'\s<>]+',
+        html
+    )
+)
+
+
+for url in sorted(urls):
+
+    url_test = url.lower()
+
+    if any(
+        mot in url_test
+        for mot in [
+            "api",
+            "json",
+            "ajax",
+            "schedule",
+            "calendar",
+            "event",
+            "sport",
+            "tv"
+        ]
+    ):
+
+        print(
+            url[:500]
+        )
+
+
+# =========================================================
+# 5. RECHERCHE DE MOTS-CLÉS DIRECTEMENT DANS LE HTML
+# =========================================================
+
+print()
+print("=" * 90)
+print("🔍 MOTS-CLÉS DANS LE HTML BRUT")
+print("=" * 90)
+
+
+mots = [
+    "qualification",
+    "qualif",
+    "sprint",
+    "session",
+    "schedule",
+    "event",
+    "calendar",
+    "formula",
+    "formule",
+    "canal",
+    "course",
+]
+
+
+for mot in mots:
+
+    occurrences = [
+        match.start()
+        for match in re.finditer(
+            re.escape(mot),
+            html,
+            re.IGNORECASE
+        )
+    ]
+
+
+    print()
+    print(
+        f"{mot:<20}: {len(occurrences)} occurrence(s)"
+    )
+
+
+    # Affiche quelques extraits du HTML
+    # autour des occurrences.
+
+    for position in occurrences[:3]:
+
+        debut = max(
+            0,
+            position - 250
+        )
+
+        fin = min(
+            len(html),
+            position + 500
+        )
+
+        extrait = html[
+            debut:fin
+        ]
+
+        print()
+        print(
+            extrait
+        )
+
+
+# =========================================================
+# FIN
+# =========================================================
 
 print()
 print("=" * 90)
