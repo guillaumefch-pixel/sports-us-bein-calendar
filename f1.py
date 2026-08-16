@@ -28,6 +28,7 @@ DUREES_MINUTES = {
 }
 
 FENETRE_SECONDES = 3 * 60 * 60
+
 EN_TETES = {
     "User-Agent": "Mozilla/5.0 (compatible; F1CalendarBot/1.0)",
     "Accept-Language": "fr-FR,fr;q=0.9",
@@ -54,6 +55,7 @@ class AnalyseurDiffusionsTV(HTMLParser):
             ):
                 self.element = {}
                 self.profondeur_li = 1
+
             return
 
         if self.element is None:
@@ -61,75 +63,149 @@ class AnalyseurDiffusionsTV(HTMLParser):
 
         if balise == "time" and attributs.get("datetime"):
             self.element["datetime"] = attributs["datetime"]
+
         elif balise == "img" and "logoChaine" in classes:
-            self.element["chaine"] = attributs.get("alt", "").strip()
+            self.element["chaine"] = (
+                attributs.get("alt", "").strip()
+            )
+
         elif balise == "a" and "schedule-entity-visual" in classes:
-            self.element["competition"] = attributs.get("title", "").strip()
-            self.element["lien"] = attributs.get("href", "").strip()
+            self.element["competition"] = (
+                attributs.get("title", "").strip()
+            )
+
+            self.element["lien"] = (
+                attributs.get("href", "").strip()
+            )
 
     def handle_startendtag(self, balise, attributs):
-        self.handle_starttag(balise, attributs)
+        self.handle_starttag(
+            balise,
+            attributs,
+        )
 
     def handle_endtag(self, balise):
         if balise != "li" or self.element is None:
             return
 
         self.profondeur_li -= 1
+
         if self.profondeur_li == 0:
-            self.elements.append(self.element)
+            self.elements.append(
+                self.element
+            )
+
             self.element = None
 
 
 def recuperer_calendrier_f1():
-    reponse = requests.get(F1_URL, headers=EN_TETES, timeout=20)
+    reponse = requests.get(
+        F1_URL,
+        headers=EN_TETES,
+        timeout=20,
+    )
+
     reponse.raise_for_status()
+
     return reponse.json()["races"]
 
 
 def extraire_sessions(courses):
     sessions = []
+
     for course in courses:
         for cle, valeur_iso in course["sessions"].items():
-            horaire = datetime.fromisoformat(valeur_iso.replace("Z", "+00:00"))
+            horaire = datetime.fromisoformat(
+                valeur_iso.replace(
+                    "Z",
+                    "+00:00",
+                )
+            )
+
             sessions.append(
                 {
                     "course": course,
                     "cle": cle,
-                    "nom": NOMS_SESSIONS.get(cle, cle),
-                    "horaire": horaire.astimezone(timezone.utc),
-                    "duree_minutes": DUREES_MINUTES.get(cle, 60),
+                    "nom": NOMS_SESSIONS.get(
+                        cle,
+                        cle,
+                    ),
+                    "horaire": horaire.astimezone(
+                        timezone.utc
+                    ),
+                    "duree_minutes": DUREES_MINUTES.get(
+                        cle,
+                        60,
+                    ),
                 }
             )
-    return sorted(sessions, key=lambda session: session["horaire"])
+
+    return sorted(
+        sessions,
+        key=lambda session: session["horaire"],
+    )
 
 
 def extraire_diffusions_tv(page):
     analyseur = AnalyseurDiffusionsTV()
     analyseur.feed(page)
+
     diffusions = []
     deja_vues = set()
 
     for element in analyseur.elements:
-        chaine = element.get("chaine", "")
-        if not chaine.casefold().startswith("canal+"):
+        chaine = element.get(
+            "chaine",
+            "",
+        )
+
+        if not chaine.casefold().startswith(
+            "canal+"
+        ):
             continue
 
         try:
             horaire = datetime.fromisoformat(
-                element["datetime"].replace("Z", "+00:00")
-            ).astimezone(timezone.utc)
+                element["datetime"].replace(
+                    "Z",
+                    "+00:00",
+                )
+            ).astimezone(
+                timezone.utc
+            )
+
         except (KeyError, ValueError):
             continue
 
-        competition = element.get("competition") or "Formule 1"
-        lien = element.get("lien") or TV_SPORTS_URL
-        if lien.startswith("/"):
-            lien = "https://tv-sports.fr" + lien
+        competition = (
+            element.get("competition")
+            or "Formule 1"
+        )
 
-        titre = f"{competition} ({chaine})"
-        cle = (horaire, competition, chaine)
+        lien = (
+            element.get("lien")
+            or TV_SPORTS_URL
+        )
+
+        if lien.startswith("/"):
+            lien = (
+                "https://tv-sports.fr"
+                + lien
+            )
+
+        titre = (
+            f"{competition} ({chaine})"
+        )
+
+        cle = (
+            horaire,
+            competition,
+            chaine,
+        )
+
         if cle not in deja_vues:
             deja_vues.add(cle)
+
             diffusions.append(
                 {
                     "horaire": horaire,
@@ -138,7 +214,10 @@ def extraire_diffusions_tv(page):
                 }
             )
 
-    return sorted(diffusions, key=lambda diffusion: diffusion["horaire"])
+    return sorted(
+        diffusions,
+        key=lambda diffusion: diffusion["horaire"],
+    )
 
 
 def recuperer_diffusions_tv():
@@ -147,12 +226,22 @@ def recuperer_diffusions_tv():
         headers=EN_TETES,
         timeout=20,
     )
+
     reponse.raise_for_status()
-    return extraire_diffusions_tv(reponse.text)
+
+    return extraire_diffusions_tv(
+        reponse.text
+    )
 
 
-def associer_diffusions(sessions, diffusions):
-    disponibles = set(range(len(diffusions)))
+def associer_diffusions(
+    sessions,
+    diffusions,
+):
+    disponibles = set(
+        range(len(diffusions))
+    )
+
     associations = {}
 
     for session in sessions:
@@ -167,12 +256,25 @@ def associer_diffusions(sessions, diffusions):
             )
 
             if ecart <= FENETRE_SECONDES:
-                candidats.append((ecart, index))
+                candidats.append(
+                    (
+                        ecart,
+                        index,
+                    )
+                )
 
         if candidats:
-            _, index = min(candidats)
-            associations[id(session)] = diffusions[index]
-            disponibles.remove(index)
+            _, index = min(
+                candidats
+            )
+
+            associations[id(session)] = (
+                diffusions[index]
+            )
+
+            disponibles.remove(
+                index
+            )
 
     return associations
 
@@ -189,27 +291,64 @@ def echapper_ics(texte):
 
 def recuperer_dtstamp_existant():
     try:
-        with open("f1_calendar.ics", encoding="utf-8") as calendrier:
+        with open(
+            "f1_calendar.ics",
+            encoding="utf-8",
+        ) as calendrier:
             for ligne in calendrier:
-                if ligne.startswith("DTSTAMP:"):
-                    valeur = ligne.removeprefix("DTSTAMP:").strip()
-                    datetime.strptime(valeur, "%Y%m%dT%H%M%SZ")
+                if ligne.startswith(
+                    "DTSTAMP:"
+                ):
+                    valeur = (
+                        ligne
+                        .removeprefix(
+                            "DTSTAMP:"
+                        )
+                        .strip()
+                    )
+
+                    datetime.strptime(
+                        valeur,
+                        "%Y%m%dT%H%M%SZ",
+                    )
+
                     return valeur
+
     except (OSError, ValueError):
         pass
 
-    return datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    return datetime.now(
+        timezone.utc
+    ).strftime(
+        "%Y%m%dT%H%M%SZ"
+    )
 
 
-def construire_vevent(session, diffusion, dtstamp):
+def construire_vevent(
+    session,
+    diffusion,
+    dtstamp,
+):
     course = session["course"]
-    debut = session["horaire"]
-    fin = debut + timedelta(minutes=session["duree_minutes"])
 
-    resume = f"🏎️ F1 — {course['location']} — {session['nom']}"
+    debut = session["horaire"]
+
+    fin = debut + timedelta(
+        minutes=session["duree_minutes"]
+    )
+
+    resume = (
+        f"🏎️ F1 — "
+        f"{course['location']} — "
+        f"{session['nom']}"
+    )
 
     description = [
-        f"Grand Prix : {course['name']} ({course['location']})"
+        (
+            f"Grand Prix : "
+            f"{course['name']} "
+            f"({course['location']})"
+        )
     ]
 
     if diffusion:
@@ -220,38 +359,93 @@ def construire_vevent(session, diffusion, dtstamp):
             )
         )
     else:
-        description.append("Diffusion TV : non trouvée")
+        description.append(
+            "Diffusion TV : non trouvée"
+        )
 
-    return [
+    lignes = [
         "BEGIN:VEVENT",
-        f"UID:f1-{course['round']}-{session['cle']}@sports-us-bein-calendar",
+        (
+            f"UID:f1-"
+            f"{course['round']}-"
+            f"{session['cle']}"
+            f"@sports-us-bein-calendar"
+        ),
         f"DTSTAMP:{dtstamp}",
-        f"DTSTART:{debut.strftime('%Y%m%dT%H%M%SZ')}",
-        f"DTEND:{fin.strftime('%Y%m%dT%H%M%SZ')}",
-        f"SUMMARY:{echapper_ics(resume)}",
-        f"DESCRIPTION:{echapper_ics(chr(10).join(description))}",
-        f"LOCATION:{echapper_ics(course['location'])}",
-        "END:VEVENT",
+        (
+            f"DTSTART:"
+            f"{debut.strftime('%Y%m%dT%H%M%SZ')}"
+        ),
+        (
+            f"DTEND:"
+            f"{fin.strftime('%Y%m%dT%H%M%SZ')}"
+        ),
+        (
+            f"SUMMARY:"
+            f"{echapper_ics(resume)}"
+        ),
+        (
+            f"DESCRIPTION:"
+            f"{echapper_ics(chr(10).join(description))}"
+        ),
+        (
+            f"LOCATION:"
+            f"{echapper_ics(course['location'])}"
+        ),
     ]
+
+    latitude = course.get(
+        "latitude"
+    )
+
+    longitude = course.get(
+        "longitude"
+    )
+
+    if (
+        latitude is not None
+        and longitude is not None
+    ):
+        lignes.append(
+            f"GEO:{latitude};{longitude}"
+        )
+
+    lignes.append(
+        "END:VEVENT"
+    )
+
+    return lignes
 
 
 def main():
-    print("Téléchargement du calendrier F1…")
-    sessions = extraire_sessions(recuperer_calendrier_f1())
+    print(
+        "Téléchargement du calendrier F1…"
+    )
 
-    print("Téléchargement des diffusions TV-Sports…")
+    sessions = extraire_sessions(
+        recuperer_calendrier_f1()
+    )
+
+    print(
+        "Téléchargement des diffusions TV-Sports…"
+    )
 
     try:
-        diffusions = recuperer_diffusions_tv()
-        print(
-            f"{len(diffusions)} directs Canal+ trouvés "
-            f"sur TV-Sports."
+        diffusions = (
+            recuperer_diffusions_tv()
         )
+
+        print(
+            f"{len(diffusions)} directs "
+            f"Canal+ trouvés sur TV-Sports."
+        )
+
     except requests.RequestException as erreur:
         print(
-            f"Avertissement : TV-Sports est inaccessible "
-            f"({erreur})."
+            f"Avertissement : TV-Sports "
+            f"est inaccessible ({erreur})."
         )
+
         diffusions = []
 
     associations = associer_diffusions(
@@ -259,19 +453,28 @@ def main():
         diffusions,
     )
 
-    dtstamp = recuperer_dtstamp_existant()
+    dtstamp = (
+        recuperer_dtstamp_existant()
+    )
 
     lignes = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
-        "PRODID:-//sports-us-bein-calendar//F1 2026//FR",
+        (
+            "PRODID:-//sports-us-bein-calendar//"
+            "F1 2026//FR"
+        ),
         "CALSCALE:GREGORIAN",
     ]
 
-    print("\nDIFFUSIONS ASSOCIÉES")
+    print(
+        "\nDIFFUSIONS ASSOCIÉES"
+    )
 
     for session in sessions:
-        diffusion = associations.get(id(session))
+        diffusion = associations.get(
+            id(session)
+        )
 
         lignes.extend(
             construire_vevent(
@@ -289,7 +492,9 @@ def main():
                 f"{diffusion['titre']}"
             )
 
-    lignes.append("END:VCALENDAR")
+    lignes.append(
+        "END:VCALENDAR"
+    )
 
     with open(
         "f1_calendar.ics",
@@ -298,15 +503,18 @@ def main():
         newline="",
     ) as fichier:
         fichier.write(
-            "\r\n".join(lignes) + "\r\n"
+            "\r\n".join(lignes)
+            + "\r\n"
         )
 
     print(
-        f"\n{len(sessions)} sessions écrites "
-        f"dans f1_calendar.ics."
+        f"\n{len(sessions)} sessions "
+        f"écrites dans f1_calendar.ics."
     )
+
     print(
-        f"{len(associations)} diffusions TV associées."
+        f"{len(associations)} "
+        f"diffusions TV associées."
     )
 
 
