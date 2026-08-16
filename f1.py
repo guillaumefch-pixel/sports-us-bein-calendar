@@ -2,14 +2,14 @@ import requests
 from bs4 import BeautifulSoup
 
 
-print("🔎 DIAGNOSTIC DE LA PAGE DU GRAND PRIX")
+print("🔎 DIAGNOSTIC DE LA PAGE « COURSE EN DIRECT »")
 print("=" * 90)
 
 
-URL = "https://tv-sports.fr/formule-1/grand-prix-des-pays-bas"
+URL = "https://tv-sports.fr/formule-1/grand-prix-des-pays-bas/course-direct"
 
 
-HEADERS = {
+headers = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
         "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -18,13 +18,9 @@ HEADERS = {
 }
 
 
-# =========================================================
-# TÉLÉCHARGEMENT
-# =========================================================
-
 response = requests.get(
     URL,
-    headers=HEADERS,
+    headers=headers,
     timeout=20
 )
 
@@ -36,14 +32,8 @@ soup = BeautifulSoup(
 )
 
 
-print(
-    f"✅ Page téléchargée : "
-    f"{len(response.text)} caractères"
-)
-
-
 # =========================================================
-# TITRE DE LA PAGE
+# INFORMATIONS GÉNÉRALES
 # =========================================================
 
 print()
@@ -51,23 +41,20 @@ print("=" * 90)
 print("📄 TITRE")
 print("=" * 90)
 
-title = soup.title
+print(soup.title.get_text(strip=True) if soup.title else "Aucun titre")
 
-if title:
-    print(title.get_text(" ", strip=True))
-else:
-    print("Aucun titre")
-
-
-# =========================================================
-# TEXTE DES ÉLÉMENTS IMPORTANTS
-# =========================================================
 
 print()
 print("=" * 90)
-print("🔎 RECHERCHE DES MOTS-CLÉS")
+print("📊 INFORMATIONS PAGE")
 print("=" * 90)
 
+print("Taille HTML :", len(response.text), "caractères")
+
+
+# =========================================================
+# RECHERCHE DES MOTS-CLÉS
+# =========================================================
 
 mots_cles = [
     "EL1",
@@ -76,15 +63,27 @@ mots_cles = [
     "FP1",
     "FP2",
     "FP3",
+    "Essais libres",
+    "Essai libre",
     "Qualification",
     "Qualifications",
     "Qualif",
     "Sprint",
-    "Grand Prix"
+    "Course",
+    "Grand Prix",
+    "Direct",
+    "Canal+",
+    "Canal+ Sport",
 ]
 
 
-texte_page = soup.get_text(
+print()
+print("=" * 90)
+print("🔎 RECHERCHE DES MOTS-CLÉS")
+print("=" * 90)
+
+
+texte_complet = soup.get_text(
     " ",
     strip=True
 )
@@ -92,207 +91,181 @@ texte_page = soup.get_text(
 
 for mot in mots_cles:
 
-    compteur = texte_page.lower().count(
-        mot.lower()
-    )
-
     print(
-        f"{mot:<20} : {compteur} occurrence(s)"
+        f"{mot:<20}: {texte_complet.lower().count(mot.lower())} occurrence(s)"
     )
 
 
 # =========================================================
-# RECHERCHE DES LIENS
+# LIENS CONTENANT DES INFORMATIONS
 # =========================================================
 
 print()
 print("=" * 90)
-print("🔗 LIENS CONTENANT DES INFORMATIONS F1")
+print("🔗 LIENS INTÉRESSANTS")
 print("=" * 90)
 
 
 for lien in soup.select("a"):
-
-    href = lien.get("href")
 
     texte = lien.get_text(
         " ",
         strip=True
     )
 
+    href = lien.get("href")
 
-    if not href:
-        continue
+    title = lien.get("title")
 
 
-    texte_lower = (
-        texte + " " + href
+    texte_test = (
+        (texte or "")
+        + " "
+        + (title or "")
+        + " "
+        + (href or "")
     ).lower()
 
 
-    mots = [
-        "essai",
+    mots_recherche = [
+        "el1",
+        "el2",
+        "el3",
+        "fp1",
+        "fp2",
+        "fp3",
         "qualif",
         "qualification",
         "sprint",
+        "course",
         "grand-prix",
-        "gp"
+        "direct",
+        "formule-1",
     ]
 
 
     if any(
-        mot in texte_lower
-        for mot in mots
+        mot in texte_test
+        for mot in mots_recherche
     ):
 
         print()
-        print(
-            f"texte : {texte}"
-        )
-
-        print(
-            f"href  : {href}"
-        )
-
-        print(
-            f"title : {lien.get('title')}"
-        )
+        print("texte :", texte)
+        print("href  :", href)
+        print("title :", title)
 
 
 # =========================================================
-# TABLES / LISTES
+# ÉLÉMENTS SCHEDULE
 # =========================================================
 
 print()
 print("=" * 90)
-print("📋 ÉLÉMENTS SCHEDULE")
+print("📺 ÉLÉMENTS DE PROGRAMMATION")
 print("=" * 90)
 
 
-elements = soup.select(
-    "li.schedule-item"
+elements_schedule = soup.select(
+    ".schedule-item"
 )
 
 
 print(
-    f"Nombre d'événements trouvés : "
-    f"{len(elements)}"
+    "Nombre de .schedule-item :",
+    len(elements_schedule)
 )
 
 
-for i, element in enumerate(
-    elements,
+for i, evenement in enumerate(
+    elements_schedule,
     start=1
 ):
 
     print()
     print("-" * 90)
-    print(
-        f"🏎️ ÉVÉNEMENT #{i}"
-    )
+    print("ÉVÉNEMENT", i)
     print("-" * 90)
 
-
-    # -----------------------------------------------------
-    # ATTRIBUTS
-    # -----------------------------------------------------
-
-    print()
-    print("ATTRIBUTS :")
-
-    for cle, valeur in element.attrs.items():
-
-        print(
-            f"  {cle} = {valeur}"
-        )
-
-
-    # -----------------------------------------------------
-    # TEXTE
-    # -----------------------------------------------------
-
-    print()
-    print("TEXTE :")
-
     print(
-        element.get_text(
+        evenement.get_text(
             " ",
             strip=True
         )
     )
 
 
-    # -----------------------------------------------------
-    # TIME
-    # -----------------------------------------------------
-
-    time_element = element.select_one(
-        "time.schedule-time"
-    )
-
-    if time_element:
-
-        print()
-        print("DATETIME :")
-
-        print(
-            time_element.get("datetime")
-        )
-
-
-    # -----------------------------------------------------
-    # LIENS
-    # -----------------------------------------------------
-
     print()
-    print("LIENS :")
+    print("ATTRIBUTS :")
 
-    for lien in element.select("a"):
-
-        print(
-            "  href =",
-            lien.get("href")
-        )
+    for cle, valeur in evenement.attrs.items():
 
         print(
-            "  title =",
-            lien.get("title")
-        )
-
-        print(
-            "  texte =",
-            lien.get_text(
-                " ",
-                strip=True
-            )
-        )
-
-
-    # -----------------------------------------------------
-    # IMAGES
-    # -----------------------------------------------------
-
-    print()
-    print("IMAGES :")
-
-    for image in element.select("img"):
-
-        print(
-            "  alt =",
-            image.get("alt")
-        )
-
-        print(
-            "  src =",
-            image.get("src")
+            f"{cle} = {valeur}"
         )
 
 
 # =========================================================
-# FIN
+# RECHERCHE DE BLOCS CONTENANT LES MOTS F1
 # =========================================================
 
 print()
 print("=" * 90)
-print("🏁 DIAGNOSTIC TERMINÉ")
+print("🧩 BLOCS HTML CONTENANT « QUALIF », « EL » OU « SPRINT »")
+print("=" * 90)
+
+
+trouves = 0
+
+
+for element in soup.find_all():
+
+    texte = element.get_text(
+        " ",
+        strip=True
+    )
+
+
+    if not texte:
+        continue
+
+
+    texte_test = texte.lower()
+
+
+    if (
+        "qualification" in texte_test
+        or "qualif" in texte_test
+        or "el1" in texte_test
+        or "el2" in texte_test
+        or "el3" in texte_test
+        or "sprint" in texte_test
+    ):
+
+        # On évite d'afficher les énormes blocs parents
+        if len(texte) > 500:
+
+            continue
+
+
+        print()
+        print(
+            element.name,
+            element.get("class")
+        )
+
+        print(
+            texte[:500]
+        )
+
+        trouves += 1
+
+
+        if trouves >= 30:
+
+            break
+
+
+print()
+print("=" * 90)
+print("✅ DIAGNOSTIC TERMINÉ")
 print("=" * 90)
