@@ -12,6 +12,7 @@ EN_TETES = {
     "Accept-Language": "fr-FR,fr;q=0.9,en;q=0.8",
 }
 
+
 EN_TETES_TV_PROGRAMME = {
     "User-Agent": (
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -20,6 +21,7 @@ EN_TETES_TV_PROGRAMME = {
     ),
     "Accept-Language": "fr-FR,fr;q=0.9,en;q=0.8",
 }
+
 
 SPORTS = (
     {
@@ -300,13 +302,20 @@ class AnalyseurProgrammeTV(HTMLParser):
         self.evenement_courant = None
         self.textes_recents = []
 
-    def finaliser_evenement(self):
-        if self.evenement_courant is not None:
+    def finaliser_evenement(
+        self,
+    ):
+        if (
+            self.evenement_courant
+            is not None
+        ):
             self.evenements.append(
                 self.evenement_courant
             )
 
-            self.evenement_courant = None
+            self.evenement_courant = (
+                None
+            )
 
     def handle_starttag(
         self,
@@ -336,7 +345,9 @@ class AnalyseurProgrammeTV(HTMLParser):
             self.lien_h3 = None
 
             self.pre_h3 = (
-                self.textes_recents[-12:]
+                self.textes_recents[
+                    -12:
+                ]
             )
 
             return
@@ -345,7 +356,9 @@ class AnalyseurProgrammeTV(HTMLParser):
             balise == "a"
             and self.capture_h3
         ):
-            self.dans_lien_h3 = True
+            self.dans_lien_h3 = (
+                True
+            )
 
             href = (
                 attributs
@@ -357,7 +370,9 @@ class AnalyseurProgrammeTV(HTMLParser):
             )
 
             if href:
-                self.lien_h3 = href
+                self.lien_h3 = (
+                    href
+                )
 
     def handle_endtag(
         self,
@@ -367,7 +382,10 @@ class AnalyseurProgrammeTV(HTMLParser):
             balise == "a"
             and self.capture_h3
         ):
-            self.dans_lien_h3 = False
+            self.dans_lien_h3 = (
+                False
+            )
+
             return
 
         if (
@@ -380,10 +398,15 @@ class AnalyseurProgrammeTV(HTMLParser):
                 ).split()
             )
 
-            if texte.casefold().startswith(
-                "bein sports"
+            if (
+                texte
+                .casefold()
+                .startswith(
+                    "bein sports"
+                )
             ):
                 self.canal = texte
+
             else:
                 self.canal = None
 
@@ -443,13 +466,16 @@ class AnalyseurProgrammeTV(HTMLParser):
         )
 
         self.textes_recents = (
-            self.textes_recents[-60:]
+            self.textes_recents[
+                -60:
+            ]
         )
 
         if self.capture_h2:
             self.texte_h2.append(
                 texte
             )
+
             return
 
         if self.capture_h3:
@@ -464,33 +490,32 @@ class AnalyseurProgrammeTV(HTMLParser):
 
             return
 
-        if self.evenement_courant is not None:
+        if (
+            self.evenement_courant
+            is not None
+        ):
             self.evenement_courant[
                 "post"
             ].append(
                 texte
             )
 
-    def close(self):
+    def close(
+        self,
+    ):
         super().close()
 
         self.finaliser_evenement()
 
 
-def deplier_ics(texte):
+def deplier_ics(
+    texte,
+):
     lignes = (
         texte
-        .replace(
-            "\r\n",
-            "\n",
-        )
-        .replace(
-            "\r",
-            "\n",
-        )
-        .split(
-            "\n"
-        )
+        .replace("\r\n", "\n")
+        .replace("\r", "\n")
+        .split("\n")
     )
 
     resultat = []
@@ -498,10 +523,7 @@ def deplier_ics(texte):
     for ligne in lignes:
         if (
             ligne.startswith(
-                (
-                    " ",
-                    "\t",
-                )
+                (" ", "\t")
             )
             and resultat
         ):
@@ -517,14 +539,14 @@ def deplier_ics(texte):
     return resultat
 
 
-def deschapper_ics(texte):
+def deschapper_ics(
+    texte,
+):
     resultat = []
     index = 0
 
     while index < len(texte):
-        caractere = texte[
-            index
-        ]
+        caractere = texte[index]
 
         if (
             caractere == "\\"
@@ -570,25 +592,15 @@ def deschapper_ics(texte):
     )
 
 
-def echapper_ics(texte):
+def echapper_ics(
+    texte,
+):
     return (
         str(texte)
-        .replace(
-            "\\",
-            "\\\\",
-        )
-        .replace(
-            "\n",
-            "\\n",
-        )
-        .replace(
-            ",",
-            "\\,",
-        )
-        .replace(
-            ";",
-            "\\;",
-        )
+        .replace("\\", "\\\\")
+        .replace("\n", "\\n")
+        .replace(",", "\\,")
+        .replace(";", "\\;")
     )
 
 
@@ -609,10 +621,7 @@ def couper_utf8(
             )
         )
 
-        if (
-            nouvelle_taille
-            > limite
-        ):
+        if nouvelle_taille > limite:
             break
 
         taille = nouvelle_taille
@@ -656,9 +665,7 @@ def plier_ligne_ics(
 
         premier = False
 
-    return morceaux or [
-        ""
-    ]
+    return morceaux or [""]
 
 
 def valeur_propriete(
@@ -756,9 +763,9 @@ def lire_dtstamps_existants(
         )
 
         if uid and dtstamp:
-            resultat[uid] = (
-                dtstamp
-            )
+            resultat[
+                uid
+            ] = dtstamp
 
     return resultat
 
@@ -770,10 +777,17 @@ def normaliser_nom(
         texte
         .strip()
         .casefold()
-        .replace(
-            "’",
-            "'",
-        )
+        .replace("’", "'")
+    )
+
+
+def formater_match(
+    match,
+):
+    return re.sub(
+        r"\s+[–—]\s+",
+        " - ",
+        match.strip(),
     )
 
 
@@ -875,7 +889,9 @@ def extraire_match_ics(
     )
 
     if infos["match"]:
-        return infos["match"]
+        return infos[
+            "match"
+        ]
 
     summary = valeur_propriete(
         evenement,
@@ -1051,10 +1067,8 @@ def parse_datetime_ics(
                 )
             )
 
-            return (
-                resultat.replace(
-                    tzinfo=timezone.utc
-                )
+            return resultat.replace(
+                tzinfo=timezone.utc
             )
 
         except ValueError:
@@ -1068,7 +1082,8 @@ def duree_evenement(
     sport,
 ):
     if (
-        sport["prefixe"] == "NFL"
+        sport["prefixe"]
+        == "NFL"
         and est_redzone(
             match
         )
@@ -1147,15 +1162,20 @@ def preparer_evenement_ics(
         )
 
         if debut:
-            fin = debut + timedelta(
-                minutes=duree_evenement(
-                    match,
-                    sport,
+            fin = (
+                debut
+                + timedelta(
+                    minutes=duree_evenement(
+                        match,
+                        sport,
+                    )
                 )
             )
 
-            dtend = fin.strftime(
-                "%Y%m%dT%H%M%SZ"
+            dtend = (
+                fin.strftime(
+                    "%Y%m%dT%H%M%SZ"
+                )
             )
 
     lieu_source = (
@@ -1231,8 +1251,10 @@ def recuperer_evenements_tv_sports(
 
     evenements = []
 
-    for source in extraire_evenements_ics(
-        texte
+    for source in (
+        extraire_evenements_ics(
+            texte
+        )
     ):
         evenement = (
             preparer_evenement_ics(
@@ -1359,7 +1381,10 @@ def nettoyer_titre_nfl_tv_programme(
         ).split()
     )
 
-    if "redzone" in titre.casefold():
+    if (
+        "redzone"
+        in titre.casefold()
+    ):
         return "NFL RedZone"
 
     titre = re.sub(
@@ -1385,11 +1410,13 @@ def nettoyer_titre_nfl_tv_programme(
 
     titre = re.sub(
         r"\s*/\s*",
-        " – ",
+        " - ",
         titre,
     )
 
-    return titre.strip()
+    return formater_match(
+        titre.strip()
+    )
 
 
 def uid_tv_programme(
@@ -1405,18 +1432,16 @@ def uid_tv_programme(
 
         if correspondance:
             return (
-                f"nfl-tvp-e"
-                f"{correspondance.group(1)}"
-                f"@sports-us-bein-calendar"
+                "nfl-tvp-e"
+                + correspondance.group(1)
+                + "@sports-us-bein-calendar"
             )
 
     compact = re.sub(
         r"[^a-z0-9]+",
         "-",
         match.casefold(),
-    ).strip(
-        "-"
-    )
+    ).strip("-")
 
     return (
         f"nfl-tvp-"
@@ -1430,8 +1455,10 @@ def recuperer_evenements_nfl_tv_programme(
     sport,
     dtstamps_existants,
 ):
-    maintenant_paris = datetime.now(
-        PARIS
+    maintenant_paris = (
+        datetime.now(
+            PARIS
+        )
     )
 
     aujourd_hui = (
@@ -1441,11 +1468,6 @@ def recuperer_evenements_nfl_tv_programme(
     resultat = []
     deja_vus = set()
 
-    # TV-Programme expose essentiellement
-    # sa grille à court terme.
-    # Le workflow tournant toutes les 6 h,
-    # les nouvelles diffusions seront ajoutées
-    # automatiquement lorsqu'elles apparaissent.
     for decalage in range(
         11
     ):
@@ -1464,7 +1486,8 @@ def recuperer_evenements_nfl_tv_programme(
 
         url = (
             "https://tv-programme.com/"
-            f"{slug}/"
+            + slug
+            + "/"
         )
 
         try:
@@ -1478,9 +1501,9 @@ def recuperer_evenements_nfl_tv_programme(
 
         except requests.RequestException as erreur:
             print(
-                f"    TV-Programme "
+                "    TV-Programme "
                 f"{date:%Y-%m-%d} "
-                f"inaccessible : "
+                "inaccessible : "
                 f"{erreur}"
             )
 
@@ -1496,7 +1519,9 @@ def recuperer_evenements_nfl_tv_programme(
 
         analyseur.close()
 
-        for source in analyseur.evenements:
+        for source in (
+            analyseur.evenements
+        ):
             canal = (
                 source
                 .get(
@@ -1593,7 +1618,9 @@ def recuperer_evenements_nfl_tv_programme(
                 match
             ):
                 lieu = None
-                statut_lieu = "multiple"
+                statut_lieu = (
+                    "multiple"
+                )
 
             else:
                 lieu = stade_estime(
@@ -1615,7 +1642,10 @@ def recuperer_evenements_nfl_tv_programme(
                 if href.startswith(
                     "http"
                 ):
-                    url_detail = href
+                    url_detail = (
+                        href
+                    )
+
                 else:
                     url_detail = (
                         "https://tv-programme.com"
@@ -1630,7 +1660,8 @@ def recuperer_evenements_nfl_tv_programme(
                     "uid": uid,
 
                     "dtstamp": (
-                        dtstamps_existants.get(
+                        dtstamps_existants
+                        .get(
                             uid
                         )
                         or datetime.now(
@@ -1692,53 +1723,13 @@ def construire_evenement(
 
     resume = (
         f"{sport['emoji']} "
-        f"{sport['prefixe']} — "
-        f"{evenement['match']}"
-    )
-
-    description = (
-        "Diffusion en direct : "
-        f"{chaines}"
+        f"{sport['prefixe']} : "
+        f"{formater_match(evenement['match'])}"
     )
 
     lieu = evenement.get(
         "lieu"
     )
-
-    statut_lieu = evenement.get(
-        "statut_lieu"
-    )
-
-    if lieu:
-        # IMPORTANT :
-        # même si le stade vient d'une estimation,
-        # le mot "estimation" n'est PAS écrit dans
-        # le calendrier Apple.
-        description += (
-            f"\nLieu : {lieu}"
-        )
-
-    elif (
-        statut_lieu
-        == "multiple"
-    ):
-        description += (
-            "\nLieu : plusieurs "
-            "matchs simultanés"
-        )
-
-    else:
-        description += (
-            "\nLieu : à confirmer"
-        )
-
-    if evenement.get(
-        "url"
-    ):
-        description += (
-            "\nSource : "
-            f"{evenement['url']}"
-        )
 
     lignes = [
         "BEGIN:VEVENT",
@@ -1771,13 +1762,15 @@ def construire_evenement(
         [
             (
                 "SUMMARY:"
-                f"{echapper_ics(resume)}"
+                + echapper_ics(
+                    resume
+                )
             ),
 
             (
                 "DESCRIPTION:"
                 + echapper_ics(
-                    description
+                    chaines
                 )
             ),
         ]
@@ -1829,7 +1822,9 @@ def ecrire_calendrier(
 
         (
             "X-WR-CALNAME:"
-            f"{echapper_ics(sport['nom'])}"
+            + echapper_ics(
+                sport["nom"]
+            )
         ),
 
         (
@@ -1880,17 +1875,28 @@ def afficher_evenements(
 ):
     for evenement in evenements:
         ligne = (
-            f"  "
-            f"{evenement['match']} — "
-            f"{' / '.join(evenement['chaines'])}"
+            "  "
+            + formater_match(
+                evenement[
+                    "match"
+                ]
+            )
+            + " — "
+            + " / ".join(
+                evenement[
+                    "chaines"
+                ]
+            )
         )
 
         if evenement.get(
             "lieu"
         ):
             ligne += (
-                f" — 📍 "
-                f"{evenement['lieu']}"
+                " — 📍 "
+                + evenement[
+                    "lieu"
+                ]
             )
 
             if (
@@ -1899,9 +1905,6 @@ def afficher_evenements(
                 )
                 == "estimation"
             ):
-                # Cette mention est UNIQUEMENT
-                # affichée dans le log GitHub.
-                # Elle n'existe pas dans l'ICS.
                 ligne += (
                     " (estimation)"
                 )
@@ -1932,7 +1935,7 @@ def traiter_sport(
     sport,
 ):
     print(
-        f"Téléchargement de "
+        "Téléchargement de "
         f"{sport['nom']}…"
     )
 
@@ -1961,14 +1964,16 @@ def traiter_sport(
     except requests.HTTPError as erreur:
         code = (
             erreur.response.status_code
-            if erreur.response
-            is not None
+            if (
+                erreur.response
+                is not None
+            )
             else "?"
         )
 
         print(
             "  Flux TV-Sports ICS "
-            f"indisponible "
+            "indisponible "
             f"(HTTP {code})."
         )
 
@@ -1978,7 +1983,7 @@ def traiter_sport(
     ) as erreur:
         print(
             "  Flux TV-Sports ICS "
-            f"indisponible : "
+            "indisponible : "
             f"{erreur}"
         )
 
@@ -2018,13 +2023,13 @@ def traiter_sport(
     if not evenements:
         print(
             "  AVERTISSEMENT : "
-            f"aucune diffusion "
+            "aucune diffusion "
             f"{sport['prefixe']} "
             "récupérée."
         )
 
         print(
-            f"  Le fichier "
+            "  Le fichier "
             f"{sport['fichier']} "
             "existant est conservé."
         )
@@ -2038,13 +2043,13 @@ def traiter_sport(
 
     print(
         f"{len(evenements)} "
-        f"diffusion(s) écrite(s) "
-        f"dans "
+        "diffusion(s) écrite(s) "
+        "dans "
         f"{sport['fichier']}."
     )
 
     print(
-        f"  Source utilisée : "
+        "  Source utilisée : "
         f"{source_utilisee}"
     )
 
