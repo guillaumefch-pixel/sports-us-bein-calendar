@@ -175,4 +175,16 @@ URL:https://tv-sports.fr/st-louis-cardinals-baltimore-orioles-tv-x1156123
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
+BEGIN:VEVENT
+UID:episode-1156265-1787958000@tv-sports.fr
+DTSTAMP:20260817T033015Z
+DTSTART:20260828T230000Z
+DTEND:20260829T020000Z
+SUMMARY:⚾ MLB : Tampa Bay Rays - San Diego Padres
+DESCRIPTION:beIN SPORTS MAX 4
+LOCATION:Tropicana Field\, St. Petersburg
+URL:https://tv-sports.fr/tampa-bay-rays-san-diego-padres-tv-x1156265
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
 END:VCALENDAR
