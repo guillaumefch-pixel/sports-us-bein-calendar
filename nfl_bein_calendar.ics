@@ -7,14 +7,15 @@ X-WR-CALNAME:NFL sur beIN
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:nfl-234a7c3dba3bb777070efef5@sports-us-bein-calendar
-DTSTAMP:20260816T151736Z
+UID:episode-1155736-1787428800@tv-sports.fr
+DTSTAMP:20260817T000026Z
 DTSTART:20260822T200000Z
-DTEND:20260823T000000Z
+DTEND:20260822T230000Z
 SUMMARY:🏈 NFL — Los Angeles Rams – New Orleans Saints
-DESCRIPTION:Diffusion en direct : beIN SPORTS 3\nSource : https://tv-sports
- .fr/los-angeles-rams-new-orleans-saints-tv-x1155736
-LOCATION:beIN SPORTS 3
+DESCRIPTION:Diffusion en direct : beIN SPORTS 3\nLieu : SoFi Stadium\, Ingl
+ ewood\nSource : https://tv-sports.fr/los-angeles-rams-new-orleans-saints-t
+ v-x1155736
+LOCATION:SoFi Stadium\, Inglewood
 URL:https://tv-sports.fr/los-angeles-rams-new-orleans-saints-tv-x1155736
 STATUS:CONFIRMED
 TRANSP:OPAQUE
