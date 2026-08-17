@@ -9,20 +9,25 @@ EN_TETES = {
     "Accept-Language": "fr-FR,fr;q=0.9",
 }
 
+
 EQUIPES = (
     {
         "nom": "PSG",
-        "titre": None,
         "emoji": "⚽",
-        "url": "https://tv-sports.fr/calendrier/equipe/1/psg?direct=1",
+        "url": (
+            "https://tv-sports.fr/"
+            "calendrier/equipe/1/psg?direct=1"
+        ),
         "fichier": "psg_calendar.ics",
         "nom_calendrier": "PSG — Tous les matchs",
     },
     {
         "nom": "France",
-        "titre": "EDF",
         "emoji": "🇫🇷",
-        "url": "https://tv-sports.fr/calendrier/equipe/177/france?direct=1",
+        "url": (
+            "https://tv-sports.fr/"
+            "calendrier/equipe/177/france?direct=1"
+        ),
         "fichier": "france_calendar.ics",
         "nom_calendrier": "Équipe de France — Tous les matchs",
     },
@@ -30,73 +35,154 @@ EQUIPES = (
 
 
 LIEUX_EDF_OFFICIELS = {
-    "turquie – france": "Kocaeli Stadyumu, Kocaeli",
-    "belgique – france": "King Baudouin Stadium, Bruxelles",
-    "france – italie": "Stade de France, Saint-Denis",
-    "france – belgique": "Stade de France, Saint-Denis",
-    "italie – france": "San Siro, Milan",
-    "france – turquie": "Stade Atlantique, Bordeaux",
+    "turquie - france":
+        "Kocaeli Stadyumu, Kocaeli",
+
+    "belgique - france":
+        "King Baudouin Stadium, Bruxelles",
+
+    "france - italie":
+        "Stade de France, Saint-Denis",
+
+    "france - belgique":
+        "Stade de France, Saint-Denis",
+
+    "italie - france":
+        "San Siro, Milan",
+
+    "france - turquie":
+        "Stade Atlantique, Bordeaux",
 }
 
 
 STADES_FOOTBALL_FALLBACK = {
-    "psg": "Parc des Princes, Paris",
-    "lille": "Stade Pierre-Mauroy, Villeneuve-d'Ascq",
-    "monaco": "Stade Louis II, Monaco",
-    "brest": "Stade Francis-Le Blé, Brest",
-    "marseille": "Orange Vélodrome, Marseille",
-    "le mans": "Stade Marie-Marvingt, Le Mans",
-    "strasbourg": "Stade de la Meinau, Strasbourg",
-    "lyon": "Parc Olympique Lyonnais, Décines-Charpieu",
-    "le havre": "Stade Océane, Le Havre",
-    "troyes": "Stade de l'Aube, Troyes",
-    "nice": "Allianz Riviera, Nice",
-    "lorient": "Stade du Moustoir, Lorient",
-    "toulouse": "Stadium de Toulouse, Toulouse",
-    "paris fc": "Stade Jean-Bouin, Paris",
-    "lens": "Stade Bollaert-Delelis, Lens",
-    "angers": "Stade Raymond-Kopa, Angers",
-    "auxerre": "Stade de l'Abbé-Deschamps, Auxerre",
-    "rennes": "Roazhon Park, Rennes",
+    "psg":
+        "Parc des Princes",
+
+    "lille":
+        "Stade Pierre-Mauroy",
+
+    "monaco":
+        "Stade Louis II",
+
+    "brest":
+        "Stade Francis-Le Blé",
+
+    "marseille":
+        "Stade Orange Vélodrome",
+
+    "le mans":
+        "Stade Marie-Marvingt",
+
+    "strasbourg":
+        "Stade de la Meinau",
+
+    "lyon":
+        "Parc Olympique Lyonnais",
+
+    "le havre":
+        "Stade Océane",
+
+    "troyes":
+        "Stade de l'Aube",
+
+    "nice":
+        "Allianz Riviera",
+
+    "lorient":
+        "Stade du Moustoir",
+
+    "toulouse":
+        "Stadium de Toulouse",
+
+    "paris fc":
+        "Stade Jean Bouin",
+
+    "lens":
+        "Stade Bollaert-Delelis",
+
+    "angers":
+        "Stade Raymond-Kopa",
+
+    "auxerre":
+        "Stade de l'Abbé Deschamps",
+
+    "rennes":
+        "Roazhon Park",
 }
 
 
 STADES_NATIONAUX_FALLBACK = {
-    "france": "Stade de France, Saint-Denis",
-    "belgique": "King Baudouin Stadium, Bruxelles",
-    "italie": "Stadio Olimpico, Rome",
-    "turquie": "Atatürk Olimpiyat Stadyumu, Istanbul",
+    "france":
+        "Stade de France, Saint-Denis",
+
+    "belgique":
+        "King Baudouin Stadium, Bruxelles",
+
+    "italie":
+        "Stadio Olimpico, Rome",
+
+    "turquie":
+        "Atatürk Olimpiyat Stadyumu, Istanbul",
 }
 
 
 class AnalyseurTexteHTML(HTMLParser):
     def __init__(self):
-        super().__init__(convert_charrefs=True)
+        super().__init__(
+            convert_charrefs=True
+        )
+
         self.textes = []
         self.ignorer = 0
 
-    def handle_starttag(self, balise, attributs):
-        if balise in ("script", "style", "noscript"):
+    def handle_starttag(
+        self,
+        balise,
+        attributs,
+    ):
+        if balise in (
+            "script",
+            "style",
+            "noscript",
+        ):
             self.ignorer += 1
 
-    def handle_endtag(self, balise):
+    def handle_endtag(
+        self,
+        balise,
+    ):
         if (
-            balise in ("script", "style", "noscript")
+            balise
+            in (
+                "script",
+                "style",
+                "noscript",
+            )
             and self.ignorer > 0
         ):
             self.ignorer -= 1
 
-    def handle_data(self, donnees):
+    def handle_data(
+        self,
+        donnees,
+    ):
         if self.ignorer:
             return
 
-        texte = " ".join(donnees.split())
+        texte = " ".join(
+            donnees.split()
+        )
 
         if texte:
-            self.textes.append(texte)
+            self.textes.append(
+                texte
+            )
 
 
-def echapper_ics(texte):
+def echapper_ics(
+    texte,
+):
     return (
         str(texte)
         .replace("\\", "\\\\")
@@ -106,43 +192,74 @@ def echapper_ics(texte):
     )
 
 
-def deschapper_ics(texte):
+def deschapper_ics(
+    texte,
+):
     resultat = []
     index = 0
 
     while index < len(texte):
         caractere = texte[index]
 
-        if caractere == "\\" and index + 1 < len(texte):
-            suivant = texte[index + 1]
+        if (
+            caractere == "\\"
+            and index + 1 < len(texte)
+        ):
+            suivant = texte[
+                index + 1
+            ]
 
-            if suivant in ("n", "N"):
-                resultat.append("\n")
+            if suivant in (
+                "n",
+                "N",
+            ):
+                resultat.append(
+                    "\n"
+                )
+
             elif suivant == ",":
                 resultat.append(",")
+
             elif suivant == ";":
                 resultat.append(";")
+
             elif suivant == "\\":
                 resultat.append("\\")
+
             else:
-                resultat.append(suivant)
+                resultat.append(
+                    suivant
+                )
 
             index += 2
             continue
 
-        resultat.append(caractere)
+        resultat.append(
+            caractere
+        )
+
         index += 1
 
-    return "".join(resultat)
+    return "".join(
+        resultat
+    )
 
 
-def couper_utf8(texte, limite):
+def couper_utf8(
+    texte,
+    limite,
+):
     taille = 0
     position = 0
 
     for caractere in texte:
-        nouvelle_taille = taille + len(
-            caractere.encode("utf-8")
+        nouvelle_taille = (
+            taille
+            + len(
+                caractere.encode(
+                    "utf-8"
+                )
+            )
         )
 
         if nouvelle_taille > limite:
@@ -151,24 +268,40 @@ def couper_utf8(texte, limite):
         taille = nouvelle_taille
         position += 1
 
-    return texte[:position], texte[position:]
+    return (
+        texte[:position],
+        texte[position:],
+    )
 
 
-def plier_ligne_ics(ligne):
+def plier_ligne_ics(
+    ligne,
+):
     morceaux = []
     reste = ligne
     premier = True
 
     while reste:
-        limite = 75 if premier else 74
+        limite = (
+            75
+            if premier
+            else 74
+        )
 
-        morceau, reste = couper_utf8(
-            reste,
-            limite,
+        morceau, reste = (
+            couper_utf8(
+                reste,
+                limite,
+            )
         )
 
         morceaux.append(
-            ("" if premier else " ") + morceau
+            (
+                ""
+                if premier
+                else " "
+            )
+            + morceau
         )
 
         premier = False
@@ -176,7 +309,9 @@ def plier_ligne_ics(ligne):
     return morceaux or [""]
 
 
-def deplier_ics(texte):
+def deplier_ics(
+    texte,
+):
     lignes = (
         texte
         .replace("\r\n", "\n")
@@ -188,31 +323,51 @@ def deplier_ics(texte):
 
     for ligne in lignes:
         if (
-            ligne.startswith((" ", "\t"))
+            ligne.startswith(
+                (" ", "\t")
+            )
             and resultat
         ):
-            resultat[-1] += ligne[1:]
+            resultat[-1] += (
+                ligne[1:]
+            )
+
         else:
-            resultat.append(ligne)
+            resultat.append(
+                ligne
+            )
 
     return resultat
 
 
-def valeur_propriete(lignes, propriete):
+def valeur_propriete(
+    lignes,
+    propriete,
+):
     motif = re.compile(
-        rf"^{re.escape(propriete)}(?:;[^:]*)?:(.*)$"
+        rf"^{re.escape(propriete)}"
+        rf"(?:;[^:]*)?:(.*)$"
     )
 
     for ligne in lignes:
-        correspondance = motif.match(ligne)
+        correspondance = (
+            motif.match(
+                ligne
+            )
+        )
 
         if correspondance:
-            return correspondance.group(1)
+            return (
+                correspondance
+                .group(1)
+            )
 
     return None
 
 
-def normaliser_nom(texte):
+def normaliser_nom(
+    texte,
+):
     return (
         texte
         .strip()
@@ -221,13 +376,114 @@ def normaliser_nom(texte):
     )
 
 
-def extraire_infos_description(description):
+def formater_match(
+    match,
+):
+    return re.sub(
+        r"\s+[–—]\s+",
+        " - ",
+        match.strip(),
+    )
+
+
+def formater_match_affichage(
+    equipe,
+    match,
+):
+    match_formate = formater_match(
+        match
+    )
+
+    if (
+        equipe["nom"]
+        != "France"
+    ):
+        return match_formate
+
+    equipes = re.split(
+        r"\s+-\s+",
+        match_formate,
+        maxsplit=1,
+    )
+
+    if len(equipes) != 2:
+        return match_formate
+
+    domicile = (
+        equipes[0].strip()
+    )
+
+    exterieur = (
+        equipes[1].strip()
+    )
+
+    if (
+        domicile.casefold()
+        == "france"
+    ):
+        domicile = "EDF"
+
+    if (
+        exterieur.casefold()
+        == "france"
+    ):
+        exterieur = "EDF"
+
+    return (
+        f"{domicile} - "
+        f"{exterieur}"
+    )
+
+
+def cle_match(
+    match,
+):
+    return (
+        formater_match(
+            match
+        )
+        .casefold()
+    )
+
+
+def extraire_equipes_match(
+    match,
+):
+    morceaux = re.split(
+        r"\s+[–—-]\s+",
+        match,
+        maxsplit=1,
+    )
+
+    if len(morceaux) != 2:
+        return (
+            None,
+            None,
+        )
+
+    return (
+        morceaux[0].strip(),
+        morceaux[1].strip(),
+    )
+
+
+def extraire_infos_description(
+    description,
+):
     if not description:
         return None
 
-    description = deschapper_ics(description)
+    description = (
+        deschapper_ics(
+            description
+        )
+    )
 
-    premiere_ligne = description.splitlines()[0].strip()
+    premiere_ligne = (
+        description
+        .splitlines()[0]
+        .strip()
+    )
 
     premiere_ligne = re.sub(
         r"^\[[^\]]+\]\s*",
@@ -237,7 +493,10 @@ def extraire_infos_description(description):
 
     parties = [
         partie.strip()
-        for partie in premiere_ligne.split(" | ")
+        for partie
+        in premiere_ligne.split(
+            " | "
+        )
         if partie.strip()
     ]
 
@@ -245,7 +504,10 @@ def extraire_infos_description(description):
         return None
 
     match = parties[0]
-    competition_brute = parties[1]
+
+    competition_brute = (
+        parties[1]
+    )
 
     correspondance = re.match(
         r"^Football\s*-\s*(.+)$",
@@ -254,18 +516,36 @@ def extraire_infos_description(description):
     )
 
     if correspondance:
-        competition = correspondance.group(1).strip()
+        competition = (
+            correspondance
+            .group(1)
+            .strip()
+        )
+
     else:
-        competition = competition_brute.strip()
+        competition = (
+            competition_brute
+            .strip()
+        )
 
     chaines = []
 
     if len(parties) >= 3:
-        for chaine in parties[2:]:
-            chaine = chaine.strip()
+        for chaine in parties[
+            2:
+        ]:
+            chaine = (
+                chaine.strip()
+            )
 
-            if chaine and chaine not in chaines:
-                chaines.append(chaine)
+            if (
+                chaine
+                and chaine
+                not in chaines
+            ):
+                chaines.append(
+                    chaine
+                )
 
     return {
         "match": match,
@@ -274,7 +554,9 @@ def extraire_infos_description(description):
     }
 
 
-def lire_dtstamps_existants(fichier):
+def lire_dtstamps_existants(
+    fichier,
+):
     try:
         with open(
             fichier,
@@ -298,9 +580,14 @@ def lire_dtstamps_existants(fichier):
             continue
 
         if dans_evenement:
-            evenement.append(ligne)
+            evenement.append(
+                ligne
+            )
 
-        if ligne == "END:VEVENT" and dans_evenement:
+        if (
+            ligne == "END:VEVENT"
+            and dans_evenement
+        ):
             uid = valeur_propriete(
                 evenement,
                 "UID",
@@ -312,7 +599,9 @@ def lire_dtstamps_existants(fichier):
             )
 
             if uid and dtstamp:
-                resultat[uid] = dtstamp
+                resultat[
+                    uid
+                ] = dtstamp
 
             evenement = []
             dans_evenement = False
@@ -320,31 +609,62 @@ def lire_dtstamps_existants(fichier):
     return resultat
 
 
-def extraire_lieu_page_match(page):
-    analyseur = AnalyseurTexteHTML()
-    analyseur.feed(page)
+def extraire_lieu_page_match(
+    page,
+):
+    analyseur = (
+        AnalyseurTexteHTML()
+    )
 
-    textes = analyseur.textes
+    analyseur.feed(
+        page
+    )
 
-    for index, texte in enumerate(textes):
-        if texte.strip().casefold() != "lieu":
+    textes = (
+        analyseur.textes
+    )
+
+    fins = {
+        "diffusion",
+        "avant-match",
+        "tendances",
+        "compétition",
+        "tour",
+        "saison",
+        "date et heure",
+        "calendrier",
+        "horaire",
+        "chaîne",
+    }
+
+    for index, texte in enumerate(
+        textes
+    ):
+        if (
+            texte
+            .strip()
+            .casefold()
+            not in {
+                "lieu",
+                "stade",
+            }
+        ):
             continue
 
-        for suivant in textes[index + 1:]:
-            suivant = suivant.strip()
+        for suivant in textes[
+            index + 1:
+        ]:
+            suivant = (
+                suivant.strip()
+            )
 
             if not suivant:
                 continue
 
-            if suivant.casefold() in {
-                "diffusion",
-                "avant-match",
-                "tendances",
-                "compétition",
-                "tour",
-                "saison",
-                "date et heure",
-            }:
+            if (
+                suivant.casefold()
+                in fins
+            ):
                 return None
 
             return suivant
@@ -352,12 +672,17 @@ def extraire_lieu_page_match(page):
     return None
 
 
-def recuperer_lieu_page_match(url, cache_lieux):
+def recuperer_lieu_page_match(
+    url,
+    cache_lieux,
+):
     if not url:
         return None
 
     if url in cache_lieux:
-        return cache_lieux[url]
+        return (
+            cache_lieux[url]
+        )
 
     try:
         reponse = requests.get(
@@ -368,38 +693,54 @@ def recuperer_lieu_page_match(url, cache_lieux):
 
         reponse.raise_for_status()
 
-        lieu = extraire_lieu_page_match(
-            reponse.text
+        lieu = (
+            extraire_lieu_page_match(
+                reponse.text
+            )
         )
 
-    except requests.RequestException as erreur:
-        print(
-            f"    Avertissement : impossible de "
-            f"récupérer le lieu sur {url} "
-            f"({erreur})."
-        )
-
+    except requests.RequestException:
         lieu = None
 
-    cache_lieux[url] = lieu
+    cache_lieux[
+        url
+    ] = lieu
 
     return lieu
 
 
-def extraire_equipes_match(match):
-    morceaux = re.split(
-        r"\s+[–—-]\s+",
-        match,
-        maxsplit=1,
-    )
+def determiner_diffusion(
+    equipe,
+    competition,
+    chaines,
+):
+    if chaines:
+        return " / ".join(
+            chaines
+        )
 
-    if len(morceaux) != 2:
-        return None, None
+    if (
+        competition
+        .strip()
+        .casefold()
+        == "ligue 1"
+    ):
+        return "Ligue 1+"
 
-    return (
-        morceaux[0].strip(),
-        morceaux[1].strip(),
-    )
+    if (
+        equipe["nom"]
+        == "France"
+        and competition
+        .strip()
+        .casefold()
+        == "uefa nations league"
+    ):
+        return (
+            "Groupe TF1 "
+            "(chaîne à confirmer)"
+        )
+
+    return "À confirmer"
 
 
 def determiner_lieu(
@@ -409,91 +750,125 @@ def determiner_lieu(
     url,
     cache_lieux,
 ):
-    lieu_existant = valeur_propriete(
-        lignes,
-        "LOCATION",
+    lieu_existant = (
+        valeur_propriete(
+            lignes,
+            "LOCATION",
+        )
     )
 
     if lieu_existant:
-        return (
+        lieu = (
             deschapper_ics(
                 lieu_existant
-            ).strip(),
-            "source",
+            )
+            .strip()
         )
 
-    lieu_page = recuperer_lieu_page_match(
-        url,
-        cache_lieux,
+        if lieu:
+            return (
+                lieu,
+                "source",
+            )
+
+    lieu_page = (
+        recuperer_lieu_page_match(
+            url,
+            cache_lieux,
+        )
     )
 
     if lieu_page:
-        return lieu_page, "source"
+        return (
+            lieu_page,
+            "source",
+        )
 
-    match_normalise = normaliser_nom(
-        match
-    )
-
-    if equipe["nom"] == "France":
-        lieu_officiel = LIEUX_EDF_OFFICIELS.get(
-            match_normalise
+    if (
+        equipe["nom"]
+        == "France"
+    ):
+        lieu_officiel = (
+            LIEUX_EDF_OFFICIELS.get(
+                cle_match(
+                    match
+                )
+            )
         )
 
         if lieu_officiel:
-            return lieu_officiel, "officiel"
+            return (
+                lieu_officiel,
+                "officiel",
+            )
 
-    domicile, exterieur = extraire_equipes_match(
-        match
+    domicile, _ = (
+        extraire_equipes_match(
+            match
+        )
     )
 
     if not domicile:
-        return None, None
+        return (
+            None,
+            None,
+        )
 
-    domicile_normalise = normaliser_nom(
-        domicile
+    domicile = (
+        normaliser_nom(
+            domicile
+        )
     )
 
-    if equipe["nom"] == "PSG":
-        lieu = STADES_FOOTBALL_FALLBACK.get(
-            domicile_normalise
+    if (
+        equipe["nom"]
+        == "PSG"
+    ):
+        lieu = (
+            STADES_FOOTBALL_FALLBACK
+            .get(
+                domicile
+            )
         )
 
         if lieu:
-            return lieu, "estimation"
+            return (
+                lieu,
+                "estimation",
+            )
 
-    if equipe["nom"] == "France":
-        lieu = STADES_NATIONAUX_FALLBACK.get(
-            domicile_normalise
+    if (
+        equipe["nom"]
+        == "France"
+    ):
+        lieu = (
+            STADES_NATIONAUX_FALLBACK
+            .get(
+                domicile
+            )
         )
 
         if lieu:
-            return lieu, "estimation"
+            return (
+                lieu,
+                "estimation",
+            )
 
-    return None, None
+    return (
+        None,
+        None,
+    )
 
 
 def construire_resume(
     equipe,
     match,
     competition,
-    diffusion,
 ):
-    if equipe["nom"] == "PSG":
-        return (
-            f"{equipe['emoji']} "
-            f"{match} — "
-            f"{competition} — "
-            f"📺 {diffusion}"
-        )
-
-    titre = equipe["titre"] or equipe["nom"]
-
     return (
         f"{equipe['emoji']} "
-        f"{titre} — "
-        f"{match} — "
-        f"{competition} — "
-        f"📺 {diffusion}"
+        f"{competition} : "
+        f"{formater_match_affichage(equipe, match)}"
     )
 
 
@@ -508,86 +883,73 @@ def transformer_evenement(
         "UID",
     )
 
-    description = valeur_propriete(
-        lignes,
-        "DESCRIPTION",
+    description = (
+        valeur_propriete(
+            lignes,
+            "DESCRIPTION",
+        )
     )
 
-    url = valeur_propriete(
-        lignes,
-        "URL",
+    url_brute = (
+        valeur_propriete(
+            lignes,
+            "URL",
+        )
     )
 
-    infos = extraire_infos_description(
-        description
+    url = (
+        deschapper_ics(
+            url_brute
+        ).strip()
+        if url_brute
+        else None
+    )
+
+    infos = (
+        extraire_infos_description(
+            description
+        )
     )
 
     if infos is None:
         raise RuntimeError(
-            f"Impossible d'analyser l'événement "
-            f"{uid or 'sans UID'} de {equipe['nom']}."
+            "Impossible d'analyser "
+            f"l'événement "
+            f"{uid or 'sans UID'} "
+            f"de {equipe['nom']}."
         )
 
-    match = infos["match"]
-    competition = infos["competition"]
-    chaines = infos["chaines"]
+    match = infos[
+        "match"
+    ]
 
-    if (
-        not chaines
-        and competition.strip().casefold() == "ligue 1"
-    ):
-        chaines = ["Ligue 1+"]
-
-    if (
-        not chaines
-        and equipe["nom"] == "France"
-        and competition.strip().casefold()
-        == "uefa nations league"
-    ):
-        chaines = [
-            "Groupe TF1 (chaîne à confirmer)"
-        ]
+    competition = infos[
+        "competition"
+    ]
 
     diffusion = (
-        " / ".join(chaines)
-        if chaines
-        else "À confirmer"
+        determiner_diffusion(
+            equipe,
+            competition,
+            infos["chaines"],
+        )
     )
 
-    lieu, statut_lieu = determiner_lieu(
-        lignes,
-        equipe,
-        match,
-        url,
-        cache_lieux,
+    lieu, statut_lieu = (
+        determiner_lieu(
+            lignes,
+            equipe,
+            match,
+            url,
+            cache_lieux,
+        )
     )
 
     resume = construire_resume(
         equipe,
         match,
         competition,
-        diffusion,
     )
-
-    description_finale = (
-        f"Compétition : {competition}\n"
-        f"Diffusion TV : {diffusion}"
-    )
-
-    if lieu:
-        if statut_lieu == "estimation":
-            description_finale += (
-                f"\nLieu estimé : {lieu}"
-            )
-        else:
-            description_finale += (
-                f"\nLieu : {lieu}"
-            )
-
-    if url:
-        description_finale += (
-            f"\n\nVoir sur TV Sports : {url}"
-        )
 
     resultat = []
 
@@ -601,8 +963,12 @@ def transformer_evenement(
             ligne,
         ):
             resultat.append(
-                f"SUMMARY:{echapper_ics(resume)}"
+                "SUMMARY:"
+                + echapper_ics(
+                    resume
+                )
             )
+
             resume_remplace = True
             continue
 
@@ -613,9 +979,10 @@ def transformer_evenement(
             resultat.append(
                 "DESCRIPTION:"
                 + echapper_ics(
-                    description_finale
+                    diffusion
                 )
             )
+
             description_remplacee = True
             continue
 
@@ -627,52 +994,73 @@ def transformer_evenement(
 
             if lieu:
                 resultat.append(
-                    f"LOCATION:{echapper_ics(lieu)}"
+                    "LOCATION:"
+                    + echapper_ics(
+                        lieu
+                    )
                 )
-            else:
-                resultat.append(ligne)
 
             continue
 
         if (
-            ligne.startswith("DTSTAMP:")
+            ligne.startswith(
+                "DTSTAMP:"
+            )
             and uid
-            and uid in dtstamps_existants
+            and uid
+            in dtstamps_existants
         ):
             resultat.append(
                 "DTSTAMP:"
-                + dtstamps_existants[uid]
+                + dtstamps_existants[
+                    uid
+                ]
             )
+
             continue
 
         if ligne == "END:VEVENT":
             if not resume_remplace:
                 resultat.append(
-                    f"SUMMARY:{echapper_ics(resume)}"
+                    "SUMMARY:"
+                    + echapper_ics(
+                        resume
+                    )
                 )
 
             if not description_remplacee:
                 resultat.append(
                     "DESCRIPTION:"
                     + echapper_ics(
-                        description_finale
+                        diffusion
                     )
                 )
 
-            if lieu and not location_trouvee:
+            if (
+                lieu
+                and not location_trouvee
+            ):
                 resultat.append(
-                    f"LOCATION:{echapper_ics(lieu)}"
+                    "LOCATION:"
+                    + echapper_ics(
+                        lieu
+                    )
                 )
 
-        resultat.append(ligne)
+        resultat.append(
+            ligne
+        )
 
-    return resultat, {
-        "match": match,
-        "competition": competition,
-        "diffusion": diffusion,
-        "lieu": lieu,
-        "statut_lieu": statut_lieu,
-    }
+    return (
+        resultat,
+        {
+            "match": match,
+            "competition": competition,
+            "diffusion": diffusion,
+            "lieu": lieu,
+            "statut_lieu": statut_lieu,
+        },
+    )
 
 
 def modifier_calendrier(
@@ -681,31 +1069,40 @@ def modifier_calendrier(
     dtstamps_existants,
     cache_lieux,
 ):
-    lignes = deplier_ics(texte)
+    lignes = deplier_ics(
+        texte
+    )
 
     resultat = []
     evenement = []
     dans_evenement = False
     infos_evenements = []
+
     nom_calendrier_trouve = False
 
     for ligne in lignes:
         if ligne == "BEGIN:VEVENT":
             dans_evenement = True
-            evenement = [ligne]
+            evenement = [
+                ligne
+            ]
+
             continue
 
         if dans_evenement:
-            evenement.append(ligne)
+            evenement.append(
+                ligne
+            )
 
             if ligne == "END:VEVENT":
-                evenement_modifie, infos = (
-                    transformer_evenement(
-                        evenement,
-                        equipe,
-                        dtstamps_existants,
-                        cache_lieux,
-                    )
+                (
+                    evenement_modifie,
+                    infos,
+                ) = transformer_evenement(
+                    evenement,
+                    equipe,
+                    dtstamps_existants,
+                    cache_lieux,
                 )
 
                 resultat.extend(
@@ -721,27 +1118,37 @@ def modifier_calendrier(
 
             continue
 
-        if ligne.startswith("X-WR-CALNAME"):
+        if ligne.startswith(
+            "X-WR-CALNAME"
+        ):
             resultat.append(
                 "X-WR-CALNAME:"
-                + equipe["nom_calendrier"]
+                + echapper_ics(
+                    equipe[
+                        "nom_calendrier"
+                    ]
+                )
             )
+
             nom_calendrier_trouve = True
             continue
 
         if ligne:
-            resultat.append(ligne)
+            resultat.append(
+                ligne
+            )
 
     if dans_evenement:
         raise RuntimeError(
-            f"Événement ICS incomplet pour "
-            f"{equipe['nom']}."
+            "Événement ICS incomplet "
+            f"pour {equipe['nom']}."
         )
 
     if not infos_evenements:
         raise RuntimeError(
-            f"Aucun événement trouvé dans "
-            f"le calendrier {equipe['nom']}."
+            "Aucun événement trouvé "
+            f"dans le calendrier "
+            f"{equipe['nom']}."
         )
 
     if not nom_calendrier_trouve:
@@ -757,25 +1164,38 @@ def modifier_calendrier(
         resultat.insert(
             position,
             "X-WR-CALNAME:"
-            + equipe["nom_calendrier"],
+            + echapper_ics(
+                equipe[
+                    "nom_calendrier"
+                ]
+            ),
         )
 
     lignes_pliees = []
 
     for ligne in resultat:
         lignes_pliees.extend(
-            plier_ligne_ics(ligne)
+            plier_ligne_ics(
+                ligne
+            )
         )
 
     calendrier = (
-        "\r\n".join(lignes_pliees)
+        "\r\n".join(
+            lignes_pliees
+        )
         + "\r\n"
     )
 
-    return calendrier, infos_evenements
+    return (
+        calendrier,
+        infos_evenements,
+    )
 
 
-def recuperer_calendrier(equipe):
+def recuperer_calendrier(
+    equipe,
+):
     reponse = requests.get(
         equipe["url"],
         headers=EN_TETES,
@@ -787,9 +1207,12 @@ def recuperer_calendrier(equipe):
     return reponse.text
 
 
-def traiter_equipe(equipe):
+def traiter_equipe(
+    equipe,
+):
     print(
-        f"\nTéléchargement du calendrier "
+        "\nTéléchargement du "
+        f"calendrier "
         f"{equipe['nom']}…"
     )
 
@@ -807,13 +1230,14 @@ def traiter_equipe(equipe):
 
     cache_lieux = {}
 
-    calendrier_final, evenements = (
-        modifier_calendrier(
-            calendrier_source,
-            equipe,
-            dtstamps_existants,
-            cache_lieux,
-        )
+    (
+        calendrier_final,
+        evenements,
+    ) = modifier_calendrier(
+        calendrier_source,
+        equipe,
+        dtstamps_existants,
+        cache_lieux,
     )
 
     with open(
@@ -827,40 +1251,64 @@ def traiter_equipe(equipe):
         )
 
     print(
-        f"{len(evenements)} événement(s) "
-        f"écrit(s) dans "
+        f"{len(evenements)} "
+        f"événement(s) écrit(s) "
+        f"dans "
         f"{equipe['fichier']}."
     )
 
     for evenement in evenements:
-        ligne = construire_resume(
-            equipe,
-            evenement["match"],
-            evenement["competition"],
-            evenement["diffusion"],
+        ligne = (
+            "  "
+            + construire_resume(
+                equipe,
+                evenement["match"],
+                evenement[
+                    "competition"
+                ],
+            )
+            + " — 📺 "
+            + evenement[
+                "diffusion"
+            ]
         )
 
-        if evenement["lieu"]:
-            if evenement["statut_lieu"] == "estimation":
+        if evenement[
+            "lieu"
+        ]:
+            ligne += (
+                " — 📍 "
+                + evenement[
+                    "lieu"
+                ]
+            )
+
+            if (
+                evenement[
+                    "statut_lieu"
+                ]
+                == "estimation"
+            ):
                 ligne += (
-                    f" — 📍 {evenement['lieu']} "
-                    f"(estimation)"
+                    " (estimation)"
                 )
-            else:
-                ligne += (
-                    f" — 📍 {evenement['lieu']}"
-                )
+
         else:
-            ligne += " — 📍 lieu à confirmer"
+            ligne += (
+                " — 📍 "
+                "lieu à confirmer"
+            )
 
         print(
-            f"  {ligne}"
+            ligne
         )
 
 
 def main():
     for equipe in EQUIPES:
-        traiter_equipe(equipe)
+        traiter_equipe(
+            equipe
+        )
 
 
 if __name__ == "__main__":
