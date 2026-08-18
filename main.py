@@ -36,7 +36,7 @@ SPORTS = (
         "duree_minutes": 210,
     },
     {
-        "nom": "NFL sur beIN",
+        "nom": "NFL — beIN + Netflix",
         "prefixe": "NFL",
         "emoji": "🏈",
         "url_ics": (
@@ -45,6 +45,75 @@ SPORTS = (
         ),
         "fichier": "nfl_bein_calendar.ics",
         "duree_minutes": 240,
+    },
+)
+
+
+NETFLIX_TUDUM_URL = (
+    "https://www.netflix.com/tudum/"
+    "articles/nfl-games-on-netflix"
+)
+
+
+# Matchs NFL Netflix 2026 déjà officiellement annoncés.
+#
+# Les horaires ci-dessous sont stockés en UTC.
+#
+# Le cinquième match Netflix, en Week 18 le 9 janvier 2027,
+# n'est volontairement PAS ajouté tant que l'affiche n'est
+# pas officiellement déterminée.
+MATCHS_NETFLIX_NFL = (
+    {
+        "uid": (
+            "nfl-netflix-2026-rams-49ers-melbourne"
+            "@sports-us-bein-calendar"
+        ),
+        "match": (
+            "Los Angeles Rams - San Francisco 49ers"
+        ),
+        "debut_utc": "20260911T003500Z",
+        "lieu": (
+            "Melbourne Cricket Ground, Melbourne"
+        ),
+    },
+    {
+        "uid": (
+            "nfl-netflix-2026-rams-packers"
+            "@sports-us-bein-calendar"
+        ),
+        "match": (
+            "Los Angeles Rams - Green Bay Packers"
+        ),
+        "debut_utc": "20261126T010000Z",
+        "lieu": (
+            "SoFi Stadium, Inglewood"
+        ),
+    },
+    {
+        "uid": (
+            "nfl-netflix-2026-bears-packers"
+            "@sports-us-bein-calendar"
+        ),
+        "match": (
+            "Chicago Bears - Green Bay Packers"
+        ),
+        "debut_utc": "20261225T180000Z",
+        "lieu": (
+            "Soldier Field, Chicago"
+        ),
+    },
+    {
+        "uid": (
+            "nfl-netflix-2026-broncos-bills"
+            "@sports-us-bein-calendar"
+        ),
+        "match": (
+            "Denver Broncos - Buffalo Bills"
+        ),
+        "debut_utc": "20261225T213000Z",
+        "lieu": (
+            "Empower Field at Mile High, Denver"
+        ),
     },
 )
 
@@ -978,24 +1047,77 @@ def extraire_lieu_source_ics(
     return lieu
 
 
-def extraire_equipe_domicile(
+def extraire_equipes_match(
     match,
 ):
     if not match:
-        return None
+        return (
+            None,
+            None,
+        )
+
+    match = formater_match(
+        match
+    )
 
     morceaux = re.split(
-        r"\s+[–—-]\s+",
+        r"\s+-\s+",
         match,
         maxsplit=1,
     )
 
     if len(morceaux) != 2:
-        return None
+        return (
+            None,
+            None,
+        )
 
     return (
-        morceaux[0]
-        .strip()
+        morceaux[0].strip(),
+        morceaux[1].strip(),
+    )
+
+
+def extraire_equipe_domicile(
+    match,
+):
+    domicile, _ = (
+        extraire_equipes_match(
+            match
+        )
+    )
+
+    return domicile
+
+
+def cle_equipes_match(
+    match,
+):
+    equipe_1, equipe_2 = (
+        extraire_equipes_match(
+            match
+        )
+    )
+
+    if (
+        not equipe_1
+        or not equipe_2
+    ):
+        return None
+
+    equipes = sorted(
+        (
+            normaliser_nom(
+                equipe_1
+            ),
+            normaliser_nom(
+                equipe_2
+            ),
+        )
+    )
+
+    return tuple(
+        equipes
     )
 
 
@@ -1211,7 +1333,9 @@ def preparer_evenement_ics(
         "dtstamp": dtstamp,
         "dtstart": dtstart,
         "dtend": dtend,
-        "match": match,
+        "match": formater_match(
+            match
+        ),
         "chaines": chaines,
         "url": (
             extraire_url_ics(
@@ -1270,6 +1394,264 @@ def recuperer_evenements_tv_sports(
             )
 
     return evenements
+
+
+def creer_evenements_netflix_nfl(
+    sport,
+    dtstamps_existants,
+):
+    if (
+        sport["prefixe"]
+        != "NFL"
+    ):
+        return []
+
+    resultat = []
+
+    maintenant = datetime.now(
+        timezone.utc
+    )
+
+    for source in MATCHS_NETFLIX_NFL:
+        debut = parse_datetime_ics(
+            source["debut_utc"]
+        )
+
+        if not debut:
+            continue
+
+        fin = debut + timedelta(
+            minutes=sport[
+                "duree_minutes"
+            ]
+        )
+
+        if fin <= maintenant:
+            continue
+
+        uid = source[
+            "uid"
+        ]
+
+        dtstamp = (
+            dtstamps_existants.get(
+                uid
+            )
+            or datetime.now(
+                timezone.utc
+            ).strftime(
+                "%Y%m%dT%H%M%SZ"
+            )
+        )
+
+        resultat.append(
+            {
+                "uid": uid,
+                "dtstamp": dtstamp,
+                "dtstart": (
+                    debut.strftime(
+                        "%Y%m%dT%H%M%SZ"
+                    )
+                ),
+                "dtend": (
+                    fin.strftime(
+                        "%Y%m%dT%H%M%SZ"
+                    )
+                ),
+                "match": source[
+                    "match"
+                ],
+                "chaines": [
+                    "Netflix"
+                ],
+                "url": (
+                    NETFLIX_TUDUM_URL
+                ),
+                "lieu": source[
+                    "lieu"
+                ],
+                "statut_lieu": (
+                    "source"
+                ),
+            }
+        )
+
+    return resultat
+
+
+def memes_equipes(
+    evenement_1,
+    evenement_2,
+):
+    cle_1 = cle_equipes_match(
+        evenement_1.get(
+            "match"
+        )
+    )
+
+    cle_2 = cle_equipes_match(
+        evenement_2.get(
+            "match"
+        )
+    )
+
+    return (
+        cle_1 is not None
+        and cle_1 == cle_2
+    )
+
+
+def meme_match_nfl(
+    evenement_1,
+    evenement_2,
+):
+    if not memes_equipes(
+        evenement_1,
+        evenement_2,
+    ):
+        return False
+
+    debut_1 = parse_datetime_ics(
+        evenement_1.get(
+            "dtstart"
+        )
+    )
+
+    debut_2 = parse_datetime_ics(
+        evenement_2.get(
+            "dtstart"
+        )
+    )
+
+    if (
+        debut_1 is None
+        or debut_2 is None
+    ):
+        return False
+
+    ecart = abs(
+        (
+            debut_1
+            - debut_2
+        ).total_seconds()
+    )
+
+    # Une petite tolérance évite un doublon
+    # si deux sources indiquent légèrement
+    # différemment l'heure de début.
+    return (
+        ecart
+        <= 6 * 60 * 60
+    )
+
+
+def fusionner_evenements_nfl(
+    evenements_bein,
+    evenements_netflix,
+):
+    resultat = [
+        dict(
+            evenement
+        )
+        for evenement
+        in evenements_bein
+    ]
+
+    for netflix in (
+        evenements_netflix
+    ):
+        correspondant = None
+
+        for existant in resultat:
+            if meme_match_nfl(
+                existant,
+                netflix,
+            ):
+                correspondant = (
+                    existant
+                )
+
+                break
+
+        if correspondant is None:
+            resultat.append(
+                dict(
+                    netflix
+                )
+            )
+
+            continue
+
+        if (
+            "Netflix"
+            not in correspondant[
+                "chaines"
+            ]
+        ):
+            correspondant[
+                "chaines"
+            ].append(
+                "Netflix"
+            )
+
+        # Les matchs Netflix ont un UID stable
+        # indépendant du diffuseur.
+        #
+        # Ainsi, si un match est d'abord Netflix
+        # uniquement puis apparaît plus tard sur beIN,
+        # Apple conserve le même événement au lieu
+        # d'en créer un second.
+        correspondant[
+            "uid"
+        ] = netflix[
+            "uid"
+        ]
+
+        correspondant[
+            "dtstamp"
+        ] = netflix[
+            "dtstamp"
+        ]
+
+        # Pour les matchs Netflix, le lieu ici vient
+        # d'une annonce officielle.
+        #
+        # C'est notamment indispensable pour le match
+        # Rams - 49ers joué à Melbourne : il ne faut
+        # surtout pas utiliser SoFi Stadium simplement
+        # parce que les Rams sont l'équipe "à domicile".
+        if (
+            netflix.get(
+                "lieu"
+            )
+            and (
+                not correspondant.get(
+                    "lieu"
+                )
+                or correspondant.get(
+                    "statut_lieu"
+                )
+                == "estimation"
+            )
+        ):
+            correspondant[
+                "lieu"
+            ] = netflix[
+                "lieu"
+            ]
+
+            correspondant[
+                "statut_lieu"
+            ] = "source"
+
+    resultat.sort(
+        key=lambda evenement:
+        evenement[
+            "dtstart"
+        ]
+    )
+
+    return resultat
 
 
 def slug_date_tv_programme(
@@ -1711,11 +2093,225 @@ def recuperer_evenements_nfl_tv_programme(
     return resultat
 
 
+def extraire_match_calendrier_existant(
+    evenement,
+    sport,
+):
+    summary = valeur_propriete(
+        evenement,
+        "SUMMARY",
+    )
+
+    if not summary:
+        return None
+
+    summary = deschapper_ics(
+        summary
+    ).strip()
+
+    prefixe = (
+        f"{sport['emoji']} "
+        f"{sport['prefixe']} : "
+    )
+
+    if summary.startswith(
+        prefixe
+    ):
+        return summary[
+            len(prefixe):
+        ].strip()
+
+    if ":" in summary:
+        return (
+            summary
+            .split(
+                ":",
+                1,
+            )[1]
+            .strip()
+        )
+
+    return None
+
+
+def extraire_chaines_calendrier_existant(
+    evenement,
+):
+    description = valeur_propriete(
+        evenement,
+        "DESCRIPTION",
+    )
+
+    if not description:
+        return []
+
+    description = (
+        deschapper_ics(
+            description
+        )
+        .strip()
+    )
+
+    if not description:
+        return []
+
+    chaines = []
+
+    for chaine in re.split(
+        r"\s+(?:\+|/)\s+",
+        description,
+    ):
+        chaine = chaine.strip()
+
+        if (
+            chaine
+            and chaine
+            not in chaines
+        ):
+            chaines.append(
+                chaine
+            )
+
+    return chaines
+
+
+def charger_evenements_existants(
+    fichier,
+    sport,
+):
+    try:
+        with open(
+            fichier,
+            encoding="utf-8",
+        ) as calendrier:
+            sources = (
+                extraire_evenements_ics(
+                    calendrier.read()
+                )
+            )
+
+    except OSError:
+        return []
+
+    resultat = []
+
+    maintenant = datetime.now(
+        timezone.utc
+    )
+
+    for source in sources:
+        uid = valeur_propriete(
+            source,
+            "UID",
+        )
+
+        dtstamp = valeur_propriete(
+            source,
+            "DTSTAMP",
+        )
+
+        dtstart = valeur_propriete(
+            source,
+            "DTSTART",
+        )
+
+        dtend = valeur_propriete(
+            source,
+            "DTEND",
+        )
+
+        match = (
+            extraire_match_calendrier_existant(
+                source,
+                sport,
+            )
+        )
+
+        chaines = (
+            extraire_chaines_calendrier_existant(
+                source
+            )
+        )
+
+        if (
+            not uid
+            or not dtstart
+            or not match
+            or not chaines
+        ):
+            continue
+
+        fin = parse_datetime_ics(
+            dtend
+            or dtstart
+        )
+
+        if (
+            fin
+            and fin
+            < maintenant
+        ):
+            continue
+
+        lieu_brut = valeur_propriete(
+            source,
+            "LOCATION",
+        )
+
+        lieu = (
+            deschapper_ics(
+                lieu_brut
+            ).strip()
+            if lieu_brut
+            else None
+        )
+
+        url_brute = valeur_propriete(
+            source,
+            "URL",
+        )
+
+        url = (
+            deschapper_ics(
+                url_brute
+            ).strip()
+            if url_brute
+            else None
+        )
+
+        resultat.append(
+            {
+                "uid": uid,
+                "dtstamp": (
+                    dtstamp
+                    or datetime.now(
+                        timezone.utc
+                    ).strftime(
+                        "%Y%m%dT%H%M%SZ"
+                    )
+                ),
+                "dtstart": dtstart,
+                "dtend": dtend,
+                "match": match,
+                "chaines": chaines,
+                "url": url,
+                "lieu": lieu,
+                "statut_lieu": (
+                    "conserve"
+                    if lieu
+                    else None
+                ),
+            }
+        )
+
+    return resultat
+
+
 def construire_evenement(
     evenement,
     sport,
 ):
-    chaines = " / ".join(
+    chaines = " + ".join(
         evenement[
             "chaines"
         ]
@@ -1814,7 +2410,7 @@ def ecrire_calendrier(
         (
             "PRODID:"
             "-//sports-us-bein-calendar//"
-            f"{sport['prefixe']} beIN//FR"
+            f"{sport['prefixe']}//FR"
         ),
 
         "CALSCALE:GREGORIAN",
@@ -1882,7 +2478,7 @@ def afficher_evenements(
                 ]
             )
             + " — "
-            + " / ".join(
+            + " + ".join(
                 evenement[
                     "chaines"
                 ]
@@ -1945,18 +2541,18 @@ def traiter_sport(
         )
     )
 
-    evenements = []
+    evenements_bein = []
     source_utilisee = None
 
     try:
-        evenements = (
+        evenements_bein = (
             recuperer_evenements_tv_sports(
                 sport,
                 dtstamps_existants,
             )
         )
 
-        if evenements:
+        if evenements_bein:
             source_utilisee = (
                 "TV-Sports ICS"
             )
@@ -1988,7 +2584,7 @@ def traiter_sport(
         )
 
     if (
-        not evenements
+        not evenements_bein
         and sport["prefixe"]
         == "NFL"
     ):
@@ -1998,14 +2594,14 @@ def traiter_sport(
         )
 
         try:
-            evenements = (
+            evenements_bein = (
                 recuperer_evenements_nfl_tv_programme(
                     sport,
                     dtstamps_existants,
                 )
             )
 
-            if evenements:
+            if evenements_bein:
                 source_utilisee = (
                     "TV-Programme.com"
                 )
@@ -2019,6 +2615,71 @@ def traiter_sport(
                 "fallback NFL impossible : "
                 f"{erreur}"
             )
+
+    if (
+        sport["prefixe"]
+        == "NFL"
+    ):
+        evenements_netflix = (
+            creer_evenements_netflix_nfl(
+                sport,
+                dtstamps_existants,
+            )
+        )
+
+        print(
+            f"  {len(evenements_netflix)} "
+            "match(s) NFL Netflix "
+            "officiellement annoncé(s) "
+            "encore à venir."
+        )
+
+        if not evenements_bein:
+            evenements_existants = (
+                charger_evenements_existants(
+                    sport["fichier"],
+                    sport,
+                )
+            )
+
+            if evenements_existants:
+                print(
+                    "  Sources beIN "
+                    "indisponibles : "
+                    "conservation des "
+                    "événements NFL "
+                    "existants."
+                )
+
+                evenements_bein = (
+                    evenements_existants
+                )
+
+                source_utilisee = (
+                    "Calendrier existant"
+                )
+
+        evenements = (
+            fusionner_evenements_nfl(
+                evenements_bein,
+                evenements_netflix,
+            )
+        )
+
+        if source_utilisee:
+            source_utilisee += (
+                " + Netflix"
+            )
+
+        elif evenements_netflix:
+            source_utilisee = (
+                "Netflix"
+            )
+
+    else:
+        evenements = (
+            evenements_bein
+        )
 
     if not evenements:
         print(
@@ -2056,6 +2717,18 @@ def traiter_sport(
     afficher_evenements(
         evenements
     )
+
+    if (
+        sport["prefixe"]
+        == "NFL"
+    ):
+        print(
+            "  Week 18 Netflix "
+            "(09/01/2027) : "
+            "affiche encore à confirmer, "
+            "donc non ajoutée pour "
+            "éviter d'inventer un match."
+        )
 
     return True
 
