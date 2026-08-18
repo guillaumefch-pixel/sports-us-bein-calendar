@@ -1795,13 +1795,7 @@ def creer_evenements_netflix_nfl(
             )
         )
 
-    except requests.RequestException as erreur:
-        print(
-            "  Source officielle NFL "
-            "Week 18 indisponible : "
-            f"{erreur}"
-        )
-
+    except requests.RequestException:
         annonce_week_18 = None
 
     if annonce_week_18:
