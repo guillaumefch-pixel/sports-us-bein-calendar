@@ -55,13 +55,65 @@ NETFLIX_TUDUM_URL = (
 )
 
 
+# La NFL publiera l'affiche Netflix de Week 18 après la Week 17.
+# Cette page officielle contient alors les équipes et le diffuseur.
+NFL_NETFLIX_WEEK_18_URL = (
+    "https://www.nfl.com/schedules/"
+    "2026/by-week/week-18"
+)
+
+
+# Créneau déjà annoncé officiellement par Netflix et la NFL.
+# L'événement n'est créé que lorsque la page NFL associe réellement
+# une affiche complète à Netflix.
+NFL_NETFLIX_WEEK_18_DEBUT_UTC = (
+    "20270109T180000Z"
+)
+
+
+NOMS_COURTS_NFL = {
+    "Cardinals": "Arizona Cardinals",
+    "Falcons": "Atlanta Falcons",
+    "Ravens": "Baltimore Ravens",
+    "Bills": "Buffalo Bills",
+    "Panthers": "Carolina Panthers",
+    "Bears": "Chicago Bears",
+    "Bengals": "Cincinnati Bengals",
+    "Browns": "Cleveland Browns",
+    "Cowboys": "Dallas Cowboys",
+    "Broncos": "Denver Broncos",
+    "Lions": "Detroit Lions",
+    "Packers": "Green Bay Packers",
+    "Texans": "Houston Texans",
+    "Colts": "Indianapolis Colts",
+    "Jaguars": "Jacksonville Jaguars",
+    "Chiefs": "Kansas City Chiefs",
+    "Raiders": "Las Vegas Raiders",
+    "Chargers": "Los Angeles Chargers",
+    "Rams": "Los Angeles Rams",
+    "Dolphins": "Miami Dolphins",
+    "Vikings": "Minnesota Vikings",
+    "Patriots": "New England Patriots",
+    "Saints": "New Orleans Saints",
+    "Giants": "New York Giants",
+    "Jets": "New York Jets",
+    "Eagles": "Philadelphia Eagles",
+    "Steelers": "Pittsburgh Steelers",
+    "49ers": "San Francisco 49ers",
+    "Seahawks": "Seattle Seahawks",
+    "Buccaneers": "Tampa Bay Buccaneers",
+    "Titans": "Tennessee Titans",
+    "Commanders": "Washington Commanders",
+}
+
+
 # Matchs NFL Netflix 2026 déjà officiellement annoncés.
 #
 # Les horaires ci-dessous sont stockés en UTC.
 #
 # Le cinquième match Netflix, en Week 18 le 9 janvier 2027,
-# n'est volontairement PAS ajouté tant que l'affiche n'est
-# pas officiellement déterminée.
+# sera ajouté automatiquement dès que la NFL aura associé
+# une affiche complète au créneau Netflix.
 MATCHS_NETFLIX_NFL = (
     {
         "uid": (
@@ -1396,6 +1448,265 @@ def recuperer_evenements_tv_sports(
     return evenements
 
 
+class AnalyseurTexteNFLNetflix(
+    HTMLParser
+):
+    def __init__(self):
+        super().__init__(
+            convert_charrefs=True
+        )
+
+        self.textes = []
+        self.ignorer = 0
+
+    def handle_starttag(
+        self,
+        balise,
+        attributs,
+    ):
+        if balise in (
+            "script",
+            "style",
+            "noscript",
+        ):
+            self.ignorer += 1
+
+    def handle_endtag(
+        self,
+        balise,
+    ):
+        if (
+            balise
+            in (
+                "script",
+                "style",
+                "noscript",
+            )
+            and self.ignorer > 0
+        ):
+            self.ignorer -= 1
+
+    def handle_data(
+        self,
+        donnees,
+    ):
+        if self.ignorer:
+            return
+
+        texte = " ".join(
+            donnees.split()
+        )
+
+        if texte:
+            self.textes.append(
+                texte
+            )
+
+
+def extraire_affiche_netflix_page_nfl(
+    page,
+):
+    analyseur = (
+        AnalyseurTexteNFLNetflix()
+    )
+
+    analyseur.feed(
+        page
+    )
+
+    analyseur.close()
+
+    texte = " ".join(
+        analyseur.textes
+    )
+
+    # Le paragraphe générique situé après la liste rappelle qu'un
+    # match Netflix est prévu, sans dire lequel. Il est supprimé pour
+    # ne jamais prendre par erreur la dernière affiche TBD de la page.
+    texte = re.split(
+        r"\b20\d{2}\s+TBD Games\b",
+        texte,
+        maxsplit=1,
+        flags=re.IGNORECASE,
+    )[0]
+
+    alias = dict(
+        NOMS_COURTS_NFL
+    )
+
+    for nom_complet in (
+        NOMS_COURTS_NFL.values()
+    ):
+        alias[
+            nom_complet
+        ] = nom_complet
+
+    motif_equipe = "|".join(
+        re.escape(
+            nom
+        )
+        for nom in sorted(
+            alias,
+            key=len,
+            reverse=True,
+        )
+    )
+
+    motif_match = re.compile(
+        rf"(?P<exterieur>{motif_equipe})"
+        rf"\s+(?:at|@)\s+"
+        rf"(?P<domicile>{motif_equipe})",
+        flags=re.IGNORECASE,
+    )
+
+    correspondances = list(
+        motif_match.finditer(
+            texte
+        )
+    )
+
+    alias_normalises = {
+        nom.casefold(): complet
+        for nom, complet in alias.items()
+    }
+
+    for index, correspondance in enumerate(
+        correspondances
+    ):
+        fin_bloc = (
+            correspondances[index + 1]
+            .start()
+            if index + 1
+            < len(correspondances)
+            else min(
+                len(texte),
+                correspondance.end()
+                + 500,
+            )
+        )
+
+        bloc = texte[
+            correspondance.start():
+            fin_bloc
+        ]
+
+        if not re.search(
+            r"\bNetflix\b",
+            bloc,
+            flags=re.IGNORECASE,
+        ):
+            continue
+
+        exterieur = alias_normalises[
+            correspondance
+            .group("exterieur")
+            .casefold()
+        ]
+
+        domicile = alias_normalises[
+            correspondance
+            .group("domicile")
+            .casefold()
+        ]
+
+        return (
+            f"{domicile} - "
+            f"{exterieur}"
+        )
+
+    return None
+
+
+def recuperer_annonce_netflix_week_18(
+    sport,
+    dtstamps_existants,
+):
+    reponse = requests.get(
+        NFL_NETFLIX_WEEK_18_URL,
+        headers=EN_TETES,
+        timeout=30,
+    )
+
+    reponse.raise_for_status()
+
+    match = (
+        extraire_affiche_netflix_page_nfl(
+            reponse.text
+        )
+    )
+
+    if not match:
+        return None
+
+    debut = parse_datetime_ics(
+        NFL_NETFLIX_WEEK_18_DEBUT_UTC
+    )
+
+    if not debut:
+        return None
+
+    fin = debut + timedelta(
+        minutes=sport[
+            "duree_minutes"
+        ]
+    )
+
+    if fin <= datetime.now(
+        timezone.utc
+    ):
+        return None
+
+    uid = (
+        "nfl-netflix-2026-week18-"
+        + re.sub(
+            r"[^a-z0-9]+",
+            "-",
+            normaliser_nom(
+                match
+            ),
+        ).strip("-")
+        + "@sports-us-bein-calendar"
+    )
+
+    return {
+        "uid": uid,
+        "dtstamp": (
+            dtstamps_existants.get(
+                uid
+            )
+            or datetime.now(
+                timezone.utc
+            ).strftime(
+                "%Y%m%dT%H%M%SZ"
+            )
+        ),
+        "dtstart": (
+            debut.strftime(
+                "%Y%m%dT%H%M%SZ"
+            )
+        ),
+        "dtend": (
+            fin.strftime(
+                "%Y%m%dT%H%M%SZ"
+            )
+        ),
+        "match": match,
+        "chaines": [
+            "Netflix"
+        ],
+        "url": (
+            NFL_NETFLIX_WEEK_18_URL
+        ),
+        "lieu": stade_estime(
+            match,
+            sport,
+        ),
+        "statut_lieu": (
+            "estimation"
+        ),
+    }
+
+
 def creer_evenements_netflix_nfl(
     sport,
     dtstamps_existants,
@@ -1475,6 +1786,70 @@ def creer_evenements_netflix_nfl(
                 ),
             }
         )
+
+    try:
+        annonce_week_18 = (
+            recuperer_annonce_netflix_week_18(
+                sport,
+                dtstamps_existants,
+            )
+        )
+
+    except requests.RequestException as erreur:
+        print(
+            "  Source officielle NFL "
+            "Week 18 indisponible : "
+            f"{erreur}"
+        )
+
+        annonce_week_18 = None
+
+    if annonce_week_18:
+        resultat.append(
+            annonce_week_18
+        )
+
+    # Une annonce découverte lors d'un run précédent reste présente
+    # si NFL.com est momentanément indisponible ou change son HTML.
+    # Les quatre matchs inscrits en dur gardent de leur côté leurs UID
+    # historiques exacts.
+    evenements_existants = (
+        charger_evenements_existants(
+            sport["fichier"],
+            sport,
+        )
+    )
+
+    for existant in evenements_existants:
+        if not any(
+            chaine.casefold()
+            == "netflix"
+            for chaine in existant.get(
+                "chaines",
+                [],
+            )
+        ):
+            continue
+
+        if any(
+            meme_match_nfl(
+                deja_present,
+                existant,
+            )
+            for deja_present in resultat
+        ):
+            continue
+
+        resultat.append(
+            existant
+        )
+
+    resultat.sort(
+        key=lambda evenement:
+        evenement[
+            "dtstart"
+        ]
+    )
 
     return resultat
 
@@ -2722,13 +3097,32 @@ def traiter_sport(
         sport["prefixe"]
         == "NFL"
     ):
-        print(
-            "  Week 18 Netflix "
-            "(09/01/2027) : "
-            "affiche encore à confirmer, "
-            "donc non ajoutée pour "
-            "éviter d'inventer un match."
+        week_18_trouvee = any(
+            "nfl-netflix-2026-week18-"
+            in evenement.get(
+                "uid",
+                "",
+            )
+            for evenement
+            in evenements_netflix
         )
+
+        if week_18_trouvee:
+            print(
+                "  Week 18 Netflix "
+                "(09/01/2027) : "
+                "affiche officielle ajoutée "
+                "automatiquement."
+            )
+
+        else:
+            print(
+                "  Week 18 Netflix "
+                "(09/01/2027) : "
+                "affiche encore à confirmer, "
+                "donc non ajoutée pour "
+                "éviter d'inventer un match."
+            )
 
     return True
 
