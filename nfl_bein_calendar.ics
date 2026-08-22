@@ -43,46 +43,6 @@ STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
-UID:nfl-20261025-new-orleans-saints-pittsburgh-steelers@sports-us-bein-cale
- ndar
-DTSTAMP:20260818T195819Z
-DTSTART:20261025T133000Z
-DTEND:20261025T173000Z
-SUMMARY:🏈 NFL : New Orleans Saints - Pittsburgh Steelers
-DESCRIPTION:L'Équipe (différé 21h00)
-LOCATION:Stade de France\, Saint-Denis
-URL:https://www.lequipe.fr/Medias/Actualites/Droits-tv-la-nfl-de-retour-sur
- -le-bouquet-de-chaines-l-equipe/1706103
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-UID:nfl-20261108-atlanta-falcons-cincinnati-bengals@sports-us-bein-calendar
-DTSTAMP:20260818T195819Z
-DTSTART:20261108T143000Z
-DTEND:20261108T183000Z
-SUMMARY:🏈 NFL : Atlanta Falcons - Cincinnati Bengals
-DESCRIPTION:Bouquet L'Équipe
-LOCATION:Bernabéu Stadium\, Madrid
-URL:https://www.lequipe.fr/Medias/Actualites/Droits-tv-la-nfl-de-retour-sur
- -le-bouquet-de-chaines-l-equipe/1706103
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-UID:nfl-20261115-detroit-lions-new-england-patriots@sports-us-bein-calendar
-DTSTAMP:20260818T195819Z
-DTSTART:20261115T143000Z
-DTEND:20261115T183000Z
-SUMMARY:🏈 NFL : Detroit Lions - New England Patriots
-DESCRIPTION:Bouquet L'Équipe
-LOCATION:FC Bayern Munich Stadium\, Munich
-URL:https://www.lequipe.fr/Medias/Actualites/Droits-tv-la-nfl-de-retour-sur
- -le-bouquet-de-chaines-l-equipe/1706103
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 UID:nfl-netflix-2026-rams-packers@sports-us-bein-calendar
 DTSTAMP:20260818T144606Z
 DTSTART:20261126T010000Z
