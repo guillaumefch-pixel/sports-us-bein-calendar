@@ -10,7 +10,7 @@ from zoneinfo import ZoneInfo
 import requests
 
 
-VERSION_SCRIPT = "2026-08-31-multisource-nfl-v6.1"
+VERSION_SCRIPT = "2026-08-31-multisource-nfl-v6.2-redzone"
 
 
 EN_TETES = {
@@ -64,6 +64,15 @@ NFLVERSE_GAMES_URL = (
 BEIN_NFL_2026_URL = (
     "https://beinregie.beinsports.com/nfl-bein-sports-2026/"
 )
+
+
+# beIN SPORTS confirme un Multiplex Red Zone chaque dimanche à partir
+# de 19h00 pendant la saison régulière 2026. La chaîne précise reste
+# générique tant qu'une grille détaillée (TV-Sports / TV-Programme)
+# ne fournit pas beIN SPORTS 1/2/3/MAX.
+NFL_REDZONE_PREMIER_DIMANCHE = (2026, 9, 13)
+NFL_REDZONE_DERNIER_DIMANCHE = (2027, 1, 10)
+NFL_REDZONE_HEURE_PARIS = (19, 0)
 
 LINTERNAUTE_LEQUIPE_BASE = (
     "https://www.linternaute.com/television/programme-l-equipe-"
@@ -1674,6 +1683,80 @@ def creer_evenements_bein_depuis_referentiel(
     return resultat
 
 
+
+def creer_evenements_redzone_bein_2026(
+    sport,
+    dtstamps_existants,
+):
+    """
+    Crée les rendez-vous RedZone officiellement garantis par beIN SPORTS
+    pour chaque dimanche de saison régulière.
+
+    L'horaire canonique reste 19h00 heure de Paris. Si une source de grille
+    publie ensuite la chaîne exacte (beIN SPORTS 1/2/3/MAX), la fusion NFL
+    remplace automatiquement la mention générique sans créer de doublon.
+    """
+    if sport["prefixe"] != "NFL":
+        return []
+
+    maintenant = datetime.now(timezone.utc)
+    premier = datetime(
+        *NFL_REDZONE_PREMIER_DIMANCHE,
+        NFL_REDZONE_HEURE_PARIS[0],
+        NFL_REDZONE_HEURE_PARIS[1],
+        tzinfo=PARIS,
+    )
+    dernier = datetime(
+        *NFL_REDZONE_DERNIER_DIMANCHE,
+        NFL_REDZONE_HEURE_PARIS[0],
+        NFL_REDZONE_HEURE_PARIS[1],
+        tzinfo=PARIS,
+    )
+
+    resultat = []
+    courant = premier
+
+    while courant <= dernier:
+        fin_locale = courant + timedelta(
+            minutes=duree_evenement("NFL RedZone", sport)
+        )
+
+        if fin_locale.astimezone(timezone.utc) > maintenant:
+            uid = (
+                f"nfl-redzone-{courant:%Y%m%d}"
+                "@sports-us-bein-calendar"
+            )
+
+            resultat.append(
+                {
+                    "uid": uid,
+                    "dtstamp": (
+                        dtstamps_existants.get(uid)
+                        or datetime.now(timezone.utc).strftime(
+                            "%Y%m%dT%H%M%SZ"
+                        )
+                    ),
+                    "dtstart": courant.astimezone(timezone.utc).strftime(
+                        "%Y%m%dT%H%M%SZ"
+                    ),
+                    "dtend": fin_locale.astimezone(timezone.utc).strftime(
+                        "%Y%m%dT%H%M%SZ"
+                    ),
+                    "match": "NFL RedZone",
+                    "chaines": [
+                        "beIN SPORTS (chaîne à confirmer)"
+                    ],
+                    "url": BEIN_NFL_2026_URL,
+                    "lieu": None,
+                    "statut_lieu": "multiple",
+                    "redzone_officielle": True,
+                }
+            )
+
+        courant += timedelta(days=7)
+
+    return resultat
+
 def url_linternaute_lequipe(date):
     return (
         LINTERNAUTE_LEQUIPE_BASE
@@ -1788,10 +1871,24 @@ def memes_equipes(evenement_1, evenement_2):
 
 
 def meme_match_nfl(evenement_1, evenement_2):
-    if est_redzone(evenement_1.get("match")) or est_redzone(
-        evenement_2.get("match")
-    ):
-        return False
+    redzone_1 = est_redzone(evenement_1.get("match"))
+    redzone_2 = est_redzone(evenement_2.get("match"))
+
+    if redzone_1 or redzone_2:
+        if not (redzone_1 and redzone_2):
+            return False
+
+        debut_1 = parse_datetime_ics(evenement_1.get("dtstart"))
+        debut_2 = parse_datetime_ics(evenement_2.get("dtstart"))
+        if debut_1 is None or debut_2 is None:
+            return False
+
+        # Une même RedZone peut être annoncée à 18h55, 19h00 ou 19h05
+        # selon la grille. On la reconnaît par son dimanche parisien.
+        return (
+            debut_1.astimezone(PARIS).date()
+            == debut_2.astimezone(PARIS).date()
+        )
 
     game_id_1 = evenement_1.get("game_id")
     game_id_2 = evenement_2.get("game_id")
@@ -1876,9 +1973,37 @@ def fusionner_deux_evenements_nfl(cible, source, sport):
     debut_cible = parse_datetime_ics(cible.get("dtstart"))
     debut_source = parse_datetime_ics(source.get("dtstart"))
 
-    # Si une chaîne programme le match en différé, on garde dans le
+    redzone = (
+        est_redzone(cible.get("match"))
+        and est_redzone(source.get("match"))
+    )
+
+    if redzone:
+        # Le rendez-vous officiel beIN est à 19h00 heure de Paris.
+        # Une grille peut afficher quelques minutes d'écart de prise
+        # d'antenne : on conserve donc l'horaire canonique du rendez-vous
+        # officiel, tout en fusionnant la chaîne précise.
+        if source.get("redzone_officielle") and not cible.get(
+            "redzone_officielle"
+        ):
+            cible["dtstart"] = source.get("dtstart")
+            cible["dtend"] = source.get("dtend")
+            cible["redzone_officielle"] = True
+        elif cible.get("redzone_officielle"):
+            pass
+        elif (
+            debut_source is not None
+            and (
+                debut_cible is None
+                or debut_source < debut_cible
+            )
+        ):
+            cible["dtstart"] = source.get("dtstart")
+            if source.get("dtend"):
+                cible["dtend"] = source.get("dtend")
+    # Si une chaîne programme un match en différé, on garde dans le
     # calendrier l'heure la plus tôt, qui correspond au coup d'envoi.
-    if (
+    elif (
         debut_source is not None
         and (
             debut_cible is None
@@ -2554,6 +2679,21 @@ def traiter_sport(sport):
             if evenements_bein_reference:
                 sources_utilisees.append("beIN + calendrier NFL")
 
+        print(
+            "  Ajout des RedZone du dimanche officiellement "
+            "garanties par beIN SPORTS…"
+        )
+        evenements_redzone_bein = creer_evenements_redzone_bein_2026(
+            sport,
+            dtstamps_existants,
+        )
+        print(
+            f"    {len(evenements_redzone_bein)} RedZone NFL "
+            "encore à venir ajoutée(s) à 19h00."
+        )
+        if evenements_redzone_bein:
+            sources_utilisees.append("beIN RedZone officiel")
+
         evenements_lequipe_linternaute = []
         if referentiel_nfl:
             print(
@@ -2642,6 +2782,7 @@ def traiter_sport(sport):
             and not evenements_tv_programme
             and not evenements_lequipe_officiels
             and not evenements_bein_reference
+            and not evenements_redzone_bein
             and not evenements_lequipe_linternaute
         ):
             if evenements_existants:
@@ -2655,6 +2796,7 @@ def traiter_sport(sport):
                 evenements_sources = [
                     evenements_existants,
                     evenements_bein_reference,
+                    evenements_redzone_bein,
                     evenements_lequipe_confirmes,
                     evenements_lequipe_linternaute,
                     evenements_netflix,
@@ -2663,6 +2805,7 @@ def traiter_sport(sport):
             else:
                 evenements_sources = [
                     evenements_bein_reference,
+                    evenements_redzone_bein,
                     evenements_lequipe_confirmes,
                     evenements_lequipe_linternaute,
                     evenements_netflix,
@@ -2671,6 +2814,7 @@ def traiter_sport(sport):
             evenements_sources = [
                 historique_passe,
                 evenements_bein_reference,
+                evenements_redzone_bein,
                 evenements_tv_sports,
                 evenements_tv_programme,
                 evenements_lequipe_officiels,
