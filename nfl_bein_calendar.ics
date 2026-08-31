@@ -7,30 +7,6 @@ X-WR-CALNAME:NFL — beIN + Netflix + L'Équipe
 REFRESH-INTERVAL;VALUE=DURATION:PT6H
 X-PUBLISHED-TTL:PT6H
 BEGIN:VEVENT
-UID:episode-1155736-1787428800@tv-sports.fr
-DTSTAMP:20260817T000026Z
-DTSTART:20260822T200000Z
-DTEND:20260822T230000Z
-SUMMARY:🏈 NFL : Los Angeles Rams - New Orleans Saints
-DESCRIPTION:beIN SPORTS 3
-LOCATION:SoFi Stadium\, Inglewood
-URL:https://tv-sports.fr/los-angeles-rams-new-orleans-saints-tv-x1155736
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
-UID:episode-1156369-1787961600@tv-sports.fr
-DTSTAMP:20260818T031327Z
-DTSTART:20260829T000000Z
-DTEND:20260829T030000Z
-SUMMARY:🏈 NFL : Dallas Cowboys - New Orleans Saints
-DESCRIPTION:beIN SPORTS 1
-LOCATION:AT&T Stadium\, Arlington
-URL:https://tv-sports.fr/dallas-cowboys-new-orleans-saints-tv-x1156369
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 UID:nfl-netflix-2026-rams-49ers-melbourne@sports-us-bein-calendar
 DTSTAMP:20260818T144606Z
 DTSTART:20260911T003500Z
@@ -49,7 +25,7 @@ DTSTAMP:20260822T100926Z
 DTSTART:20261025T133000Z
 DTEND:20261025T173000Z
 SUMMARY:🏈 NFL : New Orleans Saints - Pittsburgh Steelers
-DESCRIPTION:L'Équipe (différé 21h00)
+DESCRIPTION:L'Équipe
 LOCATION:Stade de France\, Saint-Denis
 URL:https://www.lequipe.fr/Medias/Actualites/Droits-tv-la-nfl-de-retour-sur
  -le-bouquet-de-chaines-l-equipe/1706103
