@@ -1,3 +1,5 @@
+import csv
+import io
 import re
 import unicodedata
 from datetime import datetime, timedelta, timezone
@@ -6,6 +8,9 @@ from html.parser import HTMLParser
 from zoneinfo import ZoneInfo
 
 import requests
+
+
+VERSION_SCRIPT = "2026-08-31-multisource-nfl-v6.1"
 
 
 EN_TETES = {
@@ -20,6 +25,16 @@ EN_TETES_TV_PROGRAMME = {
         "Chrome/140.0 Safari/537.36"
     ),
     "Accept-Language": "fr-FR,fr;q=0.9,en;q=0.8",
+}
+
+EN_TETES_LEQUIPE = {
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/140.0 Safari/537.36"
+    ),
+    "Accept-Language": "fr-FR,fr;q=0.9,en;q=0.8",
+    "Referer": "https://www.lequipe.fr/",
 }
 
 SPORTS = (
@@ -41,6 +56,54 @@ SPORTS = (
     },
 )
 
+
+NFLVERSE_GAMES_URL = (
+    "https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv"
+)
+
+BEIN_NFL_2026_URL = (
+    "https://beinregie.beinsports.com/nfl-bein-sports-2026/"
+)
+
+LINTERNAUTE_LEQUIPE_BASE = (
+    "https://www.linternaute.com/television/programme-l-equipe-"
+)
+
+NFL_TEAM_CODES = {
+    "ARI": "Arizona Cardinals",
+    "ATL": "Atlanta Falcons",
+    "BAL": "Baltimore Ravens",
+    "BUF": "Buffalo Bills",
+    "CAR": "Carolina Panthers",
+    "CHI": "Chicago Bears",
+    "CIN": "Cincinnati Bengals",
+    "CLE": "Cleveland Browns",
+    "DAL": "Dallas Cowboys",
+    "DEN": "Denver Broncos",
+    "DET": "Detroit Lions",
+    "GB": "Green Bay Packers",
+    "HOU": "Houston Texans",
+    "IND": "Indianapolis Colts",
+    "JAX": "Jacksonville Jaguars",
+    "KC": "Kansas City Chiefs",
+    "LV": "Las Vegas Raiders",
+    "LAC": "Los Angeles Chargers",
+    "LA": "Los Angeles Rams",
+    "MIA": "Miami Dolphins",
+    "MIN": "Minnesota Vikings",
+    "NE": "New England Patriots",
+    "NO": "New Orleans Saints",
+    "NYG": "New York Giants",
+    "NYJ": "New York Jets",
+    "PHI": "Philadelphia Eagles",
+    "PIT": "Pittsburgh Steelers",
+    "SF": "San Francisco 49ers",
+    "SEA": "Seattle Seahawks",
+    "TB": "Tampa Bay Buccaneers",
+    "TEN": "Tennessee Titans",
+    "WAS": "Washington Commanders",
+}
+
 NETFLIX_TUDUM_URL = (
     "https://www.netflix.com/tudum/articles/nfl-games-on-netflix"
 )
@@ -50,6 +113,58 @@ NFL_NETFLIX_WEEK_18_URL = (
 )
 
 NFL_NETFLIX_WEEK_18_DEBUT_UTC = "20270109T180000Z"
+
+
+LEQUIPE_NFL_CALENDRIER_URL = (
+    "https://www.lequipe.fr/Foot-us/nfl/page-calendrier-resultats"
+)
+
+LEQUIPE_NFL_DROITS_URL = (
+    "https://www.lequipe.fr/Medias/Actualites/"
+    "Droits-tv-la-nfl-de-retour-sur-le-bouquet-de-chaines-l-equipe/"
+    "1706103"
+)
+
+# Ces trois rencontres sont déjà confirmées par L'Équipe :
+# - Paris sera diffusé en différé à 21h sur la chaîne L'Équipe ;
+# - Madrid et Munich font partie des rencontres européennes acquises
+#   par le bouquet L'Équipe. Le canal précis pourra ensuite être remplacé
+#   automatiquement lorsqu'il apparaîtra dans une programmation officielle.
+MATCHS_LEQUIPE_NFL_CONFIRMES = (
+    {
+        "uid": (
+            "nfl-lequipe-2026-paris-saints-steelers"
+            "@sports-us-bein-calendar"
+        ),
+        "match": "New Orleans Saints - Pittsburgh Steelers",
+        "debut_utc": "20261025T133000Z",
+        "lieu": "Stade de France, Saint-Denis",
+        "chaine": "L'Équipe (différé 21h00)",
+        "url": LEQUIPE_NFL_DROITS_URL,
+    },
+    {
+        "uid": (
+            "nfl-lequipe-2026-madrid-falcons-bengals"
+            "@sports-us-bein-calendar"
+        ),
+        "match": "Atlanta Falcons - Cincinnati Bengals",
+        "debut_utc": "20261108T143000Z",
+        "lieu": "Bernabéu Stadium, Madrid",
+        "chaine": "Bouquet L'Équipe",
+        "url": LEQUIPE_NFL_DROITS_URL,
+    },
+    {
+        "uid": (
+            "nfl-lequipe-2026-munich-lions-patriots"
+            "@sports-us-bein-calendar"
+        ),
+        "match": "Detroit Lions - New England Patriots",
+        "debut_utc": "20261115T143000Z",
+        "lieu": "FC Bayern Munich Stadium, Munich",
+        "chaine": "Bouquet L'Équipe",
+        "url": LEQUIPE_NFL_DROITS_URL,
+    },
+)
 
 NOMS_COURTS_NFL = {
     "Cardinals": "Arizona Cardinals",
@@ -221,6 +336,7 @@ JOURS_URL = (
 )
 
 PARIS = ZoneInfo("Europe/Paris")
+NEW_YORK = ZoneInfo("America/New_York")
 
 
 def normaliser_ascii(texte):
@@ -251,6 +367,23 @@ def normaliser_diffuseur(chaine):
         return "Netflix"
 
     if "equipe" in compact:
+        if "differe" in compact:
+            correspondance = re.search(
+                r"\b(\d{1,2})h(?:([0-5]\d))?\b",
+                compact,
+                flags=re.IGNORECASE,
+            )
+
+            if correspondance:
+                heure = int(correspondance.group(1))
+                minute = int(correspondance.group(2) or 0)
+                return (
+                    "L'Équipe (différé "
+                    f"{heure:02d}h{minute:02d})"
+                )
+
+            return "L'Équipe (différé)"
+
         if "live" in compact:
             if "foot" in compact:
                 return "L'Équipe Live Foot"
@@ -296,7 +429,7 @@ def priorite_diffuseur(chaine):
         return (0, chaine.casefold())
     if chaine == "Netflix":
         return (1, chaine.casefold())
-    if chaine == "L'Équipe":
+    if chaine == "L'Équipe" or chaine.startswith("L'Équipe ("):
         return (2, chaine.casefold())
     if chaine.startswith("L'Équipe Live"):
         return (3, chaine.casefold())
@@ -318,13 +451,30 @@ def normaliser_liste_chaines(chaines, sport):
             resultat.append(canonique)
 
     if any(
-        chaine == "L'Équipe" or chaine.startswith("L'Équipe Live")
+        chaine == "L'Équipe"
+        or chaine.startswith("L'Équipe (")
+        or chaine.startswith("L'Équipe Live")
         for chaine in resultat
     ):
         resultat = [
             chaine
             for chaine in resultat
             if chaine != "Bouquet L'Équipe"
+        ]
+
+    # Une grille détaillée doit toujours remplacer la mention beIN générique.
+    if any(
+        chaine.startswith("beIN SPORTS ")
+        and "confirmer" not in normaliser_ascii(chaine)
+        for chaine in resultat
+    ):
+        resultat = [
+            chaine
+            for chaine in resultat
+            if chaine not in (
+                "beIN SPORTS",
+                "beIN SPORTS (chaîne à confirmer)",
+            )
         ]
 
     resultat.sort(key=priorite_diffuseur)
@@ -818,6 +968,346 @@ class AnalyseurTexteNFLNetflix(HTMLParser):
             self.textes.append(texte)
 
 
+MOIS_LEQUIPE = {
+    "janv": 1,
+    "janvier": 1,
+    "fevr": 2,
+    "fevrier": 2,
+    "mars": 3,
+    "avr": 4,
+    "avril": 4,
+    "mai": 5,
+    "juin": 6,
+    "juil": 7,
+    "juillet": 7,
+    "aout": 8,
+    "sept": 9,
+    "septembre": 9,
+    "oct": 10,
+    "octobre": 10,
+    "nov": 11,
+    "novembre": 11,
+    "dec": 12,
+    "decembre": 12,
+}
+
+
+def parser_date_lequipe(texte):
+    compact = normaliser_ascii(texte).replace(".", "")
+
+    correspondance = re.match(
+        r"^(?:lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche) "
+        r"(\d{1,2}) ([a-z]+)(?: (20\d{2}))?$",
+        compact,
+    )
+
+    if not correspondance:
+        return None
+
+    jour = int(correspondance.group(1))
+    mois_texte = correspondance.group(2)
+    annee_texte = correspondance.group(3)
+
+    mois = MOIS_LEQUIPE.get(mois_texte)
+    if mois is None:
+        for prefixe, numero in MOIS_LEQUIPE.items():
+            if mois_texte.startswith(prefixe):
+                mois = numero
+                break
+
+    if mois is None:
+        return None
+
+    if annee_texte:
+        annee = int(annee_texte)
+    else:
+        # Saison NFL 2026-2027 : septembre-décembre en 2026,
+        # janvier-février en 2027.
+        annee = 2026 if mois >= 8 else 2027
+
+    try:
+        return datetime(annee, mois, jour).date()
+    except ValueError:
+        return None
+
+
+def diffuseur_lequipe_officiel(texte):
+    brut = " ".join(unescape(str(texte or "")).split())
+    if not brut:
+        return None
+
+    # Les bandeaux/publicités de la page écrivent L'ÉQUIPE en capitales.
+    # On ne les prend jamais pour une indication de diffuseur d'un match.
+    if brut == brut.upper() and "ÉQUIPE" in brut:
+        return None
+
+    compact = normaliser_ascii(brut)
+
+    motifs_acceptes = (
+        r"^(?:la )?chaine l'equipe$",
+        r"^l'equipe$",
+        r"^l'equipe live(?: foot| \d+)?$",
+        r"^bouquet(?: de chaines)? l'equipe$",
+    )
+
+    if not any(re.match(motif, compact) for motif in motifs_acceptes):
+        return None
+
+    return normaliser_diffuseur(brut)
+
+
+def extraire_evenements_nfl_lequipe_page(
+    page,
+    sport,
+    dtstamps_existants,
+):
+    analyseur = AnalyseurTexteNFLNetflix()
+    analyseur.feed(page)
+    analyseur.close()
+
+    textes = analyseur.textes
+
+    debut_calendrier = None
+    for index, texte in enumerate(textes):
+        if normaliser_ascii(texte).startswith(
+            "calendrier et resultats nfl 2026-2027"
+        ):
+            debut_calendrier = index + 1
+            break
+
+    if debut_calendrier is None:
+        raise RuntimeError(
+            "Calendrier NFL officiel L'Équipe introuvable dans la page."
+        )
+
+    zone = []
+    for texte in textes[debut_calendrier:]:
+        if normaliser_ascii(texte) == "liens rapides":
+            break
+
+        # Premier bloc publicitaire après le calendrier : on s'arrête
+        # avant de pouvoir confondre le logo du site avec un diffuseur.
+        if texte == "L'ÉQUIPE":
+            break
+
+        zone.append(texte)
+
+    equipes = set(NOMS_COURTS_NFL.values())
+    resultat = []
+    dates_couvertes = set()
+    maintenant = datetime.now(timezone.utc)
+    date_courante = None
+    index = 0
+
+    while index < len(zone):
+        texte = zone[index]
+        date_trouvee = parser_date_lequipe(texte)
+
+        if date_trouvee is not None:
+            date_courante = date_trouvee
+            dates_couvertes.add(date_trouvee)
+            index += 1
+            continue
+
+        if texte not in equipes or date_courante is None:
+            index += 1
+            continue
+
+        domicile = texte
+
+        index_heure = None
+        heure = None
+        minute = None
+
+        for candidat in range(index + 1, min(index + 6, len(zone))):
+            if parser_date_lequipe(zone[candidat]) is not None:
+                break
+
+            if zone[candidat] in equipes:
+                break
+
+            correspondance_heure = re.fullmatch(
+                r"([01]?\d|2[0-3])h([0-5]\d)",
+                zone[candidat],
+            )
+
+            if correspondance_heure:
+                index_heure = candidat
+                heure = int(correspondance_heure.group(1))
+                minute = int(correspondance_heure.group(2))
+                break
+
+        if index_heure is None:
+            index += 1
+            continue
+
+        index_exterieur = None
+        exterieur = None
+
+        for candidat in range(
+            index_heure + 1,
+            min(index_heure + 6, len(zone)),
+        ):
+            if parser_date_lequipe(zone[candidat]) is not None:
+                break
+
+            if zone[candidat] in equipes:
+                index_exterieur = candidat
+                exterieur = zone[candidat]
+                break
+
+        if index_exterieur is None:
+            index += 1
+            continue
+
+        chaine = None
+        for candidat in range(
+            index_exterieur + 1,
+            min(index_exterieur + 7, len(zone)),
+        ):
+            if parser_date_lequipe(zone[candidat]) is not None:
+                break
+
+            if zone[candidat] in equipes:
+                break
+
+            chaine_candidate = diffuseur_lequipe_officiel(
+                zone[candidat]
+            )
+
+            if chaine_candidate:
+                chaine = chaine_candidate
+                break
+
+        if chaine:
+            debut_local = datetime(
+                date_courante.year,
+                date_courante.month,
+                date_courante.day,
+                heure,
+                minute,
+                tzinfo=PARIS,
+            )
+            fin_local = debut_local + timedelta(
+                minutes=sport["duree_minutes"]
+            )
+
+            if fin_local.astimezone(timezone.utc) > maintenant:
+                match = f"{domicile} - {exterieur}"
+                compact_match = re.sub(
+                    r"[^a-z0-9]+",
+                    "-",
+                    normaliser_ascii(match),
+                ).strip("-")
+
+                uid = (
+                    f"nfl-lequipe-officiel-{date_courante:%Y%m%d}-"
+                    f"{compact_match}@sports-us-bein-calendar"
+                )
+
+                lieu = stade_estime(match, sport)
+
+                resultat.append(
+                    {
+                        "uid": uid,
+                        "dtstamp": (
+                            dtstamps_existants.get(uid)
+                            or datetime.now(timezone.utc).strftime(
+                                "%Y%m%dT%H%M%SZ"
+                            )
+                        ),
+                        "dtstart": (
+                            debut_local.astimezone(timezone.utc).strftime(
+                                "%Y%m%dT%H%M%SZ"
+                            )
+                        ),
+                        "dtend": (
+                            fin_local.astimezone(timezone.utc).strftime(
+                                "%Y%m%dT%H%M%SZ"
+                            )
+                        ),
+                        "match": match,
+                        "chaines": [chaine],
+                        "url": LEQUIPE_NFL_CALENDRIER_URL,
+                        "lieu": lieu,
+                        "statut_lieu": "estimation" if lieu else None,
+                    }
+                )
+
+        index = index_exterieur + 1
+
+    resultat.sort(key=lambda evenement: evenement["dtstart"])
+    return resultat, dates_couvertes
+
+
+def recuperer_evenements_nfl_lequipe_officiel(
+    sport,
+    dtstamps_existants,
+):
+    reponse = requests.get(
+        LEQUIPE_NFL_CALENDRIER_URL,
+        headers=EN_TETES_LEQUIPE,
+        timeout=30,
+    )
+    reponse.raise_for_status()
+
+    if "Calendrier et résultats NFL" not in reponse.text and (
+        "Calendrier et r&eacute;sultats NFL" not in reponse.text
+    ):
+        raise RuntimeError(
+            "Page officielle L'Équipe NFL invalide."
+        )
+
+    return extraire_evenements_nfl_lequipe_page(
+        reponse.text,
+        sport,
+        dtstamps_existants,
+    )
+
+
+def creer_evenements_lequipe_confirmes(
+    sport,
+    dtstamps_existants,
+):
+    if sport["prefixe"] != "NFL":
+        return []
+
+    resultat = []
+    maintenant = datetime.now(timezone.utc)
+
+    for source in MATCHS_LEQUIPE_NFL_CONFIRMES:
+        debut = parse_datetime_ics(source["debut_utc"])
+        if debut is None:
+            continue
+
+        fin = debut + timedelta(minutes=sport["duree_minutes"])
+        if fin <= maintenant:
+            continue
+
+        uid = source["uid"]
+
+        resultat.append(
+            {
+                "uid": uid,
+                "dtstamp": (
+                    dtstamps_existants.get(uid)
+                    or datetime.now(timezone.utc).strftime(
+                        "%Y%m%dT%H%M%SZ"
+                    )
+                ),
+                "dtstart": debut.strftime("%Y%m%dT%H%M%SZ"),
+                "dtend": fin.strftime("%Y%m%dT%H%M%SZ"),
+                "match": source["match"],
+                "chaines": [source["chaine"]],
+                "url": source["url"],
+                "lieu": source["lieu"],
+                "statut_lieu": "source",
+            }
+        )
+
+    return resultat
+
+
 def extraire_affiche_netflix_page_nfl(page):
     analyseur = AnalyseurTexteNFLNetflix()
     analyseur.feed(page)
@@ -989,6 +1479,308 @@ def creer_evenements_netflix_nfl(sport, dtstamps_existants):
     return resultat
 
 
+def recuperer_referentiel_nfl_2026():
+    reponse = requests.get(
+        NFLVERSE_GAMES_URL,
+        headers=EN_TETES,
+        timeout=30,
+    )
+    reponse.raise_for_status()
+
+    resultat = []
+    lecteur = csv.DictReader(io.StringIO(reponse.text))
+
+    for ligne in lecteur:
+        if ligne.get("season") != "2026":
+            continue
+        if ligne.get("game_type") not in ("REG", "WC", "DIV", "CON", "SB"):
+            continue
+
+        code_ext = (ligne.get("away_team") or "").strip()
+        code_dom = (ligne.get("home_team") or "").strip()
+        exterieur = NFL_TEAM_CODES.get(code_ext)
+        domicile = NFL_TEAM_CODES.get(code_dom)
+        gameday = (ligne.get("gameday") or "").strip()
+        gametime = (ligne.get("gametime") or "").strip()
+
+        if not exterieur or not domicile or not gameday or not gametime:
+            continue
+
+        try:
+            debut_est = datetime.strptime(
+                gameday + " " + gametime,
+                "%Y-%m-%d %H:%M",
+            ).replace(tzinfo=NEW_YORK)
+        except ValueError:
+            continue
+
+        debut_utc = debut_est.astimezone(timezone.utc)
+        match = f"{domicile} - {exterieur}"
+        resultat.append(
+            {
+                "game_id": (ligne.get("game_id") or "").strip(),
+                "week": (ligne.get("week") or "").strip(),
+                "weekday": (ligne.get("weekday") or "").strip(),
+                "gametime": gametime,
+                "gameday": gameday,
+                "match": match,
+                "dtstart": debut_utc.strftime("%Y%m%dT%H%M%SZ"),
+                "dtend": (debut_utc + timedelta(hours=4)).strftime(
+                    "%Y%m%dT%H%M%SZ"
+                ),
+                "lieu": (ligne.get("stadium") or "").strip() or None,
+            }
+        )
+
+    return resultat
+
+
+def trouver_match_referentiel_nfl(referentiel, match, dtstart=None):
+    cle = cle_equipes_match(match)
+    if cle is None:
+        return None
+
+    candidats = [
+        jeu
+        for jeu in referentiel
+        if cle_equipes_match(jeu.get("match")) == cle
+    ]
+    if not candidats:
+        return None
+
+    debut = parse_datetime_ics(dtstart)
+    if debut is None:
+        return candidats[0] if len(candidats) == 1 else None
+
+    candidats.sort(
+        key=lambda jeu: abs(
+            (
+                parse_datetime_ics(jeu.get("dtstart")) - debut
+            ).total_seconds()
+        )
+    )
+    meilleur = candidats[0]
+    ecart = abs(
+        (
+            parse_datetime_ics(meilleur.get("dtstart")) - debut
+        ).total_seconds()
+    )
+    return meilleur if ecart <= 48 * 60 * 60 else None
+
+
+def creer_evenement_depuis_referentiel(
+    jeu,
+    chaine,
+    sport,
+    dtstamps_existants,
+    url,
+    uid_prefixe,
+):
+    compact = re.sub(
+        r"[^a-z0-9]+",
+        "-",
+        normaliser_ascii(jeu["match"]),
+    ).strip("-")
+    uid = (
+        f"{uid_prefixe}-{jeu.get('game_id') or compact}"
+        "@sports-us-bein-calendar"
+    )
+
+    return {
+        "uid": uid,
+        "dtstamp": (
+            dtstamps_existants.get(uid)
+            or datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+        ),
+        "dtstart": jeu["dtstart"],
+        "dtend": jeu["dtend"],
+        "match": jeu["match"],
+        "chaines": [chaine],
+        "url": url,
+        "lieu": jeu.get("lieu") or stade_estime(jeu["match"], sport),
+        "statut_lieu": "source" if jeu.get("lieu") else "estimation",
+        "game_id": jeu.get("game_id"),
+    }
+
+
+def est_match_netflix_connu(jeu):
+    cle = cle_equipes_match(jeu.get("match"))
+    if cle is None:
+        return False
+
+    for source in MATCHS_NETFLIX_NFL:
+        if cle_equipes_match(source.get("match")) != cle:
+            continue
+        debut_source = parse_datetime_ics(source.get("debut_utc"))
+        debut_jeu = parse_datetime_ics(jeu.get("dtstart"))
+        if debut_source and debut_jeu:
+            if abs((debut_source - debut_jeu).total_seconds()) <= 12 * 60 * 60:
+                return True
+    return False
+
+
+def creer_evenements_bein_depuis_referentiel(
+    referentiel,
+    sport,
+    dtstamps_existants,
+):
+    maintenant = datetime.now(timezone.utc)
+    resultat = []
+
+    for jeu in referentiel:
+        debut = parse_datetime_ics(jeu.get("dtstart"))
+        if debut is None or debut + timedelta(hours=4) <= maintenant:
+            continue
+
+        if est_match_netflix_connu(jeu):
+            continue
+
+        weekday = jeu.get("weekday")
+        gametime = jeu.get("gametime") or ""
+        week = str(jeu.get("week") or "")
+
+        # Packages explicitement détenus par beIN : TNF, SNF et MNF.
+        # On évite volontairement les matches Netflix connus, même s'ils
+        # tombent un jeudi.
+        prime_time = (
+            (weekday == "Thursday" and gametime.startswith("20:") and week != "1")
+            or (weekday == "Sunday" and gametime.startswith("20:"))
+            or (weekday == "Monday" and gametime.startswith("20:"))
+        )
+
+        # Match d'ouverture 2026 déjà annoncé officiellement par beIN.
+        ouverture = jeu.get("game_id") == "2026_01_NE_SEA"
+
+        # Paris Game déjà annoncé par beIN ; les autres sources pourront
+        # ensuite remplacer la chaîne générique par le canal exact.
+        paris = cle_equipes_match(jeu.get("match")) == cle_equipes_match(
+            "New Orleans Saints - Pittsburgh Steelers"
+        )
+
+        if not (prime_time or ouverture or paris):
+            continue
+
+        resultat.append(
+            creer_evenement_depuis_referentiel(
+                jeu,
+                "beIN SPORTS (chaîne à confirmer)",
+                sport,
+                dtstamps_existants,
+                BEIN_NFL_2026_URL,
+                "nfl-bein-reference",
+            )
+        )
+
+    return resultat
+
+
+def url_linternaute_lequipe(date):
+    return (
+        LINTERNAUTE_LEQUIPE_BASE
+        + f"{JOURS_URL[date.weekday()]}-{date.day}-"
+        + f"{MOIS_URL[date.month]}-{date.year}/"
+    )
+
+
+def extraire_blocs_nfl_texte(textes):
+    blocs = []
+    for index, texte in enumerate(textes):
+        compact = normaliser_ascii(texte)
+        if "football americain" in compact and "nfl" in compact:
+            blocs.append(" ".join(textes[index:index + 35]))
+    return blocs
+
+
+def equipes_nfl_mentionnees(texte):
+    compact = normaliser_ascii(texte)
+    resultat = set()
+    for surnom, complet in NOMS_COURTS_NFL.items():
+        if re.search(
+            r"\b" + re.escape(normaliser_ascii(surnom)) + r"\b",
+            compact,
+        ):
+            resultat.add(complet)
+        elif normaliser_ascii(complet) in compact:
+            resultat.add(complet)
+    return resultat
+
+
+def recuperer_evenements_nfl_linternaute(
+    referentiel,
+    sport,
+    dtstamps_existants,
+    jours=35,
+):
+    aujourd_hui = datetime.now(PARIS).date()
+    maintenant = datetime.now(timezone.utc)
+    resultat = []
+    deja = set()
+
+    for decalage in range(jours + 1):
+        date = aujourd_hui + timedelta(days=decalage)
+        # L'accord porte sur une affiche dominicale régulière ; inutile de
+        # charger toutes les journées pour cette source de secours.
+        if date.weekday() != 6:
+            continue
+
+        url = url_linternaute_lequipe(date)
+        try:
+            reponse = requests.get(
+                url,
+                headers=EN_TETES,
+                timeout=20,
+            )
+            if reponse.status_code == 404:
+                continue
+            reponse.raise_for_status()
+        except requests.RequestException:
+            continue
+
+        analyseur = AnalyseurTexteNFLNetflix()
+        analyseur.feed(reponse.text)
+        analyseur.close()
+
+        for bloc in extraire_blocs_nfl_texte(analyseur.textes):
+            mentionnees = equipes_nfl_mentionnees(bloc)
+            candidats = []
+
+            for jeu in referentiel:
+                debut = parse_datetime_ics(jeu.get("dtstart"))
+                if debut is None or debut <= maintenant:
+                    continue
+                if debut.astimezone(PARIS).date() != date:
+                    continue
+
+                equipes_jeu = set(extraire_equipes_match(jeu.get("match")))
+                if mentionnees and mentionnees.issubset(equipes_jeu):
+                    candidats.append(jeu)
+
+            # Si deux équipes sont reconnues, le rapprochement est sûr.
+            # Avec une seule, on n'accepte que si un seul match de la journée
+            # contient cette équipe.
+            if len(candidats) != 1:
+                continue
+
+            jeu = candidats[0]
+            cle = jeu.get("game_id") or jeu.get("match")
+            if cle in deja:
+                continue
+            deja.add(cle)
+
+            resultat.append(
+                creer_evenement_depuis_referentiel(
+                    jeu,
+                    "L'Équipe",
+                    sport,
+                    dtstamps_existants,
+                    url,
+                    "nfl-lequipe-linternaute",
+                )
+            )
+
+    return resultat
+
+
 def memes_equipes(evenement_1, evenement_2):
     cle_1 = cle_equipes_match(evenement_1.get("match"))
     cle_2 = cle_equipes_match(evenement_2.get("match"))
@@ -1000,6 +1792,11 @@ def meme_match_nfl(evenement_1, evenement_2):
         evenement_2.get("match")
     ):
         return False
+
+    game_id_1 = evenement_1.get("game_id")
+    game_id_2 = evenement_2.get("game_id")
+    if game_id_1 and game_id_2 and game_id_1 == game_id_2:
+        return True
 
     if not memes_equipes(evenement_1, evenement_2):
         return False
@@ -1014,6 +1811,47 @@ def meme_match_nfl(evenement_1, evenement_2):
     # 8 h permet aussi de fusionner une éventuelle diffusion différée
     # L'Équipe avec le direct du même match, sans créer un doublon.
     return ecart <= 8 * 60 * 60
+
+
+def conserver_lequipe_existante_en_secours(
+    evenements_existants,
+    evenements_lequipe_officiels,
+    dates_couvertes,
+    source_officielle_ok,
+):
+    resultat = []
+
+    for existant in evenements_existants:
+        chaines_lequipe = [
+            chaine
+            for chaine in existant.get("chaines", [])
+            if "L'Équipe" in chaine
+        ]
+
+        if not chaines_lequipe:
+            continue
+
+        debut = parse_datetime_ics(existant.get("dtstart"))
+        date_locale = (
+            debut.astimezone(PARIS).date()
+            if debut is not None
+            else None
+        )
+
+        if source_officielle_ok and date_locale in dates_couvertes:
+            # La page officielle couvre cette date. Si l'événement n'y est
+            # plus marqué L'Équipe, on ne conserve pas une ancienne annonce.
+            if not any(
+                meme_match_nfl(existant, officiel)
+                for officiel in evenements_lequipe_officiels
+            ):
+                continue
+
+        copie = dict(existant)
+        copie["chaines"] = list(chaines_lequipe)
+        resultat.append(copie)
+
+    return resultat
 
 
 def priorite_lieu(statut):
@@ -1031,6 +1869,9 @@ def fusionner_deux_evenements_nfl(cible, source, sport):
         cible.get("chaines", []) + source.get("chaines", []),
         sport,
     )
+
+    if source.get("game_id") and not cible.get("game_id"):
+        cible["game_id"] = source.get("game_id")
 
     debut_cible = parse_datetime_ics(cible.get("dtstart"))
     debut_source = parse_datetime_ics(source.get("dtstart"))
@@ -1362,6 +2203,12 @@ def extraire_chaines_calendrier_existant(evenement, sport):
 
 
 def charger_evenements_existants(fichier, sport):
+    """Charge tous les événements déjà présents, passés comme futurs.
+
+    Le fichier ICS devient ainsi la mémoire historique du calendrier. Les
+    événements passés sont conservés définitivement ; les événements futurs
+    restent, eux, remplaçables par les données fraîches des sources.
+    """
     try:
         with open(fichier, encoding="utf-8") as calendrier:
             sources = extraire_evenements_ics(calendrier.read())
@@ -1369,7 +2216,6 @@ def charger_evenements_existants(fichier, sport):
         return []
 
     resultat = []
-    maintenant = datetime.now(timezone.utc)
 
     for source in sources:
         uid = valeur_propriete(source, "UID")
@@ -1380,10 +2226,6 @@ def charger_evenements_existants(fichier, sport):
         chaines = extraire_chaines_calendrier_existant(source, sport)
 
         if not uid or not dtstart or not match or not chaines:
-            continue
-
-        fin = parse_datetime_ics(dtend or dtstart)
-        if fin and fin < maintenant:
             continue
 
         lieu_brut = valeur_propriete(source, "LOCATION")
@@ -1413,6 +2255,56 @@ def charger_evenements_existants(fichier, sport):
 
     return resultat
 
+
+def evenement_est_passe(evenement, sport, maintenant=None):
+    if maintenant is None:
+        maintenant = datetime.now(timezone.utc)
+
+    fin = parse_datetime_ics(evenement.get("dtend"))
+
+    if fin is None:
+        debut = parse_datetime_ics(evenement.get("dtstart"))
+        if debut is None:
+            return False
+        fin = debut + timedelta(
+            minutes=duree_evenement(
+                evenement.get("match", ""),
+                sport,
+            )
+        )
+
+    return fin <= maintenant
+
+
+def separer_evenements_existants(evenements, sport):
+    maintenant = datetime.now(timezone.utc)
+    historique = []
+    futurs = []
+
+    for evenement in evenements:
+        if evenement_est_passe(evenement, sport, maintenant):
+            historique.append(evenement)
+        else:
+            futurs.append(evenement)
+
+    return historique, futurs
+
+
+def fusionner_historique_generique(historique, evenements_frais):
+    """Conserve l'historique puis ajoute les données fraîches sans doublon UID."""
+    resultat = []
+    index_uid = set()
+
+    for evenement in historique + evenements_frais:
+        uid = evenement.get("uid")
+        if uid and uid in index_uid:
+            continue
+        if uid:
+            index_uid.add(uid)
+        resultat.append(dict(evenement))
+
+    resultat.sort(key=lambda evenement: evenement.get("dtstart", ""))
+    return resultat
 
 def uid_canonique_nfl(evenement):
     cle_equipes = cle_equipes_match(evenement.get("match"))
@@ -1558,6 +2450,17 @@ def traiter_sport(sport):
         sport["fichier"],
         sport,
     )
+    historique_passe, evenements_existants_futurs = (
+        separer_evenements_existants(
+            evenements_existants,
+            sport,
+        )
+    )
+
+    print(
+        f"  Historique conservé : {len(historique_passe)} "
+        "événement(s) passé(s)."
+    )
 
     evenements_tv_sports = []
     source_tv_sports_ok = False
@@ -1613,6 +2516,112 @@ def traiter_sport(sport):
                 f"{erreur}"
             )
 
+        print(
+            "  Chargement du référentiel calendrier NFL "
+            "(nflverse, horaires/stades)…"
+        )
+        referentiel_nfl = []
+        try:
+            referentiel_nfl = recuperer_referentiel_nfl_2026()
+            print(
+                f"    {len(referentiel_nfl)} match(s) NFL 2026 "
+                "chargé(s) dans le référentiel."
+            )
+        except (requests.RequestException, RuntimeError, ValueError) as erreur:
+            print(
+                "    AVERTISSEMENT : référentiel NFL indisponible : "
+                f"{erreur}"
+            )
+
+        evenements_bein_reference = []
+        if referentiel_nfl:
+            print(
+                "  Vérification des packages TNF / MNF / SNF "
+                "et annonces officielles beIN SPORTS…"
+            )
+            evenements_bein_reference = (
+                creer_evenements_bein_depuis_referentiel(
+                    referentiel_nfl,
+                    sport,
+                    dtstamps_existants,
+                )
+            )
+            print(
+                f"    {len(evenements_bein_reference)} match(s) NFL "
+                "beIN ajouté(s) depuis les droits confirmés "
+                "et le calendrier NFL."
+            )
+            if evenements_bein_reference:
+                sources_utilisees.append("beIN + calendrier NFL")
+
+        evenements_lequipe_linternaute = []
+        if referentiel_nfl:
+            print(
+                "  Vérification de secours des prochaines sélections "
+                "L'Équipe sur Linternaute…"
+            )
+            evenements_lequipe_linternaute = (
+                recuperer_evenements_nfl_linternaute(
+                    referentiel_nfl,
+                    sport,
+                    dtstamps_existants,
+                )
+            )
+            print(
+                f"    {len(evenements_lequipe_linternaute)} match(s) NFL "
+                "L'Équipe détecté(s) sur la grille Linternaute."
+            )
+            if evenements_lequipe_linternaute:
+                sources_utilisees.append("Linternaute / grille L'Équipe")
+
+        print(
+            "  Vérification NFL directement sur "
+            "le calendrier officiel L'Équipe…"
+        )
+
+        evenements_lequipe_officiels = []
+        dates_lequipe_couvertes = set()
+        source_lequipe_officielle_ok = False
+
+        try:
+            (
+                evenements_lequipe_officiels,
+                dates_lequipe_couvertes,
+            ) = recuperer_evenements_nfl_lequipe_officiel(
+                sport,
+                dtstamps_existants,
+            )
+            source_lequipe_officielle_ok = True
+
+            if evenements_lequipe_officiels:
+                sources_utilisees.append("L'Équipe officiel")
+
+        except (requests.RequestException, RuntimeError) as erreur:
+            print(
+                "  AVERTISSEMENT : "
+                "calendrier officiel L'Équipe impossible : "
+                f"{erreur}"
+            )
+
+        evenements_lequipe_confirmes = (
+            creer_evenements_lequipe_confirmes(
+                sport,
+                dtstamps_existants,
+            )
+        )
+
+        if evenements_lequipe_confirmes:
+            sources_utilisees.append("Annonces officielles L'Équipe")
+
+        evenements_lequipe_secours = (
+            conserver_lequipe_existante_en_secours(
+                evenements_existants_futurs,
+                evenements_lequipe_officiels,
+                dates_lequipe_couvertes,
+                source_lequipe_officielle_ok,
+            )
+        )
+
         evenements_netflix = creer_evenements_netflix_nfl(
             sport,
             dtstamps_existants,
@@ -1628,7 +2637,13 @@ def traiter_sport(sport):
         if evenements_netflix:
             sources_utilisees.append("Netflix")
 
-        if not evenements_tv_sports and not evenements_tv_programme:
+        if (
+            not evenements_tv_sports
+            and not evenements_tv_programme
+            and not evenements_lequipe_officiels
+            and not evenements_bein_reference
+            and not evenements_lequipe_linternaute
+        ):
             if evenements_existants:
                 print(
                     "  Sources de programmation NFL "
@@ -1639,15 +2654,29 @@ def traiter_sport(sport):
 
                 evenements_sources = [
                     evenements_existants,
+                    evenements_bein_reference,
+                    evenements_lequipe_confirmes,
+                    evenements_lequipe_linternaute,
                     evenements_netflix,
                 ]
                 sources_utilisees.append("Calendrier existant")
             else:
-                evenements_sources = [evenements_netflix]
+                evenements_sources = [
+                    evenements_bein_reference,
+                    evenements_lequipe_confirmes,
+                    evenements_lequipe_linternaute,
+                    evenements_netflix,
+                ]
         else:
             evenements_sources = [
+                historique_passe,
+                evenements_bein_reference,
                 evenements_tv_sports,
                 evenements_tv_programme,
+                evenements_lequipe_officiels,
+                evenements_lequipe_confirmes,
+                evenements_lequipe_linternaute,
+                evenements_lequipe_secours,
                 evenements_netflix,
             ]
 
@@ -1661,12 +2690,30 @@ def traiter_sport(sport):
             evenements_existants,
         )
 
-        # Les variables sont gardées pour distinguer un vrai échec réseau
-        # d'un flux valide qui n'a simplement aucune affiche à ce moment-là.
-        _ = source_tv_sports_ok, source_tv_programme_ok
+        print(
+            f"  {len(evenements_lequipe_officiels)} "
+            "match(s) NFL L'Équipe détecté(s) "
+            "directement sur le calendrier officiel."
+        )
+
+        # Ces variables distinguent un vrai échec réseau d'une source
+        # valide ne contenant simplement encore aucune affiche.
+        _ = (
+            source_tv_sports_ok,
+            source_tv_programme_ok,
+            source_lequipe_officielle_ok,
+        )
 
     else:
-        evenements = evenements_tv_sports
+        if source_tv_sports_ok:
+            evenements = fusionner_historique_generique(
+                historique_passe,
+                evenements_tv_sports,
+            )
+        else:
+            evenements = evenements_existants
+            if evenements:
+                sources_utilisees.append("Calendrier existant")
 
     if not evenements:
         print(
@@ -1799,6 +2846,8 @@ def ecrire_calendrier_global():
 
 
 def main():
+    print(f"Version script : {VERSION_SCRIPT}")
+
     for sport in SPORTS:
         traiter_sport(sport)
 
