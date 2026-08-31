@@ -10,7 +10,7 @@ from zoneinfo import ZoneInfo
 import requests
 
 
-VERSION_SCRIPT = "2026-08-31-multisource-nfl-v6.2-redzone"
+VERSION_SCRIPT = "2026-08-31-multisource-nfl-v6.3-postseason"
 
 
 EN_TETES = {
@@ -55,6 +55,20 @@ SPORTS = (
         "duree_minutes": 240,
     },
 )
+
+
+MLB_POSTSEASON_API_URL = (
+    "https://statsapi.mlb.com/api/v1/schedule/postseason"
+)
+
+MLB_POSTSEASON_INFO_URL = "https://www.mlb.com/postseason"
+
+MLB_POSTSEASON_RIGHTS_URL = (
+    "https://www.mlb.com/postseason/international-broadcasters"
+)
+
+MLB_POSTSEASON_GAME_TYPES = {"F", "D", "L", "W"}
+MLB_POSTSEASON_SEASON = 2026
 
 
 NFLVERSE_GAMES_URL = (
@@ -469,6 +483,14 @@ def normaliser_liste_chaines(chaines, sport):
             chaine
             for chaine in resultat
             if chaine != "Bouquet L'Équipe"
+        ]
+
+    # Une mention précise de différé remplace le simple "L'Équipe".
+    if any(chaine.startswith("L'Équipe (") for chaine in resultat):
+        resultat = [
+            chaine
+            for chaine in resultat
+            if chaine != "L'Équipe"
         ]
 
     # Une grille détaillée doit toujours remplacer la mention beIN générique.
@@ -952,6 +974,316 @@ def recuperer_evenements_tv_sports(sport, dtstamps_existants):
             evenements.append(evenement)
 
     return evenements
+
+
+def nom_equipe_mlb_valide(nom):
+    compact = normaliser_nom(nom or "")
+    return bool(compact and compact in STADES_MLB)
+
+
+def parse_datetime_iso_utc(valeur):
+    if not valeur:
+        return None
+
+    try:
+        resultat = datetime.fromisoformat(
+            str(valeur).strip().replace("Z", "+00:00")
+        )
+    except ValueError:
+        return None
+
+    if resultat.tzinfo is None:
+        resultat = resultat.replace(tzinfo=timezone.utc)
+
+    return resultat.astimezone(timezone.utc)
+
+
+def lieu_mlb_postseason(jeu, match, sport):
+    venue = jeu.get("venue") or {}
+    nom = " ".join(str(venue.get("name") or "").split())
+    location = venue.get("location") or {}
+    ville = " ".join(str(location.get("city") or "").split())
+
+    if nom:
+        if ville and normaliser_ascii(ville) not in normaliser_ascii(nom):
+            return f"{nom}, {ville}", "source"
+        return nom, "source"
+
+    estime = stade_estime(match, sport)
+    if estime:
+        return estime, "estimation"
+
+    return None, None
+
+
+def recuperer_evenements_mlb_postseason(
+    sport,
+    dtstamps_existants,
+):
+    """
+    Récupère le calendrier officiel MLB Postseason 2026 via StatsAPI.
+
+    On n'ajoute une rencontre que lorsque les deux équipes MLB réelles et
+    l'heure de début sont connues. Les affiches TBD ne polluent donc jamais
+    le calendrier. Les matchs devenus inutiles/annulés disparaissent des
+    événements futurs lors d'un run ultérieur, tandis que l'historique déjà
+    passé reste conservé par la logique générale du calendrier.
+
+    Retourne (événements, source_autoritative, total_objets_source).
+    """
+    if sport["prefixe"] != "MLB":
+        return [], False, 0
+
+    reponse = requests.get(
+        MLB_POSTSEASON_API_URL,
+        params={
+            "sportId": 1,
+            "season": MLB_POSTSEASON_SEASON,
+            "hydrate": "venue(location)",
+        },
+        headers=EN_TETES,
+        timeout=30,
+    )
+    reponse.raise_for_status()
+
+    try:
+        donnees = reponse.json()
+    except ValueError as erreur:
+        raise RuntimeError(
+            "Réponse MLB StatsAPI postseason non JSON."
+        ) from erreur
+
+    dates = donnees.get("dates")
+    if not isinstance(dates, list):
+        raise RuntimeError(
+            "Réponse MLB StatsAPI postseason invalide : dates absentes."
+        )
+
+    resultat = []
+    maintenant = datetime.now(timezone.utc)
+    total_objets = 0
+
+    for jour in dates:
+        jeux = jour.get("games") or []
+        if not isinstance(jeux, list):
+            continue
+
+        for jeu in jeux:
+            total_objets += 1
+
+            game_type = str(jeu.get("gameType") or "").upper()
+            if game_type and game_type not in MLB_POSTSEASON_GAME_TYPES:
+                continue
+
+            statut = jeu.get("status") or {}
+            detail_statut = normaliser_ascii(
+                statut.get("detailedState") or ""
+            )
+            if any(
+                mot in detail_statut
+                for mot in (
+                    "cancelled",
+                    "canceled",
+                    "postponed",
+                    "suspended",
+                )
+            ):
+                continue
+
+            if (
+                jeu.get("startTimeTBD") is True
+                or statut.get("startTimeTBD") is True
+            ):
+                continue
+
+            equipes = jeu.get("teams") or {}
+            domicile = (
+                ((equipes.get("home") or {}).get("team") or {}).get(
+                    "name"
+                )
+            )
+            exterieur = (
+                ((equipes.get("away") or {}).get("team") or {}).get(
+                    "name"
+                )
+            )
+
+            if not (
+                nom_equipe_mlb_valide(domicile)
+                and nom_equipe_mlb_valide(exterieur)
+            ):
+                continue
+
+            debut = parse_datetime_iso_utc(jeu.get("gameDate"))
+            if debut is None:
+                continue
+
+            fin = debut + timedelta(minutes=sport["duree_minutes"])
+            if fin <= maintenant:
+                continue
+
+            match = formater_match(f"{domicile} - {exterieur}")
+            game_pk = jeu.get("gamePk")
+            if game_pk is None:
+                continue
+
+            uid = (
+                f"mlb-postseason-{game_pk}"
+                "@sports-us-bein-calendar"
+            )
+            lieu, statut_lieu = lieu_mlb_postseason(
+                jeu,
+                match,
+                sport,
+            )
+
+            resultat.append(
+                {
+                    "uid": uid,
+                    "dtstamp": (
+                        dtstamps_existants.get(uid)
+                        or datetime.now(timezone.utc).strftime(
+                            "%Y%m%dT%H%M%SZ"
+                        )
+                    ),
+                    "dtstart": debut.strftime("%Y%m%dT%H%M%SZ"),
+                    "dtend": fin.strftime("%Y%m%dT%H%M%SZ"),
+                    "match": match,
+                    "chaines": [
+                        "beIN SPORTS (chaîne à confirmer)"
+                    ],
+                    "url": MLB_POSTSEASON_INFO_URL,
+                    "lieu": lieu,
+                    "statut_lieu": statut_lieu,
+                    "game_pk": str(game_pk),
+                    "postseason_officiel": True,
+                    "horaire_mlb_officiel": True,
+                }
+            )
+
+    resultat.sort(key=lambda evenement: evenement["dtstart"])
+
+    # Si l'endpoint renvoie une structure de calendrier (même avec des
+    # affiches encore TBD), il est autoritatif pour retirer ensuite les
+    # matchs futurs devenus inutiles. Une réponse totalement vide est
+    # traitée comme non autoritative afin d'éviter une purge sur incident.
+    source_autoritative = total_objets > 0
+    return resultat, source_autoritative, total_objets
+
+
+def meme_match_mlb(evenement_1, evenement_2):
+    game_pk_1 = str(evenement_1.get("game_pk") or "").strip()
+    game_pk_2 = str(evenement_2.get("game_pk") or "").strip()
+    if game_pk_1 and game_pk_2 and game_pk_1 == game_pk_2:
+        return True
+
+    if not memes_equipes(evenement_1, evenement_2):
+        return False
+
+    debut_1 = parse_datetime_ics(evenement_1.get("dtstart"))
+    debut_2 = parse_datetime_ics(evenement_2.get("dtstart"))
+    if debut_1 is None or debut_2 is None:
+        return False
+
+    # Une grille TV peut annoncer une prise d'antenne légèrement différente
+    # du premier lancer officiel. 12 h restent très inférieures à l'écart
+    # entre deux matchs consécutifs d'une même série.
+    return abs((debut_1 - debut_2).total_seconds()) <= 12 * 60 * 60
+
+
+def fusionner_deux_evenements_mlb(cible, source, sport):
+    cible["chaines"] = normaliser_liste_chaines(
+        cible.get("chaines", []) + source.get("chaines", []),
+        sport,
+    )
+
+    # Le calendrier MLB officiel fournit l'heure du premier lancer : il
+    # prévaut sur une éventuelle heure de prise d'antenne de la grille TV.
+    if source.get("horaire_mlb_officiel"):
+        cible["dtstart"] = source.get("dtstart")
+        cible["dtend"] = source.get("dtend")
+        cible["horaire_mlb_officiel"] = True
+
+    if source.get("game_pk") and not cible.get("game_pk"):
+        cible["game_pk"] = source.get("game_pk")
+
+    if source.get("postseason_officiel"):
+        cible["postseason_officiel"] = True
+
+    if priorite_lieu(source.get("statut_lieu")) > priorite_lieu(
+        cible.get("statut_lieu")
+    ):
+        cible["lieu"] = source.get("lieu")
+        cible["statut_lieu"] = source.get("statut_lieu")
+
+    if source.get("postseason_officiel") and source.get("url"):
+        cible["url"] = source.get("url")
+    elif not cible.get("url") and source.get("url"):
+        cible["url"] = source.get("url")
+
+    return cible
+
+
+def fusionner_evenements_mlb(groupes, sport):
+    resultat = []
+
+    for groupe in groupes:
+        for source in groupe:
+            correspondant = None
+
+            for existant in resultat:
+                if meme_match_mlb(existant, source):
+                    correspondant = existant
+                    break
+
+            if correspondant is None:
+                copie = dict(source)
+                copie["chaines"] = normaliser_liste_chaines(
+                    copie.get("chaines", []),
+                    sport,
+                )
+                resultat.append(copie)
+            else:
+                fusionner_deux_evenements_mlb(
+                    correspondant,
+                    source,
+                    sport,
+                )
+
+    resultat.sort(key=lambda evenement: evenement.get("dtstart", ""))
+    return resultat
+
+
+def stabiliser_identifiants_mlb(evenements, existants):
+    maintenant_dtstamp = datetime.now(timezone.utc).strftime(
+        "%Y%m%dT%H%M%SZ"
+    )
+
+    for evenement in evenements:
+        if not evenement.get("postseason_officiel"):
+            continue
+
+        precedent = None
+        for existant in existants:
+            if meme_match_mlb(evenement, existant):
+                precedent = existant
+                break
+
+        if precedent:
+            evenement["uid"] = precedent["uid"]
+            evenement["dtstamp"] = (
+                precedent.get("dtstamp") or maintenant_dtstamp
+            )
+        else:
+            game_pk = str(evenement.get("game_pk") or "").strip()
+            if game_pk:
+                evenement["uid"] = (
+                    f"mlb-postseason-{game_pk}"
+                    "@sports-us-bein-calendar"
+                )
+            evenement["dtstamp"] = (
+                evenement.get("dtstamp") or maintenant_dtstamp
+            )
 
 
 class AnalyseurTexteNFLNetflix(HTMLParser):
@@ -2359,6 +2691,16 @@ def charger_evenements_existants(fichier, sport):
         url_brute = valeur_propriete(source, "URL")
         url = deschapper_ics(url_brute).strip() if url_brute else None
 
+        game_pk = valeur_propriete(source, "X-MLB-GAME-PK")
+        postseason_brut = valeur_propriete(
+            source,
+            "X-MLB-POSTSEASON",
+        )
+        postseason_officiel = (
+            str(postseason_brut or "").strip().upper() == "TRUE"
+            or str(uid).startswith("mlb-postseason-")
+        )
+
         resultat.append(
             {
                 "uid": uid,
@@ -2375,6 +2717,8 @@ def charger_evenements_existants(fichier, sport):
                 "url": url,
                 "lieu": lieu,
                 "statut_lieu": "conserve" if lieu else None,
+                "game_pk": game_pk,
+                "postseason_officiel": postseason_officiel,
             }
         )
 
@@ -2489,6 +2833,14 @@ def construire_evenement(evenement, sport):
 
     if evenement.get("dtend"):
         lignes.append(f"DTEND:{evenement['dtend']}")
+
+    if sport["prefixe"] == "MLB":
+        if evenement.get("game_pk"):
+            lignes.append(
+                "X-MLB-GAME-PK:" + str(evenement["game_pk"])
+            )
+        if evenement.get("postseason_officiel"):
+            lignes.append("X-MLB-POSTSEASON:TRUE")
 
     lignes.extend(
         [
@@ -2849,15 +3201,98 @@ def traiter_sport(sport):
         )
 
     else:
-        if source_tv_sports_ok:
-            evenements = fusionner_historique_generique(
-                historique_passe,
-                evenements_tv_sports,
+        print(
+            "  Vérification du calendrier officiel MLB Postseason "
+            "(StatsAPI)…"
+        )
+        evenements_mlb_postseason = []
+        source_mlb_postseason_ok = False
+        source_mlb_postseason_autoritative = False
+        total_mlb_postseason_source = 0
+
+        try:
+            (
+                evenements_mlb_postseason,
+                source_mlb_postseason_autoritative,
+                total_mlb_postseason_source,
+            ) = recuperer_evenements_mlb_postseason(
+                sport,
+                dtstamps_existants,
             )
+            source_mlb_postseason_ok = True
+            print(
+                f"    {len(evenements_mlb_postseason)} match(s) "
+                "de postseason MLB avec affiche + horaire officiel "
+                "encore à venir."
+            )
+            if total_mlb_postseason_source:
+                print(
+                    f"    {total_mlb_postseason_source} objet(s) "
+                    "postseason présent(s) dans le calendrier MLB "
+                    "officiel (les affiches TBD sont ignorées)."
+                )
+            if evenements_mlb_postseason:
+                sources_utilisees.append("MLB Postseason officiel")
+        except (
+            requests.RequestException,
+            RuntimeError,
+            ValueError,
+        ) as erreur:
+            print(
+                "    AVERTISSEMENT : calendrier MLB Postseason "
+                f"indisponible : {erreur}"
+            )
+
+        futurs_postseason_existants = [
+            evenement
+            for evenement in evenements_existants_futurs
+            if evenement.get("postseason_officiel")
+            or str(evenement.get("uid") or "").startswith(
+                "mlb-postseason-"
+            )
+        ]
+        futurs_non_postseason_existants = [
+            evenement
+            for evenement in evenements_existants_futurs
+            if evenement not in futurs_postseason_existants
+        ]
+
+        groupes_mlb = [historique_passe]
+
+        if source_tv_sports_ok:
+            groupes_mlb.append(evenements_tv_sports)
         else:
-            evenements = evenements_existants
-            if evenements:
+            # Une panne TV-Sports ne doit jamais effacer les matchs futurs
+            # déjà connus dans l'agenda.
+            groupes_mlb.append(futurs_non_postseason_existants)
+            if futurs_non_postseason_existants:
                 sources_utilisees.append("Calendrier existant")
+
+        if source_mlb_postseason_ok and source_mlb_postseason_autoritative:
+            groupes_mlb.append(evenements_mlb_postseason)
+        else:
+            # Si StatsAPI est vide ou indisponible, on garde temporairement
+            # les playoffs déjà connus afin d'éviter une purge accidentelle.
+            groupes_mlb.append(futurs_postseason_existants)
+            if futurs_postseason_existants:
+                sources_utilisees.append(
+                    "Postseason existante en secours"
+                )
+
+        evenements = fusionner_evenements_mlb(
+            groupes_mlb,
+            sport,
+        )
+        stabiliser_identifiants_mlb(
+            evenements,
+            evenements_existants,
+        )
+
+        _ = (
+            source_tv_sports_ok,
+            source_mlb_postseason_ok,
+            source_mlb_postseason_autoritative,
+        )
 
     if not evenements:
         print(
