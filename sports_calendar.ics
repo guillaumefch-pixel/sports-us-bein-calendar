@@ -622,7 +622,7 @@ DTSTAMP:20260816T150146Z
 DTSTART:20260904T140000Z
 DTEND:20260904T150000Z
 SUMMARY:🏎️ F1 — Monza — Essais libres 2
-DESCRIPTION:Grand Prix : Italian (Monza)\nDiffusion : Grand Prix de F1 (Canal+ Sport)\nhttps://tv-sports.fr/formule-1/grand-prix-de-f1
+DESCRIPTION:Grand Prix : Italian (Monza)\nDiffusion TV : non trouvée
 LOCATION:Monza
 GEO:45.6169;9.2825
 END:VEVENT
@@ -662,7 +662,7 @@ DTSTAMP:20260816T150146Z
 DTSTART:20260911T113000Z
 DTEND:20260911T123000Z
 SUMMARY:🏎️ F1 — Madrid — Essais libres 1
-DESCRIPTION:Grand Prix : Spanish (Madrid)\nDiffusion TV : non trouvée
+DESCRIPTION:Grand Prix : Spanish (Madrid)\nDiffusion : Formule 1 (Canal+ Sport)\nhttps://tv-sports.fr/formule-1/
 LOCATION:Madrid
 GEO:40.4168;-3.7038
 END:VEVENT
@@ -672,7 +672,7 @@ DTSTAMP:20260816T150146Z
 DTSTART:20260911T150000Z
 DTEND:20260911T160000Z
 SUMMARY:🏎️ F1 — Madrid — Essais libres 2
-DESCRIPTION:Grand Prix : Spanish (Madrid)\nDiffusion TV : non trouvée
+DESCRIPTION:Grand Prix : Spanish (Madrid)\nDiffusion : Formule 1 (Canal+ Sport)\nhttps://tv-sports.fr/formule-1/
 LOCATION:Madrid
 GEO:40.4168;-3.7038
 END:VEVENT
@@ -682,7 +682,7 @@ DTSTAMP:20260816T150146Z
 DTSTART:20260912T103000Z
 DTEND:20260912T113000Z
 SUMMARY:🏎️ F1 — Madrid — Essais libres 3
-DESCRIPTION:Grand Prix : Spanish (Madrid)\nDiffusion TV : non trouvée
+DESCRIPTION:Grand Prix : Spanish (Madrid)\nDiffusion : Formule 1 (Canal+ Sport)\nhttps://tv-sports.fr/formule-1/
 LOCATION:Madrid
 GEO:40.4168;-3.7038
 END:VEVENT
@@ -692,7 +692,7 @@ DTSTAMP:20260816T150146Z
 DTSTART:20260912T140000Z
 DTEND:20260912T150000Z
 SUMMARY:🏎️ F1 — Madrid — Qualifications
-DESCRIPTION:Grand Prix : Spanish (Madrid)\nDiffusion TV : non trouvée
+DESCRIPTION:Grand Prix : Spanish (Madrid)\nDiffusion : Formule 1 (Canal+ Sport)\nhttps://tv-sports.fr/formule-1/
 LOCATION:Madrid
 GEO:40.4168;-3.7038
 END:VEVENT
@@ -702,7 +702,7 @@ DTSTAMP:20260816T150146Z
 DTSTART:20260913T130000Z
 DTEND:20260913T150000Z
 SUMMARY:🏎️ F1 — Madrid — Grand Prix
-DESCRIPTION:Grand Prix : Spanish (Madrid)\nDiffusion TV : non trouvée
+DESCRIPTION:Grand Prix : Spanish (Madrid)\nDiffusion : Formule 1 (Canal+)\nhttps://tv-sports.fr/formule-1/
 LOCATION:Madrid
 GEO:40.4168;-3.7038
 END:VEVENT
@@ -1278,13 +1278,109 @@ STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+UID:episode-1158740-1788906600@tv-sports.fr
+DTSTAMP:20260904T182937Z
+DTSTART:20260908T223000Z
+DTEND:20260909T013000Z
+SUMMARY:⚾ MLB : Boston Red Sox - Los Angeles Angels
+DESCRIPTION:beIN SPORTS MAX 4
+LOCATION:Fenway Park\, Boston
+URL:https://tv-sports.fr/boston-red-sox-los-angeles-angels-tv-x1158740
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:episode-1158941-1788994800@tv-sports.fr
+DTSTAMP:20260904T182937Z
+DTSTART:20260909T230000Z
+DTEND:20260910T020000Z
+SUMMARY:⚾ MLB : Atlanta Braves - Tampa Bay Rays
+DESCRIPTION:beIN SPORTS MAX 4
+LOCATION:Truist Park\, Atlanta
+URL:https://tv-sports.fr/atlanta-braves-tampa-bay-rays-tv-x1158941
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:episode-1158941-1789056000@tv-sports.fr
+DTSTAMP:20260904T182937Z
+DTSTART:20260910T160000Z
+DTEND:20260910T190000Z
+SUMMARY:⚾ MLB : Atlanta Braves - Tampa Bay Rays
+DESCRIPTION:beIN SPORTS 2
+LOCATION:Truist Park\, Atlanta
+URL:https://tv-sports.fr/atlanta-braves-tampa-bay-rays-tv-x1158941
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:episode-1159096-1789083000@tv-sports.fr
+DTSTAMP:20260904T182937Z
+DTSTART:20260910T233000Z
+DTEND:20260911T023000Z
+SUMMARY:⚾ MLB : Chicago White Sox - Pittsburgh Pirates
+DESCRIPTION:beIN SPORTS MAX 4
+LOCATION:Rate Field\, Chicago
+URL:https://tv-sports.fr/chicago-white-sox-pittsburgh-pirates-tv-x1159096
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:episode-1159300-1789167600@tv-sports.fr
+DTSTAMP:20260904T182937Z
+DTSTART:20260911T230000Z
+DTEND:20260912T020000Z
+SUMMARY:⚾ MLB : New York Yankees - New York Mets
+DESCRIPTION:beIN SPORTS MAX 4
+LOCATION:Yankee Stadium\, New York
+URL:https://tv-sports.fr/new-york-yankees-new-york-mets-tv-x1159300
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:episode-1159578-1789236000@tv-sports.fr
+DTSTAMP:20260904T182937Z
+DTSTART:20260912T180000Z
+DTEND:20260912T210000Z
+SUMMARY:⚾ MLB : Chicago Cubs - Pittsburgh Pirates
+DESCRIPTION:beIN SPORTS MAX 7
+LOCATION:Wrigley Field\, Chicago
+URL:https://tv-sports.fr/chicago-cubs-pittsburgh-pirates-tv-x1159578
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:episode-1160006-1789340400@tv-sports.fr
+DTSTAMP:20260904T182937Z
+DTSTART:20260913T230000Z
+DTEND:20260914T020000Z
+SUMMARY:⚾ MLB : San Francisco Giants - San Diego Padres
+DESCRIPTION:beIN SPORTS MAX 6
+LOCATION:Oracle Park\, San Francisco
+URL:https://tv-sports.fr/san-francisco-giants-san-diego-padres-tv-x1160006
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:episode-1160129-1789425000@tv-sports.fr
+DTSTAMP:20260904T182937Z
+DTSTART:20260914T223000Z
+DTEND:20260915T013000Z
+SUMMARY:⚾ MLB : Cleveland Guardians - Chicago White Sox
+DESCRIPTION:beIN SPORTS MAX 4
+LOCATION:Progressive Field\, Cleveland
+URL:https://tv-sports.fr/cleveland-guardians-chicago-white-sox-tv-x1160129
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 UID:nfl-20260910-new-england-patriots-seattle-seahawks@sports-us-bein-calen
  dar
 DTSTAMP:20260831T201415Z
-DTSTART:20260910T002000Z
-DTEND:20260910T042000Z
+DTSTART:20260910T001500Z
+DTEND:20260910T031500Z
 SUMMARY:🏈 NFL : Seattle Seahawks - New England Patriots
-DESCRIPTION:beIN SPORTS (chaîne à confirmer)
+DESCRIPTION:beIN SPORTS 1
 LOCATION:Lumen Field
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
@@ -1308,8 +1404,22 @@ DTSTAMP:20260831T203157Z
 DTSTART:20260913T170000Z
 DTEND:20260914T000000Z
 SUMMARY:🏈 NFL : NFL RedZone
-DESCRIPTION:beIN SPORTS (chaîne à confirmer)
+DESCRIPTION:beIN SPORTS MAX 4
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-20260913-cincinnati-bengals-tampa-bay-buccaneers@sports-us-bein-cal
+ endar
+DTSTAMP:20260904T182938Z
+DTSTART:20260913T170000Z
+DTEND:20260913T200000Z
+SUMMARY:🏈 NFL : Cincinnati Bengals - Tampa Bay Buccaneers
+DESCRIPTION:beIN SPORTS 3
+LOCATION:Paycor Stadium\, Cincinnati
+URL:https://tv-sports.fr/cincinnati-bengals-tampa-bay-buccaneers-tv-x115971
+ 6
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -1322,18 +1432,31 @@ DTEND:20260914T002500Z
 SUMMARY:🏈 NFL : Philadelphia Eagles - Washington Commanders
 DESCRIPTION:L'Équipe
 LOCATION:Lincoln Financial Field
-URL:https://www.linternaute.com/television/programme-l-equipe-dimanche-13-s
- eptembre-2026/
+URL:https://tv-sports.fr/philadelphia-eagles-washington-commanders-tv-x1159
+ 660
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-20260913-green-bay-packers-minnesota-vikings@sports-us-bein-calenda
+ r
+DTSTAMP:20260904T182938Z
+DTSTART:20260913T203000Z
+DTEND:20260913T233000Z
+SUMMARY:🏈 NFL : Minnesota Vikings - Green Bay Packers
+DESCRIPTION:beIN SPORTS 3
+LOCATION:U.S. Bank Stadium\, Minneapolis
+URL:https://tv-sports.fr/minnesota-vikings-green-bay-packers-tv-x1159717
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20260914-dallas-cowboys-new-york-giants@sports-us-bein-calendar
 DTSTAMP:20260831T201415Z
-DTSTART:20260914T002000Z
-DTEND:20260914T042000Z
+DTSTART:20260914T001500Z
+DTEND:20260914T031500Z
 SUMMARY:🏈 NFL : New York Giants - Dallas Cowboys
-DESCRIPTION:beIN SPORTS (chaîne à confirmer)
+DESCRIPTION:beIN SPORTS 1
 LOCATION:MetLife Stadium
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
@@ -1345,7 +1468,7 @@ DTSTAMP:20260831T201415Z
 DTSTART:20260915T001500Z
 DTEND:20260915T041500Z
 SUMMARY:🏈 NFL : Kansas City Chiefs - Denver Broncos
-DESCRIPTION:beIN SPORTS (chaîne à confirmer)
+DESCRIPTION:beIN SPORTS 1
 LOCATION:GEHA Field at Arrowhead Stadium
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED

@@ -10,10 +10,10 @@ BEGIN:VEVENT
 UID:nfl-20260910-new-england-patriots-seattle-seahawks@sports-us-bein-calen
  dar
 DTSTAMP:20260831T201415Z
-DTSTART:20260910T002000Z
-DTEND:20260910T042000Z
+DTSTART:20260910T001500Z
+DTEND:20260910T031500Z
 SUMMARY:🏈 NFL : Seattle Seahawks - New England Patriots
-DESCRIPTION:beIN SPORTS (chaîne à confirmer)
+DESCRIPTION:beIN SPORTS 1
 LOCATION:Lumen Field
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
@@ -37,8 +37,22 @@ DTSTAMP:20260831T203157Z
 DTSTART:20260913T170000Z
 DTEND:20260914T000000Z
 SUMMARY:🏈 NFL : NFL RedZone
-DESCRIPTION:beIN SPORTS (chaîne à confirmer)
+DESCRIPTION:beIN SPORTS MAX 4
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-20260913-cincinnati-bengals-tampa-bay-buccaneers@sports-us-bein-cal
+ endar
+DTSTAMP:20260904T182938Z
+DTSTART:20260913T170000Z
+DTEND:20260913T200000Z
+SUMMARY:🏈 NFL : Cincinnati Bengals - Tampa Bay Buccaneers
+DESCRIPTION:beIN SPORTS 3
+LOCATION:Paycor Stadium\, Cincinnati
+URL:https://tv-sports.fr/cincinnati-bengals-tampa-bay-buccaneers-tv-x115971
+ 6
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -51,18 +65,31 @@ DTEND:20260914T002500Z
 SUMMARY:🏈 NFL : Philadelphia Eagles - Washington Commanders
 DESCRIPTION:L'Équipe
 LOCATION:Lincoln Financial Field
-URL:https://www.linternaute.com/television/programme-l-equipe-dimanche-13-s
- eptembre-2026/
+URL:https://tv-sports.fr/philadelphia-eagles-washington-commanders-tv-x1159
+ 660
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-20260913-green-bay-packers-minnesota-vikings@sports-us-bein-calenda
+ r
+DTSTAMP:20260904T182938Z
+DTSTART:20260913T203000Z
+DTEND:20260913T233000Z
+SUMMARY:🏈 NFL : Minnesota Vikings - Green Bay Packers
+DESCRIPTION:beIN SPORTS 3
+LOCATION:U.S. Bank Stadium\, Minneapolis
+URL:https://tv-sports.fr/minnesota-vikings-green-bay-packers-tv-x1159717
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20260914-dallas-cowboys-new-york-giants@sports-us-bein-calendar
 DTSTAMP:20260831T201415Z
-DTSTART:20260914T002000Z
-DTEND:20260914T042000Z
+DTSTART:20260914T001500Z
+DTEND:20260914T031500Z
 SUMMARY:🏈 NFL : New York Giants - Dallas Cowboys
-DESCRIPTION:beIN SPORTS (chaîne à confirmer)
+DESCRIPTION:beIN SPORTS 1
 LOCATION:MetLife Stadium
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
@@ -74,7 +101,7 @@ DTSTAMP:20260831T201415Z
 DTSTART:20260915T001500Z
 DTEND:20260915T041500Z
 SUMMARY:🏈 NFL : Kansas City Chiefs - Denver Broncos
-DESCRIPTION:beIN SPORTS (chaîne à confirmer)
+DESCRIPTION:beIN SPORTS 1
 LOCATION:GEHA Field at Arrowhead Stadium
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
