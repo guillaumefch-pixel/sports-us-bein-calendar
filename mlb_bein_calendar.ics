@@ -223,4 +223,16 @@ URL:https://tv-sports.fr/cleveland-guardians-chicago-white-sox-tv-x1160129
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
+BEGIN:VEVENT
+UID:episode-1160425-1789511400@tv-sports.fr
+DTSTAMP:20260905T182917Z
+DTSTART:20260915T223000Z
+DTEND:20260916T013000Z
+SUMMARY:⚾ MLB : Pittsburgh Pirates - Milwaukee Brewers
+DESCRIPTION:beIN SPORTS MAX 4
+LOCATION:PNC Park\, Pittsburgh
+URL:https://tv-sports.fr/pittsburgh-pirates-milwaukee-brewers-tv-x1160425
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
 END:VCALENDAR
