@@ -271,4 +271,16 @@ URL:https://tv-sports.fr/houston-astros-kansas-city-royals-tv-x1160739
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
+BEGIN:VEVENT
+UID:episode-1161012-1789781400@tv-sports.fr
+DTSTAMP:20260908T004007Z
+DTSTART:20260919T013000Z
+DTEND:20260919T030000Z
+SUMMARY:⚾ MLB : Arizona Diamondbacks - New York Yankees
+DESCRIPTION:beIN SPORTS MAX 4
+LOCATION:Chase Field\, Phoenix
+URL:https://tv-sports.fr/arizona-diamondbacks-new-york-yankees-tv-x1161012
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
 END:VCALENDAR
