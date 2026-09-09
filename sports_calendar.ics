@@ -1434,6 +1434,18 @@ STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+UID:episode-1161271-1789848000@tv-sports.fr
+DTSTAMP:20260909T003947Z
+DTSTART:20260919T200000Z
+DTEND:20260919T230000Z
+SUMMARY:⚾ MLB : Tampa Bay Rays - Boston Red Sox
+DESCRIPTION:beIN SPORTS MAX 4
+LOCATION:Tropicana Field\, St. Petersburg
+URL:https://tv-sports.fr/tampa-bay-rays-boston-red-sox-tv-x1161271
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 UID:nfl-20260910-new-england-patriots-seattle-seahawks@sports-us-bein-calen
  dar
 DTSTAMP:20260831T201415Z
@@ -1488,7 +1500,7 @@ UID:nfl-20260913-philadelphia-eagles-washington-commanders@sports-us-bein-c
  alendar
 DTSTAMP:20260831T201416Z
 DTSTART:20260913T202500Z
-DTEND:20260914T002500Z
+DTEND:20260913T232000Z
 SUMMARY:🏈 NFL : Philadelphia Eagles - Washington Commanders
 DESCRIPTION:L'Équipe
 LOCATION:Lincoln Financial Field
