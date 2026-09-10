@@ -1410,6 +1410,18 @@ STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+UID:episode-1160425-1789662600@tv-sports.fr
+DTSTAMP:20260910T063600Z
+DTSTART:20260917T163000Z
+DTEND:20260917T193000Z
+SUMMARY:⚾ MLB : Pittsburgh Pirates - Milwaukee Brewers
+DESCRIPTION:beIN SPORTS 3
+LOCATION:PNC Park\, Pittsburgh
+URL:https://tv-sports.fr/pittsburgh-pirates-milwaukee-brewers-tv-x1160425
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 UID:episode-1160739-1789686000@tv-sports.fr
 DTSTAMP:20260907T123630Z
 DTSTART:20260917T230000Z
@@ -1570,13 +1582,51 @@ STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+UID:nfl-20260920-new-england-patriots-pittsburgh-steelers@sports-us-bein-ca
+ lendar
+DTSTAMP:20260910T063601Z
+DTSTART:20260920T170000Z
+DTEND:20260920T200000Z
+SUMMARY:🏈 NFL : New England Patriots - Pittsburgh Steelers
+DESCRIPTION:beIN SPORTS 2
+LOCATION:Gillette Stadium\, Foxborough
+URL:https://tv-sports.fr/new-england-patriots-pittsburgh-steelers-tv-x11614
+ 37
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-20260920-arizona-cardinals-seattle-seahawks@sports-us-bein-calendar
+DTSTAMP:20260910T063601Z
+DTSTART:20260920T202500Z
+DTEND:20260920T232000Z
+SUMMARY:🏈 NFL : Arizona Cardinals - Seattle Seahawks
+DESCRIPTION:L'Équipe
+LOCATION:State Farm Stadium\, Glendale
+URL:https://tv-sports.fr/arizona-cardinals-seattle-seahawks-tv-x1161396
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-20260920-miami-dolphins-san-francisco-49ers@sports-us-bein-calendar
+DTSTAMP:20260910T063601Z
+DTSTART:20260920T203000Z
+DTEND:20260920T233000Z
+SUMMARY:🏈 NFL : San Francisco 49ers - Miami Dolphins
+DESCRIPTION:beIN SPORTS 2
+LOCATION:Levi's Stadium\, Santa Clara
+URL:https://tv-sports.fr/san-francisco-49ers-miami-dolphins-tv-x1161438
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 UID:nfl-20260921-indianapolis-colts-kansas-city-chiefs@sports-us-bein-calen
  dar
 DTSTAMP:20260831T201415Z
-DTSTART:20260921T002000Z
-DTEND:20260921T042000Z
+DTSTART:20260921T001500Z
+DTEND:20260921T031500Z
 SUMMARY:🏈 NFL : Kansas City Chiefs - Indianapolis Colts
-DESCRIPTION:beIN SPORTS (chaîne à confirmer)
+DESCRIPTION:beIN SPORTS 1
 LOCATION:GEHA Field at Arrowhead Stadium
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
