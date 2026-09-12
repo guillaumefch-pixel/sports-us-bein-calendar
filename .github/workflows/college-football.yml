@@ -1,0 +1,62 @@
+name: Calendrier College Football Disney France
+
+on:
+  workflow_dispatch:
+  schedule:
+    # UTC : toutes les six heures, puis suivi renforcé du classement dominical.
+    - cron: '17 */6 * * *'
+    - cron: '17 19-23 * * 0'
+  push:
+    paths:
+      - 'college_football.py'
+      - 'tests/test_college_football.py'
+      - 'tests/fixtures/**'
+      - '.github/workflows/college-football.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: college-football-calendar
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Tests et syntaxe
+        run: |
+          python -m py_compile college_football.py tests/test_college_football.py
+          python -m unittest discover -s tests -p 'test_college_football.py' -v
+      - name: Mettre à jour le calendrier NCAA séparé
+        env:
+          # Facultatif : autres flux ICS FR/direct NCAA, une URL par ligne.
+          CFB_FR_ICS_URLS: ${{ vars.CFB_FR_ICS_URLS }}
+        run: python college_football.py
+      - name: Enregistrer uniquement le calendrier NCAA
+        env:
+          TARGET_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- college_football_disney_calendar.ics
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m 'Mise à jour du calendrier NCAA Disney France'
+          for attempt in 1 2 3; do
+            git pull --rebase origin "$TARGET_BRANCH"
+            if git push origin "HEAD:$TARGET_BRANCH"; then
+              exit 0
+            fi
+            sleep 3
+          done
+          exit 1
