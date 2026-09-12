@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//TV-Sports.fr//Calendrier sportif//FR
+X-WR-CALNAME:NCAA · Football américain
+X-ORIGINAL-URL:https://tv-sports.fr/football-americain/ncaa
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:episode-1161009-1789255800@tv-sports.fr
+DTSTAMP:20260912T223309Z
+DTSTART:20260912T233000Z
+DTEND:20260913T023000Z
+SUMMARY:Texas – Ohio State (beIN SPORTS MAX 4)
+DESCRIPTION:[En direct] Texas – Ohio State | Football américain - NCAA |
+  beIN SPORTS MAX 4\n\nVoir sur TV Sports : https://tv-sports.fr/texas-ohio
+ -state-tv-x1161009
+URL:https://tv-sports.fr/texas-ohio-state-tv-x1161009
+END:VEVENT
+END:VCALENDAR
