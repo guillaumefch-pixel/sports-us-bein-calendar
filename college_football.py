@@ -467,7 +467,7 @@ def reconcile(old, games, broadcasts, poll, now):
             result.pop(f"ncaa-espn-{game.id}@sports-calendar", None)
     for game in games.values():
         uid = f"ncaa-espn-{game.id}@sports-calendar"
-        if uid in result or (game.start <= now and game.status != "STATUS_IN_PROGRESS"):
+        if uid in result or game.start <= now:
             continue
         if game.status in {"STATUS_CANCELED", "STATUS_CANCELLED", "STATUS_POSTPONED", "STATUS_SUSPENDED"}:
             continue
@@ -526,7 +526,7 @@ def run(args):
             LOG.warning("Source AP %s : %s", url, exc)
     poll = choose_poll(polls, now)
     LOG.info("Top 10 AP : %s", poll.ranks)
-    date_range = (now - timedelta(days=1)).strftime("%Y%m%d") + "-" + (now + timedelta(days=21)).strftime("%Y%m%d")
+    date_range = now.strftime("%Y%m%d") + "-" + (now + timedelta(days=21)).strftime("%Y%m%d")
     games = schedule(fetch(ESPN + "/scoreboard?groups=80&limit=1000&dates=" + date_range))
     if not games:
         raise ValueError("Aucun horaire ESPN confirmé : calendrier inchangé")
