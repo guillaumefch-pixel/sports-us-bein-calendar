@@ -319,4 +319,29 @@ URL:https://tv-sports.fr/detroit-tigers-washington-nationals-tv-x1161713
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
+BEGIN:VEVENT
+UID:episode-1140563-1790096400@tv-sports.fr
+DTSTAMP:20260913T003640Z
+DTSTART:20260922T170000Z
+DTEND:20260922T200000Z
+SUMMARY:⚾ MLB : New York Yankees - Tampa Bay Rays
+DESCRIPTION:beIN SPORTS MAX 4
+LOCATION:Yankee Stadium\, New York
+URL:https://tv-sports.fr/new-york-yankees-tampa-bay-rays-tv-x1140563
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:episode-1162125-1790202600@tv-sports.fr
+DTSTAMP:20260913T003640Z
+DTSTART:20260923T223000Z
+DTEND:20260924T013000Z
+SUMMARY:⚾ MLB : Philadelphia Phillies - Milwaukee Brewers
+DESCRIPTION:beIN SPORTS MAX 4
+LOCATION:Citizens Bank Park\, Philadelphia
+URL:https://tv-sports.fr/philadelphia-phillies-milwaukee-brewers-tv-x116212
+ 5
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
 END:VCALENDAR

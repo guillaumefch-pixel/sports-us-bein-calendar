@@ -1470,6 +1470,31 @@ STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+UID:episode-1140563-1790096400@tv-sports.fr
+DTSTAMP:20260913T003640Z
+DTSTART:20260922T170000Z
+DTEND:20260922T200000Z
+SUMMARY:⚾ MLB : New York Yankees - Tampa Bay Rays
+DESCRIPTION:beIN SPORTS MAX 4
+LOCATION:Yankee Stadium\, New York
+URL:https://tv-sports.fr/new-york-yankees-tampa-bay-rays-tv-x1140563
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:episode-1162125-1790202600@tv-sports.fr
+DTSTAMP:20260913T003640Z
+DTSTART:20260923T223000Z
+DTEND:20260924T013000Z
+SUMMARY:⚾ MLB : Philadelphia Phillies - Milwaukee Brewers
+DESCRIPTION:beIN SPORTS MAX 4
+LOCATION:Citizens Bank Park\, Philadelphia
+URL:https://tv-sports.fr/philadelphia-phillies-milwaukee-brewers-tv-x116212
+ 5
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 UID:nfl-20260910-new-england-patriots-seattle-seahawks@sports-us-bein-calen
  dar
 DTSTAMP:20260831T201415Z
@@ -1676,6 +1701,20 @@ DTEND:20260928T000000Z
 SUMMARY:🏈 NFL : NFL RedZone
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-20260927-las-vegas-raiders-new-orleans-saints@sports-us-bein-calend
+ ar
+DTSTAMP:20260913T003650Z
+DTSTART:20260927T202500Z
+DTEND:20260928T002500Z
+SUMMARY:🏈 NFL : New Orleans Saints - Las Vegas Raiders
+DESCRIPTION:L'Équipe
+LOCATION:Caesars Superdome
+URL:https://www.linternaute.com/television/programme-l-equipe-dimanche-27-s
+ eptembre-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT

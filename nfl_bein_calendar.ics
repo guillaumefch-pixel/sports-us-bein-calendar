@@ -217,6 +217,20 @@ STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
 BEGIN:VEVENT
+UID:nfl-20260927-las-vegas-raiders-new-orleans-saints@sports-us-bein-calend
+ ar
+DTSTAMP:20260913T003650Z
+DTSTART:20260927T202500Z
+DTEND:20260928T002500Z
+SUMMARY:🏈 NFL : New Orleans Saints - Las Vegas Raiders
+DESCRIPTION:L'Équipe
+LOCATION:Caesars Superdome
+URL:https://www.linternaute.com/television/programme-l-equipe-dimanche-27-s
+ eptembre-2026/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
 UID:nfl-20260928-denver-broncos-los-angeles-rams@sports-us-bein-calendar
 DTSTAMP:20260831T201415Z
 DTSTART:20260928T002000Z
