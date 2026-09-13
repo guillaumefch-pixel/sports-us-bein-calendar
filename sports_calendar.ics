@@ -702,7 +702,7 @@ DTSTAMP:20260816T150146Z
 DTSTART:20260913T130000Z
 DTEND:20260913T150000Z
 SUMMARY:🏎️ F1 — Madrid — Grand Prix
-DESCRIPTION:Grand Prix : Spanish (Madrid)\nDiffusion : Grand Prix d'Espagne (Canal+)\nhttps://tv-sports.fr/formule-1/grand-prix-d-espagne
+DESCRIPTION:Grand Prix : Spanish (Madrid)\nDiffusion TV : non trouvée
 LOCATION:Madrid
 GEO:40.4168;-3.7038
 END:VEVENT
@@ -1330,7 +1330,7 @@ UID:episode-1159300-1789167600@tv-sports.fr
 DTSTAMP:20260904T182937Z
 DTSTART:20260911T230000Z
 DTEND:20260912T020000Z
-SUMMARY:⚾ MLB : New York Yankees - New York Mets
+SUMMARY:🔥 ⚾ MLB : New York Yankees - New York Mets
 DESCRIPTION:beIN SPORTS MAX 4
 LOCATION:Yankee Stadium\, New York
 URL:https://tv-sports.fr/new-york-yankees-new-york-mets-tv-x1159300
@@ -1564,7 +1564,7 @@ UID:nfl-20260913-green-bay-packers-minnesota-vikings@sports-us-bein-calenda
 DTSTAMP:20260904T182938Z
 DTSTART:20260913T203000Z
 DTEND:20260913T233000Z
-SUMMARY:🏈 NFL : Minnesota Vikings - Green Bay Packers
+SUMMARY:🔥🔥 🏈 NFL : Minnesota Vikings - Green Bay Packers
 DESCRIPTION:beIN SPORTS 3
 LOCATION:U.S. Bank Stadium\, Minneapolis
 URL:https://tv-sports.fr/minnesota-vikings-green-bay-packers-tv-x1159717
@@ -1941,7 +1941,7 @@ UID:nfl-20261027-dallas-cowboys-philadelphia-eagles@sports-us-bein-calendar
 DTSTAMP:20260831T201415Z
 DTSTART:20261027T001500Z
 DTEND:20261027T041500Z
-SUMMARY:🏈 NFL : Philadelphia Eagles - Dallas Cowboys
+SUMMARY:🔥🔥🔥 🏈 NFL : Philadelphia Eagles - Dallas Cowboys
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Lincoln Financial Field
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
@@ -2394,7 +2394,7 @@ UID:nfl-netflix-2026-bears-packers@sports-us-bein-calendar
 DTSTAMP:20260818T144606Z
 DTSTART:20261225T180000Z
 DTEND:20261225T220000Z
-SUMMARY:🏈 NFL : Chicago Bears - Green Bay Packers
+SUMMARY:🔥🔥🔥 🏈 NFL : Chicago Bears - Green Bay Packers
 DESCRIPTION:Netflix
 LOCATION:Soldier Field\, Chicago
 URL:https://www.netflix.com/tudum/articles/nfl-games-on-netflix
