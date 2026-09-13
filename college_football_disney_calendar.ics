@@ -100,6 +100,29 @@ LAST-MODIFIED:20260913T000213Z
 SEQUENCE:0
 END:VEVENT
 BEGIN:VEVENT
+UID:ncaa-espn-401856694@sports-calendar
+DTSTART:20260919T193000Z
+DTEND:20260919T233000Z
+SUMMARY:🏈 NCAA : Texas A&M - Kentucky
+DESCRIPTION:Disney+ (ESPN) — France — diffusion à confirmer\nTexas A&M
+  : AP #10\nClassement AP publié le 2026-09-08\nSélection déduite des dr
+ oits français 2026 et du réseau US : ESPN\nPas de confirmation individue
+ lle dans une grille Disney+ France.\nSources diffusion : https://www.thebl
+ uepennant.com/dossier/comment-regarder-le-college-football-en-france-en-20
+ 26/\nHoraire : ESPN. Durée indicative : 4 h.
+LOCATION:Kyle Field
+URL:https://www.espn.com/college-football/game/_/gameId/401856694
+STATUS:TENTATIVE
+TRANSP:OPAQUE
+X-CFB-HOME:texas a m
+X-CFB-AWAY:kentucky
+X-CFB-SOURCES:https://www.thebluepennant.com/dossier/comment-regarder-le-co
+ llege-football-en-france-en-2026/ rights-inference:2026
+DTSTAMP:20260913T063244Z
+LAST-MODIFIED:20260913T063244Z
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
 UID:ncaa-espn-401856688@sports-calendar
 DTSTART:20260919T233000Z
 DTEND:20260920T033000Z
