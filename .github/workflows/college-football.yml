@@ -9,7 +9,7 @@ on:
   push:
     paths:
       - 'college_football.py'
-      - 'tests/test_college_football.py'
+      - 'tests/test*.py'
       - 'tests/fixtures/**'
       - '.github/workflows/college-football.yml'
 
@@ -34,8 +34,8 @@ jobs:
           python-version: '3.12'
       - name: Tests et syntaxe
         run: |
-          python -m py_compile college_football.py tests/test_college_football.py
-          python -m unittest discover -s tests -p 'test_college_football.py' -v
+          python -m compileall -q college_football.py tests
+          python -m unittest discover -s tests -p 'test*.py' -v
       - name: Mettre à jour le calendrier NCAA séparé
         env:
           # Facultatif : autres flux ICS FR/direct NCAA, une URL par ligne.
