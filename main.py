@@ -10,7 +10,7 @@ from zoneinfo import ZoneInfo
 import requests
 
 
-VERSION_SCRIPT = "2026-08-31-multisource-nfl-v6.3-postseason"
+VERSION_SCRIPT = "2026-09-13-nfl-mlb-rivalites"
 
 
 EN_TETES = {
@@ -2630,6 +2630,7 @@ def extraire_match_calendrier_existant(evenement, sport):
         return None
 
     summary = deschapper_ics(summary).strip()
+    summary = re.sub(r"^(?:🔥\s*)+", "", summary)
     prefixe = f"{sport['emoji']} {sport['prefixe']} : "
 
     if summary.startswith(prefixe):
@@ -2816,10 +2817,49 @@ def stabiliser_identifiants_nfl(evenements, existants):
             evenement["dtstamp"] = evenement.get("dtstamp") or maintenant_dtstamp
 
 
+# Priorités éditoriales demandées : ne changent pas les diffuseurs autorisés.
+RIVALITES_IMPORTANCE = {
+    "NFL": (
+        ("Green Bay Packers", "Chicago Bears", 3),
+        ("Pittsburgh Steelers", "Baltimore Ravens", 3),
+        ("Dallas Cowboys", "Philadelphia Eagles", 3),
+        ("Kansas City Chiefs", "Las Vegas Raiders", 3),
+        ("San Francisco 49ers", "Seattle Seahawks", 2),
+        ("Buffalo Bills", "Miami Dolphins", 2),
+        ("Dallas Cowboys", "Washington Commanders", 1),
+        ("Green Bay Packers", "Minnesota Vikings", 2),
+    ),
+    "MLB": (
+        ("New York Yankees", "Boston Red Sox", 3),
+        ("Los Angeles Dodgers", "San Francisco Giants", 3),
+        ("Chicago Cubs", "St. Louis Cardinals", 3),
+        ("New York Mets", "Philadelphia Phillies", 2),
+        ("New York Yankees", "New York Mets", 1),
+        ("Los Angeles Dodgers", "San Diego Padres", 2),
+        ("Houston Astros", "New York Yankees", 2),
+    ),
+}
+
+
+def emoji_rivalite(match, sport):
+    def cle(nom):
+        return re.sub(r"[^a-z0-9]+", "", normaliser_ascii(nom))
+
+    equipe_1, equipe_2 = extraire_equipes_match(match)
+    if not equipe_1 or not equipe_2:
+        return ""
+    equipes = {cle(equipe_1), cle(equipe_2)}
+    for domicile, exterieur, niveau in RIVALITES_IMPORTANCE.get(sport["prefixe"], ()):
+        if equipes == {cle(domicile), cle(exterieur)}:
+            return "🔥" * niveau + " "
+    return ""
+
+
 def construire_evenement(evenement, sport):
     chaines = " + ".join(evenement["chaines"])
     resume = (
-        f"{sport['emoji']} "
+        emoji_rivalite(evenement["match"], sport)
+        + f"{sport['emoji']} "
         f"{sport['prefixe']} : "
         f"{formater_match(evenement['match'])}"
     )
