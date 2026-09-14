@@ -1,0 +1,68 @@
+name: Tennis — Grand Chelem — Top 5 ATP et WTA
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 */2 * * *'
+  push:
+    paths:
+      - 'tennis.py'
+      - 'f1.py'
+      - 'tests_f1/**'
+      - 'premier_league.py'
+      - 'team_context.py'
+      - 'calendar_locations.py'
+      - 'venues.json'
+      - 'tests_tennis/**'
+      - '.github/workflows/tennis.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tennis-calendar
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Vérifier les scripts et les nouveaux tests
+        run: |
+          python -m compileall -q tennis.py premier_league.py team_context.py calendar_locations.py f1.py tests_tennis tests_f1
+          python -m unittest discover -s tests_tennis -v
+          python -m unittest discover -s tests_f1 -v
+      - name: Générer le tennis
+        run: python tennis.py
+      - name: Publier le nouvel agenda
+        env:
+          TARGET_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for attempt in 1 2 3; do
+            git add -- tennis_calendar.ics
+            if git diff --cached --quiet; then
+              exit 0
+            fi
+            git commit -m 'Mise à jour du calendrier tennis'
+            if git push origin "HEAD:$TARGET_BRANCH"; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              exit 1
+            fi
+            git fetch origin "$TARGET_BRANCH"
+            git reset --hard "origin/$TARGET_BRANCH"
+            python -m unittest discover -s tests_tennis -v
+            python tennis.py
+          done
+          exit 1
