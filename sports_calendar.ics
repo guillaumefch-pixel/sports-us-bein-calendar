@@ -2011,15 +2011,15 @@ BEGIN:VEVENT
 UID:nfl-20260922-los-angeles-rams-new-york-giants@sports-us-bein-calendar
 DTSTART:20260922T001500Z
 DTEND:20260922T041500Z
-SUMMARY:🏈 NFL : Los Angeles Rams [0W/1L] - New York Giants [0W/0L]
+SUMMARY:🏈 NFL : Los Angeles Rams [0W/1L] - New York Giants [1W/0L]
 DESCRIPTION:beIN SPORTS 1
 LOCATION:SoFi Stadium\, Inglewood — Los Angeles Rams
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260913T221613Z
-LAST-MODIFIED:20260913T221613Z
-SEQUENCE:2
+DTSTAMP:20260914T063838Z
+LAST-MODIFIED:20260914T063838Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20260925-atlanta-falcons-green-bay-packers@sports-us-bein-calendar
@@ -2153,15 +2153,15 @@ UID:nfl-20261009-dallas-cowboys-tampa-bay-buccaneers@sports-us-bein-calenda
  r
 DTSTART:20261009T001500Z
 DTEND:20261009T041500Z
-SUMMARY:🏈 NFL : Dallas Cowboys [0W/0L] - Tampa Bay Buccaneers [0W/1L]
+SUMMARY:🏈 NFL : Dallas Cowboys [0W/1L] - Tampa Bay Buccaneers [0W/1L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:AT&T Stadium\, Arlington — Dallas Cowboys
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260913T221613Z
-LAST-MODIFIED:20260913T221613Z
-SEQUENCE:2
+DTSTAMP:20260914T063838Z
+LAST-MODIFIED:20260914T063838Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261011@sports-us-bein-calendar
@@ -2235,15 +2235,15 @@ BEGIN:VEVENT
 UID:nfl-20261019-dallas-cowboys-green-bay-packers@sports-us-bein-calendar
 DTSTART:20261019T002000Z
 DTEND:20261019T042000Z
-SUMMARY:🏈 NFL : Green Bay Packers [0W/1L] - Dallas Cowboys [0W/0L]
+SUMMARY:🏈 NFL : Green Bay Packers [0W/1L] - Dallas Cowboys [0W/1L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Lambeau Field\, Green Bay
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260914T003812Z
-LAST-MODIFIED:20260914T003812Z
-SEQUENCE:3
+DTSTAMP:20260914T063838Z
+LAST-MODIFIED:20260914T063838Z
+SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261020-san-francisco-49ers-washington-commanders@sports-us-bein-c
@@ -2324,15 +2324,15 @@ UID:nfl-20261027-dallas-cowboys-philadelphia-eagles@sports-us-bein-calendar
 DTSTART:20261027T001500Z
 DTEND:20261027T041500Z
 SUMMARY:🔥🔥🔥 🏈 NFL : Philadelphia Eagles [1W/0L] - Dallas Cowboy
- s [0W/0L]
+ s [0W/1L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Lincoln Financial Field\, Philadelphia
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260914T003812Z
-LAST-MODIFIED:20260914T003812Z
-SEQUENCE:3
+DTSTAMP:20260914T063838Z
+LAST-MODIFIED:20260914T063838Z
+SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261030-carolina-panthers-green-bay-packers@sports-us-bein-calenda
@@ -2468,15 +2468,15 @@ UID:nfl-20261113-new-york-giants-washington-commanders@sports-us-bein-calen
  dar
 DTSTART:20261113T011500Z
 DTEND:20261113T051500Z
-SUMMARY:🏈 NFL : New York Giants [0W/0L] - Washington Commanders [0W/1L]
+SUMMARY:🏈 NFL : New York Giants [1W/0L] - Washington Commanders [0W/1L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:MetLife Stadium\, East Rutherford — New York Giants
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260914T003812Z
-LAST-MODIFIED:20260914T003812Z
-SEQUENCE:3
+DTSTAMP:20260914T063838Z
+LAST-MODIFIED:20260914T063838Z
+SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261115-detroit-lions-new-england-patriots@sports-us-bein-calendar
@@ -2712,15 +2712,15 @@ BEGIN:VEVENT
 UID:nfl-20261208-dallas-cowboys-seattle-seahawks@sports-us-bein-calendar
 DTSTART:20261208T011500Z
 DTEND:20261208T051500Z
-SUMMARY:🏈 NFL : Seattle Seahawks [1W/0L] - Dallas Cowboys [0W/0L]
+SUMMARY:🏈 NFL : Seattle Seahawks [1W/0L] - Dallas Cowboys [0W/1L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Lumen Field\, Seattle
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260913T221613Z
-LAST-MODIFIED:20260913T221613Z
-SEQUENCE:2
+DTSTAMP:20260914T063838Z
+LAST-MODIFIED:20260914T063838Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261211-minnesota-vikings-new-england-patriots@sports-us-bein-cale
@@ -2900,29 +2900,29 @@ UID:nfl-20261228-dallas-cowboys-jacksonville-jaguars@sports-us-bein-calenda
  r
 DTSTART:20261228T012000Z
 DTEND:20261228T052000Z
-SUMMARY:🏈 NFL : Dallas Cowboys [0W/0L] - Jacksonville Jaguars [1W/0L]
+SUMMARY:🏈 NFL : Dallas Cowboys [0W/1L] - Jacksonville Jaguars [1W/0L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:AT&T Stadium\, Arlington — Dallas Cowboys
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260913T221613Z
-LAST-MODIFIED:20260913T221613Z
-SEQUENCE:2
+DTSTAMP:20260914T063838Z
+LAST-MODIFIED:20260914T063838Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261229-detroit-lions-new-york-giants@sports-us-bein-calendar
 DTSTART:20261229T011500Z
 DTEND:20261229T051500Z
-SUMMARY:🏈 NFL : Detroit Lions [1W/0L] - New York Giants [0W/0L]
+SUMMARY:🏈 NFL : Detroit Lions [1W/0L] - New York Giants [1W/0L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Ford Field\, Detroit
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260913T221613Z
-LAST-MODIFIED:20260913T221613Z
-SEQUENCE:2
+DTSTAMP:20260914T063838Z
+LAST-MODIFIED:20260914T063838Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20270101-baltimore-ravens-cincinnati-bengals@sports-us-bein-calenda
