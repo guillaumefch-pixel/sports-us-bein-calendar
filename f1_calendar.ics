@@ -862,24 +862,28 @@ UID:f1-15-fp1@sports-us-bein-calendar
 DTSTART:20260924T083000Z
 DTEND:20260924T093000Z
 SUMMARY:🏎️ F1 — Baku — Essais libres 1
-DESCRIPTION:Grand Prix : Azerbaijan (Baku)\nDiffusion TV : non trouvée
+DESCRIPTION:Grand Prix : Azerbaijan (Baku)\nDiffusion : Grand Prix d'Azerba
+ ïdjan (Canal+ Sport)\nhttps://tv-sports.fr/formule-1/grand-prix-d-azerbai
+ djan
 LOCATION:Baku City Circuit\, Baku
 GEO:40.3699;49.8433
-DTSTAMP:20260913T221554Z
-LAST-MODIFIED:20260913T221554Z
-SEQUENCE:1
+DTSTAMP:20260914T003752Z
+LAST-MODIFIED:20260914T003752Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-15-fp2@sports-us-bein-calendar
 DTSTART:20260924T120000Z
 DTEND:20260924T130000Z
 SUMMARY:🏎️ F1 — Baku — Essais libres 2
-DESCRIPTION:Grand Prix : Azerbaijan (Baku)\nDiffusion TV : non trouvée
+DESCRIPTION:Grand Prix : Azerbaijan (Baku)\nDiffusion : Grand Prix d'Azerba
+ ïdjan (Canal+ Sport)\nhttps://tv-sports.fr/formule-1/grand-prix-d-azerbai
+ djan
 LOCATION:Baku City Circuit\, Baku
 GEO:40.3699;49.8433
-DTSTAMP:20260913T221554Z
-LAST-MODIFIED:20260913T221554Z
-SEQUENCE:1
+DTSTAMP:20260914T003752Z
+LAST-MODIFIED:20260914T003752Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-15-fp3@sports-us-bein-calendar
