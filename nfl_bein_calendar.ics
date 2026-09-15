@@ -187,15 +187,15 @@ UID:nfl-20260921-indianapolis-colts-kansas-city-chiefs@sports-us-bein-calen
  dar
 DTSTART:20260921T001500Z
 DTEND:20260921T031500Z
-SUMMARY:🏈 NFL : Kansas City Chiefs [0W/0L] - Indianapolis Colts [0W/1L]
+SUMMARY:🏈 NFL : Kansas City Chiefs [1W/0L] - Indianapolis Colts [0W/1L]
 DESCRIPTION:beIN SPORTS 1
 LOCATION:GEHA Field at Arrowhead Stadium\, Kansas City
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260913T221613Z
-LAST-MODIFIED:20260913T221613Z
-SEQUENCE:2
+DTSTAMP:20260915T063711Z
+LAST-MODIFIED:20260915T063711Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20260922-los-angeles-rams-new-york-giants@sports-us-bein-calendar
@@ -258,15 +258,15 @@ BEGIN:VEVENT
 UID:nfl-20260928-denver-broncos-los-angeles-rams@sports-us-bein-calendar
 DTSTART:20260928T002000Z
 DTEND:20260928T042000Z
-SUMMARY:🏈 NFL : Denver Broncos [0W/0L] - Los Angeles Rams [0W/1L]
+SUMMARY:🏈 NFL : Denver Broncos [0W/1L] - Los Angeles Rams [0W/1L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Empower Field at Mile High\, Denver
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260913T221613Z
-LAST-MODIFIED:20260913T221613Z
-SEQUENCE:2
+DTSTAMP:20260915T063711Z
+LAST-MODIFIED:20260915T063711Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20260929-chicago-bears-philadelphia-eagles@sports-us-bein-calendar
@@ -398,15 +398,15 @@ BEGIN:VEVENT
 UID:nfl-20261016-denver-broncos-seattle-seahawks@sports-us-bein-calendar
 DTSTART:20261016T001500Z
 DTEND:20261016T041500Z
-SUMMARY:🏈 NFL : Denver Broncos [0W/0L] - Seattle Seahawks [1W/0L]
+SUMMARY:🏈 NFL : Denver Broncos [0W/1L] - Seattle Seahawks [1W/0L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Empower Field at Mile High\, Denver
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260913T221613Z
-LAST-MODIFIED:20260913T221613Z
-SEQUENCE:2
+DTSTAMP:20260915T063711Z
+LAST-MODIFIED:20260915T063711Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261018@sports-us-bein-calendar
@@ -499,15 +499,15 @@ UID:nfl-20261026-kansas-city-chiefs-seattle-seahawks@sports-us-bein-calenda
  r
 DTSTART:20261026T002000Z
 DTEND:20261026T042000Z
-SUMMARY:🏈 NFL : Seattle Seahawks [1W/0L] - Kansas City Chiefs [0W/0L]
+SUMMARY:🏈 NFL : Seattle Seahawks [1W/0L] - Kansas City Chiefs [1W/0L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Lumen Field\, Seattle
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260913T221613Z
-LAST-MODIFIED:20260913T221613Z
-SEQUENCE:2
+DTSTAMP:20260915T063711Z
+LAST-MODIFIED:20260915T063711Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261027-dallas-cowboys-philadelphia-eagles@sports-us-bein-calendar
@@ -802,15 +802,15 @@ BEGIN:VEVENT
 UID:nfl-20261127-buffalo-bills-kansas-city-chiefs@sports-us-bein-calendar
 DTSTART:20261127T012000Z
 DTEND:20261127T052000Z
-SUMMARY:🏈 NFL : Buffalo Bills [1W/0L] - Kansas City Chiefs [0W/0L]
+SUMMARY:🏈 NFL : Buffalo Bills [1W/0L] - Kansas City Chiefs [1W/0L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Highmark Stadium\, Orchard Park — Buffalo Bills
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260913T221613Z
-LAST-MODIFIED:20260913T221613Z
-SEQUENCE:2
+DTSTAMP:20260915T063711Z
+LAST-MODIFIED:20260915T063711Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261129@sports-us-bein-calendar
@@ -861,15 +861,15 @@ UID:nfl-20261204-kansas-city-chiefs-los-angeles-rams@sports-us-bein-calenda
  r
 DTSTART:20261204T011500Z
 DTEND:20261204T051500Z
-SUMMARY:🏈 NFL : Los Angeles Rams [0W/1L] - Kansas City Chiefs [0W/0L]
+SUMMARY:🏈 NFL : Los Angeles Rams [0W/1L] - Kansas City Chiefs [1W/0L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:SoFi Stadium\, Inglewood — Los Angeles Rams
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260913T221613Z
-LAST-MODIFIED:20260913T221613Z
-SEQUENCE:2
+DTSTAMP:20260915T063711Z
+LAST-MODIFIED:20260915T063711Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261206@sports-us-bein-calendar
@@ -1018,16 +1018,16 @@ UID:nfl-20261222-kansas-city-chiefs-new-england-patriots@sports-us-bein-cal
  endar
 DTSTART:20261222T011500Z
 DTEND:20261222T051500Z
-SUMMARY:🏈 NFL : Kansas City Chiefs [0W/0L] - New England Patriots [0W/1L
+SUMMARY:🏈 NFL : Kansas City Chiefs [1W/0L] - New England Patriots [0W/1L
  ]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:GEHA Field at Arrowhead Stadium\, Kansas City
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260913T221613Z
-LAST-MODIFIED:20260913T221613Z
-SEQUENCE:2
+DTSTAMP:20260915T063711Z
+LAST-MODIFIED:20260915T063711Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261225-houston-texans-philadelphia-eagles@sports-us-bein-calendar
@@ -1062,15 +1062,15 @@ BEGIN:VEVENT
 UID:nfl-netflix-2026-broncos-bills@sports-us-bein-calendar
 DTSTART:20261225T213000Z
 DTEND:20261226T013000Z
-SUMMARY:🏈 NFL : Denver Broncos [0W/0L] - Buffalo Bills [1W/0L]
+SUMMARY:🏈 NFL : Denver Broncos [0W/1L] - Buffalo Bills [1W/0L]
 DESCRIPTION:Netflix
 LOCATION:Empower Field at Mile High\, Denver
 URL:https://www.netflix.com/tudum/articles/nfl-games-on-netflix
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260913T221613Z
-LAST-MODIFIED:20260913T221613Z
-SEQUENCE:2
+DTSTAMP:20260915T063711Z
+LAST-MODIFIED:20260915T063711Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261227@sports-us-bein-calendar
