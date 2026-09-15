@@ -43,29 +43,51 @@ def fetch(url):
         raise ValueError("Source HTTPS requise")
     for attempt in range(3):
         try:
-            req = Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; SportsCalendarBot/1.0)", "Accept-Language": "fr-FR,fr;q=0.9"})
-            with urlopen(req, timeout=25) as response:
-                data = response.read(15_000_001)
-                if len(data) > 15_000_000:
-                    raise ValueError("Réponse trop volumineuse")
-                return data.decode("utf-8-sig")
-        except HTTPError as exc:
-            # Certains serveurs refusent urllib alors que leur contenu public
-            # reste accessible à curl. Ce n'est pas une source indépendante.
-            if exc.code == 403 and shutil.which("curl"):
-                response = subprocess.run(["curl", "--fail", "--silent", "--show-error", "--location",
+            try:
+                req = Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; SportsCalendarBot/1.0)", "Accept-Language": "fr-FR,fr;q=0.9"})
+                with urlopen(req, timeout=25) as response:
+                    data = response.read(15_000_001)
+            except HTTPError as exc:
+                if exc.code != 403 or not shutil.which("curl"):
+                    raise
+                response = subprocess.run(["curl", "--fail", "--silent", "--show-error", "--location", "--compressed",
                                            "--proto", "=https", "--proto-redir", "=https", "--max-time", "25", url],
                                           capture_output=True, timeout=30, check=True)
-                if len(response.stdout) > 15_000_000:
-                    raise ValueError("Réponse trop volumineuse")
-                return response.stdout.decode("utf-8-sig")
-            if attempt == 2:
-                raise
-            time.sleep(attempt + 1)
+                data = response.stdout
+            if len(data) > 15_000_000:
+                raise ValueError("Réponse trop volumineuse")
+            return data.decode("utf-8-sig")
         except Exception:
+            # Cette reprise inclut les erreurs du transport de secours curl.
             if attempt == 2:
                 raise
             time.sleep(attempt + 1)
+
+
+def schedule_range(start, end):
+    """Une plage refusée par ESPN est relue jour par jour, sans perte de dates."""
+    from concurrent.futures import ThreadPoolExecutor
+    base = ESPN + "?limit=1000&dates="
+    period = start.strftime("%Y%m%d") + "-" + end.strftime("%Y%m%d")
+    try:
+        return parse_schedule(fetch(base + period))
+    except Exception as exc:
+        LOG.warning("Plage ESPN %s indisponible ; reprise jour par jour : %s", period, exc)
+    days = []
+    day = start.date()
+    while day <= end.date():
+        days.append(day.strftime("%Y%m%d"))
+        day += timedelta(days=1)
+    def read_day(date):
+        return parse_schedule(fetch(base + date))
+    result = {}
+    # Une journée toujours inaccessible fait échouer cette fonction avant
+    # toute écriture : un calendrier partiel ne remplace jamais l'existant.
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        for part in pool.map(read_day, days):
+            result.update(part)
+    return result
+
 
 def read_ics(text):
     lines = re.sub(r"\r?\n[ \t]", "", text).splitlines()
@@ -311,8 +333,7 @@ def run(output,dry_run=False):
     games={}
     while cursor<end:
         stop=min(cursor+timedelta(days=30),end)
-        data=fetch(ESPN+'?limit=1000&dates='+cursor.strftime('%Y%m%d')+'-'+stop.strftime('%Y%m%d'))
-        games.update(parse_schedule(data))
+        games.update(schedule_range(cursor,stop))
         cursor=stop
     if not games:
         raise ValueError('Calendrier ESPN vide : fichier conservé')
