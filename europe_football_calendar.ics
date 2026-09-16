@@ -173,19 +173,19 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882848@sports-us-bein-calendar
 DTSTART:20261010T190000Z
 DTEND:20261010T210000Z
-SUMMARY:⚽ La Liga : Real Madrid [#2] - Villarreal [#18]
+SUMMARY:⚽ La Liga : Real Madrid [#2] - Villarreal [#19]
 DESCRIPTION:Disney+
 LOCATION:Santiago Bernabéu\, Madrid
 URL:https://www.espn.com/soccer/match/_/gameId/401882848
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"real madrid": "#2"\, "villarreal": "#18"}
+X-EU-RANKS:{"real madrid": "#2"\, "villarreal": "#19"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261013T164500Z@sports-us-bein-calendar
@@ -688,7 +688,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882808@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20261108
 DTEND;VALUE=DATE:20261109
-SUMMARY:⚽ La Liga : Valencia [#20] - Real Madrid [#2] — horaire à conf
+SUMMARY:⚽ La Liga : Valencia [#17] - Real Madrid [#2] — horaire à conf
  irmer
 DESCRIPTION:Disney+
 LOCATION:Mestalla Stadium\, Manises — Valencia
@@ -696,12 +696,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882808
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"valencia": "#20"\, "real madrid": "#2"}
+X-EU-RANKS:{"valencia": "#17"\, "real madrid": "#2"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882816@sports-us-bein-calendar
@@ -782,7 +782,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882804@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
-SUMMARY:⚽ La Liga : FC Barcelone [#1] - Villarreal [#18] — horaire à c
+SUMMARY:⚽ La Liga : FC Barcelone [#1] - Villarreal [#19] — horaire à c
  onfirmer
 DESCRIPTION:Disney+
 LOCATION:Spotify Camp Nou\, Barcelone
@@ -790,12 +790,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882804
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"barcelona": "#1"\, "villarreal": "#18"}
+X-EU-RANKS:{"barcelona": "#1"\, "villarreal": "#19"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261124T174500Z@sports-us-bein-calendar
@@ -930,7 +930,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882793@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
-SUMMARY:⚽ La Liga : Elche [#19] - Atlético de Madrid [#5] — horaire à
+SUMMARY:⚽ La Liga : Elche [#20] - Atlético de Madrid [#5] — horaire à
   confirmer
 DESCRIPTION:Disney+
 LOCATION:Estadio Martínez Valero\, Elche
@@ -938,12 +938,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882793
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"elche": "#19"\, "atletico madrid": "#5"}
+X-EU-RANKS:{"elche": "#20"\, "atletico madrid": "#5"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260915T005556Z
-LAST-MODIFIED:20260915T005556Z
-SEQUENCE:2
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882794@sports-us-bein-calendar
@@ -1172,7 +1172,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882770@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
-SUMMARY:⚽ La Liga : Málaga [#17] - FC Barcelone [#1] — horaire à conf
+SUMMARY:⚽ La Liga : Málaga [#18] - FC Barcelone [#1] — horaire à conf
  irmer
 DESCRIPTION:Disney+
 LOCATION:La Rosaleda\, Malaga
@@ -1180,18 +1180,18 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882770
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"malaga": "#17"\, "barcelona": "#1"}
+X-EU-RANKS:{"malaga": "#18"\, "barcelona": "#1"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882776@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20261213
 DTEND;VALUE=DATE:20261214
-SUMMARY:⚽ La Liga : Atlético de Madrid [#5] - Valencia [#20] — horaire
+SUMMARY:⚽ La Liga : Atlético de Madrid [#5] - Valencia [#17] — horaire
   à confirmer
 DESCRIPTION:Disney+
 LOCATION:Riyadh Air Metropolitano\, Madrid
@@ -1199,12 +1199,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882776
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"atletico madrid": "#5"\, "valencia": "#20"}
+X-EU-RANKS:{"atletico madrid": "#5"\, "valencia": "#17"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260915T005556Z
-LAST-MODIFIED:20260915T005556Z
-SEQUENCE:2
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884700@sports-us-bein-calendar
@@ -1457,7 +1457,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882730@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270117
 DTEND;VALUE=DATE:20270118
-SUMMARY:⚽ La Liga : Málaga [#17] - Real Madrid [#2] — horaire à confi
+SUMMARY:⚽ La Liga : Málaga [#18] - Real Madrid [#2] — horaire à confi
  rmer
 DESCRIPTION:Disney+
 LOCATION:La Rosaleda\, Malaga
@@ -1465,18 +1465,18 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882730
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"malaga": "#17"\, "real madrid": "#2"}
+X-EU-RANKS:{"malaga": "#18"\, "real madrid": "#2"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882733@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270117
 DTEND;VALUE=DATE:20270118
-SUMMARY:⚽ La Liga : FC Barcelone [#1] - Elche [#19] — horaire à confir
+SUMMARY:⚽ La Liga : FC Barcelone [#1] - Elche [#20] — horaire à confir
  mer
 DESCRIPTION:Disney+
 LOCATION:Spotify Camp Nou\, Barcelone
@@ -1484,12 +1484,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882733
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"barcelona": "#1"\, "elche": "#19"}
+X-EU-RANKS:{"barcelona": "#1"\, "elche": "#20"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882736@sports-us-bein-calendar
@@ -1764,7 +1764,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882713@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
-SUMMARY:⚽ La Liga : FC Barcelone [#1] - Valencia [#20] — horaire à con
+SUMMARY:⚽ La Liga : FC Barcelone [#1] - Valencia [#17] — horaire à con
  firmer
 DESCRIPTION:Disney+
 LOCATION:Spotify Camp Nou\, Barcelone
@@ -1772,12 +1772,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882713
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"barcelona": "#1"\, "valencia": "#20"}
+X-EU-RANKS:{"barcelona": "#1"\, "valencia": "#17"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882716@sports-us-bein-calendar
@@ -1878,7 +1878,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882687@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270214
 DTEND;VALUE=DATE:20270215
-SUMMARY:⚽ La Liga : Villarreal [#18] - FC Barcelone [#1] — horaire à c
+SUMMARY:⚽ La Liga : Villarreal [#19] - FC Barcelone [#1] — horaire à c
  onfirmer
 DESCRIPTION:Disney+
 LOCATION:Estadio de la Cerámica\, Villarreal
@@ -1886,12 +1886,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882687
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"villarreal": "#18"\, "barcelona": "#1"}
+X-EU-RANKS:{"villarreal": "#19"\, "barcelona": "#1"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882691@sports-us-bein-calendar
@@ -1992,7 +1992,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882684@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270221
 DTEND;VALUE=DATE:20270222
-SUMMARY:⚽ La Liga : Atlético de Madrid [#5] - Elche [#19] — horaire à
+SUMMARY:⚽ La Liga : Atlético de Madrid [#5] - Elche [#20] — horaire à
   confirmer
 DESCRIPTION:Disney+
 LOCATION:Riyadh Air Metropolitano\, Madrid
@@ -2000,12 +2000,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882684
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"atletico madrid": "#5"\, "elche": "#19"}
+X-EU-RANKS:{"atletico madrid": "#5"\, "elche": "#20"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260915T005556Z
-LAST-MODIFIED:20260915T005556Z
-SEQUENCE:2
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884618@sports-us-bein-calendar
@@ -2030,7 +2030,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882668@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
-SUMMARY:⚽ La Liga : Real Madrid [#2] - Valencia [#20] — horaire à conf
+SUMMARY:⚽ La Liga : Real Madrid [#2] - Valencia [#17] — horaire à conf
  irmer
 DESCRIPTION:Disney+
 LOCATION:Santiago Bernabéu\, Madrid
@@ -2038,18 +2038,18 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882668
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"real madrid": "#2"\, "valencia": "#20"}
+X-EU-RANKS:{"real madrid": "#2"\, "valencia": "#17"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882671@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
-SUMMARY:⚽ La Liga : Málaga [#17] - Atlético de Madrid [#5] — horaire 
+SUMMARY:⚽ La Liga : Málaga [#18] - Atlético de Madrid [#5] — horaire 
  à confirmer
 DESCRIPTION:Disney+
 LOCATION:La Rosaleda\, Malaga
@@ -2057,12 +2057,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882671
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"malaga": "#17"\, "atletico madrid": "#5"}
+X-EU-RANKS:{"malaga": "#18"\, "atletico madrid": "#5"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260915T005556Z
-LAST-MODIFIED:20260915T005556Z
-SEQUENCE:2
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882676@sports-us-bein-calendar
@@ -2125,7 +2125,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882657@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270307
 DTEND;VALUE=DATE:20270308
-SUMMARY:⚽ La Liga : Villarreal [#18] - Real Madrid [#2] — horaire à co
+SUMMARY:⚽ La Liga : Villarreal [#19] - Real Madrid [#2] — horaire à co
  nfirmer
 DESCRIPTION:Disney+
 LOCATION:Estadio de la Cerámica\, Villarreal
@@ -2133,12 +2133,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882657
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"villarreal": "#18"\, "real madrid": "#2"}
+X-EU-RANKS:{"villarreal": "#19"\, "real madrid": "#2"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882661@sports-us-bein-calendar
@@ -2543,7 +2543,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882597@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270421
 DTEND;VALUE=DATE:20270422
-SUMMARY:⚽ La Liga : Villarreal [#18] - Atlético de Madrid [#5] — horai
+SUMMARY:⚽ La Liga : Villarreal [#19] - Atlético de Madrid [#5] — horai
  re à confirmer
 DESCRIPTION:Disney+
 LOCATION:Estadio de la Cerámica\, Villarreal
@@ -2551,18 +2551,18 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882597
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"villarreal": "#18"\, "atletico madrid": "#5"}
+X-EU-RANKS:{"villarreal": "#19"\, "atletico madrid": "#5"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260915T005556Z
-LAST-MODIFIED:20260915T005556Z
-SEQUENCE:2
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882600@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270421
 DTEND;VALUE=DATE:20270422
-SUMMARY:⚽ La Liga : Real Madrid [#2] - Elche [#19] — horaire à confirm
+SUMMARY:⚽ La Liga : Real Madrid [#2] - Elche [#20] — horaire à confirm
  er
 DESCRIPTION:Disney+
 LOCATION:Santiago Bernabéu\, Madrid
@@ -2570,12 +2570,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882600
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"real madrid": "#2"\, "elche": "#19"}
+X-EU-RANKS:{"real madrid": "#2"\, "elche": "#20"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882605@sports-us-bein-calendar
@@ -2695,7 +2695,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882578@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270509
 DTEND;VALUE=DATE:20270510
-SUMMARY:⚽ La Liga : Valencia [#20] - Atlético de Madrid [#5] — horaire
+SUMMARY:⚽ La Liga : Valencia [#17] - Atlético de Madrid [#5] — horaire
   à confirmer
 DESCRIPTION:Disney+
 LOCATION:Mestalla Stadium\, Manises — Valencia
@@ -2703,12 +2703,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882578
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"valencia": "#20"\, "atletico madrid": "#5"}
+X-EU-RANKS:{"valencia": "#17"\, "atletico madrid": "#5"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260915T005556Z
-LAST-MODIFIED:20260915T005556Z
-SEQUENCE:2
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882579@sports-us-bein-calendar
@@ -2827,7 +2827,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882562@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270523
 DTEND;VALUE=DATE:20270524
-SUMMARY:⚽ La Liga : FC Barcelone [#1] - Málaga [#17] — horaire à conf
+SUMMARY:⚽ La Liga : FC Barcelone [#1] - Málaga [#18] — horaire à conf
  irmer
 DESCRIPTION:Disney+
 LOCATION:Spotify Camp Nou\, Barcelone
@@ -2835,12 +2835,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882562
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"barcelona": "#1"\, "malaga": "#17"}
+X-EU-RANKS:{"barcelona": "#1"\, "malaga": "#18"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+DTSTAMP:20260916T051619Z
+LAST-MODIFIED:20260916T051619Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882565@sports-us-bein-calendar
