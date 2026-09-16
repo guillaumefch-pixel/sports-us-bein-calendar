@@ -279,6 +279,42 @@ LAST-MODIFIED:20260914T103255Z
 SEQUENCE:1
 END:VEVENT
 BEGIN:VEVENT
+UID:europe-esp.1-401882843@sports-us-bein-calendar
+DTSTART:20261017T120000Z
+DTEND:20261017T140000Z
+SUMMARY:⚽ La Liga : Espanyol [#8] - Atlético de Madrid [#5]
+DESCRIPTION:Disney+
+LOCATION:RCDE Stadium\, Barcelone — Espanyol
+URL:https://www.espn.com/soccer/match/_/gameId/401882843
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+X-EU-LEAGUE:esp.1
+X-EU-RANKS:{"espanyol": "#8"\, "atletico madrid": "#5"}
+X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
+ -laliga-ea-sports-en-francia
+DTSTAMP:20260916T120337Z
+LAST-MODIFIED:20260916T120337Z
+SEQUENCE:3
+END:VEVENT
+BEGIN:VEVENT
+UID:europe-esp.1-401882846@sports-us-bein-calendar
+DTSTART:20261017T163000Z
+DTEND:20261017T183000Z
+SUMMARY:⚽ La Liga : Real Betis [#3] - FC Barcelone [#1]
+DESCRIPTION:Disney+
+LOCATION:Estadio La Cartuja\, Sevilla — Real Betis
+URL:https://www.espn.com/soccer/match/_/gameId/401882846
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+X-EU-LEAGUE:esp.1
+X-EU-RANKS:{"real betis": "#3"\, "barcelona": "#1"}
+X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
+ -laliga-ea-sports-en-francia
+DTSTAMP:20260916T120337Z
+LAST-MODIFIED:20260916T120337Z
+SEQUENCE:3
+END:VEVENT
+BEGIN:VEVENT
 UID:europe-ger.1-401884772@sports-us-bein-calendar
 DTSTART:20261017T163000Z
 DTEND:20261017T183000Z
@@ -298,60 +334,21 @@ SEQUENCE:1
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882839@sports-us-bein-calendar
-DTSTART;VALUE=DATE:20261018
-DTEND;VALUE=DATE:20261019
-SUMMARY:⚽ La Liga : Real Madrid [#2] - Sevilla [#6] — horaire à confir
- mer
+DTSTART:20261018T190000Z
+DTEND:20261018T210000Z
+SUMMARY:⚽ La Liga : Real Madrid [#2] - Sevilla [#6]
 DESCRIPTION:Disney+
 LOCATION:Santiago Bernabéu\, Madrid
 URL:https://www.espn.com/soccer/match/_/gameId/401882839
-STATUS:TENTATIVE
+STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
 X-EU-RANKS:{"real madrid": "#2"\, "sevilla": "#6"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260915T005556Z
-LAST-MODIFIED:20260915T005556Z
-SEQUENCE:2
-END:VEVENT
-BEGIN:VEVENT
-UID:europe-esp.1-401882843@sports-us-bein-calendar
-DTSTART;VALUE=DATE:20261018
-DTEND;VALUE=DATE:20261019
-SUMMARY:⚽ La Liga : Espanyol [#8] - Atlético de Madrid [#5] — horaire 
- à confirmer
-DESCRIPTION:Disney+
-LOCATION:RCDE Stadium\, Barcelone — Espanyol
-URL:https://www.espn.com/soccer/match/_/gameId/401882843
-STATUS:TENTATIVE
-TRANSP:OPAQUE
-X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"espanyol": "#8"\, "atletico madrid": "#5"}
-X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
- -laliga-ea-sports-en-francia
-DTSTAMP:20260915T005556Z
-LAST-MODIFIED:20260915T005556Z
-SEQUENCE:2
-END:VEVENT
-BEGIN:VEVENT
-UID:europe-esp.1-401882846@sports-us-bein-calendar
-DTSTART;VALUE=DATE:20261018
-DTEND;VALUE=DATE:20261019
-SUMMARY:⚽ La Liga : Real Betis [#3] - FC Barcelone [#1] — horaire à co
- nfirmer
-DESCRIPTION:Disney+
-LOCATION:Estadio La Cartuja\, Sevilla — Real Betis
-URL:https://www.espn.com/soccer/match/_/gameId/401882846
-STATUS:TENTATIVE
-TRANSP:OPAQUE
-X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"real betis": "#3"\, "barcelona": "#1"}
-X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
- -laliga-ea-sports-en-francia
-DTSTAMP:20260915T005556Z
-LAST-MODIFIED:20260915T005556Z
-SEQUENCE:2
+DTSTAMP:20260916T120337Z
+LAST-MODIFIED:20260916T120337Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261020T164500Z@sports-us-bein-calendar
