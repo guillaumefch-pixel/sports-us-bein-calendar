@@ -169,20 +169,6 @@ LAST-MODIFIED:20260914T003812Z
 SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
-UID:nfl-20260920-miami-dolphins-san-francisco-49ers@sports-us-bein-calendar
-DTSTART:20260920T203000Z
-DTEND:20260920T233000Z
-SUMMARY:🏈 NFL : San Francisco 49ers [1W/0L] - Miami Dolphins [0W/1L]
-DESCRIPTION:beIN SPORTS 2
-LOCATION:Levi's Stadium\, Santa Clara — San Francisco 49ers
-URL:https://tv-sports.fr/san-francisco-49ers-miami-dolphins-tv-x1161438
-STATUS:CONFIRMED
-TRANSP:OPAQUE
-DTSTAMP:20260914T003812Z
-LAST-MODIFIED:20260914T003812Z
-SEQUENCE:3
-END:VEVENT
-BEGIN:VEVENT
 UID:nfl-20260921-indianapolis-colts-kansas-city-chiefs@sports-us-bein-calen
  dar
 DTSTART:20260921T001500Z
