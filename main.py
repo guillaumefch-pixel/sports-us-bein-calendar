@@ -13,7 +13,7 @@ import requests
 import team_context
 
 
-VERSION_SCRIPT = "2026-09-13-nfl-mlb-rivalites"
+VERSION_SCRIPT = "2026-09-18-nfl-generic-tv-filter"
 
 
 EN_TETES = {
@@ -757,6 +757,31 @@ def est_redzone(titre):
     return "redzone" in compact
 
 
+def est_match_nfl_identifie(match):
+    """Accepte une affiche NFL précise, mais jamais une case de grille générique.
+
+    TV-Sports peut annoncer « Football américain NFL 2026-2027 » ou
+    « Championnat de la NFL — 3e journée » avant de préciser les équipes.
+    Ces programmes confirment un créneau beIN, pas une rencontre : ils ne
+    doivent pas devenir des événements de calendrier. RedZone reste un
+    rendez-vous distinct, officiellement annoncé chaque dimanche.
+    """
+    if est_redzone(match):
+        return True
+
+    domicile, exterieur = extraire_equipes_match(match)
+    franchises = {
+        normaliser_nom(nom)
+        for nom in NFL_TEAM_CODES.values()
+    }
+    return bool(
+        domicile
+        and exterieur
+        and normaliser_nom(domicile) in franchises
+        and normaliser_nom(exterieur) in franchises
+    )
+
+
 def extraire_infos_description(description):
     if not description:
         return {"match": None, "chaines": []}
@@ -913,6 +938,12 @@ def preparer_evenement_ics(evenement, sport, dtstamps_existants):
     dtstart = valeur_propriete(evenement, "DTSTART")
 
     if not match or not chaines or not uid or not dtstart:
+        return None
+
+    # Ne jamais ajouter un créneau NFL beIN sans affiche. Lorsqu'une source
+    # publie ensuite les deux équipes, son événement détaillé est récupéré à
+    # la mise à jour suivante ; le créneau générique, lui, disparaît.
+    if sport["prefixe"] == "NFL" and not est_match_nfl_identifie(match):
         return None
 
     dtend = valeur_propriete(evenement, "DTEND")
@@ -2555,7 +2586,7 @@ def recuperer_evenements_nfl_tv_programme(
             match = nettoyer_titre_nfl_tv_programme(
                 source.get("titre", "")
             )
-            if not match:
+            if not match or not est_match_nfl_identifie(match):
                 continue
 
             debut_local = datetime(
