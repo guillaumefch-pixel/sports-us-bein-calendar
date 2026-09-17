@@ -441,25 +441,6 @@ LAST-MODIFIED:20260914T103255Z
 SEQUENCE:1
 END:VEVENT
 BEGIN:VEVENT
-UID:europe-esp.1-401882832@sports-us-bein-calendar
-DTSTART;VALUE=DATE:20261025
-DTEND;VALUE=DATE:20261026
-SUMMARY:🔥🔥🔥 ⚽ La Liga : FC Barcelone [#1] - Real Madrid [#2] —
-  El Clásico — horaire à confirmer
-DESCRIPTION:Disney+
-LOCATION:Spotify Camp Nou\, Barcelone
-URL:https://www.espn.com/soccer/match/_/gameId/401882832
-STATUS:TENTATIVE
-TRANSP:OPAQUE
-X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"barcelona": "#1"\, "real madrid": "#2"}
-X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
- -laliga-ea-sports-en-francia
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
-END:VEVENT
-BEGIN:VEVENT
 UID:europe-esp.1-401882834@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20261025
 DTEND;VALUE=DATE:20261026
@@ -495,6 +476,25 @@ X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
 DTSTAMP:20260914T103255Z
 LAST-MODIFIED:20260914T103255Z
 SEQUENCE:1
+END:VEVENT
+BEGIN:VEVENT
+UID:europe-esp.1-401882832@sports-us-bein-calendar
+DTSTART:20261025T200000Z
+DTEND:20261025T220000Z
+SUMMARY:🔥🔥🔥 ⚽ La Liga : FC Barcelone [#1] - Real Madrid [#2] —
+  El Clásico
+DESCRIPTION:Disney+
+LOCATION:Spotify Camp Nou\, Barcelone
+URL:https://www.espn.com/soccer/match/_/gameId/401882832
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+X-EU-LEAGUE:esp.1
+X-EU-RANKS:{"barcelona": "#1"\, "real madrid": "#2"}
+X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
+ -laliga-ea-sports-en-francia
+DTSTAMP:20260917T171616Z
+LAST-MODIFIED:20260917T171616Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884754@sports-us-bein-calendar
