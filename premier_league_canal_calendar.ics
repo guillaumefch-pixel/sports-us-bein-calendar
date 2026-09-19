@@ -48,7 +48,7 @@ UID:pl-espn-401879269@sports-us-bein-calendar
 DTSTART:20260919T113000Z
 DTEND:20260919T133000Z
 SUMMARY:⚽ Premier League : Tottenham Hotspur [#17] - Aston Villa [#19]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
 URL:https://www.espn.com/soccer/match/_/gameId/401879269
 STATUS:CONFIRMED
@@ -57,16 +57,16 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Aston Villa
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260918T211156Z
-LAST-MODIFIED:20260918T211156Z
-SEQUENCE:3
+DTSTAMP:20260919T112525Z
+LAST-MODIFIED:20260919T112525Z
+SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879274@sports-us-bein-calendar
 DTSTART:20260919T140000Z
 DTEND:20260919T160000Z
 SUMMARY:⚽ Premier League : Brighton & Hove Albion [#6] - Arsenal [#1]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ LIVE 6
 LOCATION:American Express Stadium\, Falmer — Brighton & Hove Albion
 URL:https://www.espn.com/soccer/match/_/gameId/401879274
 STATUS:CONFIRMED
@@ -75,16 +75,16 @@ X-PL-HOME:Brighton & Hove Albion
 X-PL-AWAY:Arsenal
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260918T211156Z
-LAST-MODIFIED:20260918T211156Z
-SEQUENCE:4
+DTSTAMP:20260919T112525Z
+LAST-MODIFIED:20260919T112525Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879272@sports-us-bein-calendar
 DTSTART:20260920T130000Z
 DTEND:20260920T150000Z
 SUMMARY:⚽ Premier League : Manchester City [#2] - Sunderland [#14]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+
 LOCATION:Etihad Stadium\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879272
 STATUS:CONFIRMED
@@ -93,9 +93,9 @@ X-PL-HOME:Manchester City
 X-PL-AWAY:Sunderland
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260918T211156Z
-LAST-MODIFIED:20260918T211156Z
-SEQUENCE:3
+DTSTAMP:20260919T112525Z
+LAST-MODIFIED:20260919T112525Z
+SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879276@sports-us-bein-calendar
@@ -120,7 +120,7 @@ UID:pl-espn-401878777@sports-us-bein-calendar
 DTSTART:20260920T153000Z
 DTEND:20260920T173000Z
 SUMMARY:⚽ Premier League : Fulham [#18] - Manchester United [#13]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+
 LOCATION:Craven Cottage\, Londres — Fulham
 URL:https://www.espn.com/soccer/match/_/gameId/401878777
 STATUS:CONFIRMED
@@ -129,9 +129,9 @@ X-PL-HOME:Fulham
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260918T211156Z
-LAST-MODIFIED:20260918T211156Z
-SEQUENCE:3
+DTSTAMP:20260919T112525Z
+LAST-MODIFIED:20260919T112525Z
+SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879268@sports-us-bein-calendar
