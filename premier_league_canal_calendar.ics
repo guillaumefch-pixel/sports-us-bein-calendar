@@ -173,8 +173,8 @@ BEGIN:VEVENT
 UID:pl-espn-401878773@sports-us-bein-calendar
 DTSTART:20261010T163000Z
 DTEND:20261010T183000Z
-SUMMARY:🔥 ⚽ Premier League : Manchester United [#13] - Tottenham Hotsp
- ur [#19]
+SUMMARY:🔥 ⚽ Premier League : Manchester United [#12] - Tottenham Hotsp
+ ur [#20]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Old Trafford\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401878773
@@ -184,9 +184,9 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879264@sports-us-bein-calendar
@@ -264,7 +264,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879260@sports-us-bein-calendar
 DTSTART:20261018T130000Z
 DTEND:20261018T150000Z
-SUMMARY:⚽ Premier League : Leeds United [#5] - Manchester United [#13]
+SUMMARY:⚽ Premier League : Leeds United [#5] - Manchester United [#12]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Elland Road\, Leeds
 URL:https://www.espn.com/soccer/match/_/gameId/401879260
@@ -274,15 +274,15 @@ X-PL-HOME:Leeds United
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:6
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878769@sports-us-bein-calendar
 DTSTART:20261018T153000Z
 DTEND:20261018T173000Z
-SUMMARY:⚽ Premier League : Nottingham Forest [#12] - Arsenal [#2]
+SUMMARY:⚽ Premier League : Nottingham Forest [#13] - Arsenal [#2]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:The City Ground\, Nottingham
 URL:https://www.espn.com/soccer/match/_/gameId/401878769
@@ -292,15 +292,15 @@ X-PL-HOME:Nottingham Forest
 X-PL-AWAY:Arsenal
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T160214Z
-LAST-MODIFIED:20260919T160214Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879257@sports-us-bein-calendar
 DTSTART:20261019T190000Z
 DTEND:20261019T210000Z
-SUMMARY:⚽ Premier League : Tottenham Hotspur [#19] - Coventry City [#18]
+SUMMARY:⚽ Premier League : Tottenham Hotspur [#20] - Coventry City [#18]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
 URL:https://www.espn.com/soccer/match/_/gameId/401879257
@@ -310,9 +310,9 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Coventry City
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879256@sports-us-bein-calendar
@@ -354,8 +354,8 @@ BEGIN:VEVENT
 UID:pl-espn-401878767@sports-us-bein-calendar
 DTSTART:20261024T163000Z
 DTEND:20261024T183000Z
-SUMMARY:🔥🔥 ⚽ Premier League : Chelsea [#10] - Tottenham Hotspur [#1
- 9]
+SUMMARY:🔥🔥 ⚽ Premier League : Chelsea [#10] - Tottenham Hotspur [#2
+ 0]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Stamford Bridge\, Londres — Chelsea
 URL:https://www.espn.com/soccer/match/_/gameId/401878767
@@ -365,9 +365,9 @@ X-PL-HOME:Chelsea
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:7
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878765@sports-us-bein-calendar
@@ -391,7 +391,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879252@sports-us-bein-calendar
 DTSTART:20261025T140000Z
 DTEND:20261025T160000Z
-SUMMARY:⚽ Premier League : Manchester United [#13] - AFC Bournemouth [#17
+SUMMARY:⚽ Premier League : Manchester United [#12] - AFC Bournemouth [#17
  ]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Old Trafford\, Manchester
@@ -402,15 +402,15 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:AFC Bournemouth
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879248@sports-us-bein-calendar
 DTSTART:20261031T123000Z
 DTEND:20261031T143000Z
-SUMMARY:🔥 ⚽ Premier League : Chelsea [#10] - Manchester United [#13]
+SUMMARY:🔥 ⚽ Premier League : Chelsea [#10] - Manchester United [#12]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Stamford Bridge\, Londres — Chelsea
 URL:https://www.espn.com/soccer/match/_/gameId/401879248
@@ -420,9 +420,9 @@ X-PL-HOME:Chelsea
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:6
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879245@sports-us-bein-calendar
@@ -447,7 +447,7 @@ BEGIN:VEVENT
 UID:pl-espn-401878761@sports-us-bein-calendar
 DTSTART:20261031T173000Z
 DTEND:20261031T193000Z
-SUMMARY:⚽ Premier League : Tottenham Hotspur [#19] - Crystal Palace [#15]
+SUMMARY:⚽ Premier League : Tottenham Hotspur [#20] - Crystal Palace [#15]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
 URL:https://www.espn.com/soccer/match/_/gameId/401878761
@@ -457,9 +457,9 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Crystal Palace
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879246@sports-us-bein-calendar
@@ -483,7 +483,7 @@ BEGIN:VEVENT
 UID:pl-espn-401878757@sports-us-bein-calendar
 DTSTART:20261107T150000Z
 DTEND:20261107T170000Z
-SUMMARY:⚽ Premier League : Nottingham Forest [#12] - Manchester City [#1]
+SUMMARY:⚽ Premier League : Nottingham Forest [#13] - Manchester City [#1]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:The City Ground\, Nottingham
 URL:https://www.espn.com/soccer/match/_/gameId/401878757
@@ -493,15 +493,15 @@ X-PL-HOME:Nottingham Forest
 X-PL-AWAY:Manchester City
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T160214Z
-LAST-MODIFIED:20260919T160214Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878758@sports-us-bein-calendar
 DTSTART:20261107T150000Z
 DTEND:20261107T170000Z
-SUMMARY:⚽ Premier League : Leeds United [#5] - Tottenham Hotspur [#19]
+SUMMARY:⚽ Premier League : Leeds United [#5] - Tottenham Hotspur [#20]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Elland Road\, Leeds
 URL:https://www.espn.com/soccer/match/_/gameId/401878758
@@ -511,9 +511,9 @@ X-PL-HOME:Leeds United
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:7
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878760@sports-us-bein-calendar
@@ -555,7 +555,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879240@sports-us-bein-calendar
 DTSTART:20261107T150000Z
 DTEND:20261107T170000Z
-SUMMARY:⚽ Premier League : Manchester United [#13] - Aston Villa [#16]
+SUMMARY:⚽ Premier League : Manchester United [#12] - Aston Villa [#16]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Old Trafford\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879240
@@ -565,9 +565,9 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Aston Villa
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879243@sports-us-bein-calendar
@@ -591,7 +591,7 @@ BEGIN:VEVENT
 UID:pl-espn-401878754@sports-us-bein-calendar
 DTSTART:20261121T150000Z
 DTEND:20261121T170000Z
-SUMMARY:⚽ Premier League : Tottenham Hotspur [#19] - Ipswich Town [#11]
+SUMMARY:⚽ Premier League : Tottenham Hotspur [#20] - Ipswich Town [#11]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
 URL:https://www.espn.com/soccer/match/_/gameId/401878754
@@ -601,16 +601,16 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Ipswich Town
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878755@sports-us-bein-calendar
 DTSTART:20261121T150000Z
 DTEND:20261121T170000Z
 SUMMARY:🔥🔥🔥 ⚽ Premier League : Liverpool [#6] - Manchester Unite
- d [#13]
+ d [#12]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Anfield\, Liverpool
 URL:https://www.espn.com/soccer/match/_/gameId/401878755
@@ -620,9 +620,9 @@ X-PL-HOME:Liverpool
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879232@sports-us-bein-calendar
@@ -646,7 +646,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879233@sports-us-bein-calendar
 DTSTART:20261121T150000Z
 DTEND:20261121T170000Z
-SUMMARY:⚽ Premier League : Manchester City [#1] - Fulham [#20]
+SUMMARY:⚽ Premier League : Manchester City [#1] - Fulham [#19]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Etihad Stadium\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879233
@@ -656,9 +656,9 @@ X-PL-HOME:Manchester City
 X-PL-AWAY:Fulham
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879236@sports-us-bein-calendar
@@ -700,7 +700,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879224@sports-us-bein-calendar
 DTSTART:20261128T150000Z
 DTEND:20261128T170000Z
-SUMMARY:⚽ Premier League : Sunderland [#14] - Tottenham Hotspur [#19]
+SUMMARY:⚽ Premier League : Sunderland [#14] - Tottenham Hotspur [#20]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Stadium of Light\, Sunderland
 URL:https://www.espn.com/soccer/match/_/gameId/401879224
@@ -710,15 +710,15 @@ X-PL-HOME:Sunderland
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879225@sports-us-bein-calendar
 DTSTART:20261128T150000Z
 DTEND:20261128T170000Z
-SUMMARY:⚽ Premier League : Nottingham Forest [#12] - Chelsea [#10]
+SUMMARY:⚽ Premier League : Nottingham Forest [#13] - Chelsea [#10]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:The City Ground\, Nottingham
 URL:https://www.espn.com/soccer/match/_/gameId/401879225
@@ -728,15 +728,15 @@ X-PL-HOME:Nottingham Forest
 X-PL-AWAY:Chelsea
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:6
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879226@sports-us-bein-calendar
 DTSTART:20261128T150000Z
 DTEND:20261128T170000Z
-SUMMARY:⚽ Premier League : Manchester United [#13] - Brentford [#4]
+SUMMARY:⚽ Premier League : Manchester United [#12] - Brentford [#4]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Old Trafford\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879226
@@ -746,9 +746,9 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Brentford
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T160214Z
-LAST-MODIFIED:20260919T160214Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879229@sports-us-bein-calendar
@@ -772,7 +772,7 @@ BEGIN:VEVENT
 UID:pl-espn-401878749@sports-us-bein-calendar
 DTSTART:20261202T200000Z
 DTEND:20261202T220000Z
-SUMMARY:⚽ Premier League : Tottenham Hotspur [#19] - Fulham [#20]
+SUMMARY:⚽ Premier League : Tottenham Hotspur [#20] - Fulham [#19]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
 URL:https://www.espn.com/soccer/match/_/gameId/401878749
@@ -782,9 +782,9 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Fulham
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878750@sports-us-bein-calendar
@@ -808,7 +808,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879217@sports-us-bein-calendar
 DTSTART:20261202T200000Z
 DTEND:20261202T220000Z
-SUMMARY:⚽ Premier League : Newcastle United [#9] - Manchester United [#13
+SUMMARY:⚽ Premier League : Newcastle United [#9] - Manchester United [#12
  ]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:St. James' Park\, Newcastle-upon-Tyne — Newcastle United
@@ -819,9 +819,9 @@ X-PL-HOME:Newcastle United
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879218@sports-us-bein-calendar
@@ -881,7 +881,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879209@sports-us-bein-calendar
 DTSTART:20261205T150000Z
 DTEND:20261205T170000Z
-SUMMARY:🔥🔥🔥 ⚽ Premier League : Tottenham Hotspur [#19] - Arsenal
+SUMMARY:🔥🔥🔥 ⚽ Premier League : Tottenham Hotspur [#20] - Arsenal
   [#2] — North London Derby
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
@@ -892,15 +892,15 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Arsenal
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879210@sports-us-bein-calendar
 DTSTART:20261205T150000Z
 DTEND:20261205T170000Z
-SUMMARY:⚽ Premier League : Manchester United [#13] - Coventry City [#18]
+SUMMARY:⚽ Premier League : Manchester United [#12] - Coventry City [#18]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Old Trafford\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879210
@@ -910,9 +910,9 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Coventry City
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:3
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879213@sports-us-bein-calendar
@@ -1008,7 +1008,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879205@sports-us-bein-calendar
 DTSTART:20261212T150000Z
 DTEND:20261212T170000Z
-SUMMARY:⚽ Premier League : Hull City [#8] - Tottenham Hotspur [#19]
+SUMMARY:⚽ Premier League : Hull City [#8] - Tottenham Hotspur [#20]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:The MKM Stadium\, Hull
 URL:https://www.espn.com/soccer/match/_/gameId/401879205
@@ -1018,15 +1018,15 @@ X-PL-HOME:Hull City
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:7
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879207@sports-us-bein-calendar
 DTSTART:20261212T150000Z
 DTEND:20261212T170000Z
-SUMMARY:⚽ Premier League : Crystal Palace [#15] - Manchester United [#13]
+SUMMARY:⚽ Premier League : Crystal Palace [#15] - Manchester United [#12]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Selhurst Park\, Londres — Crystal Palace
 URL:https://www.espn.com/soccer/match/_/gameId/401879207
@@ -1036,9 +1036,9 @@ X-PL-HOME:Crystal Palace
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879199@sports-us-bein-calendar
@@ -1062,7 +1062,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879200@sports-us-bein-calendar
 DTSTART:20261219T150000Z
 DTEND:20261219T170000Z
-SUMMARY:🔥 ⚽ Premier League : Liverpool [#6] - Tottenham Hotspur [#19]
+SUMMARY:🔥 ⚽ Premier League : Liverpool [#6] - Tottenham Hotspur [#20]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Anfield\, Liverpool
 URL:https://www.espn.com/soccer/match/_/gameId/401879200
@@ -1072,9 +1072,9 @@ X-PL-HOME:Liverpool
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:6
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879202@sports-us-bein-calendar
@@ -1098,7 +1098,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879204@sports-us-bein-calendar
 DTSTART:20261219T150000Z
 DTEND:20261219T170000Z
-SUMMARY:🔥🔥 ⚽ Premier League : Arsenal [#2] - Manchester United [#13
+SUMMARY:🔥🔥 ⚽ Premier League : Arsenal [#2] - Manchester United [#12
  ]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Emirates Stadium\, Londres — Arsenal
@@ -1109,15 +1109,15 @@ X-PL-HOME:Arsenal
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T160214Z
-LAST-MODIFIED:20260919T160214Z
-SEQUENCE:3
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878731@sports-us-bein-calendar
 DTSTART:20261226T150000Z
 DTEND:20261226T170000Z
-SUMMARY:⚽ Premier League : Tottenham Hotspur [#19] - AFC Bournemouth [#17
+SUMMARY:⚽ Premier League : Tottenham Hotspur [#20] - AFC Bournemouth [#17
  ]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
@@ -1128,9 +1128,9 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:AFC Bournemouth
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878733@sports-us-bein-calendar
@@ -1190,8 +1190,8 @@ BEGIN:VEVENT
 UID:pl-espn-401879195@sports-us-bein-calendar
 DTSTART:20261227T163000Z
 DTEND:20261227T183000Z
-SUMMARY:⚽ Premier League : Manchester United [#13] - Nottingham Forest [#
- 12]
+SUMMARY:⚽ Premier League : Manchester United [#12] - Nottingham Forest [#
+ 13]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Old Trafford\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879195
@@ -1201,9 +1201,9 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Nottingham Forest
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T160214Z
-LAST-MODIFIED:20260919T160214Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878735@sports-us-bein-calendar
@@ -1227,7 +1227,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879186@sports-us-bein-calendar
 DTSTART:20261229T193000Z
 DTEND:20261229T213000Z
-SUMMARY:⚽ Premier League : Tottenham Hotspur [#19] - Brighton & Hove Albi
+SUMMARY:⚽ Premier League : Tottenham Hotspur [#20] - Brighton & Hove Albi
  on [#3]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
@@ -1238,9 +1238,9 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Brighton & Hove Albion
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:6
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879192@sports-us-bein-calendar
@@ -1264,7 +1264,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879188@sports-us-bein-calendar
 DTSTART:20261230T193000Z
 DTEND:20261230T213000Z
-SUMMARY:⚽ Premier League : Manchester United [#13] - Sunderland [#14]
+SUMMARY:⚽ Premier League : Manchester United [#12] - Sunderland [#14]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Old Trafford\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879188
@@ -1274,15 +1274,15 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Sunderland
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260913T221058Z
-LAST-MODIFIED:20260913T221058Z
-SEQUENCE:2
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879191@sports-us-bein-calendar
 DTSTART:20261230T193000Z
 DTEND:20261230T213000Z
-SUMMARY:⚽ Premier League : Fulham [#20] - Arsenal [#2]
+SUMMARY:⚽ Premier League : Fulham [#19] - Arsenal [#2]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Craven Cottage\, Londres — Fulham
 URL:https://www.espn.com/soccer/match/_/gameId/401879191
@@ -1292,9 +1292,9 @@ X-PL-HOME:Fulham
 X-PL-AWAY:Arsenal
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879189@sports-us-bein-calendar
@@ -1337,7 +1337,7 @@ UID:pl-espn-401878728@sports-us-bein-calendar
 DTSTART:20270102T123000Z
 DTEND:20270102T143000Z
 SUMMARY:⚽ Premier League : Brighton & Hove Albion [#3] - Manchester Unite
- d [#13]
+ d [#12]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:American Express Stadium\, Falmer — Brighton & Hove Albion
 URL:https://www.espn.com/soccer/match/_/gameId/401878728
@@ -1347,9 +1347,9 @@ X-PL-HOME:Brighton & Hove Albion
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T160214Z
-LAST-MODIFIED:20260919T160214Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879181@sports-us-bein-calendar
@@ -1410,7 +1410,7 @@ UID:pl-espn-401879180@sports-us-bein-calendar
 DTSTART:20270103T163000Z
 DTEND:20270103T183000Z
 SUMMARY:🔥 ⚽ Premier League : Manchester City [#1] - Tottenham Hotspur 
- [#19]
+ [#20]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Etihad Stadium\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879180
@@ -1420,9 +1420,9 @@ X-PL-HOME:Manchester City
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879177@sports-us-bein-calendar
@@ -1464,7 +1464,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879173@sports-us-bein-calendar
 DTSTART:20270106T193000Z
 DTEND:20270106T213000Z
-SUMMARY:⚽ Premier League : Fulham [#20] - Tottenham Hotspur [#19]
+SUMMARY:⚽ Premier League : Fulham [#19] - Tottenham Hotspur [#20]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Craven Cottage\, Londres — Fulham
 URL:https://www.espn.com/soccer/match/_/gameId/401879173
@@ -1474,9 +1474,9 @@ X-PL-HOME:Fulham
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879175@sports-us-bein-calendar
@@ -1518,7 +1518,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879170@sports-us-bein-calendar
 DTSTART:20270107T200000Z
 DTEND:20270107T220000Z
-SUMMARY:⚽ Premier League : Manchester United [#13] - Newcastle United [#9
+SUMMARY:⚽ Premier League : Manchester United [#12] - Newcastle United [#9
  ]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Old Trafford\, Manchester
@@ -1529,15 +1529,15 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Newcastle United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878722@sports-us-bein-calendar
 DTSTART:20270116T150000Z
 DTEND:20270116T170000Z
-SUMMARY:⚽ Premier League : Manchester City [#1] - Nottingham Forest [#12]
+SUMMARY:⚽ Premier League : Manchester City [#1] - Nottingham Forest [#13]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Etihad Stadium\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401878722
@@ -1547,9 +1547,9 @@ X-PL-HOME:Manchester City
 X-PL-AWAY:Nottingham Forest
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T160214Z
-LAST-MODIFIED:20260919T160214Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878723@sports-us-bein-calendar
@@ -1573,7 +1573,7 @@ BEGIN:VEVENT
 UID:pl-espn-401878725@sports-us-bein-calendar
 DTSTART:20270116T150000Z
 DTEND:20270116T170000Z
-SUMMARY:⚽ Premier League : Aston Villa [#16] - Manchester United [#13]
+SUMMARY:⚽ Premier League : Aston Villa [#16] - Manchester United [#12]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Villa Park\, Birmingham — Aston Villa
 URL:https://www.espn.com/soccer/match/_/gameId/401878725
@@ -1583,15 +1583,15 @@ X-PL-HOME:Aston Villa
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879165@sports-us-bein-calendar
 DTSTART:20270116T150000Z
 DTEND:20270116T170000Z
-SUMMARY:⚽ Premier League : Tottenham Hotspur [#19] - Leeds United [#5]
+SUMMARY:⚽ Premier League : Tottenham Hotspur [#20] - Leeds United [#5]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
 URL:https://www.espn.com/soccer/match/_/gameId/401879165
@@ -1601,9 +1601,9 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Leeds United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:7
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879166@sports-us-bein-calendar
@@ -1645,7 +1645,7 @@ BEGIN:VEVENT
 UID:pl-espn-401878718@sports-us-bein-calendar
 DTSTART:20270123T150000Z
 DTEND:20270123T170000Z
-SUMMARY:🔥🔥🔥 ⚽ Premier League : Manchester United [#13] - Liverpo
+SUMMARY:🔥🔥🔥 ⚽ Premier League : Manchester United [#12] - Liverpo
  ol [#6]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Old Trafford\, Manchester
@@ -1656,9 +1656,9 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Liverpool
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878720@sports-us-bein-calendar
@@ -1700,7 +1700,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879163@sports-us-bein-calendar
 DTSTART:20270123T150000Z
 DTEND:20270123T170000Z
-SUMMARY:⚽ Premier League : Crystal Palace [#15] - Tottenham Hotspur [#19]
+SUMMARY:⚽ Premier League : Crystal Palace [#15] - Tottenham Hotspur [#20]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Selhurst Park\, Londres — Crystal Palace
 URL:https://www.espn.com/soccer/match/_/gameId/401879163
@@ -1710,9 +1710,9 @@ X-PL-HOME:Crystal Palace
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879164@sports-us-bein-calendar
@@ -1737,7 +1737,7 @@ BEGIN:VEVENT
 UID:pl-espn-401878714@sports-us-bein-calendar
 DTSTART:20270130T150000Z
 DTEND:20270130T170000Z
-SUMMARY:⚽ Premier League : Chelsea [#10] - Nottingham Forest [#12]
+SUMMARY:⚽ Premier League : Chelsea [#10] - Nottingham Forest [#13]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Stamford Bridge\, Londres — Chelsea
 URL:https://www.espn.com/soccer/match/_/gameId/401878714
@@ -1747,15 +1747,15 @@ X-PL-HOME:Chelsea
 X-PL-AWAY:Nottingham Forest
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:6
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878715@sports-us-bein-calendar
 DTSTART:20270130T150000Z
 DTEND:20270130T170000Z
-SUMMARY:⚽ Premier League : Brentford [#4] - Manchester United [#13]
+SUMMARY:⚽ Premier League : Brentford [#4] - Manchester United [#12]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Gtech Community Stadium\, Brentford
 URL:https://www.espn.com/soccer/match/_/gameId/401878715
@@ -1765,15 +1765,15 @@ X-PL-HOME:Brentford
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T160214Z
-LAST-MODIFIED:20260919T160214Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879153@sports-us-bein-calendar
 DTSTART:20270130T150000Z
 DTEND:20270130T170000Z
-SUMMARY:⚽ Premier League : Tottenham Hotspur [#19] - Sunderland [#14]
+SUMMARY:⚽ Premier League : Tottenham Hotspur [#20] - Sunderland [#14]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
 URL:https://www.espn.com/soccer/match/_/gameId/401879153
@@ -1783,9 +1783,9 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Sunderland
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879154@sports-us-bein-calendar
@@ -1845,7 +1845,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879148@sports-us-bein-calendar
 DTSTART:20270206T150000Z
 DTEND:20270206T170000Z
-SUMMARY:🔥 ⚽ Premier League : Manchester United [#13] - Chelsea [#10]
+SUMMARY:🔥 ⚽ Premier League : Manchester United [#12] - Chelsea [#10]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Old Trafford\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879148
@@ -1855,15 +1855,15 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Chelsea
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:6
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879149@sports-us-bein-calendar
 DTSTART:20270206T150000Z
 DTEND:20270206T170000Z
-SUMMARY:⚽ Premier League : Ipswich Town [#11] - Tottenham Hotspur [#19]
+SUMMARY:⚽ Premier League : Ipswich Town [#11] - Tottenham Hotspur [#20]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Portman Road\, Ipswich
 URL:https://www.espn.com/soccer/match/_/gameId/401879149
@@ -1873,15 +1873,15 @@ X-PL-HOME:Ipswich Town
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879150@sports-us-bein-calendar
 DTSTART:20270206T150000Z
 DTEND:20270206T170000Z
-SUMMARY:⚽ Premier League : Fulham [#20] - Manchester City [#1]
+SUMMARY:⚽ Premier League : Fulham [#19] - Manchester City [#1]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Craven Cottage\, Londres — Fulham
 URL:https://www.espn.com/soccer/match/_/gameId/401879150
@@ -1891,9 +1891,9 @@ X-PL-HOME:Fulham
 X-PL-AWAY:Manchester City
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878706@sports-us-bein-calendar
@@ -1917,7 +1917,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879140@sports-us-bein-calendar
 DTSTART:20270210T200000Z
 DTEND:20270210T220000Z
-SUMMARY:🔥 ⚽ Premier League : Tottenham Hotspur [#19] - Manchester City
+SUMMARY:🔥 ⚽ Premier League : Tottenham Hotspur [#20] - Manchester City
   [#1]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
@@ -1928,9 +1928,9 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Manchester City
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879141@sports-us-bein-calendar
@@ -1954,7 +1954,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879142@sports-us-bein-calendar
 DTSTART:20270210T200000Z
 DTEND:20270210T220000Z
-SUMMARY:⚽ Premier League : Manchester United [#13] - Brighton & Hove Albi
+SUMMARY:⚽ Premier League : Manchester United [#12] - Brighton & Hove Albi
  on [#3]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Old Trafford\, Manchester
@@ -1965,9 +1965,9 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Brighton & Hove Albion
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T160214Z
-LAST-MODIFIED:20260919T160214Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879145@sports-us-bein-calendar
@@ -2027,7 +2027,7 @@ BEGIN:VEVENT
 UID:pl-espn-401878705@sports-us-bein-calendar
 DTSTART:20270220T150000Z
 DTEND:20270220T170000Z
-SUMMARY:⚽ Premier League : Arsenal [#2] - Fulham [#20]
+SUMMARY:⚽ Premier League : Arsenal [#2] - Fulham [#19]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Emirates Stadium\, Londres — Arsenal
 URL:https://www.espn.com/soccer/match/_/gameId/401878705
@@ -2037,16 +2037,16 @@ X-PL-HOME:Arsenal
 X-PL-AWAY:Fulham
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879134@sports-us-bein-calendar
 DTSTART:20270220T150000Z
 DTEND:20270220T170000Z
-SUMMARY:⚽ Premier League : Nottingham Forest [#12] - Manchester United [#
- 13]
+SUMMARY:⚽ Premier League : Nottingham Forest [#13] - Manchester United [#
+ 12]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:The City Ground\, Nottingham
 URL:https://www.espn.com/soccer/match/_/gameId/401879134
@@ -2056,9 +2056,9 @@ X-PL-HOME:Nottingham Forest
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T160214Z
-LAST-MODIFIED:20260919T160214Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879135@sports-us-bein-calendar
@@ -2083,7 +2083,7 @@ UID:pl-espn-401879137@sports-us-bein-calendar
 DTSTART:20270220T150000Z
 DTEND:20270220T170000Z
 SUMMARY:⚽ Premier League : Brighton & Hove Albion [#3] - Tottenham Hotspu
- r [#19]
+ r [#20]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:American Express Stadium\, Falmer — Brighton & Hove Albion
 URL:https://www.espn.com/soccer/match/_/gameId/401879137
@@ -2093,15 +2093,15 @@ X-PL-HOME:Brighton & Hove Albion
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:6
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878697@sports-us-bein-calendar
 DTSTART:20270227T150000Z
 DTEND:20270227T170000Z
-SUMMARY:🔥🔥 ⚽ Premier League : Manchester United [#13] - Arsenal [#2
+SUMMARY:🔥🔥 ⚽ Premier League : Manchester United [#12] - Arsenal [#2
  ]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Old Trafford\, Manchester
@@ -2112,9 +2112,9 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Arsenal
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T160214Z
-LAST-MODIFIED:20260919T160214Z
-SEQUENCE:3
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878698@sports-us-bein-calendar
@@ -2138,7 +2138,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879129@sports-us-bein-calendar
 DTSTART:20270227T150000Z
 DTEND:20270227T170000Z
-SUMMARY:🔥 ⚽ Premier League : Tottenham Hotspur [#19] - Liverpool [#6]
+SUMMARY:🔥 ⚽ Premier League : Tottenham Hotspur [#20] - Liverpool [#6]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
 URL:https://www.espn.com/soccer/match/_/gameId/401879129
@@ -2148,9 +2148,9 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Liverpool
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:6
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879133@sports-us-bein-calendar
@@ -2192,7 +2192,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879122@sports-us-bein-calendar
 DTSTART:20270303T200000Z
 DTEND:20270303T220000Z
-SUMMARY:⚽ Premier League : Sunderland [#14] - Manchester United [#13]
+SUMMARY:⚽ Premier League : Sunderland [#14] - Manchester United [#12]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Stadium of Light\, Sunderland
 URL:https://www.espn.com/soccer/match/_/gameId/401879122
@@ -2202,9 +2202,9 @@ X-PL-HOME:Sunderland
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260913T221058Z
-LAST-MODIFIED:20260913T221058Z
-SEQUENCE:2
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879124@sports-us-bein-calendar
@@ -2264,7 +2264,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879128@sports-us-bein-calendar
 DTSTART:20270303T200000Z
 DTEND:20270303T220000Z
-SUMMARY:⚽ Premier League : AFC Bournemouth [#17] - Tottenham Hotspur [#19
+SUMMARY:⚽ Premier League : AFC Bournemouth [#17] - Tottenham Hotspur [#20
  ]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Vitality Stadium\, Bournemouth
@@ -2275,9 +2275,9 @@ X-PL-HOME:AFC Bournemouth
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878690@sports-us-bein-calendar
@@ -2337,8 +2337,8 @@ BEGIN:VEVENT
 UID:pl-espn-401879116@sports-us-bein-calendar
 DTSTART:20270313T150000Z
 DTEND:20270313T170000Z
-SUMMARY:⚽ Premier League : Tottenham Hotspur [#19] - Nottingham Forest [#
- 12]
+SUMMARY:⚽ Premier League : Tottenham Hotspur [#20] - Nottingham Forest [#
+ 13]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
 URL:https://www.espn.com/soccer/match/_/gameId/401879116
@@ -2348,15 +2348,15 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Nottingham Forest
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879118@sports-us-bein-calendar
 DTSTART:20270313T150000Z
 DTEND:20270313T170000Z
-SUMMARY:⚽ Premier League : Manchester United [#13] - Everton [#7]
+SUMMARY:⚽ Premier League : Manchester United [#12] - Everton [#7]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Old Trafford\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879118
@@ -2366,16 +2366,16 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Everton
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879108@sports-us-bein-calendar
 DTSTART:20270320T150000Z
 DTEND:20270320T170000Z
 SUMMARY:🔥🔥🔥 ⚽ Premier League : Manchester City [#1] - Manchester
-  United [#13] — Derby de Manchester
+  United [#12] — Derby de Manchester
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Etihad Stadium\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879108
@@ -2385,9 +2385,9 @@ X-PL-HOME:Manchester City
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T160214Z
-LAST-MODIFIED:20260919T160214Z
-SEQUENCE:3
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879110@sports-us-bein-calendar
@@ -2411,7 +2411,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879111@sports-us-bein-calendar
 DTSTART:20270320T150000Z
 DTEND:20270320T170000Z
-SUMMARY:⚽ Premier League : Fulham [#20] - Liverpool [#6]
+SUMMARY:⚽ Premier League : Fulham [#19] - Liverpool [#6]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Craven Cottage\, Londres — Fulham
 URL:https://www.espn.com/soccer/match/_/gameId/401879111
@@ -2421,15 +2421,15 @@ X-PL-HOME:Fulham
 X-PL-AWAY:Liverpool
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:6
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879112@sports-us-bein-calendar
 DTSTART:20270320T150000Z
 DTEND:20270320T170000Z
-SUMMARY:⚽ Premier League : Everton [#7] - Tottenham Hotspur [#19]
+SUMMARY:⚽ Premier League : Everton [#7] - Tottenham Hotspur [#20]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Hill Dickinson Stadium\, Liverpool — Everton
 URL:https://www.espn.com/soccer/match/_/gameId/401879112
@@ -2439,9 +2439,9 @@ X-PL-HOME:Everton
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:6
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879115@sports-us-bein-calendar
@@ -2465,7 +2465,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879099@sports-us-bein-calendar
 DTSTART:20270410T140000Z
 DTEND:20270410T160000Z
-SUMMARY:⚽ Premier League : Tottenham Hotspur [#19] - Brentford [#4]
+SUMMARY:⚽ Premier League : Tottenham Hotspur [#20] - Brentford [#4]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
 URL:https://www.espn.com/soccer/match/_/gameId/401879099
@@ -2475,15 +2475,15 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Brentford
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:6
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879100@sports-us-bein-calendar
 DTSTART:20270410T140000Z
 DTEND:20270410T160000Z
-SUMMARY:⚽ Premier League : Manchester United [#13] - Hull City [#8]
+SUMMARY:⚽ Premier League : Manchester United [#12] - Hull City [#8]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Old Trafford\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879100
@@ -2493,9 +2493,9 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Hull City
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:6
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879101@sports-us-bein-calendar
@@ -2537,7 +2537,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879104@sports-us-bein-calendar
 DTSTART:20270410T140000Z
 DTEND:20270410T160000Z
-SUMMARY:⚽ Premier League : Chelsea [#10] - Fulham [#20]
+SUMMARY:⚽ Premier League : Chelsea [#10] - Fulham [#19]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Stamford Bridge\, Londres — Chelsea
 URL:https://www.espn.com/soccer/match/_/gameId/401879104
@@ -2547,9 +2547,9 @@ X-PL-HOME:Chelsea
 X-PL-AWAY:Fulham
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:7
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879106@sports-us-bein-calendar
@@ -2573,7 +2573,7 @@ BEGIN:VEVENT
 UID:pl-espn-401878681@sports-us-bein-calendar
 DTSTART:20270417T140000Z
 DTEND:20270417T160000Z
-SUMMARY:⚽ Premier League : Nottingham Forest [#12] - Liverpool [#6]
+SUMMARY:⚽ Premier League : Nottingham Forest [#13] - Liverpool [#6]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:The City Ground\, Nottingham
 URL:https://www.espn.com/soccer/match/_/gameId/401878681
@@ -2583,15 +2583,15 @@ X-PL-HOME:Nottingham Forest
 X-PL-AWAY:Liverpool
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878682@sports-us-bein-calendar
 DTSTART:20270417T140000Z
 DTEND:20270417T160000Z
-SUMMARY:⚽ Premier League : Newcastle United [#9] - Tottenham Hotspur [#19
+SUMMARY:⚽ Premier League : Newcastle United [#9] - Tottenham Hotspur [#20
  ]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:St. James' Park\, Newcastle-upon-Tyne — Newcastle United
@@ -2602,9 +2602,9 @@ X-PL-HOME:Newcastle United
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:6
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878685@sports-us-bein-calendar
@@ -2664,7 +2664,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879096@sports-us-bein-calendar
 DTSTART:20270417T140000Z
 DTEND:20270417T160000Z
-SUMMARY:⚽ Premier League : Ipswich Town [#11] - Manchester United [#13]
+SUMMARY:⚽ Premier League : Ipswich Town [#11] - Manchester United [#12]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Portman Road\, Ipswich
 URL:https://www.espn.com/soccer/match/_/gameId/401879096
@@ -2674,15 +2674,15 @@ X-PL-HOME:Ipswich Town
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T160214Z
-LAST-MODIFIED:20260919T160214Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878677@sports-us-bein-calendar
 DTSTART:20270424T140000Z
 DTEND:20270424T160000Z
-SUMMARY:⚽ Premier League : Tottenham Hotspur [#19] - Hull City [#8]
+SUMMARY:⚽ Premier League : Tottenham Hotspur [#20] - Hull City [#8]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
 URL:https://www.espn.com/soccer/match/_/gameId/401878677
@@ -2692,9 +2692,9 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Hull City
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:7
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878680@sports-us-bein-calendar
@@ -2718,7 +2718,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879091@sports-us-bein-calendar
 DTSTART:20270424T140000Z
 DTEND:20270424T160000Z
-SUMMARY:⚽ Premier League : Manchester United [#13] - Crystal Palace [#15]
+SUMMARY:⚽ Premier League : Manchester United [#12] - Crystal Palace [#15]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Old Trafford\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879091
@@ -2728,9 +2728,9 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Crystal Palace
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879092@sports-us-bein-calendar
@@ -2790,7 +2790,7 @@ BEGIN:VEVENT
 UID:pl-espn-401878675@sports-us-bein-calendar
 DTSTART:20270501T140000Z
 DTEND:20270501T160000Z
-SUMMARY:⚽ Premier League : Coventry City [#18] - Manchester United [#13]
+SUMMARY:⚽ Premier League : Coventry City [#18] - Manchester United [#12]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Coventry Building Society Arena\, Coventry
 URL:https://www.espn.com/soccer/match/_/gameId/401878675
@@ -2800,16 +2800,16 @@ X-PL-HOME:Coventry City
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:3
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878676@sports-us-bein-calendar
 DTSTART:20270501T140000Z
 DTEND:20270501T160000Z
 SUMMARY:🔥🔥🔥 ⚽ Premier League : Arsenal [#2] - Tottenham Hotspur 
- [#19] — North London Derby
+ [#20] — North London Derby
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Emirates Stadium\, Londres — Arsenal
 URL:https://www.espn.com/soccer/match/_/gameId/401878676
@@ -2819,9 +2819,9 @@ X-PL-HOME:Arsenal
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879083@sports-us-bein-calendar
@@ -2845,7 +2845,7 @@ BEGIN:VEVENT
 UID:pl-espn-401878666@sports-us-bein-calendar
 DTSTART:20270508T140000Z
 DTEND:20270508T160000Z
-SUMMARY:🔥🔥 ⚽ Premier League : Tottenham Hotspur [#19] - Chelsea [#1
+SUMMARY:🔥🔥 ⚽ Premier League : Tottenham Hotspur [#20] - Chelsea [#1
  0]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
@@ -2856,9 +2856,9 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Chelsea
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:7
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878668@sports-us-bein-calendar
@@ -2882,7 +2882,7 @@ BEGIN:VEVENT
 UID:pl-espn-401878672@sports-us-bein-calendar
 DTSTART:20270508T140000Z
 DTEND:20270508T160000Z
-SUMMARY:⚽ Premier League : AFC Bournemouth [#17] - Manchester United [#13
+SUMMARY:⚽ Premier League : AFC Bournemouth [#17] - Manchester United [#12
  ]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Vitality Stadium\, Bournemouth
@@ -2893,9 +2893,9 @@ X-PL-HOME:AFC Bournemouth
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879081@sports-us-bein-calendar
@@ -2937,7 +2937,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879074@sports-us-bein-calendar
 DTSTART:20270515T140000Z
 DTEND:20270515T160000Z
-SUMMARY:⚽ Premier League : Manchester United [#13] - Leeds United [#5]
+SUMMARY:⚽ Premier League : Manchester United [#12] - Leeds United [#5]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Old Trafford\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879074
@@ -2947,9 +2947,9 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Leeds United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:6
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879075@sports-us-bein-calendar
@@ -2973,7 +2973,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879077@sports-us-bein-calendar
 DTSTART:20270515T140000Z
 DTEND:20270515T160000Z
-SUMMARY:⚽ Premier League : Coventry City [#18] - Tottenham Hotspur [#19]
+SUMMARY:⚽ Premier League : Coventry City [#18] - Tottenham Hotspur [#20]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Coventry Building Society Arena\, Coventry
 URL:https://www.espn.com/soccer/match/_/gameId/401879077
@@ -2983,9 +2983,9 @@ X-PL-HOME:Coventry City
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879078@sports-us-bein-calendar
@@ -3009,7 +3009,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879079@sports-us-bein-calendar
 DTSTART:20270515T140000Z
 DTEND:20270515T160000Z
-SUMMARY:⚽ Premier League : Arsenal [#2] - Nottingham Forest [#12]
+SUMMARY:⚽ Premier League : Arsenal [#2] - Nottingham Forest [#13]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Emirates Stadium\, Londres — Arsenal
 URL:https://www.espn.com/soccer/match/_/gameId/401879079
@@ -3019,9 +3019,9 @@ X-PL-HOME:Arsenal
 X-PL-AWAY:Nottingham Forest
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T160214Z
-LAST-MODIFIED:20260919T160214Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878662@sports-us-bein-calendar
@@ -3045,8 +3045,8 @@ BEGIN:VEVENT
 UID:pl-espn-401879065@sports-us-bein-calendar
 DTSTART:20270523T140000Z
 DTEND:20270523T160000Z
-SUMMARY:🔥 ⚽ Premier League : Tottenham Hotspur [#19] - Manchester Unit
- ed [#13]
+SUMMARY:🔥 ⚽ Premier League : Tottenham Hotspur [#20] - Manchester Unit
+ ed [#12]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
 URL:https://www.espn.com/soccer/match/_/gameId/401879065
@@ -3056,9 +3056,9 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879067@sports-us-bein-calendar
@@ -3154,7 +3154,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879058@sports-us-bein-calendar
 DTSTART:20270530T150000Z
 DTEND:20270530T170000Z
-SUMMARY:⚽ Premier League : Manchester United [#13] - Fulham [#20]
+SUMMARY:⚽ Premier League : Manchester United [#12] - Fulham [#19]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Old Trafford\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879058
@@ -3164,9 +3164,9 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Fulham
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T205654Z
-LAST-MODIFIED:20260919T205654Z
-SEQUENCE:4
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879059@sports-us-bein-calendar
@@ -3208,7 +3208,7 @@ BEGIN:VEVENT
 UID:pl-espn-401879064@sports-us-bein-calendar
 DTSTART:20270530T150000Z
 DTEND:20270530T170000Z
-SUMMARY:⚽ Premier League : Aston Villa [#16] - Tottenham Hotspur [#19]
+SUMMARY:⚽ Premier League : Aston Villa [#16] - Tottenham Hotspur [#20]
 DESCRIPTION:CANAL+ (chaîne à confirmer)
 LOCATION:Villa Park\, Birmingham — Aston Villa
 URL:https://www.espn.com/soccer/match/_/gameId/401879064
@@ -3218,8 +3218,8 @@ X-PL-HOME:Aston Villa
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:5
+DTSTAMP:20260920T210141Z
+LAST-MODIFIED:20260920T210141Z
+SEQUENCE:6
 END:VEVENT
 END:VCALENDAR
