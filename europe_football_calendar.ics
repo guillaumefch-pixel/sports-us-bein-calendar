@@ -441,42 +441,22 @@ LAST-MODIFIED:20260914T103255Z
 SEQUENCE:1
 END:VEVENT
 BEGIN:VEVENT
-UID:europe-esp.1-401882832@sports-us-bein-calendar
-DTSTART;VALUE=DATE:20261025
-DTEND;VALUE=DATE:20261026
-SUMMARY:🔥🔥🔥 ⚽ La Liga : FC Barcelone [#1] - Real Madrid [#4] —
-  El Clásico — horaire à confirmer
-DESCRIPTION:Disney+
-LOCATION:Spotify Camp Nou\, Barcelone
-URL:https://www.espn.com/soccer/match/_/gameId/401882832
-STATUS:TENTATIVE
-TRANSP:OPAQUE
-X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"barcelona": "#1"\, "real madrid": "#4"}
-X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
- -laliga-ea-sports-en-francia
-DTSTAMP:20260920T210409Z
-LAST-MODIFIED:20260920T210409Z
-SEQUENCE:5
-END:VEVENT
-BEGIN:VEVENT
 UID:europe-esp.1-401882834@sports-us-bein-calendar
-DTSTART;VALUE=DATE:20261025
-DTEND;VALUE=DATE:20261026
-SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Deportivo [#7] — horaire
-  à confirmer
+DTSTART:20261024T190000Z
+DTEND:20261024T210000Z
+SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Deportivo [#7]
 DESCRIPTION:Disney+
 LOCATION:Riyadh Air Metropolitano\, Madrid
 URL:https://www.espn.com/soccer/match/_/gameId/401882834
-STATUS:TENTATIVE
+STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
 X-EU-RANKS:{"atletico madrid": "#2"\, "deportivo": "#7"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260920T163001Z
-LAST-MODIFIED:20260920T163001Z
-SEQUENCE:5
+DTSTAMP:20260921T221412Z
+LAST-MODIFIED:20260921T221412Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884759@sports-us-bein-calendar
@@ -495,6 +475,25 @@ X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
 DTSTAMP:20260919T210102Z
 LAST-MODIFIED:20260919T210102Z
 SEQUENCE:3
+END:VEVENT
+BEGIN:VEVENT
+UID:europe-esp.1-401882832@sports-us-bein-calendar
+DTSTART:20261025T200000Z
+DTEND:20261025T220000Z
+SUMMARY:🔥🔥🔥 ⚽ La Liga : FC Barcelone [#1] - Real Madrid [#4] —
+  El Clásico
+DESCRIPTION:Disney+
+LOCATION:Spotify Camp Nou\, Barcelone
+URL:https://www.espn.com/soccer/match/_/gameId/401882832
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+X-EU-LEAGUE:esp.1
+X-EU-RANKS:{"barcelona": "#1"\, "real madrid": "#4"}
+X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
+ -laliga-ea-sports-en-francia
+DTSTAMP:20260921T221412Z
+LAST-MODIFIED:20260921T221412Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884754@sports-us-bein-calendar
