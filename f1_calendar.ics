@@ -1064,12 +1064,12 @@ SUMMARY:🏎️ F1 — Baku — Essais libres 1
 DESCRIPTION:Canal+ Sport
 LOCATION:Baku City Circuit\, Baku
 GEO:40.3699;49.8433
-URL:https://boutique.canalplus.com/sport/f1
+URL:https://tv-sports.fr/formule-1/grand-prix-d-azerbaidjan
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260915T003810Z
-LAST-MODIFIED:20260915T003810Z
-SEQUENCE:4
+DTSTAMP:20260923T044921Z
+LAST-MODIFIED:20260923T044921Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-15-fp2@sports-us-bein-calendar
@@ -1139,12 +1139,12 @@ SUMMARY:🏎️ F1 — Sepang — Essais libres 1
 DESCRIPTION:Canal+ Sport
 LOCATION:Sepang International Circuit\, Kuala Lumpur
 GEO:2.760278;101.738056
-URL:https://tv-sports.fr/formule-1/grand-prix-de-bahrein
+URL:https://boutique.canalplus.com/sport/f1
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260922T050302Z
-LAST-MODIFIED:20260922T050302Z
-SEQUENCE:3
+DTSTAMP:20260923T044921Z
+LAST-MODIFIED:20260923T044921Z
+SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-16-fp2@sports-us-bein-calendar
@@ -1166,30 +1166,30 @@ UID:f1-16-fp3@sports-us-bein-calendar
 DTSTART:20261003T043000Z
 DTEND:20261003T053000Z
 SUMMARY:🏎️ F1 — Sepang — Essais libres 3
-DESCRIPTION:Canal+ (chaîne à confirmer)
+DESCRIPTION:Canal+ Sport
 LOCATION:Sepang International Circuit\, Kuala Lumpur
 GEO:2.760278;101.738056
-URL:https://boutique.canalplus.com/sport/f1
+URL:https://tv-sports.fr/formule-1/grand-prix-de-bahrein
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260914T103824Z
-LAST-MODIFIED:20260914T103824Z
-SEQUENCE:2
+DTSTAMP:20260923T044921Z
+LAST-MODIFIED:20260923T044921Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-16-qualifying@sports-us-bein-calendar
 DTSTART:20261003T080000Z
 DTEND:20261003T090000Z
 SUMMARY:🏎️ F1 — Sepang — Qualifications
-DESCRIPTION:Canal+ (chaîne à confirmer)
+DESCRIPTION:Canal+ Sport
 LOCATION:Sepang International Circuit\, Kuala Lumpur
 GEO:2.760278;101.738056
-URL:https://boutique.canalplus.com/sport/f1
+URL:https://tv-sports.fr/formule-1/grand-prix-de-bahrein
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260914T103824Z
-LAST-MODIFIED:20260914T103824Z
-SEQUENCE:2
+DTSTAMP:20260923T044921Z
+LAST-MODIFIED:20260923T044921Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-16-gp@sports-us-bein-calendar
