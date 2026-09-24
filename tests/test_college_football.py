@@ -151,6 +151,18 @@ class CollegeTests(unittest.TestCase):
         old = self.event()
         self.assertEqual(c.reconcile([old], {}, {}, self.poll, NOW), [old])
 
+    def test_missing_schedule_refreshes_future_records(self):
+        old = c.make_event(self.game, self.poll, {"https://fixture.invalid/fr"}, NOW,
+                           records={"texas": "2W/0L", "ohio state": "2W/0L"})
+        records = {"texas": "3W/0L", "ohio state": "2W/1L"}
+        events = c.reconcile([old], {}, {}, self.poll, NOW, records)
+        self.assertEqual(len(events), 1)
+        refreshed = events[0]
+        self.assertIn("Texas Longhorns #4 [3W/0L] - Ohio State Buckeyes #1 [2W/1L]", c.prop(refreshed, "SUMMARY"))
+        self.assertEqual(c.prop(refreshed, "X-CFB-HOME-RECORD"), "3W/0L")
+        self.assertEqual(c.prop(refreshed, "X-CFB-AWAY-RECORD"), "2W/1L")
+        self.assertEqual(c.prop(refreshed, "SEQUENCE"), "1")
+
     def test_utc_and_dst(self):
         self.assertEqual(c.ics_time(["DTSTART;TZID=Europe/Paris:20261024T190000"]), c.instant("2026-10-24T17:00Z"))
         self.assertEqual(c.ics_time(["DTSTART;TZID=Europe/Paris:20261025T190000"]), c.instant("2026-10-25T18:00Z"))

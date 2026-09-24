@@ -637,6 +637,59 @@ def make_event(game, poll, sources, now, previous=None, records=None):
     return body + [f"DTSTAMP:{stamp(now)}", f"LAST-MODIFIED:{stamp(now)}", f"SEQUENCE:{seq}"]
 
 
+def refresh_event_records(event, records, now):
+    """Actualise les bilans d'une annonce future conservée sans ESPN.
+
+    Lors d'une indisponibilité ponctuelle du scoreboard, ``reconcile`` garde
+    l'annonce existante pour ne pas faire disparaître un match. Les standings
+    restent toutefois indépendamment disponibles et doivent pouvoir mettre à
+    jour les W/L, notamment après le match précédent d'une équipe.
+    """
+    old_home = prop(event, "X-CFB-HOME-RECORD")
+    old_away = prop(event, "X-CFB-AWAY-RECORD")
+    new_home = records.get(prop(event, "X-CFB-HOME"))
+    new_away = records.get(prop(event, "X-CFB-AWAY"))
+    changes = {}
+    if old_home and new_home and old_home != new_home:
+        changes["X-CFB-HOME-RECORD"] = new_home
+    if old_away and new_away and old_away != new_away:
+        changes["X-CFB-AWAY-RECORD"] = new_away
+    if not changes:
+        return event
+
+    summary = prop(event, "SUMMARY")
+    matches = list(re.finditer(r" \[([0-9]+W/[0-9]+L(?:/[0-9]+T)?)\]", summary))
+    replacements = {}
+    if "X-CFB-HOME-RECORD" in changes:
+        home_match = next((match for match in matches if match.group(1) == old_home), None)
+        if home_match is None:
+            raise ValueError("Bilan domicile absent du résumé NCAA")
+        replacements[home_match.span(1)] = changes["X-CFB-HOME-RECORD"]
+    if "X-CFB-AWAY-RECORD" in changes:
+        away_match = next((match for match in reversed(matches)
+                           if match.group(1) == old_away and match.span(1) not in replacements), None)
+        if away_match is None:
+            raise ValueError("Bilan extérieur absent du résumé NCAA")
+        replacements[away_match.span(1)] = changes["X-CFB-AWAY-RECORD"]
+    for (start, end), value in sorted(replacements.items(), reverse=True):
+        summary = summary[:start] + value + summary[end:]
+
+    ignored = ("DTSTAMP:", "LAST-MODIFIED:", "SEQUENCE:")
+    body = []
+    for line in event:
+        if line.startswith(ignored):
+            continue
+        key = line.partition(":")[0]
+        if key == "SUMMARY":
+            body.append("SUMMARY:" + summary)
+        elif key in changes:
+            body.append(key + ":" + changes[key])
+        else:
+            body.append(line)
+    seq = int(prop(event, "SEQUENCE", "0")) + 1
+    return body + [f"DTSTAMP:{stamp(now)}", f"LAST-MODIFIED:{stamp(now)}", f"SEQUENCE:{seq}"]
+
+
 def event_started(event, now):
     if any(line.startswith('DTSTART;VALUE=DATE:') for line in event):
         return ics_time(event, 'DTEND') <= now
@@ -676,7 +729,7 @@ def reconcile(old, games, broadcasts, poll, now, records=None):
         if game and game.status in {"STATUS_CANCELED", "STATUS_CANCELLED", "STATUS_POSTPONED", "STATUS_SUSPENDED"}:
             continue
         LOG.warning("Annonce antérieure conservée sans nouvelle confirmation : %s", uid)
-        result[uid] = event
+        result[uid] = refresh_event_records(event, records or {}, now)
     return list(result.values())
 
 
