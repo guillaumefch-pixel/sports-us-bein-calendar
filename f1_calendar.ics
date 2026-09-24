@@ -1094,12 +1094,12 @@ SUMMARY:🏎️ F1 — Baku — Essais libres 3
 DESCRIPTION:Canal+ Sport
 LOCATION:Baku City Circuit\, Baku
 GEO:40.3699;49.8433
-URL:https://boutique.canalplus.com/sport/f1
+URL:https://tv-sports.fr/formule-1/grand-prix-d-azerbaidjan
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260924T115158Z
-LAST-MODIFIED:20260924T115158Z
-SEQUENCE:6
+DTSTAMP:20260924T171510Z
+LAST-MODIFIED:20260924T171510Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-15-qualifying@sports-us-bein-calendar
@@ -1109,12 +1109,12 @@ SUMMARY:🏎️ F1 — Baku — Qualifications
 DESCRIPTION:Canal+ Sport
 LOCATION:Baku City Circuit\, Baku
 GEO:40.3699;49.8433
-URL:https://boutique.canalplus.com/sport/f1
+URL:https://tv-sports.fr/formule-1/grand-prix-d-azerbaidjan
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260924T115158Z
-LAST-MODIFIED:20260924T115158Z
-SEQUENCE:6
+DTSTAMP:20260924T171510Z
+LAST-MODIFIED:20260924T171510Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-15-gp@sports-us-bein-calendar
@@ -1124,12 +1124,12 @@ SUMMARY:🏎️ F1 — Baku — Grand Prix
 DESCRIPTION:Canal+
 LOCATION:Baku City Circuit\, Baku
 GEO:40.3699;49.8433
-URL:https://boutique.canalplus.com/sport/f1
+URL:https://tv-sports.fr/formule-1/grand-prix-d-azerbaidjan
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260924T115158Z
-LAST-MODIFIED:20260924T115158Z
-SEQUENCE:6
+DTSTAMP:20260924T171510Z
+LAST-MODIFIED:20260924T171510Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-16-fp1@sports-us-bein-calendar
@@ -1154,12 +1154,12 @@ SUMMARY:🏎️ F1 — Sepang — Essais libres 2
 DESCRIPTION:Canal+ Sport
 LOCATION:Sepang International Circuit\, Kuala Lumpur
 GEO:2.760278;101.738056
-URL:https://boutique.canalplus.com/sport/f1
+URL:https://tv-sports.fr/formule-1/grand-prix-de-bahrein
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260924T115158Z
-LAST-MODIFIED:20260924T115158Z
-SEQUENCE:4
+DTSTAMP:20260924T171510Z
+LAST-MODIFIED:20260924T171510Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-16-fp3@sports-us-bein-calendar
@@ -1169,12 +1169,12 @@ SUMMARY:🏎️ F1 — Sepang — Essais libres 3
 DESCRIPTION:Canal+ Sport
 LOCATION:Sepang International Circuit\, Kuala Lumpur
 GEO:2.760278;101.738056
-URL:https://boutique.canalplus.com/sport/f1
+URL:https://tv-sports.fr/formule-1/grand-prix-de-bahrein
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260924T115158Z
-LAST-MODIFIED:20260924T115158Z
-SEQUENCE:4
+DTSTAMP:20260924T171510Z
+LAST-MODIFIED:20260924T171510Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-16-qualifying@sports-us-bein-calendar
@@ -1184,12 +1184,12 @@ SUMMARY:🏎️ F1 — Sepang — Qualifications
 DESCRIPTION:Canal+ Sport
 LOCATION:Sepang International Circuit\, Kuala Lumpur
 GEO:2.760278;101.738056
-URL:https://boutique.canalplus.com/sport/f1
+URL:https://tv-sports.fr/formule-1/grand-prix-de-bahrein
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260924T115158Z
-LAST-MODIFIED:20260924T115158Z
-SEQUENCE:4
+DTSTAMP:20260924T171510Z
+LAST-MODIFIED:20260924T171510Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-16-gp@sports-us-bein-calendar
@@ -1199,12 +1199,12 @@ SUMMARY:🏎️ F1 — Sepang — Grand Prix
 DESCRIPTION:Canal+
 LOCATION:Sepang International Circuit\, Kuala Lumpur
 GEO:2.760278;101.738056
-URL:https://boutique.canalplus.com/sport/f1
+URL:https://tv-sports.fr/formule-1/grand-prix-de-bahrein
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260924T115158Z
-LAST-MODIFIED:20260924T115158Z
-SEQUENCE:4
+DTSTAMP:20260924T171510Z
+LAST-MODIFIED:20260924T171510Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-17-fp1@sports-us-bein-calendar
