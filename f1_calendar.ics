@@ -1196,15 +1196,15 @@ UID:f1-16-gp@sports-us-bein-calendar
 DTSTART:20261004T070000Z
 DTEND:20261004T090000Z
 SUMMARY:🏎️ F1 — Sepang — Grand Prix
-DESCRIPTION:Canal+ (chaîne à confirmer)
+DESCRIPTION:Canal+
 LOCATION:Sepang International Circuit\, Kuala Lumpur
 GEO:2.760278;101.738056
-URL:https://boutique.canalplus.com/sport/f1
+URL:https://tv-sports.fr/formule-1/grand-prix-de-bahrein
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260914T103824Z
-LAST-MODIFIED:20260914T103824Z
-SEQUENCE:2
+DTSTAMP:20260924T045712Z
+LAST-MODIFIED:20260924T045712Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-17-fp1@sports-us-bein-calendar
