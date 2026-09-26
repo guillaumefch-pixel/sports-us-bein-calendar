@@ -262,26 +262,27 @@ DTEND:20260928T002500Z
 SUMMARY:🏈 NFL : New Orleans Saints [1W/1L] - Las Vegas Raiders [2W/0L]
 DESCRIPTION:L'Équipe
 LOCATION:Caesars Superdome\, New Orleans
-URL:https://tv-sports.fr/new-orleans-saints-las-vegas-raiders-tv-x1163076
+URL:https://www.linternaute.com/television/programme-l-equipe-dimanche-27-s
+ eptembre-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260925T115528Z
-LAST-MODIFIED:20260925T115528Z
-SEQUENCE:12
+DTSTAMP:20260926T112955Z
+LAST-MODIFIED:20260926T112955Z
+SEQUENCE:13
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20260927-baltimore-ravens-dallas-cowboys@sports-us-bein-calendar
 DTSTART:20260927T203000Z
 DTEND:20260927T233000Z
 SUMMARY:🏈 NFL : Dallas Cowboys [1W/1L] - Baltimore Ravens [1W/1L]
-DESCRIPTION:beIN SPORTS 1
+DESCRIPTION:beIN SPORTS 1 + L'Équipe
 LOCATION:AT&T Stadium\, Arlington — Dallas Cowboys
 URL:https://tv-sports.fr/dallas-cowboys-baltimore-ravens-tv-x1164847
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260925T115518Z
-LAST-MODIFIED:20260925T115518Z
-SEQUENCE:0
+DTSTAMP:20260926T112955Z
+LAST-MODIFIED:20260926T112955Z
+SEQUENCE:1
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20260928-denver-broncos-los-angeles-rams@sports-us-bein-calendar
