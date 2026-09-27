@@ -430,6 +430,23 @@ LAST-MODIFIED:20260921T050218Z
 SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
+UID:nfl-20261011-jacksonville-jaguars-philadelphia-eagles@sports-us-bein-ca
+ lendar
+DTSTART:20261011T133000Z
+DTEND:20261011T173000Z
+SUMMARY:🏈 NFL : Jacksonville Jaguars [1W/1L] - Philadelphia Eagles [2W/0
+ L]
+DESCRIPTION:L'Équipe
+LOCATION:Tottenham Hotspur Stadium\, Londres — Jacksonville Jaguars
+URL:https://www.linternaute.com/television/programme-l-equipe-dimanche-11-o
+ ctobre-2026/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+DTSTAMP:20260927T052306Z
+LAST-MODIFIED:20260927T052306Z
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
 UID:nfl-redzone-20261011@sports-us-bein-calendar
 DTSTART:20261011T170000Z
 DTEND:20261012T000000Z
