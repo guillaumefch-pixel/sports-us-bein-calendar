@@ -1211,15 +1211,15 @@ UID:f1-17-fp1@sports-us-bein-calendar
 DTSTART:20261009T083000Z
 DTEND:20261009T093000Z
 SUMMARY:🏎️ F1 — Singapore — Essais libres 1
-DESCRIPTION:Canal+ (chaîne à confirmer)
+DESCRIPTION:Canal+ Sport
 LOCATION:Marina Bay Street Circuit\, Singapore
 GEO:1.2857;103.8575
-URL:https://boutique.canalplus.com/sport/f1
+URL:https://tv-sports.fr/formule-1/grand-prix-de-singapour
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260914T103824Z
-LAST-MODIFIED:20260914T103824Z
-SEQUENCE:2
+DTSTAMP:20260928T231916Z
+LAST-MODIFIED:20260928T231916Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-17-sprintQualifying@sports-us-bein-calendar
