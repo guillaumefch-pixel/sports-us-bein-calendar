@@ -1241,30 +1241,30 @@ UID:f1-17-sprint@sports-us-bein-calendar
 DTSTART:20261010T090000Z
 DTEND:20261010T100000Z
 SUMMARY:🏎️ F1 — Singapore — Sprint
-DESCRIPTION:Canal+ (chaîne à confirmer)
+DESCRIPTION:Canal+ Sport
 LOCATION:Marina Bay Street Circuit\, Singapore
 GEO:1.2857;103.8575
-URL:https://boutique.canalplus.com/sport/f1
+URL:https://tv-sports.fr/formule-1/grand-prix-de-singapour
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260914T103824Z
-LAST-MODIFIED:20260914T103824Z
-SEQUENCE:2
+DTSTAMP:20260930T053744Z
+LAST-MODIFIED:20260930T053744Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-17-qualifying@sports-us-bein-calendar
 DTSTART:20261010T130000Z
 DTEND:20261010T140000Z
 SUMMARY:🏎️ F1 — Singapore — Qualifications
-DESCRIPTION:Canal+ (chaîne à confirmer)
+DESCRIPTION:Canal+ Sport
 LOCATION:Marina Bay Street Circuit\, Singapore
 GEO:1.2857;103.8575
-URL:https://boutique.canalplus.com/sport/f1
+URL:https://tv-sports.fr/formule-1/grand-prix-de-singapour
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260914T103824Z
-LAST-MODIFIED:20260914T103824Z
-SEQUENCE:2
+DTSTAMP:20260930T053744Z
+LAST-MODIFIED:20260930T053744Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-17-gp@sports-us-bein-calendar
