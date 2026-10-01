@@ -1271,15 +1271,15 @@ UID:f1-17-gp@sports-us-bein-calendar
 DTSTART:20261011T120000Z
 DTEND:20261011T140000Z
 SUMMARY:🏎️ F1 — Singapore — Grand Prix
-DESCRIPTION:Canal+ (chaîne à confirmer)
+DESCRIPTION:Canal+
 LOCATION:Marina Bay Street Circuit\, Singapore
 GEO:1.2857;103.8575
-URL:https://boutique.canalplus.com/sport/f1
+URL:https://tv-sports.fr/formule-1/grand-prix-de-singapour
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260914T103824Z
-LAST-MODIFIED:20260914T103824Z
-SEQUENCE:2
+DTSTAMP:20261001T132508Z
+LAST-MODIFIED:20261001T132508Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-18-fp1@sports-us-bein-calendar

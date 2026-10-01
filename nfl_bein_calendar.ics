@@ -433,18 +433,18 @@ BEGIN:VEVENT
 UID:nfl-20261011-jacksonville-jaguars-philadelphia-eagles@sports-us-bein-ca
  lendar
 DTSTART:20261011T133000Z
-DTEND:20261011T173000Z
+DTEND:20261011T163000Z
 SUMMARY:🏈 NFL : Jacksonville Jaguars [2W/1L] - Philadelphia Eagles [2W/1
  L]
-DESCRIPTION:L'Équipe
+DESCRIPTION:beIN SPORTS 1 + L'Équipe
 LOCATION:Tottenham Hotspur Stadium\, Londres — Jacksonville Jaguars
-URL:https://www.linternaute.com/television/programme-l-equipe-dimanche-11-o
- ctobre-2026/
+URL:https://tv-sports.fr/jacksonville-jaguars-philadelphia-eagles-tv-x11661
+ 71
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260929T054826Z
-LAST-MODIFIED:20260929T054826Z
-SEQUENCE:2
+DTSTAMP:20261001T132525Z
+LAST-MODIFIED:20261001T132525Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261011@sports-us-bein-calendar
@@ -460,18 +460,34 @@ LAST-MODIFIED:20260831T203157Z
 SEQUENCE:0
 END:VEVENT
 BEGIN:VEVENT
+UID:nfl-20261011-san-francisco-49ers-seattle-seahawks@sports-us-bein-calend
+ ar
+DTSTART:20261011T202500Z
+DTEND:20261011T232000Z
+SUMMARY:🔥🔥 🏈 NFL : Seattle Seahawks [2W/1L] - San Francisco 49ers 
+ [3W/0L]
+DESCRIPTION:L'Équipe
+LOCATION:Lumen Field\, Seattle
+URL:https://tv-sports.fr/seattle-seahawks-san-francisco-49ers-tv-x1166117
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+DTSTAMP:20261001T132514Z
+LAST-MODIFIED:20261001T132514Z
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
 UID:nfl-20261012-atlanta-falcons-baltimore-ravens@sports-us-bein-calendar
-DTSTART:20261012T002000Z
-DTEND:20261012T042000Z
+DTSTART:20261012T001500Z
+DTEND:20261012T031500Z
 SUMMARY:🏈 NFL : Atlanta Falcons [1W/2L] - Baltimore Ravens [2W/1L]
-DESCRIPTION:beIN SPORTS (chaîne à confirmer)
+DESCRIPTION:beIN SPORTS 1
 LOCATION:Mercedes-Benz Stadium\, Atlanta
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260928T052929Z
-LAST-MODIFIED:20260928T052929Z
-SEQUENCE:5
+DTSTAMP:20261001T132525Z
+LAST-MODIFIED:20261001T132525Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261013-buffalo-bills-los-angeles-rams@sports-us-bein-calendar
