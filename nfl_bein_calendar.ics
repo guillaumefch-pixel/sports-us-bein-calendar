@@ -451,13 +451,13 @@ UID:nfl-redzone-20261011@sports-us-bein-calendar
 DTSTART:20261011T170000Z
 DTEND:20261012T000000Z
 SUMMARY:🏈 NFL : NFL RedZone
-DESCRIPTION:beIN SPORTS (chaîne à confirmer)
+DESCRIPTION:beIN SPORTS MAX 4
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260831T203157Z
-LAST-MODIFIED:20260831T203157Z
-SEQUENCE:0
+DTSTAMP:20261002T054522Z
+LAST-MODIFIED:20261002T054522Z
+SEQUENCE:1
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261011-san-francisco-49ers-seattle-seahawks@sports-us-bein-calend
@@ -494,14 +494,14 @@ UID:nfl-20261013-buffalo-bills-los-angeles-rams@sports-us-bein-calendar
 DTSTART:20261013T001500Z
 DTEND:20261013T041500Z
 SUMMARY:🏈 NFL : Los Angeles Rams [1W/2L] - Buffalo Bills [3W/0L]
-DESCRIPTION:beIN SPORTS (chaîne à confirmer)
+DESCRIPTION:beIN SPORTS 1
 LOCATION:SoFi Stadium\, Inglewood — Los Angeles Rams
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260928T052929Z
-LAST-MODIFIED:20260928T052929Z
-SEQUENCE:6
+DTSTAMP:20261002T054522Z
+LAST-MODIFIED:20261002T054522Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261016-denver-broncos-seattle-seahawks@sports-us-bein-calendar
@@ -579,16 +579,16 @@ UID:nfl-20261025-new-orleans-saints-pittsburgh-steelers@sports-us-bein-cale
  ndar
 DTSTART:20261025T133000Z
 DTEND:20261025T173000Z
-SUMMARY:🏈 NFL : New Orleans Saints [1W/2L] - Pittsburgh Steelers [2W/1L]
+SUMMARY:🏈 NFL : New Orleans Saints [1W/2L] - Pittsburgh Steelers [2W/2L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer) + L'Équipe (différé 21h00
  )
 LOCATION:Stade de France\, Saint-Denis — New Orleans Saints
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260928T052929Z
-LAST-MODIFIED:20260928T052929Z
-SEQUENCE:5
+DTSTAMP:20261002T054522Z
+LAST-MODIFIED:20261002T054522Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261025@sports-us-bein-calendar
@@ -810,15 +810,15 @@ UID:nfl-20261116-cincinnati-bengals-pittsburgh-steelers@sports-us-bein-cale
  ndar
 DTSTART:20261116T012000Z
 DTEND:20261116T052000Z
-SUMMARY:🏈 NFL : Cincinnati Bengals [2W/1L] - Pittsburgh Steelers [2W/1L]
+SUMMARY:🏈 NFL : Cincinnati Bengals [2W/1L] - Pittsburgh Steelers [2W/2L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Paycor Stadium\, Cincinnati
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260927T212355Z
-LAST-MODIFIED:20260927T212355Z
-SEQUENCE:4
+DTSTAMP:20261002T054522Z
+LAST-MODIFIED:20261002T054522Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261117-baltimore-ravens-los-angeles-chargers@sports-us-bein-calen
@@ -997,15 +997,15 @@ BEGIN:VEVENT
 UID:nfl-20261207-houston-texans-pittsburgh-steelers@sports-us-bein-calendar
 DTSTART:20261207T012000Z
 DTEND:20261207T052000Z
-SUMMARY:🏈 NFL : Pittsburgh Steelers [2W/1L] - Houston Texans [0W/3L]
+SUMMARY:🏈 NFL : Pittsburgh Steelers [2W/2L] - Houston Texans [0W/3L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Acrisure Stadium\, Pittsburgh
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260927T212355Z
-LAST-MODIFIED:20260927T212355Z
-SEQUENCE:4
+DTSTAMP:20261002T054522Z
+LAST-MODIFIED:20261002T054522Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261208-dallas-cowboys-seattle-seahawks@sports-us-bein-calendar
@@ -1068,16 +1068,16 @@ UID:nfl-20261215-jacksonville-jaguars-pittsburgh-steelers@sports-us-bein-ca
  lendar
 DTSTART:20261215T011500Z
 DTEND:20261215T051500Z
-SUMMARY:🏈 NFL : Jacksonville Jaguars [2W/1L] - Pittsburgh Steelers [2W/1
+SUMMARY:🏈 NFL : Jacksonville Jaguars [2W/1L] - Pittsburgh Steelers [2W/2
  L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:EverBank Stadium\, Jacksonville
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260927T212355Z
-LAST-MODIFIED:20260927T212355Z
-SEQUENCE:5
+DTSTAMP:20261002T054522Z
+LAST-MODIFIED:20261002T054522Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261218-los-angeles-chargers-san-francisco-49ers@sports-us-bein-ca
