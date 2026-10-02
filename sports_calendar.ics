@@ -1154,12 +1154,12 @@ SUMMARY:🏎️ F1 — Sepang — Essais libres 2
 DESCRIPTION:Canal+ Sport
 LOCATION:Sepang International Circuit\, Kuala Lumpur
 GEO:2.760278;101.738056
-URL:https://tv-sports.fr/formule-1/grand-prix-de-bahrein
+URL:https://boutique.canalplus.com/sport/f1
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260928T140231Z
-LAST-MODIFIED:20260928T140231Z
-SEQUENCE:9
+DTSTAMP:20261002T124234Z
+LAST-MODIFIED:20261002T124234Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-16-fp3@sports-us-bein-calendar
