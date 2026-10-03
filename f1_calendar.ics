@@ -1169,12 +1169,12 @@ SUMMARY:🏎️ F1 — Sepang — Essais libres 3
 DESCRIPTION:Canal+ Sport
 LOCATION:Sepang International Circuit\, Kuala Lumpur
 GEO:2.760278;101.738056
-URL:https://tv-sports.fr/formule-1/grand-prix-de-bahrein
+URL:https://boutique.canalplus.com/sport/f1
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260928T140231Z
-LAST-MODIFIED:20260928T140231Z
-SEQUENCE:9
+DTSTAMP:20261003T114353Z
+LAST-MODIFIED:20261003T114353Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-16-qualifying@sports-us-bein-calendar
@@ -1184,12 +1184,12 @@ SUMMARY:🏎️ F1 — Sepang — Qualifications
 DESCRIPTION:Canal+ Sport
 LOCATION:Sepang International Circuit\, Kuala Lumpur
 GEO:2.760278;101.738056
-URL:https://tv-sports.fr/formule-1/grand-prix-de-bahrein
+URL:https://boutique.canalplus.com/sport/f1
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260928T140231Z
-LAST-MODIFIED:20260928T140231Z
-SEQUENCE:9
+DTSTAMP:20261003T114353Z
+LAST-MODIFIED:20261003T114353Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-16-gp@sports-us-bein-calendar
@@ -1226,15 +1226,15 @@ UID:f1-17-sprintQualifying@sports-us-bein-calendar
 DTSTART:20261009T123000Z
 DTEND:20261009T133000Z
 SUMMARY:🏎️ F1 — Singapore — Qualifications Sprint
-DESCRIPTION:Canal+ (chaîne à confirmer)
+DESCRIPTION:Canal+ Sport
 LOCATION:Marina Bay Street Circuit\, Singapore
 GEO:1.2857;103.8575
-URL:https://boutique.canalplus.com/sport/f1
+URL:https://tv-sports.fr/formule-1/grand-prix-de-singapour
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260914T103824Z
-LAST-MODIFIED:20260914T103824Z
-SEQUENCE:2
+DTSTAMP:20261003T114353Z
+LAST-MODIFIED:20261003T114353Z
+SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-17-sprint@sports-us-bein-calendar
