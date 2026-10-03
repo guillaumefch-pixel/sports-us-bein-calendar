@@ -496,6 +496,24 @@ LAST-MODIFIED:20260921T221412Z
 SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
+UID:europe-esp.1-401882820@sports-us-bein-calendar
+DTSTART:20261031T130000Z
+DTEND:20261031T150000Z
+SUMMARY:⚽ La Liga : Levante [#17] - Atlético de Madrid [#2]
+DESCRIPTION:Disney+
+LOCATION:Estadi Ciutat de València\, Manises — Levante
+URL:https://www.espn.com/soccer/match/_/gameId/401882820
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+X-EU-LEAGUE:esp.1
+X-EU-RANKS:{"levante": "#17"\, "atletico madrid": "#2"}
+X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
+ -laliga-ea-sports-en-francia
+DTSTAMP:20261003T120155Z
+LAST-MODIFIED:20261003T120155Z
+SEQUENCE:8
+END:VEVENT
+BEGIN:VEVENT
 UID:europe-ger.1-401884754@sports-us-bein-calendar
 DTSTART:20261031T173000Z
 DTEND:20261031T193000Z
@@ -515,61 +533,40 @@ LAST-MODIFIED:20260919T210102Z
 SEQUENCE:3
 END:VEVENT
 BEGIN:VEVENT
-UID:europe-esp.1-401882819@sports-us-bein-calendar
-DTSTART;VALUE=DATE:20261101
-DTEND;VALUE=DATE:20261102
-SUMMARY:⚽ La Liga : Racing Santander [#16] - Real Madrid [#4] — horaire
-  à confirmer
-DESCRIPTION:Disney+
-LOCATION:El Sardineros\, Santander
-URL:https://www.espn.com/soccer/match/_/gameId/401882819
-STATUS:TENTATIVE
-TRANSP:OPAQUE
-X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"racing santander": "#16"\, "real madrid": "#4"}
-X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
- -laliga-ea-sports-en-francia
-DTSTAMP:20260920T210409Z
-LAST-MODIFIED:20260920T210409Z
-SEQUENCE:5
-END:VEVENT
-BEGIN:VEVENT
-UID:europe-esp.1-401882820@sports-us-bein-calendar
-DTSTART;VALUE=DATE:20261101
-DTEND;VALUE=DATE:20261102
-SUMMARY:⚽ La Liga : Levante [#17] - Atlético de Madrid [#2] — horaire 
- à confirmer
-DESCRIPTION:Disney+
-LOCATION:Estadi Ciutat de València\, Manises — Levante
-URL:https://www.espn.com/soccer/match/_/gameId/401882820
-STATUS:TENTATIVE
-TRANSP:OPAQUE
-X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"levante": "#17"\, "atletico madrid": "#2"}
-X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
- -laliga-ea-sports-en-francia
-DTSTAMP:20260920T163001Z
-LAST-MODIFIED:20260920T163001Z
-SEQUENCE:7
-END:VEVENT
-BEGIN:VEVENT
 UID:europe-esp.1-401882822@sports-us-bein-calendar
-DTSTART;VALUE=DATE:20261101
-DTEND;VALUE=DATE:20261102
-SUMMARY:⚽ La Liga : FC Barcelone [#1] - Alavés [#6] — horaire à confi
- rmer
+DTSTART:20261031T200000Z
+DTEND:20261031T220000Z
+SUMMARY:⚽ La Liga : FC Barcelone [#1] - Alavés [#6]
 DESCRIPTION:Disney+
 LOCATION:Spotify Camp Nou\, Barcelone
 URL:https://www.espn.com/soccer/match/_/gameId/401882822
-STATUS:TENTATIVE
+STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
 X-EU-RANKS:{"barcelona": "#1"\, "alaves": "#6"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260916T214310Z
-LAST-MODIFIED:20260916T214310Z
-SEQUENCE:3
+DTSTAMP:20261003T120155Z
+LAST-MODIFIED:20261003T120155Z
+SEQUENCE:4
+END:VEVENT
+BEGIN:VEVENT
+UID:europe-esp.1-401882819@sports-us-bein-calendar
+DTSTART:20261101T151500Z
+DTEND:20261101T171500Z
+SUMMARY:⚽ La Liga : Racing Santander [#16] - Real Madrid [#4]
+DESCRIPTION:Disney+
+LOCATION:El Sardineros\, Santander
+URL:https://www.espn.com/soccer/match/_/gameId/401882819
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+X-EU-LEAGUE:esp.1
+X-EU-RANKS:{"racing santander": "#16"\, "real madrid": "#4"}
+X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
+ -laliga-ea-sports-en-francia
+DTSTAMP:20261003T120155Z
+LAST-MODIFIED:20261003T120155Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261103T174500Z@sports-us-bein-calendar
