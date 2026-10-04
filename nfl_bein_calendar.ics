@@ -363,14 +363,14 @@ UID:nfl-20261004-los-angeles-rams-philadelphia-eagles@sports-us-bein-calend
 DTSTART:20261004T170000Z
 DTEND:20261004T200000Z
 SUMMARY:🏈 NFL : Philadelphia Eagles [2W/1L] - Los Angeles Rams [1W/2L]
-DESCRIPTION:beIN SPORTS 1
+DESCRIPTION:beIN SPORTS 1 + L'Équipe
 LOCATION:Lincoln Financial Field\, Philadelphia
 URL:https://tv-sports.fr/philadelphia-eagles-los-angeles-rams-tv-x1164849
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260929T054826Z
-LAST-MODIFIED:20260929T054826Z
-SEQUENCE:1
+DTSTAMP:20261004T055915Z
+LAST-MODIFIED:20261004T055915Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261004-denver-broncos-san-francisco-49ers@sports-us-bein-calendar
@@ -559,6 +559,23 @@ STATUS:CONFIRMED
 TRANSP:OPAQUE
 DTSTAMP:20260831T203157Z
 LAST-MODIFIED:20260831T203157Z
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-20261018-kansas-city-chiefs-los-angeles-chargers@sports-us-bein-cal
+ endar
+DTSTART:20261018T202500Z
+DTEND:20261019T002500Z
+SUMMARY:🏈 NFL : Kansas City Chiefs [3W/0L] - Los Angeles Chargers [0W/3L
+ ]
+DESCRIPTION:L'Équipe
+LOCATION:GEHA Field at Arrowhead Stadium\, Kansas City
+URL:https://www.linternaute.com/television/programme-l-equipe-dimanche-18-o
+ ctobre-2026/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+DTSTAMP:20261004T055913Z
+LAST-MODIFIED:20261004T055913Z
 SEQUENCE:0
 END:VEVENT
 BEGIN:VEVENT
