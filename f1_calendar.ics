@@ -1214,12 +1214,12 @@ SUMMARY:🏎️ F1 — Singapore — Essais libres 1
 DESCRIPTION:Canal+ Sport
 LOCATION:Marina Bay Street Circuit\, Singapore
 GEO:1.2857;103.8575
-URL:https://tv-sports.fr/formule-1/grand-prix-de-singapour
+URL:https://boutique.canalplus.com/sport/f1
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260928T231916Z
-LAST-MODIFIED:20260928T231916Z
-SEQUENCE:3
+DTSTAMP:20261005T054720Z
+LAST-MODIFIED:20261005T054720Z
+SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-17-sprintQualifying@sports-us-bein-calendar
@@ -1229,12 +1229,12 @@ SUMMARY:🏎️ F1 — Singapore — Qualifications Sprint
 DESCRIPTION:Canal+ Sport
 LOCATION:Marina Bay Street Circuit\, Singapore
 GEO:1.2857;103.8575
-URL:https://tv-sports.fr/formule-1/grand-prix-de-singapour
+URL:https://boutique.canalplus.com/sport/f1
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261003T114353Z
-LAST-MODIFIED:20261003T114353Z
-SEQUENCE:3
+DTSTAMP:20261005T054720Z
+LAST-MODIFIED:20261005T054720Z
+SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-17-sprint@sports-us-bein-calendar
@@ -1244,12 +1244,12 @@ SUMMARY:🏎️ F1 — Singapore — Sprint
 DESCRIPTION:Canal+ Sport
 LOCATION:Marina Bay Street Circuit\, Singapore
 GEO:1.2857;103.8575
-URL:https://tv-sports.fr/formule-1/grand-prix-de-singapour
+URL:https://boutique.canalplus.com/sport/f1
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260930T053744Z
-LAST-MODIFIED:20260930T053744Z
-SEQUENCE:3
+DTSTAMP:20261005T054720Z
+LAST-MODIFIED:20261005T054720Z
+SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-17-qualifying@sports-us-bein-calendar
@@ -1259,12 +1259,12 @@ SUMMARY:🏎️ F1 — Singapore — Qualifications
 DESCRIPTION:Canal+ Sport
 LOCATION:Marina Bay Street Circuit\, Singapore
 GEO:1.2857;103.8575
-URL:https://tv-sports.fr/formule-1/grand-prix-de-singapour
+URL:https://boutique.canalplus.com/sport/f1
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20260930T053744Z
-LAST-MODIFIED:20260930T053744Z
-SEQUENCE:3
+DTSTAMP:20261005T054720Z
+LAST-MODIFIED:20261005T054720Z
+SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-17-gp@sports-us-bein-calendar
@@ -1274,12 +1274,12 @@ SUMMARY:🏎️ F1 — Singapore — Grand Prix
 DESCRIPTION:Canal+
 LOCATION:Marina Bay Street Circuit\, Singapore
 GEO:1.2857;103.8575
-URL:https://tv-sports.fr/formule-1/grand-prix-de-singapour
+URL:https://boutique.canalplus.com/sport/f1
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261001T132508Z
-LAST-MODIFIED:20261001T132508Z
-SEQUENCE:3
+DTSTAMP:20261005T054720Z
+LAST-MODIFIED:20261005T054720Z
+SEQUENCE:4
 END:VEVENT
 BEGIN:VEVENT
 UID:f1-18-fp1@sports-us-bein-calendar
