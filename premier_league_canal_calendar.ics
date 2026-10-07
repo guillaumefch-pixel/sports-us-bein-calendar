@@ -211,7 +211,7 @@ UID:pl-espn-401878771@sports-us-bein-calendar
 DTSTART:20261017T113000Z
 DTEND:20261017T133000Z
 SUMMARY:⚽ Premier League : Everton [#7] - Chelsea [#10]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+
 LOCATION:Hill Dickinson Stadium\, Liverpool — Everton
 URL:https://www.espn.com/soccer/match/_/gameId/401878771
 STATUS:CONFIRMED
@@ -220,16 +220,16 @@ X-PL-HOME:Everton
 X-PL-AWAY:Chelsea
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:6
+DTSTAMP:20261007T062249Z
+LAST-MODIFIED:20261007T062249Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879259@sports-us-bein-calendar
 DTSTART:20261017T140000Z
 DTEND:20261017T160000Z
 SUMMARY:⚽ Premier League : Manchester City [#1] - Ipswich Town [#11]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ LIVE 2
 LOCATION:Etihad Stadium\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879259
 STATUS:CONFIRMED
@@ -238,16 +238,16 @@ X-PL-HOME:Manchester City
 X-PL-AWAY:Ipswich Town
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260919T160214Z
-LAST-MODIFIED:20260919T160214Z
-SEQUENCE:4
+DTSTAMP:20261007T062249Z
+LAST-MODIFIED:20261007T062249Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879262@sports-us-bein-calendar
 DTSTART:20261017T140000Z
 DTEND:20261017T160000Z
 SUMMARY:⚽ Premier League : Brentford [#4] - Liverpool [#6]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ LIVE 3
 LOCATION:Gtech Community Stadium\, Brentford
 URL:https://www.espn.com/soccer/match/_/gameId/401879262
 STATUS:CONFIRMED
@@ -256,9 +256,9 @@ X-PL-HOME:Brentford
 X-PL-AWAY:Liverpool
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T162649Z
-LAST-MODIFIED:20260920T162649Z
-SEQUENCE:6
+DTSTAMP:20261007T062249Z
+LAST-MODIFIED:20261007T062249Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879260@sports-us-bein-calendar
