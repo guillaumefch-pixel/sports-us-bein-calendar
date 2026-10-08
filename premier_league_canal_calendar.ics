@@ -283,7 +283,7 @@ UID:pl-espn-401878769@sports-us-bein-calendar
 DTSTART:20261018T153000Z
 DTEND:20261018T173000Z
 SUMMARY:⚽ Premier League : Nottingham Forest [#13] - Arsenal [#2]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+
 LOCATION:The City Ground\, Nottingham
 URL:https://www.espn.com/soccer/match/_/gameId/401878769
 STATUS:CONFIRMED
@@ -292,9 +292,9 @@ X-PL-HOME:Nottingham Forest
 X-PL-AWAY:Arsenal
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T210141Z
-LAST-MODIFIED:20260920T210141Z
-SEQUENCE:5
+DTSTAMP:20261008T063442Z
+LAST-MODIFIED:20261008T063442Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879257@sports-us-bein-calendar
