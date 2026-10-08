@@ -265,7 +265,7 @@ UID:pl-espn-401879260@sports-us-bein-calendar
 DTSTART:20261018T130000Z
 DTEND:20261018T150000Z
 SUMMARY:⚽ Premier League : Leeds United [#5] - Manchester United [#12]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ LIVE 1
 LOCATION:Elland Road\, Leeds
 URL:https://www.espn.com/soccer/match/_/gameId/401879260
 STATUS:CONFIRMED
@@ -274,9 +274,9 @@ X-PL-HOME:Leeds United
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T210141Z
-LAST-MODIFIED:20260920T210141Z
-SEQUENCE:7
+DTSTAMP:20261008T233204Z
+LAST-MODIFIED:20261008T233204Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878769@sports-us-bein-calendar
@@ -301,7 +301,7 @@ UID:pl-espn-401879257@sports-us-bein-calendar
 DTSTART:20261019T190000Z
 DTEND:20261019T210000Z
 SUMMARY:⚽ Premier League : Tottenham Hotspur [#20] - Coventry City [#18]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ FOOT
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
 URL:https://www.espn.com/soccer/match/_/gameId/401879257
 STATUS:CONFIRMED
@@ -310,9 +310,9 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Coventry City
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20260920T210141Z
-LAST-MODIFIED:20260920T210141Z
-SEQUENCE:5
+DTSTAMP:20261008T233204Z
+LAST-MODIFIED:20261008T233204Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879256@sports-us-bein-calendar
