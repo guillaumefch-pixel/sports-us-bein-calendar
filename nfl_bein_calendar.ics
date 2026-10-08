@@ -565,18 +565,18 @@ BEGIN:VEVENT
 UID:nfl-20261018-kansas-city-chiefs-los-angeles-chargers@sports-us-bein-cal
  endar
 DTSTART:20261018T202500Z
-DTEND:20261019T002500Z
+DTEND:20261018T232000Z
 SUMMARY:🏈 NFL : Kansas City Chiefs [4W/0L] - Los Angeles Chargers [0W/4L
  ]
 DESCRIPTION:L'Équipe
 LOCATION:GEHA Field at Arrowhead Stadium\, Kansas City
-URL:https://www.linternaute.com/television/programme-l-equipe-dimanche-18-o
- ctobre-2026/
+URL:https://tv-sports.fr/kansas-city-chiefs-los-angeles-chargers-tv-x116791
+ 0
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261005T054736Z
-LAST-MODIFIED:20261005T054736Z
-SEQUENCE:1
+DTSTAMP:20261008T133647Z
+LAST-MODIFIED:20261008T133647Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261019-dallas-cowboys-green-bay-packers@sports-us-bein-calendar
