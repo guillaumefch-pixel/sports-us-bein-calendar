@@ -3349,15 +3349,15 @@ BEGIN:VEVENT
 UID:nfl-20261019-dallas-cowboys-green-bay-packers@sports-us-bein-calendar
 DTSTART:20261019T001500Z
 DTEND:20261019T031500Z
-SUMMARY:🏈 NFL : Green Bay Packers [2W/2L] - Dallas Cowboys [2W/2L]
+SUMMARY:🏈 NFL : Green Bay Packers [2W/2L] - Dallas Cowboys [2W/3L]
 DESCRIPTION:beIN SPORTS 1
 LOCATION:Lambeau Field\, Green Bay
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261008T232401Z
-LAST-MODIFIED:20261008T232401Z
-SEQUENCE:10
+DTSTAMP:20261009T061454Z
+LAST-MODIFIED:20261009T061454Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261020-san-francisco-49ers-washington-commanders@sports-us-bein-c
@@ -3438,15 +3438,15 @@ UID:nfl-20261027-dallas-cowboys-philadelphia-eagles@sports-us-bein-calendar
 DTSTART:20261027T001500Z
 DTEND:20261027T041500Z
 SUMMARY:🔥🔥🔥 🏈 NFL : Philadelphia Eagles [2W/2L] - Dallas Cowboy
- s [2W/2L]
+ s [2W/3L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Lincoln Financial Field\, Philadelphia
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261004T213237Z
-LAST-MODIFIED:20261004T213237Z
-SEQUENCE:9
+DTSTAMP:20261009T061454Z
+LAST-MODIFIED:20261009T061454Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261030-carolina-panthers-green-bay-packers@sports-us-bein-calenda
@@ -3553,15 +3553,15 @@ BEGIN:VEVENT
 UID:nfl-20261109-chicago-bears-tampa-bay-buccaneers@sports-us-bein-calendar
 DTSTART:20261109T012000Z
 DTEND:20261109T052000Z
-SUMMARY:🏈 NFL : Chicago Bears [3W/1L] - Tampa Bay Buccaneers [0W/4L]
+SUMMARY:🏈 NFL : Chicago Bears [3W/1L] - Tampa Bay Buccaneers [1W/4L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Soldier Field\, Chicago
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261004T213237Z
-LAST-MODIFIED:20261004T213237Z
-SEQUENCE:7
+DTSTAMP:20261009T061454Z
+LAST-MODIFIED:20261009T061454Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261110-buffalo-bills-minnesota-vikings@sports-us-bein-calendar
@@ -3770,15 +3770,15 @@ UID:nfl-20261201-carolina-panthers-tampa-bay-buccaneers@sports-us-bein-cale
  ndar
 DTSTART:20261201T011500Z
 DTEND:20261201T051500Z
-SUMMARY:🏈 NFL : Tampa Bay Buccaneers [0W/4L] - Carolina Panthers [2W/2L]
+SUMMARY:🏈 NFL : Tampa Bay Buccaneers [1W/4L] - Carolina Panthers [2W/2L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Raymond James Stadium\, Tampa
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261005T054736Z
-LAST-MODIFIED:20261005T054736Z
-SEQUENCE:8
+DTSTAMP:20261009T061454Z
+LAST-MODIFIED:20261009T061454Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261204-kansas-city-chiefs-los-angeles-rams@sports-us-bein-calenda
@@ -3826,15 +3826,15 @@ BEGIN:VEVENT
 UID:nfl-20261208-dallas-cowboys-seattle-seahawks@sports-us-bein-calendar
 DTSTART:20261208T011500Z
 DTEND:20261208T051500Z
-SUMMARY:🏈 NFL : Seattle Seahawks [3W/1L] - Dallas Cowboys [2W/2L]
+SUMMARY:🏈 NFL : Seattle Seahawks [3W/1L] - Dallas Cowboys [2W/3L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Lumen Field\, Seattle
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261005T054736Z
-LAST-MODIFIED:20261005T054736Z
-SEQUENCE:8
+DTSTAMP:20261009T061454Z
+LAST-MODIFIED:20261009T061454Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261211-minnesota-vikings-new-england-patriots@sports-us-bein-cale
@@ -4014,15 +4014,15 @@ UID:nfl-20261228-dallas-cowboys-jacksonville-jaguars@sports-us-bein-calenda
  r
 DTSTART:20261228T012000Z
 DTEND:20261228T052000Z
-SUMMARY:🏈 NFL : Dallas Cowboys [2W/2L] - Jacksonville Jaguars [3W/1L]
+SUMMARY:🏈 NFL : Dallas Cowboys [2W/3L] - Jacksonville Jaguars [3W/1L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:AT&T Stadium\, Arlington — Dallas Cowboys
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261004T213237Z
-LAST-MODIFIED:20261004T213237Z
-SEQUENCE:7
+DTSTAMP:20261009T061454Z
+LAST-MODIFIED:20261009T061454Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261229-detroit-lions-new-york-giants@sports-us-bein-calendar
