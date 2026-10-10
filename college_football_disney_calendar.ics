@@ -688,7 +688,7 @@ UID:ncaa-espn-401858263@sports-calendar
 DTSTART;VALUE=DATE:20261017
 DTEND;VALUE=DATE:20261018
 SUMMARY:🔥🔥🔥 🏈 NCAA : Miami Hurricanes #4 [5W/0L] - Florida Stat
- e Seminoles (NC) [3W/2L] — horaire à confirmer
+ e Seminoles (NC) [3W/3L] — horaire à confirmer
 DESCRIPTION:
 LOCATION:Hard Rock Stadium\, Miami Gardens — Miami Hurricanes
 URL:https://www.espn.com/college-football/game/_/gameId/401858263
@@ -699,10 +699,10 @@ X-CFB-AWAY:florida state
 X-CFB-SOURCES:
 X-CFB-HOME-DISPLAY:Miami Hurricanes
 X-CFB-HOME-RECORD:5W/0L
-X-CFB-AWAY-RECORD:3W/2L
-DTSTAMP:20261004T054828Z
-LAST-MODIFIED:20261004T054828Z
-SEQUENCE:10
+X-CFB-AWAY-RECORD:3W/3L
+DTSTAMP:20261010T054802Z
+LAST-MODIFIED:20261010T054802Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:ncaa-espn-401856720@sports-calendar
@@ -1110,7 +1110,7 @@ UID:ncaa-espn-401858541@sports-calendar
 DTSTART;VALUE=DATE:20261128
 DTEND;VALUE=DATE:20261129
 SUMMARY:🔥🔥🔥 🏈 NCAA : Oregon Ducks #13 [3W/1L] - Washington Husk
- ies (NC) [3W/2L] — horaire à confirmer
+ ies (NC) [3W/3L] — horaire à confirmer
 DESCRIPTION:
 LOCATION:Autzen Stadium\, Eugene — Oregon Ducks
 URL:https://www.espn.com/college-football/game/_/gameId/401858541
@@ -1121,10 +1121,10 @@ X-CFB-AWAY:washington
 X-CFB-SOURCES:
 X-CFB-HOME-DISPLAY:Oregon Ducks
 X-CFB-HOME-RECORD:3W/1L
-X-CFB-AWAY-RECORD:3W/2L
-DTSTAMP:20261004T212122Z
-LAST-MODIFIED:20261004T212122Z
-SEQUENCE:11
+X-CFB-AWAY-RECORD:3W/3L
+DTSTAMP:20261010T054802Z
+LAST-MODIFIED:20261010T054802Z
+SEQUENCE:12
 END:VEVENT
 BEGIN:VEVENT
 UID:ncaa-espn-401856756@sports-calendar
