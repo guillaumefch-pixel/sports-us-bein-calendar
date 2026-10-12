@@ -679,41 +679,39 @@ SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882808@sports-us-bein-calendar
-DTSTART;VALUE=DATE:20261108
-DTEND;VALUE=DATE:20261109
-SUMMARY:⚽ La Liga : Valencia [#19] - Real Madrid [#4] — horaire à conf
- irmer
+DTSTART:20261107T200000Z
+DTEND:20261107T220000Z
+SUMMARY:⚽ La Liga : Valencia [#19] - Real Madrid [#4]
 DESCRIPTION:Disney+
 LOCATION:Mestalla Stadium\, Manises — Valencia
 URL:https://www.espn.com/soccer/match/_/gameId/401882808
-STATUS:TENTATIVE
+STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
 X-EU-RANKS:{"valencia": "#19"\, "real madrid": "#4"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:8
+DTSTAMP:20261012T160723Z
+LAST-MODIFIED:20261012T160723Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882816@sports-us-bein-calendar
-DTSTART;VALUE=DATE:20261108
-DTEND;VALUE=DATE:20261109
+DTSTART:20261108T200000Z
+DTEND:20261108T220000Z
 SUMMARY:🔥🔥 ⚽ La Liga : Atlético de Madrid [#2] - FC Barcelone [#1]
-  — horaire à confirmer
 DESCRIPTION:Disney+
 LOCATION:Riyadh Air Metropolitano\, Madrid
 URL:https://www.espn.com/soccer/match/_/gameId/401882816
-STATUS:TENTATIVE
+STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
 X-EU-RANKS:{"atletico madrid": "#2"\, "barcelona": "#1"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20260920T163001Z
-LAST-MODIFIED:20260920T163001Z
-SEQUENCE:5
+DTSTAMP:20261012T160723Z
+LAST-MODIFIED:20261012T160723Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884736@sports-us-bein-calendar
