@@ -499,19 +499,19 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882820@sports-us-bein-calendar
 DTSTART:20261031T130000Z
 DTEND:20261031T150000Z
-SUMMARY:⚽ La Liga : Levante [#18] - Atlético de Madrid [#2]
+SUMMARY:⚽ La Liga : Levante [#17] - Atlético de Madrid [#2]
 DESCRIPTION:Disney+
 LOCATION:Estadi Ciutat de València\, Manises — Levante
 URL:https://www.espn.com/soccer/match/_/gameId/401882820
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"levante": "#18"\, "atletico madrid": "#2"}
+X-EU-RANKS:{"levante": "#17"\, "atletico madrid": "#2"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:9
+DTSTAMP:20261013T005825Z
+LAST-MODIFIED:20261013T005825Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884754@sports-us-bein-calendar
@@ -921,7 +921,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882793@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20261129
 DTEND;VALUE=DATE:20261130
-SUMMARY:⚽ La Liga : Elche [#17] - Atlético de Madrid [#2] — horaire à
+SUMMARY:⚽ La Liga : Elche [#18] - Atlético de Madrid [#2] — horaire à
   confirmer
 DESCRIPTION:Disney+
 LOCATION:Estadio Martínez Valero\, Elche
@@ -929,12 +929,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882793
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"elche": "#17"\, "atletico madrid": "#2"}
+X-EU-RANKS:{"elche": "#18"\, "atletico madrid": "#2"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:9
+DTSTAMP:20261013T005825Z
+LAST-MODIFIED:20261013T005825Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882794@sports-us-bein-calendar
@@ -1353,7 +1353,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882739@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
-SUMMARY:⚽ La Liga : Real Madrid [#4] - Levante [#18] — horaire à confi
+SUMMARY:⚽ La Liga : Real Madrid [#4] - Levante [#17] — horaire à confi
  rmer
 DESCRIPTION:Disney+
 LOCATION:Santiago Bernabéu\, Madrid
@@ -1361,12 +1361,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882739
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"real madrid": "#4"\, "levante": "#18"}
+X-EU-RANKS:{"real madrid": "#4"\, "levante": "#17"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:8
+DTSTAMP:20261013T005825Z
+LAST-MODIFIED:20261013T005825Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882740@sports-us-bein-calendar
@@ -1467,7 +1467,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882733@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270117
 DTEND;VALUE=DATE:20270118
-SUMMARY:⚽ La Liga : FC Barcelone [#1] - Elche [#17] — horaire à confir
+SUMMARY:⚽ La Liga : FC Barcelone [#1] - Elche [#18] — horaire à confir
  mer
 DESCRIPTION:Disney+
 LOCATION:Spotify Camp Nou\, Barcelone
@@ -1475,12 +1475,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882733
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"barcelona": "#1"\, "elche": "#17"}
+X-EU-RANKS:{"barcelona": "#1"\, "elche": "#18"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:5
+DTSTAMP:20261013T005825Z
+LAST-MODIFIED:20261013T005825Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882736@sports-us-bein-calendar
@@ -1964,7 +1964,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882681@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270221
 DTEND;VALUE=DATE:20270222
-SUMMARY:⚽ La Liga : FC Barcelone [#1] - Levante [#18] — horaire à conf
+SUMMARY:⚽ La Liga : FC Barcelone [#1] - Levante [#17] — horaire à conf
  irmer
 DESCRIPTION:Disney+
 LOCATION:Spotify Camp Nou\, Barcelone
@@ -1972,18 +1972,18 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882681
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"barcelona": "#1"\, "levante": "#18"}
+X-EU-RANKS:{"barcelona": "#1"\, "levante": "#17"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:6
+DTSTAMP:20261013T005825Z
+LAST-MODIFIED:20261013T005825Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882684@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270221
 DTEND;VALUE=DATE:20270222
-SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Elche [#17] — horaire à
+SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Elche [#18] — horaire à
   confirmer
 DESCRIPTION:Disney+
 LOCATION:Riyadh Air Metropolitano\, Madrid
@@ -1991,12 +1991,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882684
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"atletico madrid": "#2"\, "elche": "#17"}
+X-EU-RANKS:{"atletico madrid": "#2"\, "elche": "#18"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:9
+DTSTAMP:20261013T005825Z
+LAST-MODIFIED:20261013T005825Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884618@sports-us-bein-calendar
@@ -2439,7 +2439,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882625@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270411
 DTEND;VALUE=DATE:20270412
-SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Levante [#18] — horaire 
+SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Levante [#17] — horaire 
  à confirmer
 DESCRIPTION:Disney+
 LOCATION:Riyadh Air Metropolitano\, Madrid
@@ -2447,12 +2447,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882625
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"atletico madrid": "#2"\, "levante": "#18"}
+X-EU-RANKS:{"atletico madrid": "#2"\, "levante": "#17"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:8
+DTSTAMP:20261013T005825Z
+LAST-MODIFIED:20261013T005825Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884556@sports-us-bein-calendar
@@ -2553,7 +2553,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882600@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270421
 DTEND;VALUE=DATE:20270422
-SUMMARY:⚽ La Liga : Real Madrid [#4] - Elche [#17] — horaire à confirm
+SUMMARY:⚽ La Liga : Real Madrid [#4] - Elche [#18] — horaire à confirm
  er
 DESCRIPTION:Disney+
 LOCATION:Santiago Bernabéu\, Madrid
@@ -2561,12 +2561,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882600
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"real madrid": "#4"\, "elche": "#17"}
+X-EU-RANKS:{"real madrid": "#4"\, "elche": "#18"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:8
+DTSTAMP:20261013T005825Z
+LAST-MODIFIED:20261013T005825Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882605@sports-us-bein-calendar
@@ -2610,7 +2610,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882590@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270502
 DTEND;VALUE=DATE:20270503
-SUMMARY:⚽ La Liga : Levante [#18] - Real Madrid [#4] — horaire à confi
+SUMMARY:⚽ La Liga : Levante [#17] - Real Madrid [#4] — horaire à confi
  rmer
 DESCRIPTION:Disney+
 LOCATION:Estadi Ciutat de València\, Manises — Levante
@@ -2618,12 +2618,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882590
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"levante": "#18"\, "real madrid": "#4"}
+X-EU-RANKS:{"levante": "#17"\, "real madrid": "#4"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:8
+DTSTAMP:20261013T005825Z
+LAST-MODIFIED:20261013T005825Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882591@sports-us-bein-calendar
