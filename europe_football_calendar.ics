@@ -239,44 +239,44 @@ UID:ucl-slot-20261014T164500Z@sports-us-bein-calendar
 DTSTART:20261014T164500Z
 DTEND:20261014T184500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Feyenoord Rotterdam [#33] - Côme [#5]\, De Kuip\, Rotterda
- m\n• LASK Linz [#27] - Liverpool [#13]\, Raiffeisen Arena (Linz)\, Linz
+DESCRIPTION:• Feyenoord Rotterdam [#33] - Côme [#6]\, De Kuip\, Rotterda
+ m\n• LASK Linz [#27] - Liverpool [#15]\, Raiffeisen Arena (Linz)\, Linz
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915416,401915415
-X-EU-RANKS:{"feyenoord rotterdam": "#33"\, "como": "#5"\, "lask linz": "#27
- "\, "liverpool": "#13"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"feyenoord rotterdam": "#33"\, "como": "#6"\, "lask linz": "#27
+ "\, "liverpool": "#15"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261014T190000Z@sports-us-bein-calendar
 DTSTART:20261014T190000Z
 DTEND:20261014T210000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• AS Roma [#17] - Real Madrid [#14]\, Olimpico\, Rome\n• As
- ton Villa [#9] - Fenerbahce [#19]\, Villa Park\, Birmingham — Aston Vill
- a\n• Bodo/Glimt [#36] - Borussia Dortmund [#12]\, Aspmyra Stadion\, Bod
- ø/Glimt — Bodo/Glimt\n• Real Betis [#11] - FC Porto [#31]\, Estadio L
- a Cartuja\, Sevilla — Real Betis\n• Shakhtar Donetsk [#18] - AEK Athen
- s [#16]\, Stamford Bridge\, Londres — Shakhtar Donetsk\n• Slovan Brati
- slava [#35] - VfB Stuttgart [#7]\, Národny Futbalovy Stadión\, Bratislav
+DESCRIPTION:• AS Roma [#22] - Real Madrid [#16]\, Olimpico\, Rome\n• As
+ ton Villa [#11] - Fenerbahce [#24]\, Villa Park\, Birmingham — Aston Vil
+ la\n• Bodo/Glimt [#36] - Borussia Dortmund [#14]\, Aspmyra Stadion\, Bod
+ ø/Glimt — Bodo/Glimt\n• Real Betis [#12] - FC Porto [#29]\, Estadio L
+ a Cartuja\, Sevilla — Real Betis\n• Shakhtar Donetsk [#23] - AEK Athen
+ s [#17]\, Stamford Bridge\, Londres — Shakhtar Donetsk\n• Slovan Brati
+ slava [#35] - VfB Stuttgart [#8]\, Národny Futbalovy Stadión\, Bratislav
  a
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915414,401915409,401915393,401915408,401915406,401915405
-X-EU-RANKS:{"as roma": "#17"\, "real madrid": "#14"\, "aston villa": "#9"\,
-  "fenerbahce": "#19"\, "bodo glimt": "#36"\, "borussia dortmund": "#12"\, 
- "real betis": "#11"\, "fc porto": "#31"\, "shakhtar donetsk": "#18"\, "aek
-  athens": "#16"\, "slovan bratislava": "#35"\, "vfb stuttgart": "#7"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"as roma": "#22"\, "real madrid": "#16"\, "aston villa": "#11"\
+ , "fenerbahce": "#24"\, "bodo glimt": "#36"\, "borussia dortmund": "#14"\,
+  "real betis": "#12"\, "fc porto": "#29"\, "shakhtar donetsk": "#23"\, "ae
+ k athens": "#17"\, "slovan bratislava": "#35"\, "vfb stuttgart": "#8"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882843@sports-us-bein-calendar
@@ -355,75 +355,75 @@ UID:ucl-slot-20261020T164500Z@sports-us-bein-calendar
 DTSTART:20261020T164500Z
 DTEND:20261020T184500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Fenerbahce [#19] - Slavia Prague [#24]\, Şükrü Saracoğl
- u Stadium\, Istanbul — Fenerbahce\n• Sabah FK [#34] - Borussia Dortmun
- d [#12]\, Baku Olympic Stadium\, Baku — Sabah FK
+DESCRIPTION:• Fenerbahce [#24] - Slavia Prague [#30]\, Şükrü Saracoğl
+ u Stadium\, Istanbul — Fenerbahce\n• Sabah FK [#21] - Borussia Dortmun
+ d [#14]\, Baku Olympic Stadium\, Baku — Sabah FK
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915403,401915404
-X-EU-RANKS:{"fenerbahce": "#19"\, "slavia prague": "#24"\, "sabah fk": "#34
- "\, "borussia dortmund": "#12"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"fenerbahce": "#24"\, "slavia prague": "#30"\, "sabah fk": "#21
+ "\, "borussia dortmund": "#14"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261020T190000Z@sports-us-bein-calendar
 DTSTART:20261020T190000Z
 DTEND:20261020T210000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• AS Roma [#17] - Slovan Bratislava [#35]\, Olimpico\, Rome\n
- • FC Porto [#31] - PSV Eindhoven [#20]\, Estádio do Dragão\, Porto\n
- • Liverpool [#13] - Villarreal [#21]\, Anfield\, Liverpool\n• Manchest
- er City [#8] - AEK Athens [#16]\, Etihad Stadium\, Manchester\n• Napoli 
- [#28] - Bodo/Glimt [#36]\, Stadio Diego Armando Maradona\, Napoli\n• VfB
-  Stuttgart [#7] - Atlético de Madrid [#25]\, MHPArena\, Stuttgart
+DESCRIPTION:• AS Roma [#22] - Slovan Bratislava [#35]\, Olimpico\, Rome\n
+ • FC Porto [#29] - PSV Eindhoven [#25]\, Estádio do Dragão\, Porto\n
+ • Liverpool [#15] - Villarreal [#10]\, Anfield\, Liverpool\n• Manchest
+ er City [#9] - AEK Athens [#17]\, Etihad Stadium\, Manchester\n• Napoli 
+ [#31] - Bodo/Glimt [#36]\, Stadio Diego Armando Maradona\, Napoli\n• VfB
+  Stuttgart [#8] - Atlético de Madrid [#13]\, MHPArena\, Stuttgart
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915402,401915398,401915397,401915401,401915400,401915392
-X-EU-RANKS:{"as roma": "#17"\, "slovan bratislava": "#35"\, "fc porto": "#3
- 1"\, "psv eindhoven": "#20"\, "liverpool": "#13"\, "villarreal": "#21"\, "
- manchester city": "#8"\, "aek athens": "#16"\, "napoli": "#28"\, "bodo gli
- mt": "#36"\, "vfb stuttgart": "#7"\, "atletico madrid": "#25"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"as roma": "#22"\, "slovan bratislava": "#35"\, "fc porto": "#2
+ 9"\, "psv eindhoven": "#25"\, "liverpool": "#15"\, "villarreal": "#10"\, "
+ manchester city": "#9"\, "aek athens": "#17"\, "napoli": "#31"\, "bodo gli
+ mt": "#36"\, "vfb stuttgart": "#8"\, "atletico madrid": "#13"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261021T164500Z@sports-us-bein-calendar
 DTSTART:20261021T164500Z
 DTEND:20261021T184500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Côme [#5] - Manchester United [#4]\, Giuseppe Sinigaglia\,
-  Côme\n• Lille [#23] - Galatasaray [#29]\, Decathlon Arena - Stade Pier
+DESCRIPTION:• Côme [#6] - Manchester United [#7]\, Giuseppe Sinigaglia\,
+  Côme\n• Lille [#32] - Galatasaray [#34]\, Decathlon Arena - Stade Pier
  re-Mauroy\, Lille
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915395,401915396
-X-EU-RANKS:{"como": "#5"\, "manchester united": "#4"\, "lille": "#23"\, "ga
- latasaray": "#29"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"como": "#6"\, "manchester united": "#7"\, "lille": "#32"\, "ga
+ latasaray": "#34"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261021T190000Z@sports-us-bein-calendar
 DTSTART:20261021T190000Z
 DTEND:20261021T210000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Aston Villa [#9] - Viking FK [#30]\, Villa Park\, Birmingha
- m — Aston Villa\n• Bayern Munich [#2] - Arsenal [#15]\, Allianz Arena\
- , Munich\n• Club Brugge [#22] - Lens [#10]\, Jan Breydel Stadium\, Brugg
- e\n• Internazionale [#26] - Shakhtar Donetsk [#18]\, San Siro\, Milan 
- — Internazionale\n• Real Betis [#11] - Feyenoord Rotterdam [#33]\, Est
- adio La Cartuja\, Sevilla — Real Betis\n• Real Madrid [#14] - RB Leipz
- ig [#32]\, Santiago Bernabéu\, Madrid\n• Sporting CP [#6] - LASK Linz [
+DESCRIPTION:• Aston Villa [#11] - Viking FK [#26]\, Villa Park\, Birmingh
+ am — Aston Villa\n• Bayern Munich [#4] - Arsenal [#3]\, Allianz Arena\
+ , Munich\n• Club Brugge [#18] - Lens [#19]\, Jan Breydel Stadium\, Brugg
+ e\n• Internazionale [#28] - Shakhtar Donetsk [#23]\, San Siro\, Milan 
+ — Internazionale\n• Real Betis [#12] - Feyenoord Rotterdam [#33]\, Est
+ adio La Cartuja\, Sevilla — Real Betis\n• Real Madrid [#16] - RB Leipz
+ ig [#20]\, Santiago Bernabéu\, Madrid\n• Sporting CP [#2] - LASK Linz [
  #27]\, Estádio José Alvalade\, Lisbon — Sporting CP
 STATUS:CONFIRMED
 TRANSP:OPAQUE
@@ -431,14 +431,14 @@ X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915394,401915312,401915388,401915390,401915389,401915313,40
  1915391
-X-EU-RANKS:{"aston villa": "#9"\, "viking fk": "#30"\, "bayern munich": "#2
- "\, "arsenal": "#15"\, "club brugge": "#22"\, "lens": "#10"\, "internazion
- ale": "#26"\, "shakhtar donetsk": "#18"\, "real betis": "#11"\, "feyenoord
-  rotterdam": "#33"\, "real madrid": "#14"\, "rb leipzig": "#32"\, "sportin
- g cp": "#6"\, "lask linz": "#27"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"aston villa": "#11"\, "viking fk": "#26"\, "bayern munich": "#
+ 4"\, "arsenal": "#3"\, "club brugge": "#18"\, "lens": "#19"\, "internazion
+ ale": "#28"\, "shakhtar donetsk": "#23"\, "real betis": "#12"\, "feyenoord
+  rotterdam": "#33"\, "real madrid": "#16"\, "rb leipzig": "#20"\, "sportin
+ g cp": "#2"\, "lask linz": "#27"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882834@sports-us-bein-calendar
@@ -573,91 +573,91 @@ UID:ucl-slot-20261103T174500Z@sports-us-bein-calendar
 DTSTART:20261103T174500Z
 DTEND:20261103T194500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Galatasaray [#29] - VfB Stuttgart [#7]\, RAMS Park\, Istanb
- ul — Galatasaray\n• Shakhtar Donetsk [#18] - Sporting CP [#6]\, Stamfo
+DESCRIPTION:• Galatasaray [#34] - VfB Stuttgart [#8]\, RAMS Park\, Istanb
+ ul — Galatasaray\n• Shakhtar Donetsk [#23] - Sporting CP [#2]\, Stamfo
  rd Bridge\, Londres — Shakhtar Donetsk
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915311,401915310
-X-EU-RANKS:{"galatasaray": "#29"\, "vfb stuttgart": "#7"\, "shakhtar donets
- k": "#18"\, "sporting cp": "#6"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"galatasaray": "#34"\, "vfb stuttgart": "#8"\, "shakhtar donets
+ k": "#23"\, "sporting cp": "#2"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261103T200000Z@sports-us-bein-calendar
 DTSTART:20261103T200000Z
 DTEND:20261103T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Atlético de Madrid [#25] - Bayern Munich [#2]\, Riyadh Air
-  Metropolitano\, Madrid\n• Bodo/Glimt [#36] - Lille [#23]\, Aspmyra Stad
- ion\, Bodø/Glimt — Bodo/Glimt\n• FC Barcelone [#3] - Aston Villa [#9]
- \, Spotify Camp Nou\, Barcelone\n• Feyenoord Rotterdam [#33] - Internazi
- onale [#26]\, De Kuip\, Rotterdam\n• LASK Linz [#27] - Slovan Bratislava
-  [#35]\, Raiffeisen Arena (Linz)\, Linz\n• Manchester United [#4] - AS R
- oma [#17]\, Old Trafford\, Manchester
+DESCRIPTION:• Atlético de Madrid [#13] - Bayern Munich [#4]\, Riyadh Air
+  Metropolitano\, Madrid\n• Bodo/Glimt [#36] - Lille [#32]\, Aspmyra Stad
+ ion\, Bodø/Glimt — Bodo/Glimt\n• FC Barcelone [#1] - Aston Villa [#11
+ ]\, Spotify Camp Nou\, Barcelone\n• Feyenoord Rotterdam [#33] - Internaz
+ ionale [#28]\, De Kuip\, Rotterdam\n• LASK Linz [#27] - Slovan Bratislav
+ a [#35]\, Raiffeisen Arena (Linz)\, Linz\n• Manchester United [#7] - AS 
+ Roma [#22]\, Old Trafford\, Manchester
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915386,401915384,401915387,401915307,401915385,401915308
-X-EU-RANKS:{"atletico madrid": "#25"\, "bayern munich": "#2"\, "bodo glimt"
- : "#36"\, "lille": "#23"\, "barcelona": "#3"\, "aston villa": "#9"\, "feye
- noord rotterdam": "#33"\, "internazionale": "#26"\, "lask linz": "#27"\, "
- slovan bratislava": "#35"\, "manchester united": "#4"\, "as roma": "#17"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"atletico madrid": "#13"\, "bayern munich": "#4"\, "bodo glimt"
+ : "#36"\, "lille": "#32"\, "barcelona": "#1"\, "aston villa": "#11"\, "fey
+ enoord rotterdam": "#33"\, "internazionale": "#28"\, "lask linz": "#27"\, 
+ "slovan bratislava": "#35"\, "manchester united": "#7"\, "as roma": "#22"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261104T174500Z@sports-us-bein-calendar
 DTSTART:20261104T174500Z
 DTEND:20261104T194500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• AEK Athens [#16] - Real Madrid [#14]\, OPAP Arena\, Athens\
- n• Fenerbahce [#19] - Liverpool [#13]\, Şükrü Saracoğlu Stadium\, Is
+DESCRIPTION:• AEK Athens [#17] - Real Madrid [#16]\, OPAP Arena\, Athens\
+ n• Fenerbahce [#24] - Liverpool [#15]\, Şükrü Saracoğlu Stadium\, Is
  tanbul — Fenerbahce
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915383,401915382
-X-EU-RANKS:{"aek athens": "#16"\, "real madrid": "#14"\, "fenerbahce": "#19
- "\, "liverpool": "#13"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"aek athens": "#17"\, "real madrid": "#16"\, "fenerbahce": "#24
+ "\, "liverpool": "#15"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261104T200000Z@sports-us-bein-calendar
 DTSTART:20261104T200000Z
 DTEND:20261104T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Borussia Dortmund [#12] - Real Betis [#11]\, Signal Iduna P
- ark\, Aue — Borussia Dortmund\n• FC Porto [#31] - Napoli [#28]\, Está
- dio do Dragão\, Porto\n• Lens [#10] - Côme [#5]\, Stade Bollaert-Delel
- is\, Lens\n• PSV Eindhoven [#20] - Club Brugge [#22]\, Philips Stadion\,
-  Eindhoven\n• RB Leipzig [#32] - Manchester City [#8]\, Red Bull Arena\,
-  Leipzig\n• Slavia Prague [#24] - Arsenal [#15]\, Fortuna Arena\, Prague
- \n• Viking FK [#30] - Sabah FK [#34]\, Viking Stadion\, Stavanger — Vi
- king FK
+DESCRIPTION:• Borussia Dortmund [#14] - Real Betis [#12]\, Signal Iduna P
+ ark\, Aue — Borussia Dortmund\n• FC Porto [#29] - Napoli [#31]\, Está
+ dio do Dragão\, Porto\n• Lens [#19] - Côme [#6]\, Stade Bollaert-Delel
+ is\, Lens\n• PSV Eindhoven [#25] - Club Brugge [#18]\, Philips Stadion\,
+  Eindhoven\n• RB Leipzig [#20] - Manchester City [#9]\, Red Bull Arena\,
+  Leipzig\n• Slavia Prague [#30] - Arsenal [#3]\, Fortuna Arena\, Prague\
+ n• Viking FK [#26] - Sabah FK [#21]\, Viking Stadion\, Stavanger — Vik
+ ing FK
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915304,401915301,401915305,401915303,401915306,401915381,40
  1915302
-X-EU-RANKS:{"borussia dortmund": "#12"\, "real betis": "#11"\, "fc porto": 
- "#31"\, "napoli": "#28"\, "lens": "#10"\, "como": "#5"\, "psv eindhoven": 
- "#20"\, "club brugge": "#22"\, "rb leipzig": "#32"\, "manchester city": "#
- 8"\, "slavia prague": "#24"\, "arsenal": "#15"\, "viking fk": "#30"\, "sab
- ah fk": "#34"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"borussia dortmund": "#14"\, "real betis": "#12"\, "fc porto": 
+ "#29"\, "napoli": "#31"\, "lens": "#19"\, "como": "#6"\, "psv eindhoven": 
+ "#25"\, "club brugge": "#18"\, "rb leipzig": "#20"\, "manchester city": "#
+ 9"\, "slavia prague": "#30"\, "arsenal": "#3"\, "viking fk": "#26"\, "saba
+ h fk": "#21"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884740@sports-us-bein-calendar
@@ -794,91 +794,91 @@ DTSTART:20261124T174500Z
 DTEND:20261124T194500Z
 SUMMARY:Ligue des champions
 DESCRIPTION:• Bodo/Glimt [#36] - LASK Linz [#27]\, Aspmyra Stadion\, Bod
- ø/Glimt — Bodo/Glimt\n• Galatasaray [#29] - Aston Villa [#9]\, RAMS P
- ark\, Istanbul — Galatasaray
+ ø/Glimt — Bodo/Glimt\n• Galatasaray [#34] - Aston Villa [#11]\, RAMS 
+ Park\, Istanbul — Galatasaray
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915380,401915300
-X-EU-RANKS:{"bodo glimt": "#36"\, "lask linz": "#27"\, "galatasaray": "#29"
- \, "aston villa": "#9"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"bodo glimt": "#36"\, "lask linz": "#27"\, "galatasaray": "#34"
+ \, "aston villa": "#11"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261124T200000Z@sports-us-bein-calendar
 DTSTART:20261124T200000Z
 DTEND:20261124T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Arsenal [#15] - Borussia Dortmund [#12]\, Emirates Stadium\
- , Londres — Arsenal\n• Côme [#5] - AEK Athens [#16]\, Giuseppe Siniga
- glia\, Côme\n• Feyenoord Rotterdam [#33] - FC Porto [#31]\, De Kuip\, R
- otterdam\n• Manchester City [#8] - Napoli [#28]\, Etihad Stadium\, Manch
- ester\n• RB Leipzig [#32] - Lens [#10]\, Red Bull Arena\, Leipzig\n• R
- eal Madrid [#14] - PSV Eindhoven [#20]\, Santiago Bernabéu\, Madrid\n• 
- Slovan Bratislava [#35] - Real Betis [#11]\, Národny Futbalovy Stadión\,
-  Bratislava
+DESCRIPTION:• Arsenal [#3] - Borussia Dortmund [#14]\, Emirates Stadium\,
+  Londres — Arsenal\n• Côme [#6] - AEK Athens [#17]\, Giuseppe Sinigag
+ lia\, Côme\n• Feyenoord Rotterdam [#33] - FC Porto [#29]\, De Kuip\, Ro
+ tterdam\n• Manchester City [#9] - Napoli [#31]\, Etihad Stadium\, Manche
+ ster\n• RB Leipzig [#20] - Lens [#19]\, Red Bull Arena\, Leipzig\n• Re
+ al Madrid [#16] - PSV Eindhoven [#25]\, Santiago Bernabéu\, Madrid\n• S
+ lovan Bratislava [#35] - Real Betis [#12]\, Národny Futbalovy Stadión\, 
+ Bratislava
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915295,401915296,401915294,401915379,401915299,401915298,40
  1915297
-X-EU-RANKS:{"arsenal": "#15"\, "borussia dortmund": "#12"\, "como": "#5"\, 
- "aek athens": "#16"\, "feyenoord rotterdam": "#33"\, "fc porto": "#31"\, "
- manchester city": "#8"\, "napoli": "#28"\, "rb leipzig": "#32"\, "lens": "
- #10"\, "real madrid": "#14"\, "psv eindhoven": "#20"\, "slovan bratislava"
- : "#35"\, "real betis": "#11"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"arsenal": "#3"\, "borussia dortmund": "#14"\, "como": "#6"\, "
+ aek athens": "#17"\, "feyenoord rotterdam": "#33"\, "fc porto": "#29"\, "m
+ anchester city": "#9"\, "napoli": "#31"\, "rb leipzig": "#20"\, "lens": "#
+ 19"\, "real madrid": "#16"\, "psv eindhoven": "#25"\, "slovan bratislava":
+  "#35"\, "real betis": "#12"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261125T174500Z@sports-us-bein-calendar
 DTSTART:20261125T174500Z
 DTEND:20261125T194500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Sabah FK [#34] - FC Barcelone [#3]\, Baku Olympic Stadium\,
-  Baku — Sabah FK\n• Slavia Prague [#24] - Villarreal [#21]\, Fortuna A
+DESCRIPTION:• Sabah FK [#21] - FC Barcelone [#1]\, Baku Olympic Stadium\,
+  Baku — Sabah FK\n• Slavia Prague [#30] - Villarreal [#10]\, Fortuna A
  rena\, Prague
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915378,401915293
-X-EU-RANKS:{"sabah fk": "#34"\, "barcelona": "#3"\, "slavia prague": "#24"\
- , "villarreal": "#21"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"sabah fk": "#21"\, "barcelona": "#1"\, "slavia prague": "#30"\
+ , "villarreal": "#10"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261125T200000Z@sports-us-bein-calendar
 DTSTART:20261125T200000Z
 DTEND:20261125T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Atlético de Madrid [#25] - Viking FK [#30]\, Riyadh Air Me
- tropolitano\, Madrid\n• Club Brugge [#22] - Liverpool [#13]\, Jan Breyde
- l Stadium\, Brugge\n• Internazionale [#26] - VfB Stuttgart [#7]\, San Si
- ro\, Milan — Internazionale\n• Lille [#23] - Bayern Munich [#2]\, Deca
- thlon Arena - Stade Pierre-Mauroy\, Lille\n• Shakhtar Donetsk [#18] - Fe
- nerbahce [#19]\, Stamford Bridge\, Londres — Shakhtar Donetsk\n• Sport
- ing CP [#6] - Manchester United [#4]\, Estádio José Alvalade\, Lisbon 
+DESCRIPTION:• Atlético de Madrid [#13] - Viking FK [#26]\, Riyadh Air Me
+ tropolitano\, Madrid\n• Club Brugge [#18] - Liverpool [#15]\, Jan Breyde
+ l Stadium\, Brugge\n• Internazionale [#28] - VfB Stuttgart [#8]\, San Si
+ ro\, Milan — Internazionale\n• Lille [#32] - Bayern Munich [#4]\, Deca
+ thlon Arena - Stade Pierre-Mauroy\, Lille\n• Shakhtar Donetsk [#23] - Fe
+ nerbahce [#24]\, Stamford Bridge\, Londres — Shakhtar Donetsk\n• Sport
+ ing CP [#2] - Manchester United [#7]\, Estádio José Alvalade\, Lisbon 
  — Sporting CP
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915291,401915292,401915376,401915377,401915375,401915373
-X-EU-RANKS:{"atletico madrid": "#25"\, "viking fk": "#30"\, "club brugge": 
- "#22"\, "liverpool": "#13"\, "internazionale": "#26"\, "vfb stuttgart": "#
- 7"\, "lille": "#23"\, "bayern munich": "#2"\, "shakhtar donetsk": "#18"\, 
- "fenerbahce": "#19"\, "sporting cp": "#6"\, "manchester united": "#4"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"atletico madrid": "#13"\, "viking fk": "#26"\, "club brugge": 
+ "#18"\, "liverpool": "#15"\, "internazionale": "#28"\, "vfb stuttgart": "#
+ 8"\, "lille": "#32"\, "bayern munich": "#4"\, "shakhtar donetsk": "#23"\, 
+ "fenerbahce": "#24"\, "sporting cp": "#2"\, "manchester united": "#7"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884722@sports-us-bein-calendar
@@ -1036,90 +1036,90 @@ UID:ucl-slot-20261208T174500Z@sports-us-bein-calendar
 DTSTART:20261208T174500Z
 DTEND:20261208T194500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Viking FK [#30] - Feyenoord Rotterdam [#33]\, Viking Stadio
- n\, Stavanger — Viking FK\n• Villarreal [#21] - Sabah FK [#34]\, Estad
+DESCRIPTION:• Viking FK [#26] - Feyenoord Rotterdam [#33]\, Viking Stadio
+ n\, Stavanger — Viking FK\n• Villarreal [#10] - Sabah FK [#21]\, Estad
  io de la Cerámica\, Villarreal
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915290,401915372
-X-EU-RANKS:{"viking fk": "#30"\, "feyenoord rotterdam": "#33"\, "villarreal
- ": "#21"\, "sabah fk": "#34"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"viking fk": "#26"\, "feyenoord rotterdam": "#33"\, "villarreal
+ ": "#10"\, "sabah fk": "#21"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261208T200000Z@sports-us-bein-calendar
 DTSTART:20261208T200000Z
 DTEND:20261208T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• AEK Athens [#16] - Galatasaray [#29]\, OPAP Arena\, Athens\
- n• AS Roma [#17] - Sporting CP [#6]\, Olimpico\, Rome\n• Bayern Munich
-  [#2] - Slavia Prague [#24]\, Allianz Arena\, Munich\n• FC Barcelone [#3
- ] - Manchester City [#8]\, Spotify Camp Nou\, Barcelone\n• Manchester Un
- ited [#4] - RB Leipzig [#32]\, Old Trafford\, Manchester\n• Napoli [#28]
-  - Club Brugge [#22]\, Stadio Diego Armando Maradona\, Napoli
+DESCRIPTION:• AEK Athens [#17] - Galatasaray [#34]\, OPAP Arena\, Athens\
+ n• AS Roma [#22] - Sporting CP [#2]\, Olimpico\, Rome\n• Bayern Munich
+  [#4] - Slavia Prague [#30]\, Allianz Arena\, Munich\n• FC Barcelone [#1
+ ] - Manchester City [#9]\, Spotify Camp Nou\, Barcelone\n• Manchester Un
+ ited [#7] - RB Leipzig [#20]\, Old Trafford\, Manchester\n• Napoli [#31]
+  - Club Brugge [#18]\, Stadio Diego Armando Maradona\, Napoli
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915289,401915288,401915284,401915285,401915371,401915287
-X-EU-RANKS:{"aek athens": "#16"\, "galatasaray": "#29"\, "as roma": "#17"\,
-  "sporting cp": "#6"\, "bayern munich": "#2"\, "slavia prague": "#24"\, "b
- arcelona": "#3"\, "manchester city": "#8"\, "manchester united": "#4"\, "r
- b leipzig": "#32"\, "napoli": "#28"\, "club brugge": "#22"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"aek athens": "#17"\, "galatasaray": "#34"\, "as roma": "#22"\,
+  "sporting cp": "#2"\, "bayern munich": "#4"\, "slavia prague": "#30"\, "b
+ arcelona": "#1"\, "manchester city": "#9"\, "manchester united": "#7"\, "r
+ b leipzig": "#20"\, "napoli": "#31"\, "club brugge": "#18"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261209T174500Z@sports-us-bein-calendar
 DTSTART:20261209T174500Z
 DTEND:20261209T194500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Real Betis [#11] - Côme [#5]\, Estadio La Cartuja\, Sevill
- a — Real Betis\n• Slovan Bratislava [#35] - Shakhtar Donetsk [#18]\, N
+DESCRIPTION:• Real Betis [#12] - Côme [#6]\, Estadio La Cartuja\, Sevill
+ a — Real Betis\n• Slovan Bratislava [#35] - Shakhtar Donetsk [#23]\, N
  árodny Futbalovy Stadión\, Bratislava
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915283,401915282
-X-EU-RANKS:{"real betis": "#11"\, "como": "#5"\, "slovan bratislava": "#35"
- \, "shakhtar donetsk": "#18"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"real betis": "#12"\, "como": "#6"\, "slovan bratislava": "#35"
+ \, "shakhtar donetsk": "#23"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261209T200000Z@sports-us-bein-calendar
 DTSTART:20261209T200000Z
 DTEND:20261209T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Arsenal [#15] - Real Madrid [#14]\, Emirates Stadium\, Lond
- res — Arsenal\n• Borussia Dortmund [#12] - Internazionale [#26]\, Sign
- al Iduna Park\, Aue — Borussia Dortmund\n• LASK Linz [#27] - Fenerbahc
- e [#19]\, Raiffeisen Arena (Linz)\, Linz\n• Lens [#10] - Bodo/Glimt [#36
- ]\, Stade Bollaert-Delelis\, Lens\n• Liverpool [#13] - FC Porto [#31]\, 
- Anfield\, Liverpool\n• PSV Eindhoven [#20] - Atlético de Madrid [#25]\,
-  Philips Stadion\, Eindhoven\n• VfB Stuttgart [#7] - Lille [#23]\, MHPAr
- ena\, Stuttgart
+DESCRIPTION:• Arsenal [#3] - Real Madrid [#16]\, Emirates Stadium\, Londr
+ es — Arsenal\n• Borussia Dortmund [#14] - Internazionale [#28]\, Signa
+ l Iduna Park\, Aue — Borussia Dortmund\n• LASK Linz [#27] - Fenerbahce
+  [#24]\, Raiffeisen Arena (Linz)\, Linz\n• Lens [#19] - Bodo/Glimt [#36]
+ \, Stade Bollaert-Delelis\, Lens\n• Liverpool [#15] - FC Porto [#29]\, A
+ nfield\, Liverpool\n• PSV Eindhoven [#25] - Atlético de Madrid [#13]\, 
+ Philips Stadion\, Eindhoven\n• VfB Stuttgart [#8] - Lille [#32]\, MHPAre
+ na\, Stuttgart
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915367,401915368,401915281,401915370,401915369,401915366,40
  1915365
-X-EU-RANKS:{"arsenal": "#15"\, "real madrid": "#14"\, "borussia dortmund": 
- "#12"\, "internazionale": "#26"\, "lask linz": "#27"\, "fenerbahce": "#19"
- \, "lens": "#10"\, "bodo glimt": "#36"\, "liverpool": "#13"\, "fc porto": 
- "#31"\, "psv eindhoven": "#20"\, "atletico madrid": "#25"\, "vfb stuttgart
- ": "#7"\, "lille": "#23"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"arsenal": "#3"\, "real madrid": "#16"\, "borussia dortmund": "
+ #14"\, "internazionale": "#28"\, "lask linz": "#27"\, "fenerbahce": "#24"\
+ , "lens": "#19"\, "bodo glimt": "#36"\, "liverpool": "#15"\, "fc porto": "
+ #29"\, "psv eindhoven": "#25"\, "atletico madrid": "#13"\, "vfb stuttgart"
+ : "#8"\, "lille": "#32"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884707@sports-us-bein-calendar
@@ -1506,91 +1506,91 @@ UID:ucl-slot-20270119T174500Z@sports-us-bein-calendar
 DTSTART:20270119T174500Z
 DTEND:20270119T194500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Bodo/Glimt [#36] - Atlético de Madrid [#25]\, Aspmyra Stad
- ion\, Bodø/Glimt — Bodo/Glimt\n• Galatasaray [#29] - Feyenoord Rotter
+DESCRIPTION:• Bodo/Glimt [#36] - Atlético de Madrid [#13]\, Aspmyra Stad
+ ion\, Bodø/Glimt — Bodo/Glimt\n• Galatasaray [#34] - Feyenoord Rotter
  dam [#33]\, RAMS Park\, Istanbul — Galatasaray
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915364,401915363
-X-EU-RANKS:{"bodo glimt": "#36"\, "atletico madrid": "#25"\, "galatasaray":
-  "#29"\, "feyenoord rotterdam": "#33"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"bodo glimt": "#36"\, "atletico madrid": "#13"\, "galatasaray":
+  "#34"\, "feyenoord rotterdam": "#33"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20270119T200000Z@sports-us-bein-calendar
 DTSTART:20270119T200000Z
 DTEND:20270119T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• AEK Athens [#16] - AS Roma [#17]\, OPAP Arena\, Athens\n•
-  Aston Villa [#9] - Borussia Dortmund [#12]\, Villa Park\, Birmingham — 
- Aston Villa\n• FC Porto [#31] - Slavia Prague [#24]\, Estádio do Dragã
- o\, Porto\n• Internazionale [#26] - Liverpool [#13]\, San Siro\, Milan 
- — Internazionale\n• Lille [#23] - Slovan Bratislava [#35]\, Decathlon 
- Arena - Stade Pierre-Mauroy\, Lille\n• Real Madrid [#14] - LASK Linz [#2
- 7]\, Santiago Bernabéu\, Madrid\n• VfB Stuttgart [#7] - Club Brugge [#2
- 2]\, MHPArena\, Stuttgart
+DESCRIPTION:• AEK Athens [#17] - AS Roma [#22]\, OPAP Arena\, Athens\n•
+  Aston Villa [#11] - Borussia Dortmund [#14]\, Villa Park\, Birmingham —
+  Aston Villa\n• FC Porto [#29] - Slavia Prague [#30]\, Estádio do Drag
+ ão\, Porto\n• Internazionale [#28] - Liverpool [#15]\, San Siro\, Milan
+  — Internazionale\n• Lille [#32] - Slovan Bratislava [#35]\, Decathlon
+  Arena - Stade Pierre-Mauroy\, Lille\n• Real Madrid [#16] - LASK Linz [#
+ 27]\, Santiago Bernabéu\, Madrid\n• VfB Stuttgart [#8] - Club Brugge [#
+ 18]\, MHPArena\, Stuttgart
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915362,401915279,401915278,401915360,401915361,401915280,40
  1915359
-X-EU-RANKS:{"aek athens": "#16"\, "as roma": "#17"\, "aston villa": "#9"\, 
- "borussia dortmund": "#12"\, "fc porto": "#31"\, "slavia prague": "#24"\, 
- "internazionale": "#26"\, "liverpool": "#13"\, "lille": "#23"\, "slovan br
- atislava": "#35"\, "real madrid": "#14"\, "lask linz": "#27"\, "vfb stuttg
- art": "#7"\, "club brugge": "#22"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"aek athens": "#17"\, "as roma": "#22"\, "aston villa": "#11"\,
+  "borussia dortmund": "#14"\, "fc porto": "#29"\, "slavia prague": "#30"\,
+  "internazionale": "#28"\, "liverpool": "#15"\, "lille": "#32"\, "slovan b
+ ratislava": "#35"\, "real madrid": "#16"\, "lask linz": "#27"\, "vfb stutt
+ gart": "#8"\, "club brugge": "#18"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20270120T174500Z@sports-us-bein-calendar
 DTSTART:20270120T174500Z
 DTEND:20270120T194500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Fenerbahce [#19] - Villarreal [#21]\, Şükrü Saracoğlu S
- tadium\, Istanbul — Fenerbahce\n• Sabah FK [#34] - Napoli [#28]\, Baku
+DESCRIPTION:• Fenerbahce [#24] - Villarreal [#10]\, Şükrü Saracoğlu S
+ tadium\, Istanbul — Fenerbahce\n• Sabah FK [#21] - Napoli [#31]\, Baku
   Olympic Stadium\, Baku — Sabah FK
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915277,401915358
-X-EU-RANKS:{"fenerbahce": "#19"\, "villarreal": "#21"\, "sabah fk": "#34"\,
-  "napoli": "#28"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"fenerbahce": "#24"\, "villarreal": "#10"\, "sabah fk": "#21"\,
+  "napoli": "#31"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20270120T200000Z@sports-us-bein-calendar
 DTSTART:20270120T200000Z
 DTEND:20270120T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Lens [#10] - Manchester City [#8]\, Stade Bollaert-Delelis\
- , Lens\n• Manchester United [#4] - Bayern Munich [#2]\, Old Trafford\, M
- anchester\n• RB Leipzig [#32] - Shakhtar Donetsk [#18]\, Red Bull Arena\
- , Leipzig\n• Real Betis [#11] - Arsenal [#15]\, Estadio La Cartuja\, Sev
- illa — Real Betis\n• Sporting CP [#6] - FC Barcelone [#3]\, Estádio J
- osé Alvalade\, Lisbon — Sporting CP\n• Viking FK [#30] - PSV Eindhove
- n [#20]\, Viking Stadion\, Stavanger — Viking FK
+DESCRIPTION:• Lens [#19] - Manchester City [#9]\, Stade Bollaert-Delelis\
+ , Lens\n• Manchester United [#7] - Bayern Munich [#4]\, Old Trafford\, M
+ anchester\n• RB Leipzig [#20] - Shakhtar Donetsk [#23]\, Red Bull Arena\
+ , Leipzig\n• Real Betis [#12] - Arsenal [#3]\, Estadio La Cartuja\, Sevi
+ lla — Real Betis\n• Sporting CP [#2] - FC Barcelone [#1]\, Estádio Jo
+ sé Alvalade\, Lisbon — Sporting CP\n• Viking FK [#26] - PSV Eindhoven
+  [#25]\, Viking Stadion\, Stavanger — Viking FK
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915274,401915357,401915276,401915275,401915356,401915272
-X-EU-RANKS:{"lens": "#10"\, "manchester city": "#8"\, "manchester united": 
- "#4"\, "bayern munich": "#2"\, "rb leipzig": "#32"\, "shakhtar donetsk": "
- #18"\, "real betis": "#11"\, "arsenal": "#15"\, "sporting cp": "#6"\, "bar
- celona": "#3"\, "viking fk": "#30"\, "psv eindhoven": "#20"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"lens": "#19"\, "manchester city": "#9"\, "manchester united": 
+ "#7"\, "bayern munich": "#4"\, "rb leipzig": "#20"\, "shakhtar donetsk": "
+ #23"\, "real betis": "#12"\, "arsenal": "#3"\, "sporting cp": "#2"\, "barc
+ elona": "#1"\, "viking fk": "#26"\, "psv eindhoven": "#25"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884664@sports-us-bein-calendar
@@ -1673,24 +1673,24 @@ UID:ucl-slot-20270127T200000Z@sports-us-bein-calendar
 DTSTART:20270127T200000Z
 DTEND:20270127T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• AS Roma [#17] - Lille [#23]\, Olimpico\, Rome\n• Arsenal 
- [#15] - Sabah FK [#34]\, Emirates Stadium\, Londres — Arsenal\n• Atlé
- tico de Madrid [#25] - Fenerbahce [#19]\, Riyadh Air Metropolitano\, Madri
- d\n• Bayern Munich [#2] - Real Betis [#11]\, Allianz Arena\, Munich\n•
-  Borussia Dortmund [#12] - AEK Athens [#16]\, Signal Iduna Park\, Aue — 
- Borussia Dortmund\n• Club Brugge [#22] - Bodo/Glimt [#36]\, Jan Breydel 
- Stadium\, Brugge\n• FC Barcelone [#3] - Côme [#5]\, Spotify Camp Nou\, 
- Barcelone\n• Feyenoord Rotterdam [#33] - RB Leipzig [#32]\, De Kuip\, Ro
- tterdam\n• LASK Linz [#27] - FC Porto [#31]\, Raiffeisen Arena (Linz)\, 
- Linz\n• Liverpool [#13] - Lens [#10]\, Anfield\, Liverpool\n• Manchest
- er City [#8] - Sporting CP [#6]\, Etihad Stadium\, Manchester\n• Napoli 
- [#28] - Viking FK [#30]\, Stadio Diego Armando Maradona\, Napoli\n• PSV 
- Eindhoven [#20] - VfB Stuttgart [#7]\, Philips Stadion\, Eindhoven\n• Sh
- akhtar Donetsk [#18] - Real Madrid [#14]\, Stamford Bridge\, Londres — S
- hakhtar Donetsk\n• Slavia Prague [#24] - Aston Villa [#9]\, Fortuna Aren
- a\, Prague\n• Slovan Bratislava [#35] - Internazionale [#26]\, Národny 
- Futbalovy Stadión\, Bratislava\n• Villarreal [#21] - Manchester United 
- [#4]\, Estadio de la Cerámica\, Villarreal
+DESCRIPTION:• AS Roma [#22] - Lille [#32]\, Olimpico\, Rome\n• Arsenal 
+ [#3] - Sabah FK [#21]\, Emirates Stadium\, Londres — Arsenal\n• Atlét
+ ico de Madrid [#13] - Fenerbahce [#24]\, Riyadh Air Metropolitano\, Madrid
+ \n• Bayern Munich [#4] - Real Betis [#12]\, Allianz Arena\, Munich\n• 
+ Borussia Dortmund [#14] - AEK Athens [#17]\, Signal Iduna Park\, Aue — B
+ orussia Dortmund\n• Club Brugge [#18] - Bodo/Glimt [#36]\, Jan Breydel S
+ tadium\, Brugge\n• FC Barcelone [#1] - Côme [#6]\, Spotify Camp Nou\, B
+ arcelone\n• Feyenoord Rotterdam [#33] - RB Leipzig [#20]\, De Kuip\, Rot
+ terdam\n• LASK Linz [#27] - FC Porto [#29]\, Raiffeisen Arena (Linz)\, L
+ inz\n• Liverpool [#15] - Lens [#19]\, Anfield\, Liverpool\n• Mancheste
+ r City [#9] - Sporting CP [#2]\, Etihad Stadium\, Manchester\n• Napoli [
+ #31] - Viking FK [#26]\, Stadio Diego Armando Maradona\, Napoli\n• PSV E
+ indhoven [#25] - VfB Stuttgart [#8]\, Philips Stadion\, Eindhoven\n• Sha
+ khtar Donetsk [#23] - Real Madrid [#16]\, Stamford Bridge\, Londres — Sh
+ akhtar Donetsk\n• Slavia Prague [#30] - Aston Villa [#11]\, Fortuna Aren
+ a\, Prague\n• Slovan Bratislava [#35] - Internazionale [#28]\, Národny 
+ Futbalovy Stadión\, Bratislava\n• Villarreal [#10] - Manchester United 
+ [#7]\, Estadio de la Cerámica\, Villarreal
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
@@ -1698,20 +1698,20 @@ X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915354,401915346,401915347,401915348,401915265,401915266,40
  1915264,401915271,401915355,401915353,401915352,401915268,401915350,401915
  270,401915351,401915269,401915349
-X-EU-RANKS:{"as roma": "#17"\, "lille": "#23"\, "arsenal": "#15"\, "sabah f
- k": "#34"\, "atletico madrid": "#25"\, "fenerbahce": "#19"\, "bayern munic
- h": "#2"\, "real betis": "#11"\, "borussia dortmund": "#12"\, "aek athens"
- : "#16"\, "club brugge": "#22"\, "bodo glimt": "#36"\, "barcelona": "#3"\,
-  "como": "#5"\, "feyenoord rotterdam": "#33"\, "rb leipzig": "#32"\, "lask
-  linz": "#27"\, "fc porto": "#31"\, "liverpool": "#13"\, "lens": "#10"\, "
- manchester city": "#8"\, "sporting cp": "#6"\, "napoli": "#28"\, "viking f
- k": "#30"\, "psv eindhoven": "#20"\, "vfb stuttgart": "#7"\, "shakhtar don
- etsk": "#18"\, "real madrid": "#14"\, "slavia prague": "#24"\, "aston vill
- a": "#9"\, "slovan bratislava": "#35"\, "internazionale": "#26"\, "villarr
- eal": "#21"\, "manchester united": "#4"}
-DTSTAMP:20260914T103255Z
-LAST-MODIFIED:20260914T103255Z
-SEQUENCE:1
+X-EU-RANKS:{"as roma": "#22"\, "lille": "#32"\, "arsenal": "#3"\, "sabah fk
+ ": "#21"\, "atletico madrid": "#13"\, "fenerbahce": "#24"\, "bayern munich
+ ": "#4"\, "real betis": "#12"\, "borussia dortmund": "#14"\, "aek athens":
+  "#17"\, "club brugge": "#18"\, "bodo glimt": "#36"\, "barcelona": "#1"\, 
+ "como": "#6"\, "feyenoord rotterdam": "#33"\, "rb leipzig": "#20"\, "lask 
+ linz": "#27"\, "fc porto": "#29"\, "liverpool": "#15"\, "lens": "#19"\, "m
+ anchester city": "#9"\, "sporting cp": "#2"\, "napoli": "#31"\, "viking fk
+ ": "#26"\, "psv eindhoven": "#25"\, "vfb stuttgart": "#8"\, "shakhtar done
+ tsk": "#23"\, "real madrid": "#16"\, "slavia prague": "#30"\, "aston villa
+ ": "#11"\, "slovan bratislava": "#35"\, "internazionale": "#28"\, "villarr
+ eal": "#10"\, "manchester united": "#7"}
+DTSTAMP:20261013T230731Z
+LAST-MODIFIED:20261013T230731Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884655@sports-us-bein-calendar
