@@ -3614,15 +3614,15 @@ BEGIN:VEVENT
 UID:nfl-20261110-buffalo-bills-minnesota-vikings@sports-us-bein-calendar
 DTSTART:20261110T011500Z
 DTEND:20261110T051500Z
-SUMMARY:🏈 NFL : Minnesota Vikings [5W/0L] - Buffalo Bills [3W/1L]
+SUMMARY:🏈 NFL : Minnesota Vikings [5W/0L] - Buffalo Bills [4W/1L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:U.S. Bank Stadium\, Minneapolis — Minnesota Vikings
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261011T220204Z
-LAST-MODIFIED:20261011T220204Z
-SEQUENCE:10
+DTSTAMP:20261013T141729Z
+LAST-MODIFIED:20261013T141729Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261113-new-york-giants-washington-commanders@sports-us-bein-calen
@@ -3760,29 +3760,29 @@ BEGIN:VEVENT
 UID:nfl-netflix-2026-rams-packers@sports-us-bein-calendar
 DTSTART:20261126T010000Z
 DTEND:20261126T050000Z
-SUMMARY:🏈 NFL : Los Angeles Rams [2W/2L] - Green Bay Packers [3W/2L]
+SUMMARY:🏈 NFL : Los Angeles Rams [2W/3L] - Green Bay Packers [3W/2L]
 DESCRIPTION:Netflix
 LOCATION:SoFi Stadium\, Inglewood — Los Angeles Rams
 URL:https://www.netflix.com/tudum/articles/nfl-games-on-netflix
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261011T220204Z
-LAST-MODIFIED:20261011T220204Z
-SEQUENCE:9
+DTSTAMP:20261013T141729Z
+LAST-MODIFIED:20261013T141729Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261127-buffalo-bills-kansas-city-chiefs@sports-us-bein-calendar
 DTSTART:20261127T012000Z
 DTEND:20261127T052000Z
-SUMMARY:🏈 NFL : Buffalo Bills [3W/1L] - Kansas City Chiefs [4W/0L]
+SUMMARY:🏈 NFL : Buffalo Bills [4W/1L] - Kansas City Chiefs [4W/0L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Highmark Stadium\, Orchard Park — Buffalo Bills
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261005T054736Z
-LAST-MODIFIED:20261005T054736Z
-SEQUENCE:8
+DTSTAMP:20261013T141729Z
+LAST-MODIFIED:20261013T141729Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261129@sports-us-bein-calendar
@@ -3833,15 +3833,15 @@ UID:nfl-20261204-kansas-city-chiefs-los-angeles-rams@sports-us-bein-calenda
  r
 DTSTART:20261204T011500Z
 DTEND:20261204T051500Z
-SUMMARY:🏈 NFL : Los Angeles Rams [2W/2L] - Kansas City Chiefs [4W/0L]
+SUMMARY:🏈 NFL : Los Angeles Rams [2W/3L] - Kansas City Chiefs [4W/0L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:SoFi Stadium\, Inglewood — Los Angeles Rams
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261005T054736Z
-LAST-MODIFIED:20261005T054736Z
-SEQUENCE:9
+DTSTAMP:20261013T141729Z
+LAST-MODIFIED:20261013T141729Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261206@sports-us-bein-calendar
@@ -3916,15 +3916,15 @@ BEGIN:VEVENT
 UID:nfl-20261214-buffalo-bills-green-bay-packers@sports-us-bein-calendar
 DTSTART:20261214T012000Z
 DTEND:20261214T052000Z
-SUMMARY:🏈 NFL : Green Bay Packers [3W/2L] - Buffalo Bills [3W/1L]
+SUMMARY:🏈 NFL : Green Bay Packers [3W/2L] - Buffalo Bills [4W/1L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Lambeau Field\, Green Bay
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261011T220204Z
-LAST-MODIFIED:20261011T220204Z
-SEQUENCE:9
+DTSTAMP:20261013T141729Z
+LAST-MODIFIED:20261013T141729Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261215-jacksonville-jaguars-pittsburgh-steelers@sports-us-bein-ca
@@ -4034,15 +4034,15 @@ BEGIN:VEVENT
 UID:nfl-netflix-2026-broncos-bills@sports-us-bein-calendar
 DTSTART:20261225T213000Z
 DTEND:20261226T013000Z
-SUMMARY:🏈 NFL : Denver Broncos [3W/2L] - Buffalo Bills [3W/1L]
+SUMMARY:🏈 NFL : Denver Broncos [3W/2L] - Buffalo Bills [4W/1L]
 DESCRIPTION:Netflix
 LOCATION:Empower Field at Mile High\, Denver
 URL:https://www.netflix.com/tudum/articles/nfl-games-on-netflix
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261012T060432Z
-LAST-MODIFIED:20261012T060432Z
-SEQUENCE:10
+DTSTAMP:20261013T141729Z
+LAST-MODIFIED:20261013T141729Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261227@sports-us-bein-calendar
