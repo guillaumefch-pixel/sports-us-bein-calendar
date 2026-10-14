@@ -319,7 +319,7 @@ UID:pl-espn-401879256@sports-us-bein-calendar
 DTSTART:20261024T113000Z
 DTEND:20261024T133000Z
 SUMMARY:⚽ Premier League : Aston Villa [#16] - Manchester City [#1]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+
 LOCATION:Villa Park\, Birmingham — Aston Villa
 URL:https://www.espn.com/soccer/match/_/gameId/401879256
 STATUS:CONFIRMED
@@ -328,16 +328,16 @@ X-PL-HOME:Aston Villa
 X-PL-AWAY:Manchester City
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261013T005647Z
-LAST-MODIFIED:20261013T005647Z
-SEQUENCE:7
+DTSTAMP:20261014T051739Z
+LAST-MODIFIED:20261014T051739Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878768@sports-us-bein-calendar
 DTSTART:20261024T140000Z
 DTEND:20261024T160000Z
 SUMMARY:⚽ Premier League : Arsenal [#2] - Everton [#5]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ FOOT
 LOCATION:Emirates Stadium\, Londres — Arsenal
 URL:https://www.espn.com/soccer/match/_/gameId/401878768
 STATUS:CONFIRMED
@@ -346,9 +346,9 @@ X-PL-HOME:Arsenal
 X-PL-AWAY:Everton
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261011T222340Z
-LAST-MODIFIED:20261011T222340Z
-SEQUENCE:7
+DTSTAMP:20261014T051739Z
+LAST-MODIFIED:20261014T051739Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878767@sports-us-bein-calendar
@@ -356,7 +356,7 @@ DTSTART:20261024T163000Z
 DTEND:20261024T183000Z
 SUMMARY:🔥🔥 ⚽ Premier League : Chelsea [#6] - Tottenham Hotspur [#19
  ]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ FOOT
 LOCATION:Stamford Bridge\, Londres — Chelsea
 URL:https://www.espn.com/soccer/match/_/gameId/401878767
 STATUS:CONFIRMED
@@ -365,9 +365,9 @@ X-PL-HOME:Chelsea
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261013T005647Z
-LAST-MODIFIED:20261013T005647Z
-SEQUENCE:11
+DTSTAMP:20261014T051739Z
+LAST-MODIFIED:20261014T051739Z
+SEQUENCE:12
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878765@sports-us-bein-calendar
