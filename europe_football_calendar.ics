@@ -298,8 +298,8 @@ SEQUENCE:12
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882846@sports-us-bein-calendar
-DTSTART:20261017T163000Z
-DTEND:20261017T183000Z
+DTSTART:20261017T160000Z
+DTEND:20261017T180000Z
 SUMMARY:⚽ La Liga : Real Betis [#3] - FC Barcelone [#1]
 DESCRIPTION:Disney+
 LOCATION:Estadio La Cartuja\, Sevilla — Real Betis
@@ -310,9 +310,9 @@ X-EU-LEAGUE:esp.1
 X-EU-RANKS:{"real betis": "#3"\, "barcelona": "#1"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:9
+DTSTAMP:20261015T172124Z
+LAST-MODIFIED:20261015T172124Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884772@sports-us-bein-calendar
