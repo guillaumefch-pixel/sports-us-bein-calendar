@@ -664,19 +664,19 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884740@sports-us-bein-calendar
 DTSTART:20261107T143000Z
 DTEND:20261107T163000Z
-SUMMARY:⚽ Bundesliga : Mainz [#8] - Bayern Munich [#3]
+SUMMARY:⚽ Bundesliga : Mainz [#9] - Bayern Munich [#3]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:MEWA ARENA\, Mainz
 URL:https://www.espn.com/soccer/match/_/gameId/401884740
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"mainz": "#8"\, "bayern munich": "#3"}
+X-EU-RANKS:{"mainz": "#9"\, "bayern munich": "#3"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:8
+DTSTAMP:20261016T214311Z
+LAST-MODIFIED:20261016T214311Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882808@sports-us-bein-calendar
@@ -718,19 +718,19 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884736@sports-us-bein-calendar
 DTSTART:20261120T193000Z
 DTEND:20261120T213000Z
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - FC Cologne [#10]
+SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - FC Cologne [#11]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
 URL:https://www.espn.com/soccer/match/_/gameId/401884736
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "fc cologne": "#10"}
+X-EU-RANKS:{"bayern munich": "#3"\, "fc cologne": "#11"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:6
+DTSTAMP:20261016T214311Z
+LAST-MODIFIED:20261016T214311Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882798@sports-us-bein-calendar
@@ -885,19 +885,19 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884722@sports-us-bein-calendar
 DTSTART:20261128T143000Z
 DTEND:20261128T163000Z
-SUMMARY:⚽ Bundesliga : Hamburg SV [#12] - Bayern Munich [#3]
+SUMMARY:⚽ Bundesliga : Hamburg SV [#13] - Bayern Munich [#3]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Volksparkstadion\, Hamburg Norderstedt — Hamburg SV
 URL:https://www.espn.com/soccer/match/_/gameId/401884722
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"hamburg sv": "#12"\, "bayern munich": "#3"}
+X-EU-RANKS:{"hamburg sv": "#13"\, "bayern munich": "#3"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:7
+DTSTAMP:20261016T214311Z
+LAST-MODIFIED:20261016T214311Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882789@sports-us-bein-calendar
@@ -1430,20 +1430,20 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884669@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270116
 DTEND;VALUE=DATE:20270117
-SUMMARY:⚽ Bundesliga : Eintracht Frankfurt [#14] - Bayern Munich [#3] —
-  horaire à confirmer
+SUMMARY:⚽ Bundesliga : Eintracht Frankfurt [#8] - Bayern Munich [#3] — 
+ horaire à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Deutsche Bank Park\, Frankfurt
 URL:https://www.espn.com/soccer/match/_/gameId/401884669
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"eintracht frankfurt": "#14"\, "bayern munich": "#3"}
+X-EU-RANKS:{"eintracht frankfurt": "#8"\, "bayern munich": "#3"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:6
+DTSTAMP:20261016T214311Z
+LAST-MODIFIED:20261016T214311Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882730@sports-us-bein-calendar
@@ -1597,7 +1597,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884664@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270123
 DTEND;VALUE=DATE:20270124
-SUMMARY:⚽ Bundesliga : VfB Stuttgart [#11] - Bayern Munich [#3] — horai
+SUMMARY:⚽ Bundesliga : VfB Stuttgart [#12] - Bayern Munich [#3] — horai
  re à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:MHPArena\, Stuttgart
@@ -1605,12 +1605,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884664
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"vfb stuttgart": "#11"\, "bayern munich": "#3"}
+X-EU-RANKS:{"vfb stuttgart": "#12"\, "bayern munich": "#3"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:6
+DTSTAMP:20261016T214311Z
+LAST-MODIFIED:20261016T214311Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882719@sports-us-bein-calendar
@@ -1718,7 +1718,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884655@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270130
 DTEND;VALUE=DATE:20270131
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - Schalke 04 [#13] — horaire 
+SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - Schalke 04 [#14] — horaire 
  à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
@@ -1726,12 +1726,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884655
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "schalke 04": "#13"}
+X-EU-RANKS:{"bayern munich": "#3"\, "schalke 04": "#14"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:5
+DTSTAMP:20261016T214311Z
+LAST-MODIFIED:20261016T214311Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882709@sports-us-bein-calendar
@@ -1794,20 +1794,20 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884646@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270206
 DTEND;VALUE=DATE:20270207
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - SV Elversberg [#9] — horair
- e à confirmer
+SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - SV Elversberg [#10] — horai
+ re à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
 URL:https://www.espn.com/soccer/match/_/gameId/401884646
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "sv elversberg": "#9"}
+X-EU-RANKS:{"bayern munich": "#3"\, "sv elversberg": "#10"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:9
+DTSTAMP:20261016T214311Z
+LAST-MODIFIED:20261016T214311Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882698@sports-us-bein-calendar
@@ -2174,7 +2174,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884592@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270313
 DTEND;VALUE=DATE:20270314
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - Mainz [#8] — horaire à con
+SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - Mainz [#9] — horaire à con
  firmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
@@ -2182,12 +2182,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884592
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "mainz": "#8"}
+X-EU-RANKS:{"bayern munich": "#3"\, "mainz": "#9"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:8
+DTSTAMP:20261016T214311Z
+LAST-MODIFIED:20261016T214311Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882647@sports-us-bein-calendar
@@ -2250,7 +2250,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884576@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270320
 DTEND;VALUE=DATE:20270321
-SUMMARY:⚽ Bundesliga : FC Cologne [#10] - Bayern Munich [#3] — horaire 
+SUMMARY:⚽ Bundesliga : FC Cologne [#11] - Bayern Munich [#3] — horaire 
  à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:RheinEnergieStadion\, Cologne
@@ -2258,12 +2258,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884576
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"fc cologne": "#10"\, "bayern munich": "#3"}
+X-EU-RANKS:{"fc cologne": "#11"\, "bayern munich": "#3"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:6
+DTSTAMP:20261016T214311Z
+LAST-MODIFIED:20261016T214311Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882641@sports-us-bein-calendar
@@ -2326,7 +2326,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884574@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270403
 DTEND;VALUE=DATE:20270404
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - Hamburg SV [#12] — horaire 
+SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - Hamburg SV [#13] — horaire 
  à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
@@ -2334,12 +2334,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884574
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "hamburg sv": "#12"}
+X-EU-RANKS:{"bayern munich": "#3"\, "hamburg sv": "#13"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:7
+DTSTAMP:20261016T214311Z
+LAST-MODIFIED:20261016T214311Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882628@sports-us-bein-calendar
@@ -2801,19 +2801,19 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884500@sports-us-bein-calendar
 DTSTART:20270522T133000Z
 DTEND:20270522T153000Z
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - Eintracht Frankfurt [#14]
+SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - Eintracht Frankfurt [#8]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
 URL:https://www.espn.com/soccer/match/_/gameId/401884500
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "eintracht frankfurt": "#14"}
+X-EU-RANKS:{"bayern munich": "#3"\, "eintracht frankfurt": "#8"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:6
+DTSTAMP:20261016T214311Z
+LAST-MODIFIED:20261016T214311Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882562@sports-us-bein-calendar
