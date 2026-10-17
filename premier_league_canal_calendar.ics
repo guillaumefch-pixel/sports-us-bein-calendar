@@ -374,7 +374,7 @@ UID:pl-espn-401878765@sports-us-bein-calendar
 DTSTART:20261025T140000Z
 DTEND:20261025T160000Z
 SUMMARY:⚽ Premier League : Liverpool [#9] - Brighton & Hove Albion [#3]
-DESCRIPTION:CANAL+
+DESCRIPTION:CANAL+ FOOT
 LOCATION:Anfield\, Liverpool
 URL:https://www.espn.com/soccer/match/_/gameId/401878765
 STATUS:CONFIRMED
@@ -383,9 +383,9 @@ X-PL-HOME:Liverpool
 X-PL-AWAY:Brighton & Hove Albion
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261015T050518Z
-LAST-MODIFIED:20261015T050518Z
-SEQUENCE:9
+DTSTAMP:20261017T045516Z
+LAST-MODIFIED:20261017T045516Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879252@sports-us-bein-calendar
