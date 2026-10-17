@@ -462,19 +462,19 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884759@sports-us-bein-calendar
 DTSTART:20261025T163000Z
 DTEND:20261025T183000Z
-SUMMARY:⚽ Bundesliga : SC Freiburg [#2] - Bayern Munich [#3]
+SUMMARY:⚽ Bundesliga : SC Freiburg [#3] - Bayern Munich [#1]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Europa-Park Stadion\, Freiburg im Breisgau — SC Freiburg
 URL:https://www.espn.com/soccer/match/_/gameId/401884759
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"sc freiburg": "#2"\, "bayern munich": "#3"}
+X-EU-RANKS:{"sc freiburg": "#3"\, "bayern munich": "#1"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:5
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882832@sports-us-bein-calendar
@@ -517,20 +517,20 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884754@sports-us-bein-calendar
 DTSTART:20261031T173000Z
 DTEND:20261031T193000Z
-SUMMARY:🔥🔥🔥 ⚽ Bundesliga : Bayern Munich [#3] - Borussia Dortmun
- d [#1] — Der Klassiker
+SUMMARY:🔥🔥🔥 ⚽ Bundesliga : Bayern Munich [#1] - Borussia Dortmun
+ d [#2] — Der Klassiker
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
 URL:https://www.espn.com/soccer/match/_/gameId/401884754
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "borussia dortmund": "#1"}
+X-EU-RANKS:{"bayern munich": "#1"\, "borussia dortmund": "#2"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:5
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882822@sports-us-bein-calendar
@@ -664,19 +664,19 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884740@sports-us-bein-calendar
 DTSTART:20261107T143000Z
 DTEND:20261107T163000Z
-SUMMARY:⚽ Bundesliga : Mainz [#5] - Bayern Munich [#3]
+SUMMARY:⚽ Bundesliga : Mainz [#5] - Bayern Munich [#1]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:MEWA ARENA\, Mainz
 URL:https://www.espn.com/soccer/match/_/gameId/401884740
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"mainz": "#5"\, "bayern munich": "#3"}
+X-EU-RANKS:{"mainz": "#5"\, "bayern munich": "#1"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:10
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882808@sports-us-bein-calendar
@@ -718,38 +718,38 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884736@sports-us-bein-calendar
 DTSTART:20261120T193000Z
 DTEND:20261120T213000Z
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - FC Cologne [#12]
+SUMMARY:⚽ Bundesliga : Bayern Munich [#1] - FC Cologne [#12]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
 URL:https://www.espn.com/soccer/match/_/gameId/401884736
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "fc cologne": "#12"}
+X-EU-RANKS:{"bayern munich": "#1"\, "fc cologne": "#12"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:8
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882798@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
-SUMMARY:⚽ La Liga : Real Madrid [#4] - Celta Vigo [#9] — horaire à con
- firmer
+SUMMARY:⚽ La Liga : Real Madrid [#4] - Celta Vigo [#11] — horaire à co
+ nfirmer
 DESCRIPTION:Disney+
 LOCATION:Santiago Bernabéu\, Madrid
 URL:https://www.espn.com/soccer/match/_/gameId/401882798
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"real madrid": "#4"\, "celta vigo": "#9"}
+X-EU-RANKS:{"real madrid": "#4"\, "celta vigo": "#11"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:10
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882803@sports-us-bein-calendar
@@ -774,7 +774,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882804@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20261122
 DTEND;VALUE=DATE:20261123
-SUMMARY:⚽ La Liga : FC Barcelone [#1] - Villarreal [#11] — horaire à c
+SUMMARY:⚽ La Liga : FC Barcelone [#1] - Villarreal [#10] — horaire à c
  onfirmer
 DESCRIPTION:Disney+
 LOCATION:Spotify Camp Nou\, Barcelone
@@ -782,12 +782,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882804
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"barcelona": "#1"\, "villarreal": "#11"}
+X-EU-RANKS:{"barcelona": "#1"\, "villarreal": "#10"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:8
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261124T174500Z@sports-us-bein-calendar
@@ -885,19 +885,19 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884722@sports-us-bein-calendar
 DTSTART:20261128T143000Z
 DTEND:20261128T163000Z
-SUMMARY:⚽ Bundesliga : Hamburg SV [#9] - Bayern Munich [#3]
+SUMMARY:⚽ Bundesliga : Hamburg SV [#9] - Bayern Munich [#1]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Volksparkstadion\, Hamburg Norderstedt — Hamburg SV
 URL:https://www.espn.com/soccer/match/_/gameId/401884722
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"hamburg sv": "#9"\, "bayern munich": "#3"}
+X-EU-RANKS:{"hamburg sv": "#9"\, "bayern munich": "#1"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:9
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882789@sports-us-bein-calendar
@@ -960,7 +960,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884718@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20261205
 DTEND;VALUE=DATE:20261206
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - SC Paderborn 07 [#15] — hor
+SUMMARY:⚽ Bundesliga : Bayern Munich [#1] - SC Paderborn 07 [#15] — hor
  aire à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
@@ -968,31 +968,31 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884718
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "sc paderborn 07": "#15"}
+X-EU-RANKS:{"bayern munich": "#1"\, "sc paderborn 07": "#15"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:7
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882783@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
-SUMMARY:⚽ La Liga : FC Barcelone [#1] - Celta Vigo [#9] — horaire à co
- nfirmer
+SUMMARY:⚽ La Liga : FC Barcelone [#1] - Celta Vigo [#11] — horaire à c
+ onfirmer
 DESCRIPTION:Disney+
 LOCATION:Spotify Camp Nou\, Barcelone
 URL:https://www.espn.com/soccer/match/_/gameId/401882783
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"barcelona": "#1"\, "celta vigo": "#9"}
+X-EU-RANKS:{"barcelona": "#1"\, "celta vigo": "#11"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:9
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882784@sports-us-bein-calendar
@@ -1017,20 +1017,20 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882785@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
-SUMMARY:⚽ La Liga : Athletic Club [#10] - Real Madrid [#4] — horaire à
-  confirmer
+SUMMARY:⚽ La Liga : Athletic Club [#9] - Real Madrid [#4] — horaire à 
+ confirmer
 DESCRIPTION:Disney+
 LOCATION:San Mamés\, Bilbao — Athletic Club
 URL:https://www.espn.com/soccer/match/_/gameId/401882785
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"athletic club": "#10"\, "real madrid": "#4"}
+X-EU-RANKS:{"athletic club": "#9"\, "real madrid": "#4"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:8
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261208T174500Z@sports-us-bein-calendar
@@ -1126,7 +1126,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884707@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20261212
 DTEND;VALUE=DATE:20261213
-SUMMARY:⚽ Bundesliga : TSG Hoffenheim [#17] - Bayern Munich [#3] — hora
+SUMMARY:⚽ Bundesliga : TSG Hoffenheim [#17] - Bayern Munich [#1] — hora
  ire à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:PreZero Arena\, Sinsheim — TSG Hoffenheim
@@ -1134,12 +1134,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884707
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"tsg hoffenheim": "#17"\, "bayern munich": "#3"}
+X-EU-RANKS:{"tsg hoffenheim": "#17"\, "bayern munich": "#1"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:6
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882769@sports-us-bein-calendar
@@ -1202,7 +1202,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884700@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20261219
 DTEND;VALUE=DATE:20261220
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - Werder Bremen [#8] — horair
+SUMMARY:⚽ Bundesliga : Bayern Munich [#1] - Werder Bremen [#8] — horair
  e à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
@@ -1210,12 +1210,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884700
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "werder bremen": "#8"}
+X-EU-RANKS:{"bayern munich": "#1"\, "werder bremen": "#8"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:10
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882762@sports-us-bein-calendar
@@ -1259,20 +1259,20 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882764@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20261220
 DTEND;VALUE=DATE:20261221
-SUMMARY:⚽ La Liga : Celta Vigo [#9] - Atlético de Madrid [#2] — horair
- e à confirmer
+SUMMARY:⚽ La Liga : Celta Vigo [#11] - Atlético de Madrid [#2] — horai
+ re à confirmer
 DESCRIPTION:Disney+
 LOCATION:Balaidos\, Vigo
 URL:https://www.espn.com/soccer/match/_/gameId/401882764
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"celta vigo": "#9"\, "atletico madrid": "#2"}
+X-EU-RANKS:{"celta vigo": "#11"\, "atletico madrid": "#2"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:11
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:12
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882749@sports-us-bein-calendar
@@ -1336,19 +1336,19 @@ UID:europe-ger.1-401884687@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270109
 DTEND;VALUE=DATE:20270110
 SUMMARY:⚽ Bundesliga : Borussia Mönchengladbach [#18] - Bayern Munich [#
- 3] — horaire à confirmer
+ 1] — horaire à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:BORUSSIA-PARK\, Mönchengladbach
 URL:https://www.espn.com/soccer/match/_/gameId/401884687
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"borussia monchengladbach": "#18"\, "bayern munich": "#3"}
+X-EU-RANKS:{"borussia monchengladbach": "#18"\, "bayern munich": "#1"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:5
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882739@sports-us-bein-calendar
@@ -1411,7 +1411,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884682@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270113
 DTEND;VALUE=DATE:20270114
-SUMMARY:🔥🔥 ⚽ Bundesliga : Bayern Munich [#3] - Bayer Leverkusen [#4
+SUMMARY:🔥🔥 ⚽ Bundesliga : Bayern Munich [#1] - Bayer Leverkusen [#4
  ] — horaire à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
@@ -1419,18 +1419,18 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884682
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "bayer leverkusen": "#4"}
+X-EU-RANKS:{"bayern munich": "#1"\, "bayer leverkusen": "#4"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:8
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884669@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270116
 DTEND;VALUE=DATE:20270117
-SUMMARY:⚽ Bundesliga : Eintracht Frankfurt [#11] - Bayern Munich [#3] —
+SUMMARY:⚽ Bundesliga : Eintracht Frankfurt [#11] - Bayern Munich [#1] —
   horaire à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Deutsche Bank Park\, Frankfurt
@@ -1438,12 +1438,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884669
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"eintracht frankfurt": "#11"\, "bayern munich": "#3"}
+X-EU-RANKS:{"eintracht frankfurt": "#11"\, "bayern munich": "#1"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:8
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882730@sports-us-bein-calendar
@@ -1597,7 +1597,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884664@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270123
 DTEND;VALUE=DATE:20270124
-SUMMARY:⚽ Bundesliga : VfB Stuttgart [#13] - Bayern Munich [#3] — horai
+SUMMARY:⚽ Bundesliga : VfB Stuttgart [#13] - Bayern Munich [#1] — horai
  re à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:MHPArena\, Stuttgart
@@ -1605,12 +1605,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884664
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"vfb stuttgart": "#13"\, "bayern munich": "#3"}
+X-EU-RANKS:{"vfb stuttgart": "#13"\, "bayern munich": "#1"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:8
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882719@sports-us-bein-calendar
@@ -1718,7 +1718,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884655@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270130
 DTEND;VALUE=DATE:20270131
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - Schalke 04 [#14] — horaire 
+SUMMARY:⚽ Bundesliga : Bayern Munich [#1] - Schalke 04 [#14] — horaire 
  à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
@@ -1726,12 +1726,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884655
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "schalke 04": "#14"}
+X-EU-RANKS:{"bayern munich": "#1"\, "schalke 04": "#14"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261016T214311Z
-LAST-MODIFIED:20261016T214311Z
-SEQUENCE:6
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882709@sports-us-bein-calendar
@@ -1794,7 +1794,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884646@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270206
 DTEND;VALUE=DATE:20270207
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - SV Elversberg [#6] — horair
+SUMMARY:⚽ Bundesliga : Bayern Munich [#1] - SV Elversberg [#6] — horair
  e à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
@@ -1802,12 +1802,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884646
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "sv elversberg": "#6"}
+X-EU-RANKS:{"bayern munich": "#1"\, "sv elversberg": "#6"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:11
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:12
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882698@sports-us-bein-calendar
@@ -1851,7 +1851,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884631@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270213
 DTEND;VALUE=DATE:20270214
-SUMMARY:⚽ Bundesliga : 1. FC Union Berlin [#16] - Bayern Munich [#3] — 
+SUMMARY:⚽ Bundesliga : 1. FC Union Berlin [#16] - Bayern Munich [#1] — 
  horaire à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Stadion An der Alten Försterei\, Berlin
@@ -1859,18 +1859,18 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884631
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"1 fc union berlin": "#16"\, "bayern munich": "#3"}
+X-EU-RANKS:{"1 fc union berlin": "#16"\, "bayern munich": "#1"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:6
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882687@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270214
 DTEND;VALUE=DATE:20270215
-SUMMARY:⚽ La Liga : Villarreal [#11] - FC Barcelone [#1] — horaire à c
+SUMMARY:⚽ La Liga : Villarreal [#10] - FC Barcelone [#1] — horaire à c
  onfirmer
 DESCRIPTION:Disney+
 LOCATION:Estadio de la Cerámica\, Villarreal
@@ -1878,31 +1878,31 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882687
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"villarreal": "#11"\, "barcelona": "#1"}
+X-EU-RANKS:{"villarreal": "#10"\, "barcelona": "#1"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:8
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882691@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270214
 DTEND;VALUE=DATE:20270215
-SUMMARY:⚽ La Liga : Real Madrid [#4] - Athletic Club [#10] — horaire à
-  confirmer
+SUMMARY:⚽ La Liga : Real Madrid [#4] - Athletic Club [#9] — horaire à 
+ confirmer
 DESCRIPTION:Disney+
 LOCATION:Santiago Bernabéu\, Madrid
 URL:https://www.espn.com/soccer/match/_/gameId/401882691
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"real madrid": "#4"\, "athletic club": "#10"}
+X-EU-RANKS:{"real madrid": "#4"\, "athletic club": "#9"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:8
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882693@sports-us-bein-calendar
@@ -1927,7 +1927,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884628@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270220
 DTEND;VALUE=DATE:20270221
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - FC Augsburg [#10] — horaire
+SUMMARY:⚽ Bundesliga : Bayern Munich [#1] - FC Augsburg [#10] — horaire
   à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
@@ -1935,12 +1935,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884628
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "fc augsburg": "#10"}
+X-EU-RANKS:{"bayern munich": "#1"\, "fc augsburg": "#10"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:7
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882678@sports-us-bein-calendar
@@ -2003,7 +2003,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884618@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270227
 DTEND;VALUE=DATE:20270228
-SUMMARY:🔥🔥 ⚽ Bundesliga : RB Leipzig [#7] - Bayern Munich [#3] — 
+SUMMARY:🔥🔥 ⚽ Bundesliga : RB Leipzig [#7] - Bayern Munich [#1] — 
  horaire à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Red Bull Arena\, Leipzig
@@ -2011,12 +2011,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884618
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"rb leipzig": "#7"\, "bayern munich": "#3"}
+X-EU-RANKS:{"rb leipzig": "#7"\, "bayern munich": "#1"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:9
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882668@sports-us-bein-calendar
@@ -2060,26 +2060,26 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882676@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
-SUMMARY:⚽ La Liga : Athletic Club [#10] - FC Barcelone [#1] — horaire 
- à confirmer
+SUMMARY:⚽ La Liga : Athletic Club [#9] - FC Barcelone [#1] — horaire à
+  confirmer
 DESCRIPTION:Disney+
 LOCATION:San Mamés\, Bilbao — Athletic Club
 URL:https://www.espn.com/soccer/match/_/gameId/401882676
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"athletic club": "#10"\, "barcelona": "#1"}
+X-EU-RANKS:{"athletic club": "#9"\, "barcelona": "#1"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:7
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884610@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270303
 DTEND;VALUE=DATE:20270304
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - SC Freiburg [#2] — horaire 
+SUMMARY:⚽ Bundesliga : Bayern Munich [#1] - SC Freiburg [#3] — horaire 
  à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
@@ -2087,37 +2087,37 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884610
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "sc freiburg": "#2"}
+X-EU-RANKS:{"bayern munich": "#1"\, "sc freiburg": "#3"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:5
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884601@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270306
 DTEND;VALUE=DATE:20270307
-SUMMARY:🔥🔥🔥 ⚽ Bundesliga : Borussia Dortmund [#1] - Bayern Munic
- h [#3] — Der Klassiker — horaire à confirmer
+SUMMARY:🔥🔥🔥 ⚽ Bundesliga : Borussia Dortmund [#2] - Bayern Munic
+ h [#1] — Der Klassiker — horaire à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Signal Iduna Park\, Aue — Borussia Dortmund
 URL:https://www.espn.com/soccer/match/_/gameId/401884601
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"borussia dortmund": "#1"\, "bayern munich": "#3"}
+X-EU-RANKS:{"borussia dortmund": "#2"\, "bayern munich": "#1"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:5
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882657@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270307
 DTEND;VALUE=DATE:20270308
-SUMMARY:⚽ La Liga : Villarreal [#11] - Real Madrid [#4] — horaire à co
+SUMMARY:⚽ La Liga : Villarreal [#10] - Real Madrid [#4] — horaire à co
  nfirmer
 DESCRIPTION:Disney+
 LOCATION:Estadio de la Cerámica\, Villarreal
@@ -2125,12 +2125,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882657
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"villarreal": "#11"\, "real madrid": "#4"}
+X-EU-RANKS:{"villarreal": "#10"\, "real madrid": "#4"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:8
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882661@sports-us-bein-calendar
@@ -2155,26 +2155,26 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882665@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270307
 DTEND;VALUE=DATE:20270308
-SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Celta Vigo [#9] — horair
- e à confirmer
+SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Celta Vigo [#11] — horai
+ re à confirmer
 DESCRIPTION:Disney+
 LOCATION:Riyadh Air Metropolitano\, Madrid
 URL:https://www.espn.com/soccer/match/_/gameId/401882665
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"atletico madrid": "#2"\, "celta vigo": "#9"}
+X-EU-RANKS:{"atletico madrid": "#2"\, "celta vigo": "#11"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:11
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:12
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884592@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270313
 DTEND;VALUE=DATE:20270314
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - Mainz [#5] — horaire à con
+SUMMARY:⚽ Bundesliga : Bayern Munich [#1] - Mainz [#5] — horaire à con
  firmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
@@ -2182,12 +2182,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884592
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "mainz": "#5"}
+X-EU-RANKS:{"bayern munich": "#1"\, "mainz": "#5"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:10
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882647@sports-us-bein-calendar
@@ -2250,7 +2250,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884576@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270320
 DTEND;VALUE=DATE:20270321
-SUMMARY:⚽ Bundesliga : FC Cologne [#12] - Bayern Munich [#3] — horaire 
+SUMMARY:⚽ Bundesliga : FC Cologne [#12] - Bayern Munich [#1] — horaire 
  à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:RheinEnergieStadion\, Cologne
@@ -2258,12 +2258,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884576
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"fc cologne": "#12"\, "bayern munich": "#3"}
+X-EU-RANKS:{"fc cologne": "#12"\, "bayern munich": "#1"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:8
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882641@sports-us-bein-calendar
@@ -2288,20 +2288,20 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882645@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270321
 DTEND;VALUE=DATE:20270322
-SUMMARY:⚽ La Liga : Celta Vigo [#9] - Real Madrid [#4] — horaire à con
- firmer
+SUMMARY:⚽ La Liga : Celta Vigo [#11] - Real Madrid [#4] — horaire à co
+ nfirmer
 DESCRIPTION:Disney+
 LOCATION:Balaidos\, Vigo
 URL:https://www.espn.com/soccer/match/_/gameId/401882645
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"celta vigo": "#9"\, "real madrid": "#4"}
+X-EU-RANKS:{"celta vigo": "#11"\, "real madrid": "#4"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:10
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882646@sports-us-bein-calendar
@@ -2326,7 +2326,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884574@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270403
 DTEND;VALUE=DATE:20270404
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - Hamburg SV [#9] — horaire 
+SUMMARY:⚽ Bundesliga : Bayern Munich [#1] - Hamburg SV [#9] — horaire 
  à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
@@ -2334,12 +2334,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884574
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "hamburg sv": "#9"}
+X-EU-RANKS:{"bayern munich": "#1"\, "hamburg sv": "#9"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:9
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882628@sports-us-bein-calendar
@@ -2383,7 +2383,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884557@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270410
 DTEND;VALUE=DATE:20270411
-SUMMARY:⚽ Bundesliga : SC Paderborn 07 [#15] - Bayern Munich [#3] — hor
+SUMMARY:⚽ Bundesliga : SC Paderborn 07 [#15] - Bayern Munich [#1] — hor
  aire à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Home Deluxe Arena\, Paderborn
@@ -2391,12 +2391,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884557
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"sc paderborn 07": "#15"\, "bayern munich": "#3"}
+X-EU-RANKS:{"sc paderborn 07": "#15"\, "bayern munich": "#1"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:7
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882621@sports-us-bein-calendar
@@ -2459,7 +2459,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884556@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270417
 DTEND;VALUE=DATE:20270418
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - TSG Hoffenheim [#17] — hora
+SUMMARY:⚽ Bundesliga : Bayern Munich [#1] - TSG Hoffenheim [#17] — hora
  ire à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
@@ -2467,12 +2467,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884556
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "tsg hoffenheim": "#17"}
+X-EU-RANKS:{"bayern munich": "#1"\, "tsg hoffenheim": "#17"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:6
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882610@sports-us-bein-calendar
@@ -2535,7 +2535,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882597@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270421
 DTEND;VALUE=DATE:20270422
-SUMMARY:⚽ La Liga : Villarreal [#11] - Atlético de Madrid [#2] — horai
+SUMMARY:⚽ La Liga : Villarreal [#10] - Atlético de Madrid [#2] — horai
  re à confirmer
 DESCRIPTION:Disney+
 LOCATION:Estadio de la Cerámica\, Villarreal
@@ -2543,12 +2543,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882597
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"villarreal": "#11"\, "atletico madrid": "#2"}
+X-EU-RANKS:{"villarreal": "#10"\, "atletico madrid": "#2"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:10
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882600@sports-us-bein-calendar
@@ -2573,26 +2573,26 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882605@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270421
 DTEND;VALUE=DATE:20270422
-SUMMARY:⚽ La Liga : Celta Vigo [#9] - FC Barcelone [#1] — horaire à co
- nfirmer
+SUMMARY:⚽ La Liga : Celta Vigo [#11] - FC Barcelone [#1] — horaire à c
+ onfirmer
 DESCRIPTION:Disney+
 LOCATION:Balaidos\, Vigo
 URL:https://www.espn.com/soccer/match/_/gameId/401882605
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"celta vigo": "#9"\, "barcelona": "#1"}
+X-EU-RANKS:{"celta vigo": "#11"\, "barcelona": "#1"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:9
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884540@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270424
 DTEND;VALUE=DATE:20270425
-SUMMARY:⚽ Bundesliga : Werder Bremen [#8] - Bayern Munich [#3] — horair
+SUMMARY:⚽ Bundesliga : Werder Bremen [#8] - Bayern Munich [#1] — horair
  e à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Weserstadion\, Bremen
@@ -2600,12 +2600,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884540
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"werder bremen": "#8"\, "bayern munich": "#3"}
+X-EU-RANKS:{"werder bremen": "#8"\, "bayern munich": "#1"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:10
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882590@sports-us-bein-calendar
@@ -2668,7 +2668,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884538@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270508
 DTEND;VALUE=DATE:20270509
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - Borussia Mönchengladbach [#1
+SUMMARY:⚽ Bundesliga : Bayern Munich [#1] - Borussia Mönchengladbach [#1
  8] — horaire à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
@@ -2676,12 +2676,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884538
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "borussia monchengladbach": "#18"}
+X-EU-RANKS:{"bayern munich": "#1"\, "borussia monchengladbach": "#18"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:5
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:6
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882578@sports-us-bein-calendar
@@ -2725,7 +2725,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884526@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270515
 DTEND;VALUE=DATE:20270516
-SUMMARY:🔥🔥 ⚽ Bundesliga : Bayer Leverkusen [#4] - Bayern Munich [#3
+SUMMARY:🔥🔥 ⚽ Bundesliga : Bayer Leverkusen [#4] - Bayern Munich [#1
  ] — horaire à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:BayArena\, Leverkusen
@@ -2733,12 +2733,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884526
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayer leverkusen": "#4"\, "bayern munich": "#3"}
+X-EU-RANKS:{"bayer leverkusen": "#4"\, "bayern munich": "#1"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:8
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882568@sports-us-bein-calendar
@@ -2801,19 +2801,19 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884500@sports-us-bein-calendar
 DTSTART:20270522T133000Z
 DTEND:20270522T153000Z
-SUMMARY:⚽ Bundesliga : Bayern Munich [#3] - Eintracht Frankfurt [#11]
+SUMMARY:⚽ Bundesliga : Bayern Munich [#1] - Eintracht Frankfurt [#11]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
 URL:https://www.espn.com/soccer/match/_/gameId/401884500
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#3"\, "eintracht frankfurt": "#11"}
+X-EU-RANKS:{"bayern munich": "#1"\, "eintracht frankfurt": "#11"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T155623Z
-LAST-MODIFIED:20261017T155623Z
-SEQUENCE:8
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882562@sports-us-bein-calendar
@@ -2838,20 +2838,20 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882565@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270523
 DTEND;VALUE=DATE:20270524
-SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Athletic Club [#10] — ho
- raire à confirmer
+SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Athletic Club [#9] — hor
+ aire à confirmer
 DESCRIPTION:Disney+
 LOCATION:Riyadh Air Metropolitano\, Madrid
 URL:https://www.espn.com/soccer/match/_/gameId/401882565
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"atletico madrid": "#2"\, "athletic club": "#10"}
+X-EU-RANKS:{"atletico madrid": "#2"\, "athletic club": "#9"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261011T222807Z
-LAST-MODIFIED:20261011T222807Z
-SEQUENCE:11
+DTSTAMP:20261017T205810Z
+LAST-MODIFIED:20261017T205810Z
+SEQUENCE:12
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882566@sports-us-bein-calendar
