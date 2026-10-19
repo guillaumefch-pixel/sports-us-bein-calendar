@@ -860,7 +860,7 @@ UID:ucl-slot-20261125T200000Z@sports-us-bein-calendar
 DTSTART:20261125T200000Z
 DTEND:20261125T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Atlético de Madrid [#15] - VIKING FK [#27]\, Riyadh Air Me
+DESCRIPTION:• Atlético de Madrid [#15] - Viking FK [#27]\, Riyadh Air Me
  tropolitano\, Madrid\n• Club Brugge [#16] - Liverpool [#5]\, Jan Breydel
   Stadium\, Brugge\n• Internazionale [#29] - VfB Stuttgart [#4]\, San Sir
  o\, Milan — Internazionale\n• Lille [#34] - Bayern Munich [#10]\, Deca
@@ -877,9 +877,9 @@ X-EU-RANKS:{"atletico madrid": "#15"\, "viking fk": "#27"\, "club brugge":
  "#16"\, "liverpool": "#5"\, "internazionale": "#29"\, "vfb stuttgart": "#4
  "\, "lille": "#34"\, "bayern munich": "#10"\, "shakhtar donetsk": "#11"\, 
  "fenerbahce": "#28"\, "sporting cp": "#6"\, "manchester united": "#13"}
-DTSTAMP:20261015T120752Z
-LAST-MODIFIED:20261015T120752Z
-SEQUENCE:4
+DTSTAMP:20261019T052005Z
+LAST-MODIFIED:20261019T052005Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884722@sports-us-bein-calendar
