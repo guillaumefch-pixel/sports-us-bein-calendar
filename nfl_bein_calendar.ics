@@ -786,16 +786,16 @@ UID:nfl-20261102-philadelphia-eagles-washington-commanders@sports-us-bein-c
  alendar
 DTSTART:20261102T012000Z
 DTEND:20261102T052000Z
-SUMMARY:🏈 NFL : Washington Commanders [1W/3L/1T] - Philadelphia Eagles [
+SUMMARY:🏈 NFL : Washington Commanders [1W/4L/1T] - Philadelphia Eagles [
  2W/4L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Northwest Stadium\, Landover — Washington Commanders
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261018T204918Z
-LAST-MODIFIED:20261018T204918Z
-SEQUENCE:10
+DTSTAMP:20261020T045618Z
+LAST-MODIFIED:20261020T045618Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261103-chicago-bears-seattle-seahawks@sports-us-bein-calendar
@@ -887,16 +887,16 @@ UID:nfl-20261113-new-york-giants-washington-commanders@sports-us-bein-calen
  dar
 DTSTART:20261113T011500Z
 DTEND:20261113T051500Z
-SUMMARY:🏈 NFL : New York Giants [3W/2L/1T] - Washington Commanders [1W/3
+SUMMARY:🏈 NFL : New York Giants [3W/2L/1T] - Washington Commanders [1W/4
  L/1T]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:MetLife Stadium\, East Rutherford — New York Giants
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261018T204918Z
-LAST-MODIFIED:20261018T204918Z
-SEQUENCE:10
+DTSTAMP:20261020T045618Z
+LAST-MODIFIED:20261020T045618Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261115-detroit-lions-new-england-patriots@sports-us-bein-calendar
@@ -988,31 +988,31 @@ UID:nfl-20261123-minnesota-vikings-san-francisco-49ers@sports-us-bein-calen
  dar
 DTSTART:20261123T012000Z
 DTEND:20261123T052000Z
-SUMMARY:🏈 NFL : San Francisco 49ers [5W/0L] - Minnesota Vikings [5W/0L]
+SUMMARY:🏈 NFL : San Francisco 49ers [6W/0L] - Minnesota Vikings [5W/0L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Estadio Banorte\, Mexico City — San Francisco 49ers
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261012T060432Z
-LAST-MODIFIED:20261012T060432Z
-SEQUENCE:9
+DTSTAMP:20261020T045618Z
+LAST-MODIFIED:20261020T045618Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261124-cincinnati-bengals-washington-commanders@sports-us-bein-ca
  lendar
 DTSTART:20261124T011500Z
 DTEND:20261124T051500Z
-SUMMARY:🏈 NFL : Washington Commanders [1W/3L/1T] - Cincinnati Bengals [3
+SUMMARY:🏈 NFL : Washington Commanders [1W/4L/1T] - Cincinnati Bengals [3
  W/2L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Northwest Stadium\, Landover — Washington Commanders
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261011T220204Z
-LAST-MODIFIED:20261011T220204Z
-SEQUENCE:8
+DTSTAMP:20261020T045618Z
+LAST-MODIFIED:20261020T045618Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-netflix-2026-rams-packers@sports-us-bein-calendar
@@ -1205,16 +1205,16 @@ UID:nfl-20261218-los-angeles-chargers-san-francisco-49ers@sports-us-bein-ca
  lendar
 DTSTART:20261218T011500Z
 DTEND:20261218T051500Z
-SUMMARY:🏈 NFL : Los Angeles Chargers [0W/6L] - San Francisco 49ers [5W/0
+SUMMARY:🏈 NFL : Los Angeles Chargers [0W/6L] - San Francisco 49ers [6W/0
  L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:SoFi Stadium\, Inglewood — Los Angeles Chargers
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261019T044723Z
-LAST-MODIFIED:20261019T044723Z
-SEQUENCE:9
+DTSTAMP:20261020T045618Z
+LAST-MODIFIED:20261020T045618Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261220@sports-us-bein-calendar
@@ -1377,16 +1377,16 @@ UID:nfl-20270104-philadelphia-eagles-san-francisco-49ers@sports-us-bein-cal
  endar
 DTSTART:20270104T012000Z
 DTEND:20270104T052000Z
-SUMMARY:🏈 NFL : San Francisco 49ers [5W/0L] - Philadelphia Eagles [2W/4L
+SUMMARY:🏈 NFL : San Francisco 49ers [6W/0L] - Philadelphia Eagles [2W/4L
  ]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Levi's Stadium\, Santa Clara — San Francisco 49ers
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261018T204918Z
-LAST-MODIFIED:20261018T204918Z
-SEQUENCE:12
+DTSTAMP:20261020T045618Z
+LAST-MODIFIED:20261020T045618Z
+SEQUENCE:13
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20270105-green-bay-packers-houston-texans@sports-us-bein-calendar
