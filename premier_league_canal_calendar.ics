@@ -411,7 +411,7 @@ UID:pl-espn-401879248@sports-us-bein-calendar
 DTSTART:20261031T123000Z
 DTEND:20261031T143000Z
 SUMMARY:🔥 ⚽ Premier League : Chelsea [#4] - Manchester United [#13]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+
 LOCATION:Stamford Bridge\, Londres — Chelsea
 URL:https://www.espn.com/soccer/match/_/gameId/401879248
 STATUS:CONFIRMED
@@ -420,9 +420,9 @@ X-PL-HOME:Chelsea
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261018T160608Z
-LAST-MODIFIED:20261018T160608Z
-SEQUENCE:12
+DTSTAMP:20261021T051334Z
+LAST-MODIFIED:20261021T051334Z
+SEQUENCE:13
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879245@sports-us-bein-calendar
@@ -448,7 +448,7 @@ UID:pl-espn-401878761@sports-us-bein-calendar
 DTSTART:20261031T173000Z
 DTEND:20261031T193000Z
 SUMMARY:⚽ Premier League : Tottenham Hotspur [#16] - Crystal Palace [#14]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ FOOT
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
 URL:https://www.espn.com/soccer/match/_/gameId/401878761
 STATUS:CONFIRMED
@@ -457,9 +457,9 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Crystal Palace
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261019T223552Z
-LAST-MODIFIED:20261019T223552Z
-SEQUENCE:12
+DTSTAMP:20261021T051334Z
+LAST-MODIFIED:20261021T051334Z
+SEQUENCE:13
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879246@sports-us-bein-calendar
