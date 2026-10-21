@@ -734,60 +734,57 @@ SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882798@sports-us-bein-calendar
-DTSTART;VALUE=DATE:20261122
-DTEND;VALUE=DATE:20261123
-SUMMARY:⚽ La Liga : Real Madrid [#3] - Celta Vigo [#8] — horaire à con
- firmer
+DTSTART:20261121T200000Z
+DTEND:20261121T220000Z
+SUMMARY:⚽ La Liga : Real Madrid [#3] - Celta Vigo [#8]
 DESCRIPTION:Disney+
 LOCATION:Santiago Bernabéu\, Madrid
 URL:https://www.espn.com/soccer/match/_/gameId/401882798
-STATUS:TENTATIVE
+STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
 X-EU-RANKS:{"real madrid": "#3"\, "celta vigo": "#8"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261018T210221Z
-LAST-MODIFIED:20261018T210221Z
-SEQUENCE:13
-END:VEVENT
-BEGIN:VEVENT
-UID:europe-esp.1-401882803@sports-us-bein-calendar
-DTSTART;VALUE=DATE:20261122
-DTEND;VALUE=DATE:20261123
-SUMMARY:⚽ La Liga : Getafe [#14] - Atlético de Madrid [#2] — horaire 
- à confirmer
-DESCRIPTION:Disney+
-LOCATION:Estadio Coliseum\, Getafe
-URL:https://www.espn.com/soccer/match/_/gameId/401882803
-STATUS:TENTATIVE
-TRANSP:OPAQUE
-X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"getafe": "#14"\, "atletico madrid": "#2"}
-X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
- -laliga-ea-sports-en-francia
-DTSTAMP:20261019T223809Z
-LAST-MODIFIED:20261019T223809Z
-SEQUENCE:13
+DTSTAMP:20261021T173940Z
+LAST-MODIFIED:20261021T173940Z
+SEQUENCE:14
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882804@sports-us-bein-calendar
-DTSTART;VALUE=DATE:20261122
-DTEND;VALUE=DATE:20261123
-SUMMARY:⚽ La Liga : FC Barcelone [#1] - Villarreal [#12] — horaire à c
- onfirmer
+DTSTART:20261122T130000Z
+DTEND:20261122T150000Z
+SUMMARY:⚽ La Liga : FC Barcelone [#1] - Villarreal [#12]
 DESCRIPTION:Disney+
 LOCATION:Spotify Camp Nou\, Barcelone
 URL:https://www.espn.com/soccer/match/_/gameId/401882804
-STATUS:TENTATIVE
+STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
 X-EU-RANKS:{"barcelona": "#1"\, "villarreal": "#12"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261018T210221Z
-LAST-MODIFIED:20261018T210221Z
-SEQUENCE:11
+DTSTAMP:20261021T173940Z
+LAST-MODIFIED:20261021T173940Z
+SEQUENCE:12
+END:VEVENT
+BEGIN:VEVENT
+UID:europe-esp.1-401882803@sports-us-bein-calendar
+DTSTART:20261122T200000Z
+DTEND:20261122T220000Z
+SUMMARY:⚽ La Liga : Getafe [#14] - Atlético de Madrid [#2]
+DESCRIPTION:Disney+
+LOCATION:Estadio Coliseum\, Getafe
+URL:https://www.espn.com/soccer/match/_/gameId/401882803
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+X-EU-LEAGUE:esp.1
+X-EU-RANKS:{"getafe": "#14"\, "atletico madrid": "#2"}
+X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
+ -laliga-ea-sports-en-francia
+DTSTAMP:20261021T173940Z
+LAST-MODIFIED:20261021T173940Z
+SEQUENCE:14
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261124T174500Z@sports-us-bein-calendar
