@@ -499,19 +499,19 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882820@sports-us-bein-calendar
 DTSTART:20261031T130000Z
 DTEND:20261031T150000Z
-SUMMARY:⚽ La Liga : Levante [#17] - Atlético de Madrid [#2]
+SUMMARY:⚽ La Liga : Levante [#11] - Atlético de Madrid [#2]
 DESCRIPTION:Disney+
 LOCATION:Estadi Ciutat de València\, Manises — Levante
 URL:https://www.espn.com/soccer/match/_/gameId/401882820
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"levante": "#17"\, "atletico madrid": "#2"}
+X-EU-RANKS:{"levante": "#11"\, "atletico madrid": "#2"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261013T005825Z
-LAST-MODIFIED:20261013T005825Z
-SEQUENCE:10
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884754@sports-us-bein-calendar
@@ -554,111 +554,111 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882819@sports-us-bein-calendar
 DTSTART:20261101T151500Z
 DTEND:20261101T171500Z
-SUMMARY:⚽ La Liga : Racing Santander [#16] - Real Madrid [#3]
+SUMMARY:⚽ La Liga : Racing Santander [#17] - Real Madrid [#3]
 DESCRIPTION:Disney+
 LOCATION:El Sardineros\, Santander
 URL:https://www.espn.com/soccer/match/_/gameId/401882819
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"racing santander": "#16"\, "real madrid": "#3"}
+X-EU-RANKS:{"racing santander": "#17"\, "real madrid": "#3"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261018T210221Z
-LAST-MODIFIED:20261018T210221Z
-SEQUENCE:10
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261103T174500Z@sports-us-bein-calendar
 DTSTART:20261103T174500Z
 DTEND:20261103T194500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Galatasaray [#35] - VfB Stuttgart [#3]\, RAMS Park\, Istanb
- ul — Galatasaray\n• Shakhtar Donetsk [#14] - Sporting CP [#7]\, Stamfo
- rd Bridge\, Londres — Shakhtar Donetsk
+DESCRIPTION:• Galatasaray [#23] - VfB Stuttgart [#6]\, RAMS Park\, Istanb
+ ul — Galatasaray\n• Shakhtar Donetsk [#17] - Sporting CP [#12]\, Stamf
+ ord Bridge\, Londres — Shakhtar Donetsk
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915311,401915310
-X-EU-RANKS:{"galatasaray": "#35"\, "vfb stuttgart": "#3"\, "shakhtar donets
- k": "#14"\, "sporting cp": "#7"}
-DTSTAMP:20261020T215258Z
-LAST-MODIFIED:20261020T215258Z
-SEQUENCE:4
+X-EU-RANKS:{"galatasaray": "#23"\, "vfb stuttgart": "#6"\, "shakhtar donets
+ k": "#17"\, "sporting cp": "#12"}
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261103T200000Z@sports-us-bein-calendar
 DTSTART:20261103T200000Z
 DTEND:20261103T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Atlético de Madrid [#15] - Bayern Munich [#12]\, Riyadh Ai
- r Metropolitano\, Madrid\n• Bodo/Glimt [#26] - Lille [#34]\, Aspmyra Sta
- dion\, Bodø/Glimt — Bodo/Glimt\n• FC Barcelone [#5] - Aston Villa [#4
- ]\, Spotify Camp Nou\, Barcelone\n• Feyenoord Rotterdam [#24] - Internaz
- ionale [#31]\, De Kuip\, Rotterdam\n• LASK Linz [#32] - Slovan Bratislav
- a [#36]\, Raiffeisen Arena (Linz)\, Linz\n• Manchester United [#18] - AS
-  Roma [#13]\, Old Trafford\, Manchester
+DESCRIPTION:• Atlético de Madrid [#16] - Bayern Munich [#14]\, Riyadh Ai
+ r Metropolitano\, Madrid\n• Bodo/Glimt [#28] - Lille [#35]\, Aspmyra Sta
+ dion\, Bodø/Glimt — Bodo/Glimt\n• FC Barcelone [#8] - Aston Villa [#2
+ ]\, Spotify Camp Nou\, Barcelone\n• Feyenoord Rotterdam [#26] - Internaz
+ ionale [#20]\, De Kuip\, Rotterdam\n• LASK Linz [#24] - Slovan Bratislav
+ a [#36]\, Raiffeisen Arena (Linz)\, Linz\n• Manchester United [#21] - AS
+  Roma [#15]\, Old Trafford\, Manchester
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915386,401915384,401915387,401915307,401915385,401915308
-X-EU-RANKS:{"atletico madrid": "#15"\, "bayern munich": "#12"\, "bodo glimt
- ": "#26"\, "lille": "#34"\, "barcelona": "#5"\, "aston villa": "#4"\, "fey
- enoord rotterdam": "#24"\, "internazionale": "#31"\, "lask linz": "#32"\, 
- "slovan bratislava": "#36"\, "manchester united": "#18"\, "as roma": "#13"
+X-EU-RANKS:{"atletico madrid": "#16"\, "bayern munich": "#14"\, "bodo glimt
+ ": "#28"\, "lille": "#35"\, "barcelona": "#8"\, "aston villa": "#2"\, "fey
+ enoord rotterdam": "#26"\, "internazionale": "#20"\, "lask linz": "#24"\, 
+ "slovan bratislava": "#36"\, "manchester united": "#21"\, "as roma": "#15"
  }
-DTSTAMP:20261020T215258Z
-LAST-MODIFIED:20261020T215258Z
-SEQUENCE:4
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261104T174500Z@sports-us-bein-calendar
 DTSTART:20261104T174500Z
 DTEND:20261104T194500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• AEK Athens [#27] - Real Madrid [#9]\, OPAP Arena\, Athens\n
- • Fenerbahce [#28] - Liverpool [#2]\, Şükrü Saracoğlu Stadium\, Ista
+DESCRIPTION:• AEK Athens [#29] - Real Madrid [#4]\, OPAP Arena\, Athens\n
+ • Fenerbahce [#31] - Liverpool [#3]\, Şükrü Saracoğlu Stadium\, Ista
  nbul — Fenerbahce
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915383,401915382
-X-EU-RANKS:{"aek athens": "#27"\, "real madrid": "#9"\, "fenerbahce": "#28"
- \, "liverpool": "#2"}
-DTSTAMP:20261020T215258Z
-LAST-MODIFIED:20261020T215258Z
-SEQUENCE:4
+X-EU-RANKS:{"aek athens": "#29"\, "real madrid": "#4"\, "fenerbahce": "#31"
+ \, "liverpool": "#3"}
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261104T200000Z@sports-us-bein-calendar
 DTSTART:20261104T200000Z
 DTEND:20261104T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Borussia Dortmund [#11] - Real Betis [#10]\, Signal Iduna P
- ark\, Aue — Borussia Dortmund\n• FC Porto [#33] - Napoli [#22]\, Está
- dio do Dragão\, Porto\n• Lens [#21] - Côme [#17]\, Stade Bollaert-Dele
- lis\, Lens\n• PSV Eindhoven [#16] - Club Brugge [#20]\, Philips Stadion\
- , Eindhoven\n• RB Leipzig [#23] - Manchester City [#6]\, Red Bull Arena\
- , Leipzig\n• Slavia Prague [#30] - Arsenal [#8]\, Fortuna Arena\, Prague
- \n• Viking FK [#29] - Sabah FK [#25]\, Viking Stadion\, Stavanger — Vi
- king FK
+DESCRIPTION:• Borussia Dortmund [#13] - Real Betis [#5]\, Signal Iduna Pa
+ rk\, Aue — Borussia Dortmund\n• FC Porto [#34] - Napoli [#22]\, Estád
+ io do Dragão\, Porto\n• Lens [#27] - Côme [#9]\, Stade Bollaert-Deleli
+ s\, Lens\n• PSV Eindhoven [#18] - Club Brugge [#11]\, Philips Stadion\, 
+ Eindhoven\n• RB Leipzig [#30] - Manchester City [#10]\, Red Bull Arena\,
+  Leipzig\n• Slavia Prague [#32] - Arsenal [#7]\, Fortuna Arena\, Prague\
+ n• Viking FK [#33] - Sabah FK [#25]\, Viking Stadion\, Stavanger — Vik
+ ing FK
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915304,401915301,401915305,401915303,401915306,401915381,40
  1915302
-X-EU-RANKS:{"borussia dortmund": "#11"\, "real betis": "#10"\, "fc porto": 
- "#33"\, "napoli": "#22"\, "lens": "#21"\, "como": "#17"\, "psv eindhoven":
-  "#16"\, "club brugge": "#20"\, "rb leipzig": "#23"\, "manchester city": "
- #6"\, "slavia prague": "#30"\, "arsenal": "#8"\, "viking fk": "#29"\, "sab
- ah fk": "#25"}
-DTSTAMP:20261020T215258Z
-LAST-MODIFIED:20261020T215258Z
-SEQUENCE:6
+X-EU-RANKS:{"borussia dortmund": "#13"\, "real betis": "#5"\, "fc porto": "
+ #34"\, "napoli": "#22"\, "lens": "#27"\, "como": "#9"\, "psv eindhoven": "
+ #18"\, "club brugge": "#11"\, "rb leipzig": "#30"\, "manchester city": "#1
+ 0"\, "slavia prague": "#32"\, "arsenal": "#7"\, "viking fk": "#33"\, "saba
+ h fk": "#25"}
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884740@sports-us-bein-calendar
@@ -772,111 +772,111 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882803@sports-us-bein-calendar
 DTSTART:20261122T200000Z
 DTEND:20261122T220000Z
-SUMMARY:⚽ La Liga : Getafe [#14] - Atlético de Madrid [#2]
+SUMMARY:⚽ La Liga : Getafe [#15] - Atlético de Madrid [#2]
 DESCRIPTION:Disney+
 LOCATION:Estadio Coliseum\, Getafe
 URL:https://www.espn.com/soccer/match/_/gameId/401882803
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"getafe": "#14"\, "atletico madrid": "#2"}
+X-EU-RANKS:{"getafe": "#15"\, "atletico madrid": "#2"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261021T173940Z
-LAST-MODIFIED:20261021T173940Z
-SEQUENCE:14
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:15
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261124T174500Z@sports-us-bein-calendar
 DTSTART:20261124T174500Z
 DTEND:20261124T194500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Bodo/Glimt [#26] - LASK Linz [#32]\, Aspmyra Stadion\, Bod
- ø/Glimt — Bodo/Glimt\n• Galatasaray [#35] - Aston Villa [#4]\, RAMS P
+DESCRIPTION:• Bodo/Glimt [#28] - LASK Linz [#24]\, Aspmyra Stadion\, Bod
+ ø/Glimt — Bodo/Glimt\n• Galatasaray [#23] - Aston Villa [#2]\, RAMS P
  ark\, Istanbul — Galatasaray
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915380,401915300
-X-EU-RANKS:{"bodo glimt": "#26"\, "lask linz": "#32"\, "galatasaray": "#35"
- \, "aston villa": "#4"}
-DTSTAMP:20261020T215258Z
-LAST-MODIFIED:20261020T215258Z
-SEQUENCE:4
+X-EU-RANKS:{"bodo glimt": "#28"\, "lask linz": "#24"\, "galatasaray": "#23"
+ \, "aston villa": "#2"}
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261124T200000Z@sports-us-bein-calendar
 DTSTART:20261124T200000Z
 DTEND:20261124T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Arsenal [#8] - Borussia Dortmund [#11]\, Emirates Stadium\,
-  Londres — Arsenal\n• Côme [#17] - AEK Athens [#27]\, Giuseppe Siniga
- glia\, Côme\n• Feyenoord Rotterdam [#24] - FC Porto [#33]\, De Kuip\, R
- otterdam\n• Manchester City [#6] - Napoli [#22]\, Etihad Stadium\, Manch
- ester\n• RB Leipzig [#23] - Lens [#21]\, Red Bull Arena\, Leipzig\n• R
- eal Madrid [#9] - PSV Eindhoven [#16]\, Santiago Bernabéu\, Madrid\n• S
- lovan Bratislava [#36] - Real Betis [#10]\, Národny Futbalovy Stadión\, 
- Bratislava
+DESCRIPTION:• Arsenal [#7] - Borussia Dortmund [#13]\, Emirates Stadium\,
+  Londres — Arsenal\n• Côme [#9] - AEK Athens [#29]\, Giuseppe Sinigag
+ lia\, Côme\n• Feyenoord Rotterdam [#26] - FC Porto [#34]\, De Kuip\, Ro
+ tterdam\n• Manchester City [#10] - Napoli [#22]\, Etihad Stadium\, Manch
+ ester\n• RB Leipzig [#30] - Lens [#27]\, Red Bull Arena\, Leipzig\n• R
+ eal Madrid [#4] - PSV Eindhoven [#18]\, Santiago Bernabéu\, Madrid\n• S
+ lovan Bratislava [#36] - Real Betis [#5]\, Národny Futbalovy Stadión\, B
+ ratislava
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915295,401915296,401915294,401915379,401915299,401915298,40
  1915297
-X-EU-RANKS:{"arsenal": "#8"\, "borussia dortmund": "#11"\, "como": "#17"\, 
- "aek athens": "#27"\, "feyenoord rotterdam": "#24"\, "fc porto": "#33"\, "
- manchester city": "#6"\, "napoli": "#22"\, "rb leipzig": "#23"\, "lens": "
- #21"\, "real madrid": "#9"\, "psv eindhoven": "#16"\, "slovan bratislava":
-  "#36"\, "real betis": "#10"}
-DTSTAMP:20261020T215258Z
-LAST-MODIFIED:20261020T215258Z
-SEQUENCE:4
+X-EU-RANKS:{"arsenal": "#7"\, "borussia dortmund": "#13"\, "como": "#9"\, "
+ aek athens": "#29"\, "feyenoord rotterdam": "#26"\, "fc porto": "#34"\, "m
+ anchester city": "#10"\, "napoli": "#22"\, "rb leipzig": "#30"\, "lens": "
+ #27"\, "real madrid": "#4"\, "psv eindhoven": "#18"\, "slovan bratislava":
+  "#36"\, "real betis": "#5"}
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261125T174500Z@sports-us-bein-calendar
 DTSTART:20261125T174500Z
 DTEND:20261125T194500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Sabah FK [#25] - FC Barcelone [#5]\, Baku Olympic Stadium\,
-  Baku — Sabah FK\n• Slavia Prague [#30] - Villarreal [#19]\, Fortuna A
+DESCRIPTION:• Sabah FK [#25] - FC Barcelone [#8]\, Baku Olympic Stadium\,
+  Baku — Sabah FK\n• Slavia Prague [#32] - Villarreal [#19]\, Fortuna A
  rena\, Prague
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915378,401915293
-X-EU-RANKS:{"sabah fk": "#25"\, "barcelona": "#5"\, "slavia prague": "#30"\
+X-EU-RANKS:{"sabah fk": "#25"\, "barcelona": "#8"\, "slavia prague": "#32"\
  , "villarreal": "#19"}
-DTSTAMP:20261020T215258Z
-LAST-MODIFIED:20261020T215258Z
-SEQUENCE:4
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261125T200000Z@sports-us-bein-calendar
 DTSTART:20261125T200000Z
 DTEND:20261125T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Atlético de Madrid [#15] - Viking FK [#29]\, Riyadh Air Me
- tropolitano\, Madrid\n• Club Brugge [#20] - Liverpool [#2]\, Jan Breydel
-  Stadium\, Brugge\n• Internazionale [#31] - VfB Stuttgart [#3]\, San Sir
- o\, Milan — Internazionale\n• Lille [#34] - Bayern Munich [#12]\, Deca
- thlon Arena - Stade Pierre-Mauroy\, Lille\n• Shakhtar Donetsk [#14] - Fe
- nerbahce [#28]\, Stamford Bridge\, Londres — Shakhtar Donetsk\n• Sport
- ing CP [#7] - Manchester United [#18]\, Estádio José Alvalade\, Lisbon 
+DESCRIPTION:• Atlético de Madrid [#16] - Viking FK [#33]\, Riyadh Air Me
+ tropolitano\, Madrid\n• Club Brugge [#11] - Liverpool [#3]\, Jan Breydel
+  Stadium\, Brugge\n• Internazionale [#20] - VfB Stuttgart [#6]\, San Sir
+ o\, Milan — Internazionale\n• Lille [#35] - Bayern Munich [#14]\, Deca
+ thlon Arena - Stade Pierre-Mauroy\, Lille\n• Shakhtar Donetsk [#17] - Fe
+ nerbahce [#31]\, Stamford Bridge\, Londres — Shakhtar Donetsk\n• Sport
+ ing CP [#12] - Manchester United [#21]\, Estádio José Alvalade\, Lisbon 
  — Sporting CP
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915291,401915292,401915376,401915377,401915375,401915373
-X-EU-RANKS:{"atletico madrid": "#15"\, "viking fk": "#29"\, "club brugge": 
- "#20"\, "liverpool": "#2"\, "internazionale": "#31"\, "vfb stuttgart": "#3
- "\, "lille": "#34"\, "bayern munich": "#12"\, "shakhtar donetsk": "#14"\, 
- "fenerbahce": "#28"\, "sporting cp": "#7"\, "manchester united": "#18"}
-DTSTAMP:20261020T215258Z
-LAST-MODIFIED:20261020T215258Z
-SEQUENCE:6
+X-EU-RANKS:{"atletico madrid": "#16"\, "viking fk": "#33"\, "club brugge": 
+ "#11"\, "liverpool": "#3"\, "internazionale": "#20"\, "vfb stuttgart": "#6
+ "\, "lille": "#35"\, "bayern munich": "#14"\, "shakhtar donetsk": "#17"\, 
+ "fenerbahce": "#31"\, "sporting cp": "#12"\, "manchester united": "#21"}
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884722@sports-us-bein-calendar
@@ -1014,7 +1014,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882785@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20261206
 DTEND;VALUE=DATE:20261207
-SUMMARY:⚽ La Liga : Athletic Club [#11] - Real Madrid [#3] — horaire à
+SUMMARY:⚽ La Liga : Athletic Club [#13] - Real Madrid [#3] — horaire à
   confirmer
 DESCRIPTION:Disney+
 LOCATION:San Mamés\, Bilbao — Athletic Club
@@ -1022,19 +1022,19 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882785
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"athletic club": "#11"\, "real madrid": "#3"}
+X-EU-RANKS:{"athletic club": "#13"\, "real madrid": "#3"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261018T210221Z
-LAST-MODIFIED:20261018T210221Z
-SEQUENCE:11
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:12
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261208T174500Z@sports-us-bein-calendar
 DTSTART:20261208T174500Z
 DTEND:20261208T194500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Viking FK [#29] - Feyenoord Rotterdam [#24]\, Viking Stadio
+DESCRIPTION:• Viking FK [#33] - Feyenoord Rotterdam [#26]\, Viking Stadio
  n\, Stavanger — Viking FK\n• Villarreal [#19] - Sabah FK [#25]\, Estad
  io de la Cerámica\, Villarreal
 STATUS:CONFIRMED
@@ -1042,67 +1042,67 @@ TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915290,401915372
-X-EU-RANKS:{"viking fk": "#29"\, "feyenoord rotterdam": "#24"\, "villarreal
+X-EU-RANKS:{"viking fk": "#33"\, "feyenoord rotterdam": "#26"\, "villarreal
  ": "#19"\, "sabah fk": "#25"}
-DTSTAMP:20261020T215258Z
-LAST-MODIFIED:20261020T215258Z
-SEQUENCE:6
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261208T200000Z@sports-us-bein-calendar
 DTSTART:20261208T200000Z
 DTEND:20261208T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• AEK Athens [#27] - Galatasaray [#35]\, OPAP Arena\, Athens\
- n• AS Roma [#13] - Sporting CP [#7]\, Olimpico\, Rome\n• Bayern Munich
-  [#12] - Slavia Prague [#30]\, Allianz Arena\, Munich\n• FC Barcelone [#
- 5] - Manchester City [#6]\, Spotify Camp Nou\, Barcelone\n• Manchester U
- nited [#18] - RB Leipzig [#23]\, Old Trafford\, Manchester\n• Napoli [#2
- 2] - Club Brugge [#20]\, Stadio Diego Armando Maradona\, Napoli
+DESCRIPTION:• AEK Athens [#29] - Galatasaray [#23]\, OPAP Arena\, Athens\
+ n• AS Roma [#15] - Sporting CP [#12]\, Olimpico\, Rome\n• Bayern Munic
+ h [#14] - Slavia Prague [#32]\, Allianz Arena\, Munich\n• FC Barcelone [
+ #8] - Manchester City [#10]\, Spotify Camp Nou\, Barcelone\n• Manchester
+  United [#21] - RB Leipzig [#30]\, Old Trafford\, Manchester\n• Napoli [
+ #22] - Club Brugge [#11]\, Stadio Diego Armando Maradona\, Napoli
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915289,401915288,401915284,401915285,401915371,401915287
-X-EU-RANKS:{"aek athens": "#27"\, "galatasaray": "#35"\, "as roma": "#13"\,
-  "sporting cp": "#7"\, "bayern munich": "#12"\, "slavia prague": "#30"\, "
- barcelona": "#5"\, "manchester city": "#6"\, "manchester united": "#18"\, 
- "rb leipzig": "#23"\, "napoli": "#22"\, "club brugge": "#20"}
-DTSTAMP:20261020T215258Z
-LAST-MODIFIED:20261020T215258Z
-SEQUENCE:4
+X-EU-RANKS:{"aek athens": "#29"\, "galatasaray": "#23"\, "as roma": "#15"\,
+  "sporting cp": "#12"\, "bayern munich": "#14"\, "slavia prague": "#32"\, 
+ "barcelona": "#8"\, "manchester city": "#10"\, "manchester united": "#21"\
+ , "rb leipzig": "#30"\, "napoli": "#22"\, "club brugge": "#11"}
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261209T174500Z@sports-us-bein-calendar
 DTSTART:20261209T174500Z
 DTEND:20261209T194500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Real Betis [#10] - Côme [#17]\, Estadio La Cartuja\, Sevil
- la — Real Betis\n• Slovan Bratislava [#36] - Shakhtar Donetsk [#14]\, 
- Národny Futbalovy Stadión\, Bratislava
+DESCRIPTION:• Real Betis [#5] - Côme [#9]\, Estadio La Cartuja\, Sevilla
+  — Real Betis\n• Slovan Bratislava [#36] - Shakhtar Donetsk [#17]\, N
+ árodny Futbalovy Stadión\, Bratislava
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915283,401915282
-X-EU-RANKS:{"real betis": "#10"\, "como": "#17"\, "slovan bratislava": "#36
- "\, "shakhtar donetsk": "#14"}
-DTSTAMP:20261020T215258Z
-LAST-MODIFIED:20261020T215258Z
-SEQUENCE:4
+X-EU-RANKS:{"real betis": "#5"\, "como": "#9"\, "slovan bratislava": "#36"\
+ , "shakhtar donetsk": "#17"}
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261209T200000Z@sports-us-bein-calendar
 DTSTART:20261209T200000Z
 DTEND:20261209T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Arsenal [#8] - Real Madrid [#9]\, Emirates Stadium\, Londre
- s — Arsenal\n• Borussia Dortmund [#11] - Internazionale [#31]\, Signal
-  Iduna Park\, Aue — Borussia Dortmund\n• LASK Linz [#32] - Fenerbahce 
- [#28]\, Raiffeisen Arena (Linz)\, Linz\n• Lens [#21] - Bodo/Glimt [#26]\
- , Stade Bollaert-Delelis\, Lens\n• Liverpool [#2] - FC Porto [#33]\, Anf
- ield\, Liverpool\n• PSV Eindhoven [#16] - Atlético de Madrid [#15]\, Ph
- ilips Stadion\, Eindhoven\n• VfB Stuttgart [#3] - Lille [#34]\, MHPArena
+DESCRIPTION:• Arsenal [#7] - Real Madrid [#4]\, Emirates Stadium\, Londre
+ s — Arsenal\n• Borussia Dortmund [#13] - Internazionale [#20]\, Signal
+  Iduna Park\, Aue — Borussia Dortmund\n• LASK Linz [#24] - Fenerbahce 
+ [#31]\, Raiffeisen Arena (Linz)\, Linz\n• Lens [#27] - Bodo/Glimt [#28]\
+ , Stade Bollaert-Delelis\, Lens\n• Liverpool [#3] - FC Porto [#34]\, Anf
+ ield\, Liverpool\n• PSV Eindhoven [#18] - Atlético de Madrid [#16]\, Ph
+ ilips Stadion\, Eindhoven\n• VfB Stuttgart [#6] - Lille [#35]\, MHPArena
  \, Stuttgart
 STATUS:CONFIRMED
 TRANSP:OPAQUE
@@ -1110,14 +1110,14 @@ X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915367,401915368,401915281,401915370,401915369,401915366,40
  1915365
-X-EU-RANKS:{"arsenal": "#8"\, "real madrid": "#9"\, "borussia dortmund": "#
- 11"\, "internazionale": "#31"\, "lask linz": "#32"\, "fenerbahce": "#28"\,
-  "lens": "#21"\, "bodo glimt": "#26"\, "liverpool": "#2"\, "fc porto": "#3
- 3"\, "psv eindhoven": "#16"\, "atletico madrid": "#15"\, "vfb stuttgart": 
- "#3"\, "lille": "#34"}
-DTSTAMP:20261020T215258Z
-LAST-MODIFIED:20261020T215258Z
-SEQUENCE:4
+X-EU-RANKS:{"arsenal": "#7"\, "real madrid": "#4"\, "borussia dortmund": "#
+ 13"\, "internazionale": "#20"\, "lask linz": "#24"\, "fenerbahce": "#31"\,
+  "lens": "#27"\, "bodo glimt": "#28"\, "liverpool": "#3"\, "fc porto": "#3
+ 4"\, "psv eindhoven": "#18"\, "atletico madrid": "#16"\, "vfb stuttgart": 
+ "#6"\, "lille": "#35"}
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884707@sports-us-bein-calendar
@@ -1275,7 +1275,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882749@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270103
 DTEND;VALUE=DATE:20270104
-SUMMARY:⚽ La Liga : Real Madrid [#3] - Getafe [#14] — horaire à confir
+SUMMARY:⚽ La Liga : Real Madrid [#3] - Getafe [#15] — horaire à confir
  mer
 DESCRIPTION:Disney+
 LOCATION:Santiago Bernabéu\, Madrid
@@ -1283,18 +1283,18 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882749
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"real madrid": "#3"\, "getafe": "#14"}
+X-EU-RANKS:{"real madrid": "#3"\, "getafe": "#15"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261019T223809Z
-LAST-MODIFIED:20261019T223809Z
-SEQUENCE:12
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:13
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882750@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270103
 DTEND;VALUE=DATE:20270104
-SUMMARY:⚽ La Liga : Rayo Vallecano [#13] - Atlético de Madrid [#2] — h
+SUMMARY:⚽ La Liga : Rayo Vallecano [#14] - Atlético de Madrid [#2] — h
  oraire à confirmer
 DESCRIPTION:Disney+
 LOCATION:Estadio de Vallecas\, Madrid — Rayo Vallecano
@@ -1302,18 +1302,18 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882750
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"rayo vallecano": "#13"\, "atletico madrid": "#2"}
+X-EU-RANKS:{"rayo vallecano": "#14"\, "atletico madrid": "#2"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261019T223809Z
-LAST-MODIFIED:20261019T223809Z
-SEQUENCE:14
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:15
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882754@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270103
 DTEND;VALUE=DATE:20270104
-SUMMARY:⚽ La Liga : Espanyol [#15] - FC Barcelone [#1] — horaire à con
+SUMMARY:⚽ La Liga : Espanyol [#16] - FC Barcelone [#1] — horaire à con
  firmer
 DESCRIPTION:Disney+
 LOCATION:RCDE Stadium\, Barcelone — Espanyol
@@ -1321,12 +1321,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882754
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"espanyol": "#15"\, "barcelona": "#1"}
+X-EU-RANKS:{"espanyol": "#16"\, "barcelona": "#1"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261019T223809Z
-LAST-MODIFIED:20261019T223809Z
-SEQUENCE:10
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884687@sports-us-bein-calendar
@@ -1351,7 +1351,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882739@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
-SUMMARY:⚽ La Liga : Real Madrid [#3] - Levante [#17] — horaire à confi
+SUMMARY:⚽ La Liga : Real Madrid [#3] - Levante [#11] — horaire à confi
  rmer
 DESCRIPTION:Disney+
 LOCATION:Santiago Bernabéu\, Madrid
@@ -1359,12 +1359,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882739
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"real madrid": "#3"\, "levante": "#17"}
+X-EU-RANKS:{"real madrid": "#3"\, "levante": "#11"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261018T210221Z
-LAST-MODIFIED:20261018T210221Z
-SEQUENCE:10
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882740@sports-us-bein-calendar
@@ -1389,7 +1389,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882744@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
-SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Racing Santander [#16] —
+SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Racing Santander [#17] —
   horaire à confirmer
 DESCRIPTION:Disney+
 LOCATION:Riyadh Air Metropolitano\, Madrid
@@ -1397,12 +1397,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882744
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"atletico madrid": "#2"\, "racing santander": "#16"}
+X-EU-RANKS:{"atletico madrid": "#2"\, "racing santander": "#17"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261018T160806Z
-LAST-MODIFIED:20261018T160806Z
-SEQUENCE:10
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884682@sports-us-bein-calendar
@@ -1504,32 +1504,32 @@ UID:ucl-slot-20270119T174500Z@sports-us-bein-calendar
 DTSTART:20270119T174500Z
 DTEND:20270119T194500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Bodo/Glimt [#26] - Atlético de Madrid [#15]\, Aspmyra Stad
- ion\, Bodø/Glimt — Bodo/Glimt\n• Galatasaray [#35] - Feyenoord Rotter
- dam [#24]\, RAMS Park\, Istanbul — Galatasaray
+DESCRIPTION:• Bodo/Glimt [#28] - Atlético de Madrid [#16]\, Aspmyra Stad
+ ion\, Bodø/Glimt — Bodo/Glimt\n• Galatasaray [#23] - Feyenoord Rotter
+ dam [#26]\, RAMS Park\, Istanbul — Galatasaray
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915364,401915363
-X-EU-RANKS:{"bodo glimt": "#26"\, "atletico madrid": "#15"\, "galatasaray":
-  "#35"\, "feyenoord rotterdam": "#24"}
-DTSTAMP:20261020T215258Z
-LAST-MODIFIED:20261020T215258Z
-SEQUENCE:4
+X-EU-RANKS:{"bodo glimt": "#28"\, "atletico madrid": "#16"\, "galatasaray":
+  "#23"\, "feyenoord rotterdam": "#26"}
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20270119T200000Z@sports-us-bein-calendar
 DTSTART:20270119T200000Z
 DTEND:20270119T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• AEK Athens [#27] - AS Roma [#13]\, OPAP Arena\, Athens\n•
-  Aston Villa [#4] - Borussia Dortmund [#11]\, Villa Park\, Birmingham — 
- Aston Villa\n• FC Porto [#33] - Slavia Prague [#30]\, Estádio do Dragã
- o\, Porto\n• Internazionale [#31] - Liverpool [#2]\, San Siro\, Milan 
- — Internazionale\n• Lille [#34] - Slovan Bratislava [#36]\, Decathlon 
- Arena - Stade Pierre-Mauroy\, Lille\n• Real Madrid [#9] - LASK Linz [#32
- ]\, Santiago Bernabéu\, Madrid\n• VfB Stuttgart [#3] - Club Brugge [#20
+DESCRIPTION:• AEK Athens [#29] - AS Roma [#15]\, OPAP Arena\, Athens\n•
+  Aston Villa [#2] - Borussia Dortmund [#13]\, Villa Park\, Birmingham — 
+ Aston Villa\n• FC Porto [#34] - Slavia Prague [#32]\, Estádio do Dragã
+ o\, Porto\n• Internazionale [#20] - Liverpool [#3]\, San Siro\, Milan 
+ — Internazionale\n• Lille [#35] - Slovan Bratislava [#36]\, Decathlon 
+ Arena - Stade Pierre-Mauroy\, Lille\n• Real Madrid [#4] - LASK Linz [#24
+ ]\, Santiago Bernabéu\, Madrid\n• VfB Stuttgart [#6] - Club Brugge [#11
  ]\, MHPArena\, Stuttgart
 STATUS:CONFIRMED
 TRANSP:OPAQUE
@@ -1537,21 +1537,21 @@ X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915362,401915279,401915278,401915360,401915361,401915280,40
  1915359
-X-EU-RANKS:{"aek athens": "#27"\, "as roma": "#13"\, "aston villa": "#4"\, 
- "borussia dortmund": "#11"\, "fc porto": "#33"\, "slavia prague": "#30"\, 
- "internazionale": "#31"\, "liverpool": "#2"\, "lille": "#34"\, "slovan bra
- tislava": "#36"\, "real madrid": "#9"\, "lask linz": "#32"\, "vfb stuttgar
- t": "#3"\, "club brugge": "#20"}
-DTSTAMP:20261020T215258Z
-LAST-MODIFIED:20261020T215258Z
-SEQUENCE:4
+X-EU-RANKS:{"aek athens": "#29"\, "as roma": "#15"\, "aston villa": "#2"\, 
+ "borussia dortmund": "#13"\, "fc porto": "#34"\, "slavia prague": "#32"\, 
+ "internazionale": "#20"\, "liverpool": "#3"\, "lille": "#35"\, "slovan bra
+ tislava": "#36"\, "real madrid": "#4"\, "lask linz": "#24"\, "vfb stuttgar
+ t": "#6"\, "club brugge": "#11"}
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20270120T174500Z@sports-us-bein-calendar
 DTSTART:20270120T174500Z
 DTEND:20270120T194500Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Fenerbahce [#28] - Villarreal [#19]\, Şükrü Saracoğlu S
+DESCRIPTION:• Fenerbahce [#31] - Villarreal [#19]\, Şükrü Saracoğlu S
  tadium\, Istanbul — Fenerbahce\n• Sabah FK [#25] - Napoli [#22]\, Baku
   Olympic Stadium\, Baku — Sabah FK
 STATUS:CONFIRMED
@@ -1559,36 +1559,36 @@ TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915277,401915358
-X-EU-RANKS:{"fenerbahce": "#28"\, "villarreal": "#19"\, "sabah fk": "#25"\,
+X-EU-RANKS:{"fenerbahce": "#31"\, "villarreal": "#19"\, "sabah fk": "#25"\,
   "napoli": "#22"}
-DTSTAMP:20261020T215258Z
-LAST-MODIFIED:20261020T215258Z
-SEQUENCE:4
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:5
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20270120T200000Z@sports-us-bein-calendar
 DTSTART:20270120T200000Z
 DTEND:20270120T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• Lens [#21] - Manchester City [#6]\, Stade Bollaert-Delelis\
- , Lens\n• Manchester United [#18] - Bayern Munich [#12]\, Old Trafford\,
-  Manchester\n• RB Leipzig [#23] - Shakhtar Donetsk [#14]\, Red Bull Aren
- a\, Leipzig\n• Real Betis [#10] - Arsenal [#8]\, Estadio La Cartuja\, Se
- villa — Real Betis\n• Sporting CP [#7] - FC Barcelone [#5]\, Estádio 
- José Alvalade\, Lisbon — Sporting CP\n• Viking FK [#29] - PSV Eindhov
- en [#16]\, Viking Stadion\, Stavanger — Viking FK
+DESCRIPTION:• Lens [#27] - Manchester City [#10]\, Stade Bollaert-Delelis
+ \, Lens\n• Manchester United [#21] - Bayern Munich [#14]\, Old Trafford\
+ , Manchester\n• RB Leipzig [#30] - Shakhtar Donetsk [#17]\, Red Bull Are
+ na\, Leipzig\n• Real Betis [#5] - Arsenal [#7]\, Estadio La Cartuja\, Se
+ villa — Real Betis\n• Sporting CP [#12] - FC Barcelone [#8]\, Estádio
+  José Alvalade\, Lisbon — Sporting CP\n• Viking FK [#33] - PSV Eindho
+ ven [#18]\, Viking Stadion\, Stavanger — Viking FK
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
 X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915274,401915357,401915276,401915275,401915356,401915272
-X-EU-RANKS:{"lens": "#21"\, "manchester city": "#6"\, "manchester united": 
- "#18"\, "bayern munich": "#12"\, "rb leipzig": "#23"\, "shakhtar donetsk":
-  "#14"\, "real betis": "#10"\, "arsenal": "#8"\, "sporting cp": "#7"\, "ba
- rcelona": "#5"\, "viking fk": "#29"\, "psv eindhoven": "#16"}
-DTSTAMP:20261020T215258Z
-LAST-MODIFIED:20261020T215258Z
-SEQUENCE:6
+X-EU-RANKS:{"lens": "#27"\, "manchester city": "#10"\, "manchester united":
+  "#21"\, "bayern munich": "#14"\, "rb leipzig": "#30"\, "shakhtar donetsk"
+ : "#17"\, "real betis": "#5"\, "arsenal": "#7"\, "sporting cp": "#12"\, "b
+ arcelona": "#8"\, "viking fk": "#33"\, "psv eindhoven": "#18"}
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884664@sports-us-bein-calendar
@@ -1671,24 +1671,24 @@ UID:ucl-slot-20270127T200000Z@sports-us-bein-calendar
 DTSTART:20270127T200000Z
 DTEND:20270127T220000Z
 SUMMARY:Ligue des champions
-DESCRIPTION:• AS Roma [#13] - Lille [#34]\, Olimpico\, Rome\n• Arsenal 
- [#8] - Sabah FK [#25]\, Emirates Stadium\, Londres — Arsenal\n• Atlét
- ico de Madrid [#15] - Fenerbahce [#28]\, Riyadh Air Metropolitano\, Madrid
- \n• Bayern Munich [#12] - Real Betis [#10]\, Allianz Arena\, Munich\n•
-  Borussia Dortmund [#11] - AEK Athens [#27]\, Signal Iduna Park\, Aue — 
- Borussia Dortmund\n• Club Brugge [#20] - Bodo/Glimt [#26]\, Jan Breydel 
- Stadium\, Brugge\n• FC Barcelone [#5] - Côme [#17]\, Spotify Camp Nou\,
-  Barcelone\n• Feyenoord Rotterdam [#24] - RB Leipzig [#23]\, De Kuip\, R
- otterdam\n• LASK Linz [#32] - FC Porto [#33]\, Raiffeisen Arena (Linz)\,
-  Linz\n• Liverpool [#2] - Lens [#21]\, Anfield\, Liverpool\n• Manchest
- er City [#6] - Sporting CP [#7]\, Etihad Stadium\, Manchester\n• Napoli 
- [#22] - Viking FK [#29]\, Stadio Diego Armando Maradona\, Napoli\n• PSV 
- Eindhoven [#16] - VfB Stuttgart [#3]\, Philips Stadion\, Eindhoven\n• Sh
- akhtar Donetsk [#14] - Real Madrid [#9]\, Stamford Bridge\, Londres — Sh
- akhtar Donetsk\n• Slavia Prague [#30] - Aston Villa [#4]\, Fortuna Arena
- \, Prague\n• Slovan Bratislava [#36] - Internazionale [#31]\, Národny F
+DESCRIPTION:• AS Roma [#15] - Lille [#35]\, Olimpico\, Rome\n• Arsenal 
+ [#7] - Sabah FK [#25]\, Emirates Stadium\, Londres — Arsenal\n• Atlét
+ ico de Madrid [#16] - Fenerbahce [#31]\, Riyadh Air Metropolitano\, Madrid
+ \n• Bayern Munich [#14] - Real Betis [#5]\, Allianz Arena\, Munich\n• 
+ Borussia Dortmund [#13] - AEK Athens [#29]\, Signal Iduna Park\, Aue — B
+ orussia Dortmund\n• Club Brugge [#11] - Bodo/Glimt [#28]\, Jan Breydel S
+ tadium\, Brugge\n• FC Barcelone [#8] - Côme [#9]\, Spotify Camp Nou\, B
+ arcelone\n• Feyenoord Rotterdam [#26] - RB Leipzig [#30]\, De Kuip\, Rot
+ terdam\n• LASK Linz [#24] - FC Porto [#34]\, Raiffeisen Arena (Linz)\, L
+ inz\n• Liverpool [#3] - Lens [#27]\, Anfield\, Liverpool\n• Manchester
+  City [#10] - Sporting CP [#12]\, Etihad Stadium\, Manchester\n• Napoli 
+ [#22] - Viking FK [#33]\, Stadio Diego Armando Maradona\, Napoli\n• PSV 
+ Eindhoven [#18] - VfB Stuttgart [#6]\, Philips Stadion\, Eindhoven\n• Sh
+ akhtar Donetsk [#17] - Real Madrid [#4]\, Stamford Bridge\, Londres — Sh
+ akhtar Donetsk\n• Slavia Prague [#32] - Aston Villa [#2]\, Fortuna Arena
+ \, Prague\n• Slovan Bratislava [#36] - Internazionale [#20]\, Národny F
  utbalovy Stadión\, Bratislava\n• Villarreal [#19] - Manchester United [
- #18]\, Estadio de la Cerámica\, Villarreal
+ #21]\, Estadio de la Cerámica\, Villarreal
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:uefa.champions
@@ -1696,20 +1696,20 @@ X-EU-GROUPED:TRUE
 X-EU-MATCHES:401915354,401915346,401915347,401915348,401915265,401915266,40
  1915264,401915271,401915355,401915353,401915352,401915268,401915350,401915
  270,401915351,401915269,401915349
-X-EU-RANKS:{"as roma": "#13"\, "lille": "#34"\, "arsenal": "#8"\, "sabah fk
- ": "#25"\, "atletico madrid": "#15"\, "fenerbahce": "#28"\, "bayern munich
- ": "#12"\, "real betis": "#10"\, "borussia dortmund": "#11"\, "aek athens"
- : "#27"\, "club brugge": "#20"\, "bodo glimt": "#26"\, "barcelona": "#5"\,
-  "como": "#17"\, "feyenoord rotterdam": "#24"\, "rb leipzig": "#23"\, "las
- k linz": "#32"\, "fc porto": "#33"\, "liverpool": "#2"\, "lens": "#21"\, "
- manchester city": "#6"\, "sporting cp": "#7"\, "napoli": "#22"\, "viking f
- k": "#29"\, "psv eindhoven": "#16"\, "vfb stuttgart": "#3"\, "shakhtar don
- etsk": "#14"\, "real madrid": "#9"\, "slavia prague": "#30"\, "aston villa
- ": "#4"\, "slovan bratislava": "#36"\, "internazionale": "#31"\, "villarre
- al": "#19"\, "manchester united": "#18"}
-DTSTAMP:20261020T215258Z
-LAST-MODIFIED:20261020T215258Z
-SEQUENCE:6
+X-EU-RANKS:{"as roma": "#15"\, "lille": "#35"\, "arsenal": "#7"\, "sabah fk
+ ": "#25"\, "atletico madrid": "#16"\, "fenerbahce": "#31"\, "bayern munich
+ ": "#14"\, "real betis": "#5"\, "borussia dortmund": "#13"\, "aek athens":
+  "#29"\, "club brugge": "#11"\, "bodo glimt": "#28"\, "barcelona": "#8"\, 
+ "como": "#9"\, "feyenoord rotterdam": "#26"\, "rb leipzig": "#30"\, "lask 
+ linz": "#24"\, "fc porto": "#34"\, "liverpool": "#3"\, "lens": "#27"\, "ma
+ nchester city": "#10"\, "sporting cp": "#12"\, "napoli": "#22"\, "viking f
+ k": "#33"\, "psv eindhoven": "#18"\, "vfb stuttgart": "#6"\, "shakhtar don
+ etsk": "#17"\, "real madrid": "#4"\, "slavia prague": "#32"\, "aston villa
+ ": "#2"\, "slovan bratislava": "#36"\, "internazionale": "#20"\, "villarre
+ al": "#19"\, "manchester united": "#21"}
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:7
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884655@sports-us-bein-calendar
@@ -1734,7 +1734,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882709@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
-SUMMARY:⚽ La Liga : Rayo Vallecano [#13] - Real Madrid [#3] — horaire 
+SUMMARY:⚽ La Liga : Rayo Vallecano [#14] - Real Madrid [#3] — horaire 
  à confirmer
 DESCRIPTION:Disney+
 LOCATION:Estadio de Vallecas\, Madrid — Rayo Vallecano
@@ -1742,12 +1742,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882709
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"rayo vallecano": "#13"\, "real madrid": "#3"}
+X-EU-RANKS:{"rayo vallecano": "#14"\, "real madrid": "#3"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261019T223809Z
-LAST-MODIFIED:20261019T223809Z
-SEQUENCE:13
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:14
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882713@sports-us-bein-calendar
@@ -1772,7 +1772,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882716@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270131
 DTEND;VALUE=DATE:20270201
-SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Espanyol [#15] — horaire
+SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Espanyol [#16] — horaire
   à confirmer
 DESCRIPTION:Disney+
 LOCATION:Riyadh Air Metropolitano\, Madrid
@@ -1780,12 +1780,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882716
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"atletico madrid": "#2"\, "espanyol": "#15"}
+X-EU-RANKS:{"atletico madrid": "#2"\, "espanyol": "#16"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261019T223809Z
-LAST-MODIFIED:20261019T223809Z
-SEQUENCE:13
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:14
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884646@sports-us-bein-calendar
@@ -1886,7 +1886,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882691@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270214
 DTEND;VALUE=DATE:20270215
-SUMMARY:⚽ La Liga : Real Madrid [#3] - Athletic Club [#11] — horaire à
+SUMMARY:⚽ La Liga : Real Madrid [#3] - Athletic Club [#13] — horaire à
   confirmer
 DESCRIPTION:Disney+
 LOCATION:Santiago Bernabéu\, Madrid
@@ -1894,12 +1894,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882691
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"real madrid": "#3"\, "athletic club": "#11"}
+X-EU-RANKS:{"real madrid": "#3"\, "athletic club": "#13"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261018T210221Z
-LAST-MODIFIED:20261018T210221Z
-SEQUENCE:11
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:12
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882693@sports-us-bein-calendar
@@ -1962,7 +1962,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882681@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270221
 DTEND;VALUE=DATE:20270222
-SUMMARY:⚽ La Liga : FC Barcelone [#1] - Levante [#17] — horaire à conf
+SUMMARY:⚽ La Liga : FC Barcelone [#1] - Levante [#11] — horaire à conf
  irmer
 DESCRIPTION:Disney+
 LOCATION:Spotify Camp Nou\, Barcelone
@@ -1970,12 +1970,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882681
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"barcelona": "#1"\, "levante": "#17"}
+X-EU-RANKS:{"barcelona": "#1"\, "levante": "#11"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261013T005825Z
-LAST-MODIFIED:20261013T005825Z
-SEQUENCE:7
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882684@sports-us-bein-calendar
@@ -2057,7 +2057,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882676@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270228
 DTEND;VALUE=DATE:20270301
-SUMMARY:⚽ La Liga : Athletic Club [#11] - FC Barcelone [#1] — horaire 
+SUMMARY:⚽ La Liga : Athletic Club [#13] - FC Barcelone [#1] — horaire 
  à confirmer
 DESCRIPTION:Disney+
 LOCATION:San Mamés\, Bilbao — Athletic Club
@@ -2065,12 +2065,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882676
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"athletic club": "#11"\, "barcelona": "#1"}
+X-EU-RANKS:{"athletic club": "#13"\, "barcelona": "#1"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261018T210221Z
-LAST-MODIFIED:20261018T210221Z
-SEQUENCE:10
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884610@sports-us-bein-calendar
@@ -2190,7 +2190,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882647@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270314
 DTEND;VALUE=DATE:20270315
-SUMMARY:⚽ La Liga : Real Madrid [#3] - Espanyol [#15] — horaire à conf
+SUMMARY:⚽ La Liga : Real Madrid [#3] - Espanyol [#16] — horaire à conf
  irmer
 DESCRIPTION:Disney+
 LOCATION:Santiago Bernabéu\, Madrid
@@ -2198,18 +2198,18 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882647
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"real madrid": "#3"\, "espanyol": "#15"}
+X-EU-RANKS:{"real madrid": "#3"\, "espanyol": "#16"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261019T223809Z
-LAST-MODIFIED:20261019T223809Z
-SEQUENCE:12
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:13
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882648@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270314
 DTEND;VALUE=DATE:20270315
-SUMMARY:⚽ La Liga : Racing Santander [#16] - Atlético de Madrid [#2] —
+SUMMARY:⚽ La Liga : Racing Santander [#17] - Atlético de Madrid [#2] —
   horaire à confirmer
 DESCRIPTION:Disney+
 LOCATION:El Sardineros\, Santander
@@ -2217,12 +2217,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882648
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"racing santander": "#16"\, "atletico madrid": "#2"}
+X-EU-RANKS:{"racing santander": "#17"\, "atletico madrid": "#2"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261018T160806Z
-LAST-MODIFIED:20261018T160806Z
-SEQUENCE:10
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882652@sports-us-bein-calendar
@@ -2266,7 +2266,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882641@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270321
 DTEND;VALUE=DATE:20270322
-SUMMARY:⚽ La Liga : Rayo Vallecano [#13] - FC Barcelone [#1] — horaire 
+SUMMARY:⚽ La Liga : Rayo Vallecano [#14] - FC Barcelone [#1] — horaire 
  à confirmer
 DESCRIPTION:Disney+
 LOCATION:Estadio de Vallecas\, Madrid — Rayo Vallecano
@@ -2274,12 +2274,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882641
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"rayo vallecano": "#13"\, "barcelona": "#1"}
+X-EU-RANKS:{"rayo vallecano": "#14"\, "barcelona": "#1"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261019T223809Z
-LAST-MODIFIED:20261019T223809Z
-SEQUENCE:12
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:13
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882645@sports-us-bein-calendar
@@ -2304,7 +2304,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882646@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270321
 DTEND;VALUE=DATE:20270322
-SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Getafe [#14] — horaire 
+SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Getafe [#15] — horaire 
  à confirmer
 DESCRIPTION:Disney+
 LOCATION:Riyadh Air Metropolitano\, Madrid
@@ -2312,12 +2312,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882646
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"atletico madrid": "#2"\, "getafe": "#14"}
+X-EU-RANKS:{"atletico madrid": "#2"\, "getafe": "#15"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261019T223809Z
-LAST-MODIFIED:20261019T223809Z
-SEQUENCE:13
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:14
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884574@sports-us-bein-calendar
@@ -2399,7 +2399,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882621@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270411
 DTEND;VALUE=DATE:20270412
-SUMMARY:⚽ La Liga : Racing Santander [#16] - FC Barcelone [#1] — horair
+SUMMARY:⚽ La Liga : Racing Santander [#17] - FC Barcelone [#1] — horair
  e à confirmer
 DESCRIPTION:Disney+
 LOCATION:El Sardineros\, Santander
@@ -2407,12 +2407,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882621
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"racing santander": "#16"\, "barcelona": "#1"}
+X-EU-RANKS:{"racing santander": "#17"\, "barcelona": "#1"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261018T160806Z
-LAST-MODIFIED:20261018T160806Z
-SEQUENCE:7
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882622@sports-us-bein-calendar
@@ -2437,7 +2437,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882625@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270411
 DTEND;VALUE=DATE:20270412
-SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Levante [#17] — horaire 
+SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Levante [#11] — horaire 
  à confirmer
 DESCRIPTION:Disney+
 LOCATION:Riyadh Air Metropolitano\, Madrid
@@ -2445,12 +2445,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882625
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"atletico madrid": "#2"\, "levante": "#17"}
+X-EU-RANKS:{"atletico madrid": "#2"\, "levante": "#11"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261013T005825Z
-LAST-MODIFIED:20261013T005825Z
-SEQUENCE:9
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884556@sports-us-bein-calendar
@@ -2475,7 +2475,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882610@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270418
 DTEND;VALUE=DATE:20270419
-SUMMARY:⚽ La Liga : Getafe [#14] - Real Madrid [#3] — horaire à confir
+SUMMARY:⚽ La Liga : Getafe [#15] - Real Madrid [#3] — horaire à confir
  mer
 DESCRIPTION:Disney+
 LOCATION:Estadio Coliseum\, Getafe
@@ -2483,18 +2483,18 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882610
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"getafe": "#14"\, "real madrid": "#3"}
+X-EU-RANKS:{"getafe": "#15"\, "real madrid": "#3"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261019T223809Z
-LAST-MODIFIED:20261019T223809Z
-SEQUENCE:12
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:13
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882611@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270418
 DTEND;VALUE=DATE:20270419
-SUMMARY:⚽ La Liga : FC Barcelone [#1] - Espanyol [#15] — horaire à con
+SUMMARY:⚽ La Liga : FC Barcelone [#1] - Espanyol [#16] — horaire à con
  firmer
 DESCRIPTION:Disney+
 LOCATION:Spotify Camp Nou\, Barcelone
@@ -2502,12 +2502,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882611
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"barcelona": "#1"\, "espanyol": "#15"}
+X-EU-RANKS:{"barcelona": "#1"\, "espanyol": "#16"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261019T223809Z
-LAST-MODIFIED:20261019T223809Z
-SEQUENCE:10
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882615@sports-us-bein-calendar
@@ -2608,7 +2608,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882590@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270502
 DTEND;VALUE=DATE:20270503
-SUMMARY:⚽ La Liga : Levante [#17] - Real Madrid [#3] — horaire à confi
+SUMMARY:⚽ La Liga : Levante [#11] - Real Madrid [#3] — horaire à confi
  rmer
 DESCRIPTION:Disney+
 LOCATION:Estadi Ciutat de València\, Manises — Levante
@@ -2616,12 +2616,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882590
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"levante": "#17"\, "real madrid": "#3"}
+X-EU-RANKS:{"levante": "#11"\, "real madrid": "#3"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261018T210221Z
-LAST-MODIFIED:20261018T210221Z
-SEQUENCE:10
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882591@sports-us-bein-calendar
@@ -2760,7 +2760,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882569@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270516
 DTEND;VALUE=DATE:20270517
-SUMMARY:⚽ La Liga : Real Madrid [#3] - Racing Santander [#16] — horaire
+SUMMARY:⚽ La Liga : Real Madrid [#3] - Racing Santander [#17] — horaire
   à confirmer
 DESCRIPTION:Disney+
 LOCATION:Santiago Bernabéu\, Madrid
@@ -2768,18 +2768,18 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882569
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"real madrid": "#3"\, "racing santander": "#16"}
+X-EU-RANKS:{"real madrid": "#3"\, "racing santander": "#17"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261018T210221Z
-LAST-MODIFIED:20261018T210221Z
-SEQUENCE:9
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882576@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270516
 DTEND;VALUE=DATE:20270517
-SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Rayo Vallecano [#13] — h
+SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Rayo Vallecano [#14] — h
  oraire à confirmer
 DESCRIPTION:Disney+
 LOCATION:Riyadh Air Metropolitano\, Madrid
@@ -2787,12 +2787,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882576
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"atletico madrid": "#2"\, "rayo vallecano": "#13"}
+X-EU-RANKS:{"atletico madrid": "#2"\, "rayo vallecano": "#14"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261019T223809Z
-LAST-MODIFIED:20261019T223809Z
-SEQUENCE:14
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:15
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884500@sports-us-bein-calendar
@@ -2835,7 +2835,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882565@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270523
 DTEND;VALUE=DATE:20270524
-SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Athletic Club [#11] — ho
+SUMMARY:⚽ La Liga : Atlético de Madrid [#2] - Athletic Club [#13] — ho
  raire à confirmer
 DESCRIPTION:Disney+
 LOCATION:Riyadh Air Metropolitano\, Madrid
@@ -2843,12 +2843,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882565
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"atletico madrid": "#2"\, "athletic club": "#11"}
+X-EU-RANKS:{"atletico madrid": "#2"\, "athletic club": "#13"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261018T210221Z
-LAST-MODIFIED:20261018T210221Z
-SEQUENCE:14
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:15
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882566@sports-us-bein-calendar
@@ -2892,7 +2892,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882552@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270530
 DTEND;VALUE=DATE:20270531
-SUMMARY:⚽ La Liga : Getafe [#14] - FC Barcelone [#1] — horaire à confi
+SUMMARY:⚽ La Liga : Getafe [#15] - FC Barcelone [#1] — horaire à confi
  rmer
 DESCRIPTION:Disney+
 LOCATION:Estadio Coliseum\, Getafe
@@ -2900,12 +2900,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882552
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"getafe": "#14"\, "barcelona": "#1"}
+X-EU-RANKS:{"getafe": "#15"\, "barcelona": "#1"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261019T223809Z
-LAST-MODIFIED:20261019T223809Z
-SEQUENCE:11
+DTSTAMP:20261021T215909Z
+LAST-MODIFIED:20261021T215909Z
+SEQUENCE:12
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882555@sports-us-bein-calendar
