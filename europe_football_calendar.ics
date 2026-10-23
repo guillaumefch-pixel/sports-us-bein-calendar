@@ -1123,7 +1123,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884707@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20261212
 DTEND;VALUE=DATE:20261213
-SUMMARY:⚽ Bundesliga : TSG Hoffenheim [#14] - Bayern Munich [#1] — hora
+SUMMARY:⚽ Bundesliga : TSG Hoffenheim [#13] - Bayern Munich [#1] — hora
  ire à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:PreZero Arena\, Sinsheim — TSG Hoffenheim
@@ -1131,12 +1131,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884707
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"tsg hoffenheim": "#14"\, "bayern munich": "#1"}
+X-EU-RANKS:{"tsg hoffenheim": "#13"\, "bayern munich": "#1"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261018T210221Z
-LAST-MODIFIED:20261018T210221Z
-SEQUENCE:8
+DTSTAMP:20261023T214053Z
+LAST-MODIFIED:20261023T214053Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882769@sports-us-bein-calendar
@@ -1594,7 +1594,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884664@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270123
 DTEND;VALUE=DATE:20270124
-SUMMARY:⚽ Bundesliga : VfB Stuttgart [#13] - Bayern Munich [#1] — horai
+SUMMARY:⚽ Bundesliga : VfB Stuttgart [#14] - Bayern Munich [#1] — horai
  re à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:MHPArena\, Stuttgart
@@ -1602,12 +1602,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884664
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"vfb stuttgart": "#13"\, "bayern munich": "#1"}
+X-EU-RANKS:{"vfb stuttgart": "#14"\, "bayern munich": "#1"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261017T205810Z
-LAST-MODIFIED:20261017T205810Z
-SEQUENCE:9
+DTSTAMP:20261023T214053Z
+LAST-MODIFIED:20261023T214053Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882719@sports-us-bein-calendar
@@ -2456,7 +2456,7 @@ BEGIN:VEVENT
 UID:europe-ger.1-401884556@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270417
 DTEND;VALUE=DATE:20270418
-SUMMARY:⚽ Bundesliga : Bayern Munich [#1] - TSG Hoffenheim [#14] — hora
+SUMMARY:⚽ Bundesliga : Bayern Munich [#1] - TSG Hoffenheim [#13] — hora
  ire à confirmer
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Allianz Arena\, Munich
@@ -2464,12 +2464,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401884556
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:ger.1
-X-EU-RANKS:{"bayern munich": "#1"\, "tsg hoffenheim": "#14"}
+X-EU-RANKS:{"bayern munich": "#1"\, "tsg hoffenheim": "#13"}
 X-EU-RIGHTS:https://beinregie.beinsports.com/bein-sports-bundesliga-renouve
  llent-accord-exclusif/
-DTSTAMP:20261018T210221Z
-LAST-MODIFIED:20261018T210221Z
-SEQUENCE:8
+DTSTAMP:20261023T214053Z
+LAST-MODIFIED:20261023T214053Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882610@sports-us-bein-calendar
