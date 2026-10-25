@@ -859,15 +859,15 @@ UID:nfl-20261108-atlanta-falcons-cincinnati-bengals@sports-us-bein-calendar
 DTSTART:20261108T143000Z
 DTEND:20261108T183000Z
 SUMMARY:🏈 NFL : Atlanta Falcons [2W/4L] - Cincinnati Bengals [3W/2L]
-DESCRIPTION:Bouquet L'Équipe
+DESCRIPTION:L'Équipe
 LOCATION:Bernabéu Stadium\, Madrid — Atlanta Falcons
 URL:https://www.lequipe.fr/Medias/Actualites/Droits-tv-la-nfl-de-retour-sur
  -le-bouquet-de-chaines-l-equipe/1706103
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261018T204918Z
-LAST-MODIFIED:20261018T204918Z
-SEQUENCE:10
+DTSTAMP:20261025T044831Z
+LAST-MODIFIED:20261025T044831Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261108@sports-us-bein-calendar
