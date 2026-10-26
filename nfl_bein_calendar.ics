@@ -845,14 +845,14 @@ UID:nfl-20261106-baltimore-ravens-jacksonville-jaguars@sports-us-bein-calen
 DTSTART:20261106T011500Z
 DTEND:20261106T051500Z
 SUMMARY:🏈 NFL : Baltimore Ravens [4W/3L] - Jacksonville Jaguars [4W/2L]
-DESCRIPTION:beIN SPORTS (chaîne à confirmer)
+DESCRIPTION:beIN SPORTS 2
 LOCATION:M&T Bank Stadium\, Baltimore
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261025T205516Z
-LAST-MODIFIED:20261025T205516Z
-SEQUENCE:11
+DTSTAMP:20261026T131049Z
+LAST-MODIFIED:20261026T131049Z
+SEQUENCE:12
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261108-atlanta-falcons-cincinnati-bengals@sports-us-bein-calendar
