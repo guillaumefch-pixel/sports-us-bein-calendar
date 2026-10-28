@@ -484,7 +484,7 @@ UID:pl-espn-401878758@sports-us-bein-calendar
 DTSTART:20261107T123000Z
 DTEND:20261107T143000Z
 SUMMARY:⚽ Premier League : Leeds United [#7] - Tottenham Hotspur [#14]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ FOOT
 LOCATION:Elland Road\, Leeds
 URL:https://www.espn.com/soccer/match/_/gameId/401878758
 STATUS:CONFIRMED
@@ -493,9 +493,9 @@ X-PL-HOME:Leeds United
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261025T211030Z
-LAST-MODIFIED:20261025T211030Z
-SEQUENCE:20
+DTSTAMP:20261028T061203Z
+LAST-MODIFIED:20261028T061203Z
+SEQUENCE:21
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878760@sports-us-bein-calendar
@@ -520,7 +520,7 @@ UID:pl-espn-401878757@sports-us-bein-calendar
 DTSTART:20261107T173000Z
 DTEND:20261107T193000Z
 SUMMARY:⚽ Premier League : Nottingham Forest [#18] - Manchester City [#1]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ FOOT
 LOCATION:The City Ground\, Nottingham
 URL:https://www.espn.com/soccer/match/_/gameId/401878757
 STATUS:CONFIRMED
@@ -529,9 +529,9 @@ X-PL-HOME:Nottingham Forest
 X-PL-AWAY:Manchester City
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261024T210736Z
-LAST-MODIFIED:20261024T210736Z
-SEQUENCE:14
+DTSTAMP:20261028T061203Z
+LAST-MODIFIED:20261028T061203Z
+SEQUENCE:15
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879239@sports-us-bein-calendar
