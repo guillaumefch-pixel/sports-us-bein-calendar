@@ -502,7 +502,7 @@ UID:pl-espn-401878760@sports-us-bein-calendar
 DTSTART:20261107T150000Z
 DTEND:20261107T170000Z
 SUMMARY:⚽ Premier League : Arsenal [#2] - Hull City [#10]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ FOOT
 LOCATION:Emirates Stadium\, Londres — Arsenal
 URL:https://www.espn.com/soccer/match/_/gameId/401878760
 STATUS:CONFIRMED
@@ -511,9 +511,9 @@ X-PL-HOME:Arsenal
 X-PL-AWAY:Hull City
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261025T164424Z
-LAST-MODIFIED:20261025T164424Z
-SEQUENCE:14
+DTSTAMP:20261029T062140Z
+LAST-MODIFIED:20261029T062140Z
+SEQUENCE:15
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878757@sports-us-bein-calendar
@@ -574,7 +574,7 @@ UID:pl-espn-401879240@sports-us-bein-calendar
 DTSTART:20261108T163000Z
 DTEND:20261108T183000Z
 SUMMARY:⚽ Premier League : Manchester United [#16] - Aston Villa [#9]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ FOOT
 LOCATION:Old Trafford\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879240
 STATUS:CONFIRMED
@@ -583,9 +583,9 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Aston Villa
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261025T211030Z
-LAST-MODIFIED:20261025T211030Z
-SEQUENCE:15
+DTSTAMP:20261029T062140Z
+LAST-MODIFIED:20261029T062140Z
+SEQUENCE:16
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879233@sports-us-bein-calendar
