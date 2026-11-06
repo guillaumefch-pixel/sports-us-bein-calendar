@@ -538,7 +538,7 @@ UID:pl-espn-401879239@sports-us-bein-calendar
 DTSTART:20261108T140000Z
 DTEND:20261108T160000Z
 SUMMARY:⚽ Premier League : Sunderland [#20] - Chelsea [#4]
-DESCRIPTION:CANAL+ LIVE 2
+DESCRIPTION:CANAL+ LIVE 4
 LOCATION:Stadium of Light\, Sunderland
 URL:https://www.espn.com/soccer/match/_/gameId/401879239
 STATUS:CONFIRMED
@@ -547,16 +547,16 @@ X-PL-HOME:Sunderland
 X-PL-AWAY:Chelsea
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261103T071045Z
-LAST-MODIFIED:20261103T071045Z
-SEQUENCE:17
+DTSTAMP:20261106T071651Z
+LAST-MODIFIED:20261106T071651Z
+SEQUENCE:18
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879243@sports-us-bein-calendar
 DTSTART:20261108T140000Z
 DTEND:20261108T160000Z
 SUMMARY:⚽ Premier League : Crystal Palace [#18] - Liverpool [#5]
-DESCRIPTION:CANAL+ LIVE 3
+DESCRIPTION:CANAL+ LIVE 2
 LOCATION:Selhurst Park\, Londres — Crystal Palace
 URL:https://www.espn.com/soccer/match/_/gameId/401879243
 STATUS:CONFIRMED
@@ -565,9 +565,9 @@ X-PL-HOME:Crystal Palace
 X-PL-AWAY:Liverpool
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261103T071045Z
-LAST-MODIFIED:20261103T071045Z
-SEQUENCE:15
+DTSTAMP:20261106T071651Z
+LAST-MODIFIED:20261106T071651Z
+SEQUENCE:16
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879240@sports-us-bein-calendar
