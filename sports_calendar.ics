@@ -3852,15 +3852,15 @@ BEGIN:VEVENT
 UID:nfl-20261115-detroit-lions-new-england-patriots@sports-us-bein-calendar
 DTSTART:20261115T143000Z
 DTEND:20261115T180000Z
-SUMMARY:🏈 NFL : Detroit Lions [6W/2L] - New England Patriots [5W/3L]
+SUMMARY:🏈 NFL : Detroit Lions [6W/2L] - New England Patriots [5W/4L]
 DESCRIPTION:L'Équipe
 LOCATION:FC Bayern Munich Stadium\, Munich — Detroit Lions
 URL:https://tv-sports.fr/detroit-lions-new-england-patriots-tv-x1174980
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261108T221109Z
-LAST-MODIFIED:20261108T221109Z
-SEQUENCE:16
+DTSTAMP:20261109T064252Z
+LAST-MODIFIED:20261109T064252Z
+SEQUENCE:17
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261115@sports-us-bein-calendar
@@ -3895,29 +3895,29 @@ UID:nfl-20261117-baltimore-ravens-los-angeles-chargers@sports-us-bein-calen
  dar
 DTSTART:20261117T011500Z
 DTEND:20261117T051500Z
-SUMMARY:🏈 NFL : Baltimore Ravens [4W/5L] - Los Angeles Chargers [0W/7L]
+SUMMARY:🏈 NFL : Baltimore Ravens [4W/5L] - Los Angeles Chargers [0W/8L]
 DESCRIPTION:beIN SPORTS 2
 LOCATION:M&T Bank Stadium\, Baltimore
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261106T065429Z
-LAST-MODIFIED:20261106T065429Z
-SEQUENCE:16
+DTSTAMP:20261109T064252Z
+LAST-MODIFIED:20261109T064252Z
+SEQUENCE:17
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261120-houston-texans-indianapolis-colts@sports-us-bein-calendar
 DTSTART:20261120T011500Z
 DTEND:20261120T051500Z
-SUMMARY:🏈 NFL : Houston Texans [2W/5L] - Indianapolis Colts [2W/7L]
-DESCRIPTION:beIN SPORTS (chaîne à confirmer)
+SUMMARY:🏈 NFL : Houston Texans [3W/5L] - Indianapolis Colts [2W/7L]
+DESCRIPTION:beIN SPORTS 2
 LOCATION:Reliant Stadium\, Houston
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261108T221109Z
-LAST-MODIFIED:20261108T221109Z
-SEQUENCE:11
+DTSTAMP:20261109T064252Z
+LAST-MODIFIED:20261109T064252Z
+SEQUENCE:12
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261122@sports-us-bein-calendar
@@ -3937,15 +3937,15 @@ UID:nfl-20261123-minnesota-vikings-san-francisco-49ers@sports-us-bein-calen
  dar
 DTSTART:20261123T012000Z
 DTEND:20261123T052000Z
-SUMMARY:🏈 NFL : San Francisco 49ers [6W/1L] - Minnesota Vikings [6W/1L]
+SUMMARY:🏈 NFL : San Francisco 49ers [7W/1L] - Minnesota Vikings [6W/1L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Estadio Banorte\, Mexico City — San Francisco 49ers
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261101T220601Z
-LAST-MODIFIED:20261101T220601Z
-SEQUENCE:12
+DTSTAMP:20261109T064252Z
+LAST-MODIFIED:20261109T064252Z
+SEQUENCE:13
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261124-cincinnati-bengals-washington-commanders@sports-us-bein-ca
@@ -3967,15 +3967,15 @@ BEGIN:VEVENT
 UID:nfl-netflix-2026-rams-packers@sports-us-bein-calendar
 DTSTART:20261126T010000Z
 DTEND:20261126T050000Z
-SUMMARY:🏈 NFL : Los Angeles Rams [5W/4L] - Green Bay Packers [5W/3L]
+SUMMARY:🏈 NFL : Los Angeles Rams [5W/4L] - Green Bay Packers [6W/3L]
 DESCRIPTION:Netflix
 LOCATION:SoFi Stadium\, Inglewood — Los Angeles Rams
 URL:https://www.netflix.com/tudum/articles/nfl-games-on-netflix
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261108T221109Z
-LAST-MODIFIED:20261108T221109Z
-SEQUENCE:15
+DTSTAMP:20261109T064252Z
+LAST-MODIFIED:20261109T064252Z
+SEQUENCE:16
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261127-buffalo-bills-kansas-city-chiefs@sports-us-bein-calendar
@@ -4009,31 +4009,31 @@ UID:nfl-20261130-los-angeles-chargers-new-england-patriots@sports-us-bein-c
  alendar
 DTSTART:20261130T012000Z
 DTEND:20261130T052000Z
-SUMMARY:🏈 NFL : Los Angeles Chargers [0W/7L] - New England Patriots [5W/
- 3L]
+SUMMARY:🏈 NFL : Los Angeles Chargers [0W/8L] - New England Patriots [5W/
+ 4L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:SoFi Stadium\, Inglewood — Los Angeles Chargers
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261102T061514Z
-LAST-MODIFIED:20261102T061514Z
-SEQUENCE:14
+DTSTAMP:20261109T064252Z
+LAST-MODIFIED:20261109T064252Z
+SEQUENCE:15
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261201-carolina-panthers-tampa-bay-buccaneers@sports-us-bein-cale
  ndar
 DTSTART:20261201T011500Z
 DTEND:20261201T051500Z
-SUMMARY:🏈 NFL : Tampa Bay Buccaneers [3W/5L] - Carolina Panthers [3W/5L]
+SUMMARY:🏈 NFL : Tampa Bay Buccaneers [3W/6L] - Carolina Panthers [3W/5L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Raymond James Stadium\, Tampa
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261108T221109Z
-LAST-MODIFIED:20261108T221109Z
-SEQUENCE:14
+DTSTAMP:20261109T064252Z
+LAST-MODIFIED:20261109T064252Z
+SEQUENCE:15
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261204-kansas-city-chiefs-los-angeles-rams@sports-us-bein-calenda
@@ -4067,44 +4067,44 @@ BEGIN:VEVENT
 UID:nfl-20261207-houston-texans-pittsburgh-steelers@sports-us-bein-calendar
 DTSTART:20261207T012000Z
 DTEND:20261207T052000Z
-SUMMARY:🏈 NFL : Pittsburgh Steelers [6W/2L] - Houston Texans [2W/5L]
+SUMMARY:🏈 NFL : Pittsburgh Steelers [6W/2L] - Houston Texans [3W/5L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Acrisure Stadium\, Pittsburgh
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261101T220601Z
-LAST-MODIFIED:20261101T220601Z
-SEQUENCE:10
+DTSTAMP:20261109T064252Z
+LAST-MODIFIED:20261109T064252Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261208-dallas-cowboys-seattle-seahawks@sports-us-bein-calendar
 DTSTART:20261208T011500Z
 DTEND:20261208T051500Z
-SUMMARY:🏈 NFL : Seattle Seahawks [4W/4L] - Dallas Cowboys [4W/5L]
+SUMMARY:🏈 NFL : Seattle Seahawks [5W/4L] - Dallas Cowboys [4W/5L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Lumen Field\, Seattle
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261108T221109Z
-LAST-MODIFIED:20261108T221109Z
-SEQUENCE:17
+DTSTAMP:20261109T064252Z
+LAST-MODIFIED:20261109T064252Z
+SEQUENCE:18
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261211-minnesota-vikings-new-england-patriots@sports-us-bein-cale
  ndar
 DTSTART:20261211T011500Z
 DTEND:20261211T051500Z
-SUMMARY:🏈 NFL : New England Patriots [5W/3L] - Minnesota Vikings [6W/1L]
+SUMMARY:🏈 NFL : New England Patriots [5W/4L] - Minnesota Vikings [6W/1L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Gillette Stadium\, Foxborough — New England Patriots
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261102T061514Z
-LAST-MODIFIED:20261102T061514Z
-SEQUENCE:14
+DTSTAMP:20261109T064252Z
+LAST-MODIFIED:20261109T064252Z
+SEQUENCE:15
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261213@sports-us-bein-calendar
@@ -4123,15 +4123,15 @@ BEGIN:VEVENT
 UID:nfl-20261214-buffalo-bills-green-bay-packers@sports-us-bein-calendar
 DTSTART:20261214T012000Z
 DTEND:20261214T052000Z
-SUMMARY:🏈 NFL : Green Bay Packers [5W/3L] - Buffalo Bills [6W/1L]
+SUMMARY:🏈 NFL : Green Bay Packers [6W/3L] - Buffalo Bills [6W/1L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Lambeau Field\, Green Bay
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261101T220601Z
-LAST-MODIFIED:20261101T220601Z
-SEQUENCE:14
+DTSTAMP:20261109T064252Z
+LAST-MODIFIED:20261109T064252Z
+SEQUENCE:15
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261215-jacksonville-jaguars-pittsburgh-steelers@sports-us-bein-ca
@@ -4154,16 +4154,16 @@ UID:nfl-20261218-los-angeles-chargers-san-francisco-49ers@sports-us-bein-ca
  lendar
 DTSTART:20261218T011500Z
 DTEND:20261218T051500Z
-SUMMARY:🏈 NFL : Los Angeles Chargers [0W/7L] - San Francisco 49ers [6W/1
+SUMMARY:🏈 NFL : Los Angeles Chargers [0W/8L] - San Francisco 49ers [7W/1
  L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:SoFi Stadium\, Inglewood — Los Angeles Chargers
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261102T061514Z
-LAST-MODIFIED:20261102T061514Z
-SEQUENCE:12
+DTSTAMP:20261109T064252Z
+LAST-MODIFIED:20261109T064252Z
+SEQUENCE:13
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261220@sports-us-bein-calendar
@@ -4197,45 +4197,45 @@ UID:nfl-20261222-kansas-city-chiefs-new-england-patriots@sports-us-bein-cal
  endar
 DTSTART:20261222T011500Z
 DTEND:20261222T051500Z
-SUMMARY:🏈 NFL : Kansas City Chiefs [6W/2L] - New England Patriots [5W/3L
+SUMMARY:🏈 NFL : Kansas City Chiefs [6W/2L] - New England Patriots [5W/4L
  ]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:GEHA Field at Arrowhead Stadium\, Kansas City
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261108T221109Z
-LAST-MODIFIED:20261108T221109Z
-SEQUENCE:15
+DTSTAMP:20261109T064252Z
+LAST-MODIFIED:20261109T064252Z
+SEQUENCE:16
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261225-houston-texans-philadelphia-eagles@sports-us-bein-calendar
 DTSTART:20261225T011500Z
 DTEND:20261225T051500Z
-SUMMARY:🏈 NFL : Philadelphia Eagles [2W/7L] - Houston Texans [2W/5L]
+SUMMARY:🏈 NFL : Philadelphia Eagles [2W/7L] - Houston Texans [3W/5L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Lincoln Financial Field\, Philadelphia
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261108T221109Z
-LAST-MODIFIED:20261108T221109Z
-SEQUENCE:13
+DTSTAMP:20261109T064252Z
+LAST-MODIFIED:20261109T064252Z
+SEQUENCE:14
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-netflix-2026-bears-packers@sports-us-bein-calendar
 DTSTART:20261225T180000Z
 DTEND:20261225T220000Z
-SUMMARY:🔥🔥🔥 🏈 NFL : Chicago Bears [6W/2L] - Green Bay Packers [
- 5W/3L]
+SUMMARY:🔥🔥🔥 🏈 NFL : Chicago Bears [7W/2L] - Green Bay Packers [
+ 6W/3L]
 DESCRIPTION:Netflix
 LOCATION:Soldier Field\, Chicago
 URL:https://www.netflix.com/tudum/articles/nfl-games-on-netflix
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261103T142316Z
-LAST-MODIFIED:20261103T142316Z
-SEQUENCE:14
+DTSTAMP:20261109T064252Z
+LAST-MODIFIED:20261109T064252Z
+SEQUENCE:15
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-netflix-2026-broncos-bills@sports-us-bein-calendar
@@ -4326,30 +4326,30 @@ UID:nfl-20270104-philadelphia-eagles-san-francisco-49ers@sports-us-bein-cal
  endar
 DTSTART:20270104T012000Z
 DTEND:20270104T052000Z
-SUMMARY:🏈 NFL : San Francisco 49ers [6W/1L] - Philadelphia Eagles [2W/7L
+SUMMARY:🏈 NFL : San Francisco 49ers [7W/1L] - Philadelphia Eagles [2W/7L
  ]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Levi's Stadium\, Santa Clara — San Francisco 49ers
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261108T221109Z
-LAST-MODIFIED:20261108T221109Z
-SEQUENCE:17
+DTSTAMP:20261109T064252Z
+LAST-MODIFIED:20261109T064252Z
+SEQUENCE:18
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20270105-green-bay-packers-houston-texans@sports-us-bein-calendar
 DTSTART:20270105T011500Z
 DTEND:20270105T051500Z
-SUMMARY:🏈 NFL : Green Bay Packers [5W/3L] - Houston Texans [2W/5L]
+SUMMARY:🏈 NFL : Green Bay Packers [6W/3L] - Houston Texans [3W/5L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Lambeau Field\, Green Bay
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261030T055459Z
-LAST-MODIFIED:20261030T055459Z
-SEQUENCE:13
+DTSTAMP:20261109T064252Z
+LAST-MODIFIED:20261109T064252Z
+SEQUENCE:14
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20270110@sports-us-bein-calendar
