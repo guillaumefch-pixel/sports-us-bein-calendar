@@ -3937,15 +3937,15 @@ UID:nfl-20261123-minnesota-vikings-san-francisco-49ers@sports-us-bein-calen
  dar
 DTSTART:20261123T012000Z
 DTEND:20261123T052000Z
-SUMMARY:🏈 NFL : San Francisco 49ers [7W/1L] - Minnesota Vikings [6W/1L]
+SUMMARY:🏈 NFL : San Francisco 49ers [7W/1L] - Minnesota Vikings [6W/2L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Estadio Banorte\, Mexico City — San Francisco 49ers
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261109T064252Z
-LAST-MODIFIED:20261109T064252Z
-SEQUENCE:13
+DTSTAMP:20261110T072456Z
+LAST-MODIFIED:20261110T072456Z
+SEQUENCE:14
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261124-cincinnati-bengals-washington-commanders@sports-us-bein-ca
@@ -3981,15 +3981,15 @@ BEGIN:VEVENT
 UID:nfl-20261127-buffalo-bills-kansas-city-chiefs@sports-us-bein-calendar
 DTSTART:20261127T012000Z
 DTEND:20261127T052000Z
-SUMMARY:🏈 NFL : Buffalo Bills [6W/1L] - Kansas City Chiefs [6W/2L]
+SUMMARY:🏈 NFL : Buffalo Bills [7W/1L] - Kansas City Chiefs [6W/2L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Highmark Stadium\, Orchard Park — Buffalo Bills
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261108T221109Z
-LAST-MODIFIED:20261108T221109Z
-SEQUENCE:14
+DTSTAMP:20261110T072456Z
+LAST-MODIFIED:20261110T072456Z
+SEQUENCE:15
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261129@sports-us-bein-calendar
@@ -4096,15 +4096,15 @@ UID:nfl-20261211-minnesota-vikings-new-england-patriots@sports-us-bein-cale
  ndar
 DTSTART:20261211T011500Z
 DTEND:20261211T051500Z
-SUMMARY:🏈 NFL : New England Patriots [5W/4L] - Minnesota Vikings [6W/1L]
+SUMMARY:🏈 NFL : New England Patriots [5W/4L] - Minnesota Vikings [6W/2L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Gillette Stadium\, Foxborough — New England Patriots
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261109T064252Z
-LAST-MODIFIED:20261109T064252Z
-SEQUENCE:15
+DTSTAMP:20261110T072456Z
+LAST-MODIFIED:20261110T072456Z
+SEQUENCE:16
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261213@sports-us-bein-calendar
@@ -4123,15 +4123,15 @@ BEGIN:VEVENT
 UID:nfl-20261214-buffalo-bills-green-bay-packers@sports-us-bein-calendar
 DTSTART:20261214T012000Z
 DTEND:20261214T052000Z
-SUMMARY:🏈 NFL : Green Bay Packers [6W/3L] - Buffalo Bills [6W/1L]
+SUMMARY:🏈 NFL : Green Bay Packers [6W/3L] - Buffalo Bills [7W/1L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Lambeau Field\, Green Bay
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261109T064252Z
-LAST-MODIFIED:20261109T064252Z
-SEQUENCE:15
+DTSTAMP:20261110T072456Z
+LAST-MODIFIED:20261110T072456Z
+SEQUENCE:16
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261215-jacksonville-jaguars-pittsburgh-steelers@sports-us-bein-ca
@@ -4182,15 +4182,15 @@ BEGIN:VEVENT
 UID:nfl-20261221-detroit-lions-minnesota-vikings@sports-us-bein-calendar
 DTSTART:20261221T012000Z
 DTEND:20261221T052000Z
-SUMMARY:🏈 NFL : Minnesota Vikings [6W/1L] - Detroit Lions [6W/2L]
+SUMMARY:🏈 NFL : Minnesota Vikings [6W/2L] - Detroit Lions [6W/2L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:U.S. Bank Stadium\, Minneapolis — Minnesota Vikings
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261108T221109Z
-LAST-MODIFIED:20261108T221109Z
-SEQUENCE:14
+DTSTAMP:20261110T072456Z
+LAST-MODIFIED:20261110T072456Z
+SEQUENCE:15
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261222-kansas-city-chiefs-new-england-patriots@sports-us-bein-cal
@@ -4241,15 +4241,15 @@ BEGIN:VEVENT
 UID:nfl-netflix-2026-broncos-bills@sports-us-bein-calendar
 DTSTART:20261225T213000Z
 DTEND:20261226T013000Z
-SUMMARY:🏈 NFL : Denver Broncos [7W/2L] - Buffalo Bills [6W/1L]
+SUMMARY:🏈 NFL : Denver Broncos [7W/2L] - Buffalo Bills [7W/1L]
 DESCRIPTION:Netflix
 LOCATION:Empower Field at Mile High\, Denver
 URL:https://www.netflix.com/tudum/articles/nfl-games-on-netflix
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261108T221109Z
-LAST-MODIFIED:20261108T221109Z
-SEQUENCE:17
+DTSTAMP:20261110T072456Z
+LAST-MODIFIED:20261110T072456Z
+SEQUENCE:18
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261227@sports-us-bein-calendar
