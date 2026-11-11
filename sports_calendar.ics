@@ -3876,6 +3876,36 @@ LAST-MODIFIED:20261105T065431Z
 SEQUENCE:1
 END:VEVENT
 BEGIN:VEVENT
+UID:nfl-20261115-green-bay-packers-minnesota-vikings@sports-us-bein-calenda
+ r
+DTSTART:20261115T180000Z
+DTEND:20261115T210000Z
+SUMMARY:🔥🔥 🏈 NFL : Green Bay Packers [6W/3L] - Minnesota Vikings [
+ 6W/2L]
+DESCRIPTION:beIN SPORTS 2
+LOCATION:Lambeau Field\, Green Bay
+URL:https://tv-sports.fr/green-bay-packers-minnesota-vikings-tv-x1176524
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+DTSTAMP:20261111T193925Z
+LAST-MODIFIED:20261111T193925Z
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-20261115-dallas-cowboys-san-francisco-49ers@sports-us-bein-calendar
+DTSTART:20261115T213000Z
+DTEND:20261116T003000Z
+SUMMARY:🏈 NFL : Dallas Cowboys [4W/5L] - San Francisco 49ers [7W/1L]
+DESCRIPTION:beIN SPORTS 2
+LOCATION:AT&T Stadium\, Arlington — Dallas Cowboys
+URL:https://tv-sports.fr/dallas-cowboys-san-francisco-49ers-tv-x1176525
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+DTSTAMP:20261111T193925Z
+LAST-MODIFIED:20261111T193925Z
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
 UID:nfl-20261116-cincinnati-bengals-pittsburgh-steelers@sports-us-bein-cale
  ndar
 DTSTART:20261116T011500Z
