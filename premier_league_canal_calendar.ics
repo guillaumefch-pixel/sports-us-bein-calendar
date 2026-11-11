@@ -592,7 +592,7 @@ UID:pl-espn-401879233@sports-us-bein-calendar
 DTSTART:20261121T123000Z
 DTEND:20261121T143000Z
 SUMMARY:⚽ Premier League : Manchester City [#3] - Fulham [#15]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+
 LOCATION:Etihad Stadium\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879233
 STATUS:CONFIRMED
@@ -601,9 +601,9 @@ X-PL-HOME:Manchester City
 X-PL-AWAY:Fulham
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261108T222502Z
-LAST-MODIFIED:20261108T222502Z
-SEQUENCE:18
+DTSTAMP:20261111T194958Z
+LAST-MODIFIED:20261111T194958Z
+SEQUENCE:19
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878754@sports-us-bein-calendar
@@ -646,7 +646,7 @@ UID:pl-espn-401879232@sports-us-bein-calendar
 DTSTART:20261121T173000Z
 DTEND:20261121T193000Z
 SUMMARY:⚽ Premier League : Newcastle United [#12] - Arsenal [#1]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ FOOT
 LOCATION:St. James' Park\, Newcastle-upon-Tyne — Newcastle United
 URL:https://www.espn.com/soccer/match/_/gameId/401879232
 STATUS:CONFIRMED
@@ -655,9 +655,9 @@ X-PL-HOME:Newcastle United
 X-PL-AWAY:Arsenal
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261108T222502Z
-LAST-MODIFIED:20261108T222502Z
-SEQUENCE:19
+DTSTAMP:20261111T194958Z
+LAST-MODIFIED:20261111T194958Z
+SEQUENCE:20
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878755@sports-us-bein-calendar
