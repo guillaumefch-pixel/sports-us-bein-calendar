@@ -1102,16 +1102,16 @@ UID:nfl-20261124-cincinnati-bengals-washington-commanders@sports-us-bein-ca
  lendar
 DTSTART:20261124T011500Z
 DTEND:20261124T051500Z
-SUMMARY:🏈 NFL : Washington Commanders [2W/5L/1T] - Cincinnati Bengals [6
+SUMMARY:🏈 NFL : Washington Commanders [3W/5L/1T] - Cincinnati Bengals [6
  W/2L]
-DESCRIPTION:beIN SPORTS (chaîne à confirmer)
+DESCRIPTION:beIN SPORTS 2
 LOCATION:Northwest Stadium\, Landover — Washington Commanders
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261108T221109Z
-LAST-MODIFIED:20261108T221109Z
-SEQUENCE:13
+DTSTAMP:20261113T065137Z
+LAST-MODIFIED:20261113T065137Z
+SEQUENCE:14
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-netflix-2026-rams-packers@sports-us-bein-calendar
@@ -1433,15 +1433,15 @@ BEGIN:VEVENT
 UID:nfl-20261229-detroit-lions-new-york-giants@sports-us-bein-calendar
 DTSTART:20261229T011500Z
 DTEND:20261229T051500Z
-SUMMARY:🏈 NFL : Detroit Lions [6W/2L] - New York Giants [5W/2L/1T]
+SUMMARY:🏈 NFL : Detroit Lions [6W/2L] - New York Giants [5W/3L/1T]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Ford Field\, Detroit
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261108T221109Z
-LAST-MODIFIED:20261108T221109Z
-SEQUENCE:15
+DTSTAMP:20261113T065137Z
+LAST-MODIFIED:20261113T065137Z
+SEQUENCE:16
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20270101-baltimore-ravens-cincinnati-bengals@sports-us-bein-calenda
