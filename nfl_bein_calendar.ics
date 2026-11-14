@@ -1069,6 +1069,37 @@ LAST-MODIFIED:20261112T071758Z
 SEQUENCE:1
 END:VEVENT
 BEGIN:VEVENT
+UID:nfl-20261122-arizona-cardinals-kansas-city-chiefs@sports-us-bein-calend
+ ar
+DTSTART:20261122T180000Z
+DTEND:20261122T210000Z
+SUMMARY:🏈 NFL : Kansas City Chiefs [6W/2L] - Arizona Cardinals [3W/6L]
+DESCRIPTION:beIN SPORTS 2
+LOCATION:GEHA Field at Arrowhead Stadium\, Kansas City
+URL:https://tv-sports.fr/kansas-city-chiefs-arizona-cardinals-tv-x1177466
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+DTSTAMP:20261114T063141Z
+LAST-MODIFIED:20261114T063141Z
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-20261122-jacksonville-jaguars-new-york-giants@sports-us-bein-calend
+ ar
+DTSTART:20261122T211500Z
+DTEND:20261123T001500Z
+SUMMARY:🏈 NFL : New York Giants [5W/3L/1T] - Jacksonville Jaguars [6W/2L
+ ]
+DESCRIPTION:beIN SPORTS 2
+LOCATION:MetLife Stadium\, East Rutherford — New York Giants
+URL:https://tv-sports.fr/new-york-giants-jacksonville-jaguars-tv-x1177467
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+DTSTAMP:20261114T063141Z
+LAST-MODIFIED:20261114T063141Z
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
 UID:nfl-20261122-denver-broncos-las-vegas-raiders@sports-us-bein-calendar
 DTSTART:20261122T212500Z
 DTEND:20261123T002000Z
