@@ -1006,60 +1006,57 @@ SEQUENCE:20
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882783@sports-us-bein-calendar
-DTSTART;VALUE=DATE:20261206
-DTEND;VALUE=DATE:20261207
-SUMMARY:⚽ La Liga : FC Barcelone [#1] - Celta Vigo [#11] — horaire à c
- onfirmer
+DTSTART:20261205T200000Z
+DTEND:20261205T220000Z
+SUMMARY:⚽ La Liga : FC Barcelone [#1] - Celta Vigo [#11]
 DESCRIPTION:Disney+
 LOCATION:Spotify Camp Nou\, Barcelone
 URL:https://www.espn.com/soccer/match/_/gameId/401882783
-STATUS:TENTATIVE
+STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
 X-EU-RANKS:{"barcelona": "#1"\, "celta vigo": "#11"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261108T222857Z
-LAST-MODIFIED:20261108T222857Z
-SEQUENCE:21
-END:VEVENT
-BEGIN:VEVENT
-UID:europe-esp.1-401882784@sports-us-bein-calendar
-DTSTART;VALUE=DATE:20261206
-DTEND;VALUE=DATE:20261207
-SUMMARY:⚽ La Liga : Atlético de Madrid [#3] - Real Betis [#4] — horair
- e à confirmer
-DESCRIPTION:Disney+
-LOCATION:Riyadh Air Metropolitano\, Madrid
-URL:https://www.espn.com/soccer/match/_/gameId/401882784
-STATUS:TENTATIVE
-TRANSP:OPAQUE
-X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"atletico madrid": "#3"\, "real betis": "#4"}
-X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
- -laliga-ea-sports-en-francia
-DTSTAMP:20261107T221737Z
-LAST-MODIFIED:20261107T221737Z
-SEQUENCE:12
+DTSTAMP:20261115T190648Z
+LAST-MODIFIED:20261115T190648Z
+SEQUENCE:22
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882785@sports-us-bein-calendar
-DTSTART;VALUE=DATE:20261206
-DTEND;VALUE=DATE:20261207
-SUMMARY:⚽ La Liga : Athletic Club [#7] - Real Madrid [#2] — horaire à 
- confirmer
+DTSTART:20261206T151500Z
+DTEND:20261206T171500Z
+SUMMARY:⚽ La Liga : Athletic Club [#7] - Real Madrid [#2]
 DESCRIPTION:Disney+
 LOCATION:San Mamés\, Bilbao — Athletic Club
 URL:https://www.espn.com/soccer/match/_/gameId/401882785
-STATUS:TENTATIVE
+STATUS:CONFIRMED
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
 X-EU-RANKS:{"athletic club": "#7"\, "real madrid": "#2"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261107T221737Z
-LAST-MODIFIED:20261107T221737Z
-SEQUENCE:16
+DTSTAMP:20261115T190648Z
+LAST-MODIFIED:20261115T190648Z
+SEQUENCE:17
+END:VEVENT
+BEGIN:VEVENT
+UID:europe-esp.1-401882784@sports-us-bein-calendar
+DTSTART:20261206T200000Z
+DTEND:20261206T220000Z
+SUMMARY:⚽ La Liga : Atlético de Madrid [#3] - Real Betis [#4]
+DESCRIPTION:Disney+
+LOCATION:Riyadh Air Metropolitano\, Madrid
+URL:https://www.espn.com/soccer/match/_/gameId/401882784
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+X-EU-LEAGUE:esp.1
+X-EU-RANKS:{"atletico madrid": "#3"\, "real betis": "#4"}
+X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
+ -laliga-ea-sports-en-francia
+DTSTAMP:20261115T190648Z
+LAST-MODIFIED:20261115T190648Z
+SEQUENCE:13
 END:VEVENT
 BEGIN:VEVENT
 UID:ucl-slot-20261208T174500Z@sports-us-bein-calendar
