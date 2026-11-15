@@ -1186,6 +1186,23 @@ LAST-MODIFIED:20260831T203157Z
 SEQUENCE:0
 END:VEVENT
 BEGIN:VEVENT
+UID:nfl-20261129-san-francisco-49ers-seattle-seahawks@sports-us-bein-calend
+ ar
+DTSTART:20261129T212500Z
+DTEND:20261130T012500Z
+SUMMARY:🔥🔥 🏈 NFL : San Francisco 49ers [7W/1L] - Seattle Seahawks 
+ [5W/4L]
+DESCRIPTION:L'Équipe
+LOCATION:Levi's Stadium\, Santa Clara — San Francisco 49ers
+URL:https://www.linternaute.com/television/programme-l-equipe-dimanche-29-n
+ ovembre-2026/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+DTSTAMP:20261115T064053Z
+LAST-MODIFIED:20261115T064053Z
+SEQUENCE:0
+END:VEVENT
+BEGIN:VEVENT
 UID:nfl-20261130-los-angeles-chargers-new-england-patriots@sports-us-bein-c
  alendar
 DTSTART:20261130T012000Z
