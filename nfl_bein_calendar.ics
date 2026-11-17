@@ -1221,16 +1221,16 @@ UID:nfl-20261130-los-angeles-chargers-new-england-patriots@sports-us-bein-c
  alendar
 DTSTART:20261130T012000Z
 DTEND:20261130T052000Z
-SUMMARY:🏈 NFL : Los Angeles Chargers [0W/8L] - New England Patriots [5W/
+SUMMARY:🏈 NFL : Los Angeles Chargers [1W/8L] - New England Patriots [5W/
  5L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:SoFi Stadium\, Inglewood — Los Angeles Chargers
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261115T185432Z
-LAST-MODIFIED:20261115T185432Z
-SEQUENCE:16
+DTSTAMP:20261117T075955Z
+LAST-MODIFIED:20261117T075955Z
+SEQUENCE:17
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261201-carolina-panthers-tampa-bay-buccaneers@sports-us-bein-cale
@@ -1366,16 +1366,16 @@ UID:nfl-20261218-los-angeles-chargers-san-francisco-49ers@sports-us-bein-ca
  lendar
 DTSTART:20261218T011500Z
 DTEND:20261218T051500Z
-SUMMARY:🏈 NFL : Los Angeles Chargers [0W/8L] - San Francisco 49ers [8W/1
+SUMMARY:🏈 NFL : Los Angeles Chargers [1W/8L] - San Francisco 49ers [8W/1
  L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:SoFi Stadium\, Inglewood — Los Angeles Chargers
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261116T063826Z
-LAST-MODIFIED:20261116T063826Z
-SEQUENCE:14
+DTSTAMP:20261117T075955Z
+LAST-MODIFIED:20261117T075955Z
+SEQUENCE:15
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20261220@sports-us-bein-calendar
@@ -1510,15 +1510,15 @@ UID:nfl-20270101-baltimore-ravens-cincinnati-bengals@sports-us-bein-calenda
  r
 DTSTART:20270101T011500Z
 DTEND:20270101T051500Z
-SUMMARY:🏈 NFL : Cincinnati Bengals [7W/2L] - Baltimore Ravens [4W/5L]
+SUMMARY:🏈 NFL : Cincinnati Bengals [7W/2L] - Baltimore Ravens [4W/6L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Paycor Stadium\, Cincinnati
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261116T063826Z
-LAST-MODIFIED:20261116T063826Z
-SEQUENCE:14
+DTSTAMP:20261117T075955Z
+LAST-MODIFIED:20261117T075955Z
+SEQUENCE:15
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20270103@sports-us-bein-calendar
