@@ -683,7 +683,7 @@ UID:pl-espn-401879225@sports-us-bein-calendar
 DTSTART:20261127T200000Z
 DTEND:20261127T220000Z
 SUMMARY:⚽ Premier League : Nottingham Forest [#16] - Chelsea [#5]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ FOOT
 LOCATION:The City Ground\, Nottingham
 URL:https://www.espn.com/soccer/match/_/gameId/401879225
 STATUS:CONFIRMED
@@ -692,9 +692,9 @@ X-PL-HOME:Nottingham Forest
 X-PL-AWAY:Chelsea
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261108T222502Z
-LAST-MODIFIED:20261108T222502Z
-SEQUENCE:22
+DTSTAMP:20261117T082415Z
+LAST-MODIFIED:20261117T082415Z
+SEQUENCE:23
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879226@sports-us-bein-calendar
