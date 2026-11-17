@@ -1217,20 +1217,18 @@ LAST-MODIFIED:20261116T063826Z
 SEQUENCE:1
 END:VEVENT
 BEGIN:VEVENT
-UID:nfl-20261130-los-angeles-chargers-new-england-patriots@sports-us-bein-c
- alendar
+UID:nfl-20261130-cleveland-browns-las-vegas-raiders@sports-us-bein-calendar
 DTSTART:20261130T012000Z
 DTEND:20261130T052000Z
-SUMMARY:🏈 NFL : Los Angeles Chargers [1W/8L] - New England Patriots [5W/
- 5L]
+SUMMARY:🏈 NFL : Cleveland Browns [6W/4L] - Las Vegas Raiders [4W/6L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
-LOCATION:SoFi Stadium\, Inglewood — Los Angeles Chargers
+LOCATION:Huntington Bank Field\, Cleveland
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261117T075955Z
-LAST-MODIFIED:20261117T075955Z
-SEQUENCE:17
+DTSTAMP:20261117T205918Z
+LAST-MODIFIED:20261117T205918Z
+SEQUENCE:0
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261201-carolina-panthers-tampa-bay-buccaneers@sports-us-bein-cale
