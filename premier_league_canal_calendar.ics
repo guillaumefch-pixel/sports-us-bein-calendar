@@ -701,7 +701,7 @@ UID:pl-espn-401879226@sports-us-bein-calendar
 DTSTART:20261128T150000Z
 DTEND:20261128T170000Z
 SUMMARY:⚽ Premier League : Manchester United [#18] - Brentford [#8]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ FOOT
 LOCATION:Old Trafford\, Manchester
 URL:https://www.espn.com/soccer/match/_/gameId/401879226
 STATUS:CONFIRMED
@@ -710,9 +710,9 @@ X-PL-HOME:Manchester United
 X-PL-AWAY:Brentford
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261108T222502Z
-LAST-MODIFIED:20261108T222502Z
-SEQUENCE:17
+DTSTAMP:20261118T075312Z
+LAST-MODIFIED:20261118T075312Z
+SEQUENCE:18
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879229@sports-us-bein-calendar
