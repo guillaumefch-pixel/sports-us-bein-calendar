@@ -719,7 +719,7 @@ UID:pl-espn-401879229@sports-us-bein-calendar
 DTSTART:20261129T120000Z
 DTEND:20261129T140000Z
 SUMMARY:⚽ Premier League : Everton [#6] - Liverpool [#4]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ FOOT
 LOCATION:Hill Dickinson Stadium\, Liverpool — Everton
 URL:https://www.espn.com/soccer/match/_/gameId/401879229
 STATUS:CONFIRMED
@@ -728,16 +728,16 @@ X-PL-HOME:Everton
 X-PL-AWAY:Liverpool
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261108T222502Z
-LAST-MODIFIED:20261108T222502Z
-SEQUENCE:17
+DTSTAMP:20261119T074927Z
+LAST-MODIFIED:20261119T074927Z
+SEQUENCE:18
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879224@sports-us-bein-calendar
 DTSTART:20261129T140500Z
 DTEND:20261129T160500Z
 SUMMARY:⚽ Premier League : Sunderland [#19] - Tottenham Hotspur [#11]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ LIVE 2
 LOCATION:Stadium of Light\, Sunderland
 URL:https://www.espn.com/soccer/match/_/gameId/401879224
 STATUS:CONFIRMED
@@ -746,16 +746,16 @@ X-PL-HOME:Sunderland
 X-PL-AWAY:Tottenham Hotspur
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261108T222502Z
-LAST-MODIFIED:20261108T222502Z
-SEQUENCE:19
+DTSTAMP:20261119T074927Z
+LAST-MODIFIED:20261119T074927Z
+SEQUENCE:20
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878753@sports-us-bein-calendar
 DTSTART:20261129T163000Z
 DTEND:20261129T183000Z
 SUMMARY:🔥 ⚽ Premier League : Arsenal [#1] - Manchester City [#3]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ SPORT 360
 LOCATION:Emirates Stadium\, Londres — Arsenal
 URL:https://www.espn.com/soccer/match/_/gameId/401878753
 STATUS:CONFIRMED
@@ -764,9 +764,9 @@ X-PL-HOME:Arsenal
 X-PL-AWAY:Manchester City
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261108T222502Z
-LAST-MODIFIED:20261108T222502Z
-SEQUENCE:8
+DTSTAMP:20261119T074927Z
+LAST-MODIFIED:20261119T074927Z
+SEQUENCE:9
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879218@sports-us-bein-calendar
