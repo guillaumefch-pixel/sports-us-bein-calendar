@@ -1208,13 +1208,29 @@ SUMMARY:🔥🔥 🏈 NFL : San Francisco 49ers [8W/1L] - Seattle Seahawks
  [6W/4L]
 DESCRIPTION:L'Équipe
 LOCATION:Levi's Stadium\, Santa Clara — San Francisco 49ers
-URL:https://www.linternaute.com/television/programme-l-equipe-dimanche-29-n
- ovembre-2026/
+URL:https://tv-sports.fr/san-francisco-49ers-seattle-seahawks-tv-x1178748
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261116T063826Z
-LAST-MODIFIED:20261116T063826Z
-SEQUENCE:1
+DTSTAMP:20261119T073150Z
+LAST-MODIFIED:20261119T073150Z
+SEQUENCE:2
+END:VEVENT
+BEGIN:VEVENT
+UID:nfl-20261130-los-angeles-chargers-new-england-patriots@sports-us-bein-c
+ alendar
+DTSTART:20261130T011500Z
+DTEND:20261130T041500Z
+SUMMARY:🏈 NFL : Los Angeles Chargers [1W/8L] - New England Patriots [5W/
+ 5L]
+DESCRIPTION:beIN SPORTS 2
+LOCATION:SoFi Stadium\, Inglewood — Los Angeles Chargers
+URL:https://tv-sports.fr/los-angeles-chargers-new-england-patriots-tv-x1178
+ 782
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+DTSTAMP:20261119T073141Z
+LAST-MODIFIED:20261119T073141Z
+SEQUENCE:0
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261130-cleveland-browns-las-vegas-raiders@sports-us-bein-calendar
