@@ -846,7 +846,7 @@ DTSTART:20261202T201500Z
 DTEND:20261202T221500Z
 SUMMARY:⚽ Premier League : Newcastle United [#12] - Manchester United [#1
  9]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ SPORT 360
 LOCATION:St. James' Park\, Newcastle-upon-Tyne — Newcastle United
 URL:https://www.espn.com/soccer/match/_/gameId/401879217
 STATUS:CONFIRMED
@@ -855,9 +855,9 @@ X-PL-HOME:Newcastle United
 X-PL-AWAY:Manchester United
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261121T194259Z
-LAST-MODIFIED:20261121T194259Z
-SEQUENCE:21
+DTSTAMP:20261122T072055Z
+LAST-MODIFIED:20261122T072055Z
+SEQUENCE:22
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878749@sports-us-bein-calendar
