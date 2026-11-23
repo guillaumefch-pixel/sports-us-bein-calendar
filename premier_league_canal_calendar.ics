@@ -864,7 +864,7 @@ UID:pl-espn-401878749@sports-us-bein-calendar
 DTSTART:20261203T200000Z
 DTEND:20261203T220000Z
 SUMMARY:⚽ Premier League : Tottenham Hotspur [#9] - Fulham [#15]
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+ FOOT
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
 URL:https://www.espn.com/soccer/match/_/gameId/401878749
 STATUS:CONFIRMED
@@ -873,9 +873,9 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Fulham
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261121T194259Z
-LAST-MODIFIED:20261121T194259Z
-SEQUENCE:20
+DTSTAMP:20261123T080525Z
+LAST-MODIFIED:20261123T080525Z
+SEQUENCE:21
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401879213@sports-us-bein-calendar
