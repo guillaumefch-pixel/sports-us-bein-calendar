@@ -4113,15 +4113,15 @@ UID:nfl-20261129-cincinnati-bengals-new-orleans-saints@sports-us-bein-calen
  dar
 DTSTART:20261129T180000Z
 DTEND:20261129T210000Z
-SUMMARY:🏈 NFL : Cincinnati Bengals [7W/2L] - New Orleans Saints [3W/7L]
+SUMMARY:🏈 NFL : Cincinnati Bengals [7W/3L] - New Orleans Saints [3W/7L]
 DESCRIPTION:beIN SPORTS 1
 LOCATION:Paycor Stadium\, Cincinnati
 URL:https://tv-sports.fr/cincinnati-bengals-new-orleans-saints-tv-x1179023
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261123T074615Z
-LAST-MODIFIED:20261123T074615Z
-SEQUENCE:1
+DTSTAMP:20261124T095921Z
+LAST-MODIFIED:20261124T095921Z
+SEQUENCE:2
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261129-san-francisco-49ers-seattle-seahawks@sports-us-bein-calend
@@ -4431,15 +4431,15 @@ UID:nfl-20270101-baltimore-ravens-cincinnati-bengals@sports-us-bein-calenda
  r
 DTSTART:20270101T011500Z
 DTEND:20270101T051500Z
-SUMMARY:🏈 NFL : Cincinnati Bengals [7W/2L] - Baltimore Ravens [4W/7L]
+SUMMARY:🏈 NFL : Cincinnati Bengals [7W/3L] - Baltimore Ravens [4W/7L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Paycor Stadium\, Cincinnati
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261123T074615Z
-LAST-MODIFIED:20261123T074615Z
-SEQUENCE:16
+DTSTAMP:20261124T095921Z
+LAST-MODIFIED:20261124T095921Z
+SEQUENCE:17
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-redzone-20270103@sports-us-bein-calendar
