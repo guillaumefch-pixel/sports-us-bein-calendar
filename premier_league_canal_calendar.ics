@@ -937,7 +937,7 @@ DTSTART:20261206T163000Z
 DTEND:20261206T183000Z
 SUMMARY:🔥🔥🔥 ⚽ Premier League : Tottenham Hotspur [#10] - Arsenal
   [#1] — North London Derby
-DESCRIPTION:CANAL+ (chaîne à confirmer)
+DESCRIPTION:CANAL+
 LOCATION:Tottenham Hotspur Stadium\, Londres — Tottenham Hotspur
 URL:https://www.espn.com/soccer/match/_/gameId/401879209
 STATUS:CONFIRMED
@@ -946,9 +946,9 @@ X-PL-HOME:Tottenham Hotspur
 X-PL-AWAY:Arsenal
 X-PL-RIGHTS:https://www.canalplusgroup.com/fr/press/renouvellement-de-la-pr
  emier-league-jusqu-en-2028
-DTSTAMP:20261124T001627Z
-LAST-MODIFIED:20261124T001627Z
-SEQUENCE:22
+DTSTAMP:20261126T085006Z
+LAST-MODIFIED:20261126T085006Z
+SEQUENCE:23
 END:VEVENT
 BEGIN:VEVENT
 UID:pl-espn-401878743@sports-us-bein-calendar
