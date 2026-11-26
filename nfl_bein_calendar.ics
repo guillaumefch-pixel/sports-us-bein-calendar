@@ -1435,15 +1435,15 @@ BEGIN:VEVENT
 UID:nfl-20261221-detroit-lions-minnesota-vikings@sports-us-bein-calendar
 DTSTART:20261221T012000Z
 DTEND:20261221T052000Z
-SUMMARY:🏈 NFL : Minnesota Vikings [7W/3L] - Detroit Lions [8W/2L]
+SUMMARY:🏈 NFL : Minnesota Vikings [7W/3L] - Detroit Lions [8W/3L]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:U.S. Bank Stadium\, Minneapolis — Minnesota Vikings
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261123T074615Z
-LAST-MODIFIED:20261123T074615Z
-SEQUENCE:18
+DTSTAMP:20261126T213838Z
+LAST-MODIFIED:20261126T213838Z
+SEQUENCE:19
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20261222-kansas-city-chiefs-new-england-patriots@sports-us-bein-cal
@@ -1479,16 +1479,16 @@ BEGIN:VEVENT
 UID:nfl-netflix-2026-bears-packers@sports-us-bein-calendar
 DTSTART:20261225T180000Z
 DTEND:20261225T220000Z
-SUMMARY:🔥🔥🔥 🏈 NFL : Chicago Bears [8W/2L] - Green Bay Packers [
+SUMMARY:🔥🔥🔥 🏈 NFL : Chicago Bears [9W/2L] - Green Bay Packers [
  6W/5L]
 DESCRIPTION:Netflix
 LOCATION:Soldier Field\, Chicago
 URL:https://www.netflix.com/tudum/articles/nfl-games-on-netflix
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261126T082729Z
-LAST-MODIFIED:20261126T082729Z
-SEQUENCE:18
+DTSTAMP:20261126T213838Z
+LAST-MODIFIED:20261126T213838Z
+SEQUENCE:19
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-netflix-2026-broncos-bills@sports-us-bein-calendar
@@ -1536,15 +1536,15 @@ BEGIN:VEVENT
 UID:nfl-20261229-detroit-lions-new-york-giants@sports-us-bein-calendar
 DTSTART:20261229T011500Z
 DTEND:20261229T051500Z
-SUMMARY:🏈 NFL : Detroit Lions [8W/2L] - New York Giants [6W/3L/1T]
+SUMMARY:🏈 NFL : Detroit Lions [8W/3L] - New York Giants [6W/3L/1T]
 DESCRIPTION:beIN SPORTS (chaîne à confirmer)
 LOCATION:Ford Field\, Detroit
 URL:https://beinregie.beinsports.com/nfl-bein-sports-2026/
 STATUS:CONFIRMED
 TRANSP:OPAQUE
-DTSTAMP:20261123T074615Z
-LAST-MODIFIED:20261123T074615Z
-SEQUENCE:18
+DTSTAMP:20261126T213838Z
+LAST-MODIFIED:20261126T213838Z
+SEQUENCE:19
 END:VEVENT
 BEGIN:VEVENT
 UID:nfl-20270101-baltimore-ravens-cincinnati-bengals@sports-us-bein-calenda
