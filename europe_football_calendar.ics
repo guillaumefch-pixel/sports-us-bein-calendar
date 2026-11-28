@@ -1413,7 +1413,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882744@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270110
 DTEND;VALUE=DATE:20270111
-SUMMARY:⚽ La Liga : Atlético de Madrid [#3] - Racing Santander [#7] — 
+SUMMARY:⚽ La Liga : Atlético de Madrid [#3] - Racing Santander [#6] — 
  horaire à confirmer
 DESCRIPTION:Disney+
 LOCATION:Riyadh Air Metropolitano\, Madrid
@@ -1421,12 +1421,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882744
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"atletico madrid": "#3"\, "racing santander": "#7"}
+X-EU-RANKS:{"atletico madrid": "#3"\, "racing santander": "#6"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261122T195818Z
-LAST-MODIFIED:20261122T195818Z
-SEQUENCE:23
+DTSTAMP:20261128T082659Z
+LAST-MODIFIED:20261128T082659Z
+SEQUENCE:24
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884682@sports-us-bein-calendar
@@ -1927,7 +1927,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882678@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270221
 DTEND;VALUE=DATE:20270222
-SUMMARY:⚽ La Liga : Sevilla [#6] - Real Madrid [#2] — horaire à confir
+SUMMARY:⚽ La Liga : Sevilla [#7] - Real Madrid [#2] — horaire à confir
  mer
 DESCRIPTION:Disney+
 LOCATION:Ramón Sánchez Pizjuán Stadium\, Sevilla
@@ -1935,12 +1935,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882678
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"sevilla": "#6"\, "real madrid": "#2"}
+X-EU-RANKS:{"sevilla": "#7"\, "real madrid": "#2"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261107T221737Z
-LAST-MODIFIED:20261107T221737Z
-SEQUENCE:10
+DTSTAMP:20261128T082659Z
+LAST-MODIFIED:20261128T082659Z
+SEQUENCE:11
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882681@sports-us-bein-calendar
@@ -2193,7 +2193,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882648@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270314
 DTEND;VALUE=DATE:20270315
-SUMMARY:⚽ La Liga : Racing Santander [#7] - Atlético de Madrid [#3] — 
+SUMMARY:⚽ La Liga : Racing Santander [#6] - Atlético de Madrid [#3] — 
  horaire à confirmer
 DESCRIPTION:Disney+
 LOCATION:El Sardineros\, Santander
@@ -2201,12 +2201,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882648
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"racing santander": "#7"\, "atletico madrid": "#3"}
+X-EU-RANKS:{"racing santander": "#6"\, "atletico madrid": "#3"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261122T195818Z
-LAST-MODIFIED:20261122T195818Z
-SEQUENCE:23
+DTSTAMP:20261128T082659Z
+LAST-MODIFIED:20261128T082659Z
+SEQUENCE:24
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882652@sports-us-bein-calendar
@@ -2345,7 +2345,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882632@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270404
 DTEND;VALUE=DATE:20270405
-SUMMARY:⚽ La Liga : FC Barcelone [#1] - Sevilla [#6] — horaire à confi
+SUMMARY:⚽ La Liga : FC Barcelone [#1] - Sevilla [#7] — horaire à confi
  rmer
 DESCRIPTION:Disney+
 LOCATION:Spotify Camp Nou\, Barcelone
@@ -2353,12 +2353,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882632
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"barcelona": "#1"\, "sevilla": "#6"}
+X-EU-RANKS:{"barcelona": "#1"\, "sevilla": "#7"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261101T065131Z
-LAST-MODIFIED:20261101T065131Z
-SEQUENCE:7
+DTSTAMP:20261128T082659Z
+LAST-MODIFIED:20261128T082659Z
+SEQUENCE:8
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-ger.1-401884557@sports-us-bein-calendar
@@ -2383,7 +2383,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882621@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270411
 DTEND;VALUE=DATE:20270412
-SUMMARY:⚽ La Liga : Racing Santander [#7] - FC Barcelone [#1] — horaire
+SUMMARY:⚽ La Liga : Racing Santander [#6] - FC Barcelone [#1] — horaire
   à confirmer
 DESCRIPTION:Disney+
 LOCATION:El Sardineros\, Santander
@@ -2391,12 +2391,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882621
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"racing santander": "#7"\, "barcelona": "#1"}
+X-EU-RANKS:{"racing santander": "#6"\, "barcelona": "#1"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261122T195818Z
-LAST-MODIFIED:20261122T195818Z
-SEQUENCE:20
+DTSTAMP:20261128T082659Z
+LAST-MODIFIED:20261128T082659Z
+SEQUENCE:21
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882622@sports-us-bein-calendar
@@ -2497,7 +2497,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882615@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270418
 DTEND;VALUE=DATE:20270419
-SUMMARY:⚽ La Liga : Atlético de Madrid [#3] - Sevilla [#6] — horaire 
+SUMMARY:⚽ La Liga : Atlético de Madrid [#3] - Sevilla [#7] — horaire 
  à confirmer
 DESCRIPTION:Disney+
 LOCATION:Riyadh Air Metropolitano\, Madrid
@@ -2505,12 +2505,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882615
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"atletico madrid": "#3"\, "sevilla": "#6"}
+X-EU-RANKS:{"atletico madrid": "#3"\, "sevilla": "#7"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261107T221737Z
-LAST-MODIFIED:20261107T221737Z
-SEQUENCE:9
+DTSTAMP:20261128T082659Z
+LAST-MODIFIED:20261128T082659Z
+SEQUENCE:10
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882597@sports-us-bein-calendar
@@ -2744,7 +2744,7 @@ BEGIN:VEVENT
 UID:europe-esp.1-401882569@sports-us-bein-calendar
 DTSTART;VALUE=DATE:20270516
 DTEND;VALUE=DATE:20270517
-SUMMARY:⚽ La Liga : Real Madrid [#2] - Racing Santander [#7] — horaire 
+SUMMARY:⚽ La Liga : Real Madrid [#2] - Racing Santander [#6] — horaire 
  à confirmer
 DESCRIPTION:Disney+
 LOCATION:Santiago Bernabéu\, Madrid
@@ -2752,12 +2752,12 @@ URL:https://www.espn.com/soccer/match/_/gameId/401882569
 STATUS:TENTATIVE
 TRANSP:OPAQUE
 X-EU-LEAGUE:esp.1
-X-EU-RANKS:{"real madrid": "#2"\, "racing santander": "#7"}
+X-EU-RANKS:{"real madrid": "#2"\, "racing santander": "#6"}
 X-EU-RIGHTS:https://www.laliga.com/noticias/disney-y-dazn-nuevos-hogares-de
  -laliga-ea-sports-en-francia
-DTSTAMP:20261122T195818Z
-LAST-MODIFIED:20261122T195818Z
-SEQUENCE:21
+DTSTAMP:20261128T082659Z
+LAST-MODIFIED:20261128T082659Z
+SEQUENCE:22
 END:VEVENT
 BEGIN:VEVENT
 UID:europe-esp.1-401882576@sports-us-bein-calendar
